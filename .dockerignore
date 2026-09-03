@@ -1,0 +1,22 @@
+.git
+.gitignore
+.DS_Store
+
+# Documents internes : nginx sert tout ce qu'on lui copie, et le README
+# détaille les arbitrages du projet. Il n'a rien à faire en ligne.
+site/README.md
+site/serve.py
+
+# Sources pleine résolution — le site charge les versions 220 px.
+site/assets/img/temoignages/originaux/
+site/assets/img/noe/originaux/
+
+# Doublon exact de site/assets/img/preuves/, référencé nulle part.
+site/assets/img/screens whatsapp/
+
+# Maquette de travail, hors production.
+MAQUETTE/
+
+# Notes de nommage laissées pendant la conception.
+site/assets/img/temoignages/NOMS-ATTENDUS.txt
+site/assets/img/noe/NOMS-ATTENDUS.txt
