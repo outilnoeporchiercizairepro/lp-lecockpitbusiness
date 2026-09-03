@@ -1,0 +1,11 @@
+{
+  "name": "Le Cockpit Business",
+  "short_name": "Cockpit",
+  "icons": [
+    { "src": "/assets/favicon/favicon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/assets/favicon/favicon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#e05a2b",
+  "background_color": "#faf7f2",
+  "display": "standalone"
+}
