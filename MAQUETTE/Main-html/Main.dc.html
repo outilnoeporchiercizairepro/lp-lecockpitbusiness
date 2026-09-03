@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #c2481b; text-decoration: none; }
+    a:hover { color: #9c3813; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 980px; position: relative; overflow: hidden; background: #faf7f2; font-family: Manrope, 'Helvetica Neue', Helvetica, sans-serif; color: #17130f;">
+
+  <div style="position: absolute; top: -300px; right: -180px; width: 880px; height: 880px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(224,90,43,0.13) 0%, rgba(245,166,35,0.09) 40%, rgba(250,247,242,0) 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -300px; left: -180px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(224,90,43,0.055) 0%, rgba(250,247,242,0) 70%); pointer-events: none;"></div>
+
+  <!-- nav -->
+  <div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 32px 76px 0 76px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 15px; color: #e05a2b;">✦</span>
+      <span style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: #17130f;">Altitude</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 40px;">
+      <span style="font-size: 14.5px; font-weight: 500; color: #6d645b;">Accueil</span>
+      <span style="font-size: 14.5px; font-weight: 500; color: #6d645b;">Programme</span>
+      <span style="font-size: 14.5px; font-weight: 500; color: #6d645b;">FAQ</span>
+      <div style="display: flex; align-items: center; gap: 9px; padding: 11px 20px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.16); font-size: 14px; font-weight: 600; color: #17130f;">
+        <span>Réserver un appel</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div style="position: relative; display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); padding: 78px 76px 0 76px; align-items: start;">
+
+    <div style="grid-column: span 11; display: flex; flex-direction: column; padding-top: 14px;">
+      <div style="display: flex; align-items: center; gap: 11px; margin-bottom: 28px;">
+        <span style="width: 22px; height: 1px; background: #c2481b;"></span>
+        <span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: #c2481b;">Programme 30 jours</span>
+      </div>
+
+      <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 84px; line-height: 0.98; letter-spacing: -0.022em; font-weight: 400; color: #17130f;">Récupère <span style="font-style: italic; color: #d1501f;">14h par semaine</span> en 30 jours.</h1>
+
+      <p style="margin: 32px 0 0 0; max-width: 500px; font-size: 17px; line-height: 1.62; font-weight: 400; color: #6d645b;">Fais de Claude ton bras droit stratégique — même si tu n'as jamais codé. Pas un outil de plus&nbsp;: une méthode appliquée à ton activité réelle.</p>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-top: 42px;">
+        <div style="display: flex; align-items: center; gap: 11px; padding: 17px 28px; border-radius: 999px; background: #e05a2b; box-shadow: 0 16px 32px -14px rgba(224,90,43,0.55); font-size: 15.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.01em;">
+          <span>Réserver mon diagnostic — 20 min</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+        </div>
+        <div style="padding: 17px 26px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.16); font-size: 15.5px; font-weight: 600; color: #17130f;">Voir le programme</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px; margin-top: 24px;">
+        <span style="font-size: 13px; font-weight: 500; color: #948a80;">20 min</span>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: #cbc2b8;"></span>
+        <span style="font-size: 13px; font-weight: 500; color: #948a80;">en visio</span>
+        <span style="width: 3px; height: 3px; border-radius: 50%; background: #cbc2b8;"></span>
+        <span style="font-size: 13px; font-weight: 500; color: #948a80;">aucun engagement</span>
+      </div>
+    </div>
+
+    <!-- scène produit -->
+    <div style="grid-column: span 13; position: relative; height: 560px;">
+
+      <svg width="700" height="560" viewBox="0 0 700 560" fill="none" style="position: absolute; left: 0; top: 0; pointer-events: none;">
+        <path d="M138 148 C 196 148, 206 214, 262 214" stroke="rgba(209,80,31,0.30)" stroke-width="1.2" stroke-dasharray="3 4"></path>
+        <path d="M470 148 C 520 168, 470 236, 512 262" stroke="rgba(209,80,31,0.22)" stroke-width="1.2" stroke-dasharray="3 4"></path>
+        <path d="M300 452 C 300 500, 402 486, 452 486" stroke="rgba(209,80,31,0.22)" stroke-width="1.2" stroke-dasharray="3 4"></path>
+        <circle cx="138" cy="148" r="3.2" fill="#d1501f"></circle>
+        <circle cx="470" cy="148" r="3.2" fill="#d1501f"></circle>
+        <circle cx="452" cy="486" r="3.2" fill="#d1501f"></circle>
+      </svg>
+
+      <div style="position: absolute; left: 46px; top: 88px; width: 108px; padding: 12px; border-radius: 16px; background: #ffffff; border: 1px solid rgba(23,19,15,0.07); box-shadow: 0 22px 44px -26px rgba(60,42,26,0.42);">
+        <div style="width: 100%; height: 82px; border-radius: 10px; background: #efe9e0; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; color: #a99b8b;">CM</div>
+        <div style="margin-top: 10px; font-size: 10.5px; font-weight: 700; color: #17130f;">[Prénom N.]</div>
+        <div style="margin-top: 2px; font-size: 9.5px; font-weight: 500; color: #948a80;">[Métier]</div>
+      </div>
+
+      <div style="position: absolute; left: 176px; top: 152px; width: 376px; border-radius: 18px; background: #ffffff; border: 1px solid rgba(23,19,15,0.07); box-shadow: 0 46px 90px -40px rgba(60,42,26,0.50); overflow: hidden;">
+        <div style="display: flex; align-items: center; gap: 11px; padding: 16px 19px; border-bottom: 1px solid rgba(23,19,15,0.07);">
+          <div style="width: 25px; height: 25px; border-radius: 7px; background: #e05a2b; display: flex; align-items: center; justify-content: center;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6Z"></path></svg>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 12.5px; font-weight: 700; color: #17130f;">Direction commerciale</span>
+            <span style="font-size: 10px; font-weight: 500; color: #948a80;">Projet Claude · 41 documents</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 19px;">
+          <div style="align-self: flex-end; max-width: 238px; padding: 11px 14px; border-radius: 13px 13px 3px 13px; background: #f2eee7; font-size: 11.5px; line-height: 1.5; color: #4a423a;">Prépare le CR du rendez-vous d'hier et le mail de relance.</div>
+          <div style="align-self: flex-start; max-width: 276px; padding: 12px 14px; border-radius: 13px 13px 13px 3px; background: #fdf3ee; border: 1px solid rgba(224,90,43,0.16); font-size: 11.5px; line-height: 1.55; color: #4a423a;">CR rédigé et classé dans le dossier client. Mail de relance en brouillon, ton aligné sur tes 12 derniers envois.</div>
+          <div style="display: flex; gap: 7px; flex-wrap: wrap; padding-top: 4px;">
+            <span style="padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.09); font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #8b8177;">Mémoire</span>
+            <span style="padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.09); font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #8b8177;">Skills</span>
+            <span style="padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.09); font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #8b8177;">Connecteurs</span>
+            <span style="padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(23,19,15,0.09); font-size: 9.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #8b8177;">Automatisations</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: absolute; right: 8px; top: 44px; width: 238px; padding: 18px; border-radius: 16px; background: #ffffff; border: 1px solid rgba(23,19,15,0.07); box-shadow: 0 30px 60px -34px rgba(60,42,26,0.45);">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #c2481b;">Méta-audit</div>
+        <div style="margin-top: 7px; font-size: 12px; font-weight: 600; color: #4a423a;">Heures récupérées / semaine</div>
+        <div style="display: flex; align-items: flex-end; gap: 9px; height: 74px; margin-top: 17px;">
+          <div style="flex-grow: 1; height: 12%; border-radius: 4px; background: #ece6dd;"></div>
+          <div style="flex-grow: 1; height: 26%; border-radius: 4px; background: #e6ded3;"></div>
+          <div style="flex-grow: 1; height: 44%; border-radius: 4px; background: #f4c6a8;"></div>
+          <div style="flex-grow: 1; height: 62%; border-radius: 4px; background: #ef9f70;"></div>
+          <div style="flex-grow: 1; height: 82%; border-radius: 4px; background: #e5713c;"></div>
+          <div style="flex-grow: 1; height: 100%; border-radius: 4px; background: #d1501f;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+          <span style="font-size: 9.5px; font-weight: 600; color: #a89e93;">J0</span>
+          <span style="font-size: 9.5px; font-weight: 600; color: #a89e93;">J30</span>
+        </div>
+      </div>
+
+      <div style="position: absolute; right: 74px; bottom: 18px; width: 108px; padding: 12px; border-radius: 16px; background: #ffffff; border: 1px solid rgba(23,19,15,0.07); box-shadow: 0 22px 44px -26px rgba(60,42,26,0.42);">
+        <div style="width: 100%; height: 82px; border-radius: 10px; background: #eae4dc; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; color: #a99b8b;">JD</div>
+        <div style="margin-top: 10px; font-size: 10.5px; font-weight: 700; color: #17130f;">[Prénom N.]</div>
+        <div style="margin-top: 2px; font-size: 9.5px; font-weight: 500; color: #948a80;">[Métier]</div>
+      </div>
+
+      <div style="position: absolute; left: 128px; top: 424px; display: flex; align-items: center; gap: 11px; padding: 13px 21px 13px 16px; border-radius: 999px; background: #17130f; box-shadow: 0 22px 44px -18px rgba(23,19,15,0.55);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f0a13a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 20px; letter-spacing: -0.01em; color: #ffffff;">+14h / semaine</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- bande de preuve -->
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 76px 34px 76px; border-top: 1px solid rgba(23,19,15,0.09);">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+      <div style="max-width: 214px; font-size: 11.5px; line-height: 1.5; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #a89e93;">Heures récupérées, mesurées au méta-audit</div>
+      <div style="display: flex; align-items: center; gap: 46px;">
+        <div style="display: flex; align-items: center; gap: 13px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #efe9e0; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 15px; color: #a99b8b;">CM</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 13.5px; font-weight: 700; color: #17130f;">[Prénom N.]</span>
+            <span style="font-size: 11.5px; font-weight: 500; color: #948a80;">[Métier]</span>
+          </div>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #d1501f;">+[X]h</span>
+        </div>
+        <div style="width: 1px; height: 34px; background: rgba(23,19,15,0.10);"></div>
+        <div style="display: flex; align-items: center; gap: 13px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #eae4dc; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 15px; color: #a99b8b;">JD</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 13.5px; font-weight: 700; color: #17130f;">[Prénom N.]</span>
+            <span style="font-size: 11.5px; font-weight: 500; color: #948a80;">[Métier]</span>
+          </div>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #d1501f;">+[X]h</span>
+        </div>
+        <div style="width: 1px; height: 34px; background: rgba(23,19,15,0.10);"></div>
+        <div style="display: flex; align-items: center; gap: 13px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #f0e7db; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', Georgia, serif; font-size: 15px; color: #a99b8b;">LP</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 13.5px; font-weight: 700; color: #17130f;">[Prénom N.]</span>
+            <span style="font-size: 11.5px; font-weight: 500; color: #948a80;">[Métier]</span>
+          </div>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #d1501f;">+[X]h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

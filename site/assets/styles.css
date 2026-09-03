@@ -1,0 +1,2109 @@
+/* ==========================================================================
+   Altitude — lecockpit-business.fr
+   Direction artistique : « Ivoire éditorial »
+   Valeurs reprises de la maquette MAQUETTE/Main-html/Main.dc.html
+   ========================================================================== */
+
+/* --- 1. Tokens ----------------------------------------------------------- */
+
+:root {
+  /* Fonds */
+  --ivoire:        #faf7f2;
+  --blanc:         #ffffff;
+  --creme:         #f5f1ea;
+  --creme-2:       #efe9e0;
+
+  /* Texte */
+  --ink:           #17130f;
+  --ink-2:         #6d645b;
+  --ink-3:         #948a80;
+  --ink-4:         #a89e93;
+  --ink-body:      #4a423a;
+
+  /* Accent */
+  --accent:        #e05a2b;  /* aplats, CTA */
+  --accent-lg:     #d1501f;  /* gros texte */
+  --accent-sm:     #c2481b;  /* petits labels */
+  --accent-hover:  #c94c22;
+  --accent-soft:   #fdf3ee;
+
+  /* Traits */
+  --rule:          rgba(23, 19, 15, 0.09);
+  --card-border:   rgba(23, 19, 15, 0.07);
+  --btn-border:    rgba(23, 19, 15, 0.16);
+
+  /* Ombres */
+  --shadow-sm:     0 22px 44px -26px rgba(60, 42, 26, 0.42);
+  --shadow-md:     0 30px 60px -34px rgba(60, 42, 26, 0.45);
+  --shadow-lg:     0 46px 90px -40px rgba(60, 42, 26, 0.50);
+  --shadow-cta:    0 16px 32px -14px rgba(224, 90, 43, 0.55);
+
+  /* Rythme */
+  --gutter:        76px;
+  --maxw:          1288px;   /* 1440 − 2 × 76 */
+  --section-y:     clamp(76px, 9vw, 132px);
+
+  --serif:  'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --sans:   'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* --- 2. Reset ------------------------------------------------------------ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+:target, [id] { scroll-margin-top: 96px; }
+
+body {
+  margin: 0;
+  background: var(--ivoire);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; }
+
+a { color: var(--accent-sm); text-decoration: none; }
+a:hover { color: #9c3813; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- 3. Typographie ------------------------------------------------------ */
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  margin: 0;
+  color: var(--ink);
+}
+
+.h1 {
+  font-size: clamp(42px, 5.9vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.022em;
+}
+
+.h2 {
+  font-size: clamp(34px, 4.3vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.021em;
+}
+
+.h2--xl {
+  font-size: clamp(40px, 5.2vw, 72px);
+  line-height: 1.0;
+  letter-spacing: -0.024em;
+}
+
+.h3 {
+  font-size: clamp(22px, 2.1vw, 28px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.italique { font-style: italic; color: var(--accent-lg); }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--accent-sm);
+  flex: none;
+}
+
+.lede {
+  font-size: clamp(17px, 1.45vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0;
+}
+
+.p { margin: 0; color: var(--ink-2); }
+.p + .p { margin-top: 18px; }
+
+.label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* --- 4. Boutons ---------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  border-radius: 999px;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn svg { flex: none; transition: transform .18s ease; }
+.btn:hover svg { transform: translateX(3px); }
+
+/* CTA primaire — toujours orange, jamais noir (règle DA PRCZ) */
+.btn--primary {
+  padding: 17px 28px;
+  background: var(--accent);
+  color: var(--blanc);
+  box-shadow: var(--shadow-cta);
+}
+.btn--primary:hover {
+  background: var(--accent-hover);
+  color: var(--blanc);
+  transform: translateY(-1px);
+  box-shadow: 0 20px 38px -14px rgba(224, 90, 43, 0.6);
+}
+
+.btn--ghost {
+  padding: 17px 26px;
+  border-color: var(--btn-border);
+  color: var(--ink);
+  font-weight: 600;
+}
+.btn--ghost:hover { color: var(--ink); border-color: rgba(23, 19, 15, 0.3); }
+
+.btn--nav {
+  padding: 11px 20px;
+  border-color: var(--btn-border);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn--nav:hover { color: var(--ink); border-color: rgba(23, 19, 15, 0.3); }
+
+/* Micro-ligne sous le CTA : 20 min · en visio · aucun engagement */
+.microline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+}
+.microline li { display: flex; align-items: center; gap: 16px; }
+.microline li + li::before {
+  content: "";
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #cbc2b8;
+}
+
+.cta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+/* --- 5. Structure -------------------------------------------------------- */
+
+.shell {
+  width: 100%;
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); position: relative; }
+.section + .section { border-top: 1px solid var(--rule); }
+.section__head { max-width: 820px; }
+.section__head .eyebrow { margin-bottom: 26px; }
+.section__head .h2 + .lede { margin-top: 24px; }
+
+.card {
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- 6. Navigation ------------------------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.nav[data-scrolled="true"] { border-bottom-color: var(--rule); }
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 20px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand__mark { font-size: 15px; color: var(--accent); line-height: 1; }
+.brand__name {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.brand__name span { font-weight: 500; color: var(--ink-3); }
+
+.nav__links { display: flex; align-items: center; gap: 40px; }
+.nav__links a {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.nav__links a:hover { color: var(--ink); }
+
+/* --- 7. Hero -------------------------------------------------------------
+   Composition centrée : surtitre, titre, sous-titre, CTA, micro-ligne.
+   ------------------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lavis radial orange, très léger, en haut à droite */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -360px; right: -180px;
+  width: 880px; height: 880px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(224, 90, 43, 0.13) 0%,
+    rgba(245, 166, 35, 0.09) 40%,
+    rgba(250, 247, 242, 0) 70%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(72px, 10vw, 138px) clamp(64px, 8vw, 112px);
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Le surtitre reçoit un filet de part et d'autre une fois centré */
+.hero__copy .eyebrow { justify-content: center; margin-bottom: 32px; }
+.hero__copy .eyebrow::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--accent-sm);
+  flex: none;
+}
+
+.hero__copy .h1 { max-width: 19ch; }
+
+.hero__sub {
+  margin: 34px 0 0;
+  max-width: 620px;
+  font-size: clamp(17px, 1.4vw, 18.5px);
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
+.hero__copy .cta-group { justify-content: center; }
+.hero__copy .microline { justify-content: center; }
+
+/* --- 8. Bande de preuve : bandeau défilant en continu -------------------- */
+
+.proofbar {
+  position: relative;
+  z-index: 1;
+  padding-block: 34px 40px;
+  border-top: 1px solid var(--rule);
+}
+.proofbar__count {
+  margin: 0 0 12px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.proofbar__count b { font-weight: 400; color: var(--accent-lg); }
+
+.proofbar__label {
+  margin: 0 auto 26px;
+  max-width: 34ch;
+  text-align: center;
+  font-size: 11.5px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* Des séries identiques défilent côte à côte. Chacune se translate de −100 %
+   de sa propre largeur : quand la première sort du cadre, la suivante occupe
+   exactement sa position de départ, d'où la boucle sans couture. Le nombre de
+   séries est calculé par script.js en fonction de la largeur de l'écran — il en
+   faut toujours une de plus que ce que l'écran peut afficher, sinon un vide
+   apparaît en fin de cycle. */
+.marquee {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: marqueeScroll 44s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex: none;
+  padding-inline: 30px;
+  border-right: 1px solid rgba(23, 19, 15, 0.10);
+}
+.member__photo {
+  position: relative;
+  overflow: hidden;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--creme-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: #a99b8b;
+  flex: none;
+}
+/* Monogramme de repli : visible tant qu'aucune photo n'est déposée */
+.member__photo::before { content: attr(data-initial); }
+.member__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.member__id { display: flex; flex-direction: column; gap: 2px; }
+.member__name { font-size: 13.5px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.member__role { font-size: 11.5px; font-weight: 500; color: var(--ink-3); white-space: nowrap; }
+.member__hours {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--accent-lg);
+  white-space: nowrap;
+}
+
+/* --- 9. Section 2 — Ce que tu vas obtenir ------------------------------
+   Deux lignes pleine largeur : les trois bénéfices en colonnes séparées par
+   des filets, puis la courbe de performance en paliers.
+   ------------------------------------------------------------------------ */
+
+/* --- Courbe de performance, navigable semaine par semaine ----------------
+   Le graphe et les onglets partagent la même trame de cinq colonnes : les
+   jalons du SVG (x = 100, 300, 500, 700, 900 sur 1000) tombent au centre des
+   onglets. Le viewBox garde son ratio (pas de preserveAspectRatio="none"),
+   pour que les pastilles restent rondes et le trait régulier.
+   ------------------------------------------------------------------------ */
+
+.curve { margin-top: 64px; }
+
+.curve__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 0 0 20px;
+}
+/* Invite explicite : sans elle, rien ne dit que les cadres sont des boutons. */
+.curve__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px 8px 13px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.2);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent-sm);
+}
+.curve__note {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.ramp__chart { display: block; width: 100%; height: auto; }
+.ramp__guide,
+.ramp__marker,
+.ramp__flag { transition: all .45s cubic-bezier(.2, .7, .3, 1); }
+.ramp__flag {
+  font-family: var(--serif);
+  font-size: 24px;
+  fill: var(--accent-lg);
+}
+
+/* Cadres du haut : ce sont eux la commande. Une colonne par jalon, alignée
+   sur les abscisses du tracé. */
+.ramp__tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.ramp__tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 16px 18px 18px;
+  background: var(--blanc);
+  border: 1px solid rgba(23, 19, 15, 0.13);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .25s cubic-bezier(.2,.7,.3,1),
+              box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
+}
+.ramp__tab:hover {
+  transform: translateY(-4px);
+  border-color: rgba(224, 90, 43, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+/* Le jour à gauche, la pastille à droite — la même que sur le tracé, pour
+   qu'on relie le cadre à son point. Non sélectionnée elle est creuse, ce qui
+   la lit comme un choix disponible. */
+.ramp__tab-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.ramp__tab-mark {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ivoire);
+  border: 2px solid var(--accent-lg);
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+.ramp__tab:hover .ramp__tab-mark { box-shadow: 0 0 0 4px rgba(224, 90, 43, 0.14); }
+.ramp__tab[aria-selected="true"] .ramp__tab-mark { background: var(--accent-lg); }
+
+.ramp__tab-day {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  transition: color .25s ease;
+}
+.ramp__tab-title {
+  margin-top: 11px;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.ramp__tab-text {
+  margin-top: 9px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.ramp__tab[aria-selected="true"] {
+  background: var(--accent-soft);
+  border-color: rgba(224, 90, 43, 0.3);
+  box-shadow: var(--shadow-md);
+}
+.ramp__tab[aria-selected="true"] .ramp__tab-day { color: var(--accent-sm); }
+
+/* Bec sous le cadre actif : il désigne le point correspondant sur le tracé. */
+.ramp__tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--accent-soft);
+  border-right: 1px solid rgba(224, 90, 43, 0.3);
+  border-bottom: 1px solid rgba(224, 90, 43, 0.3);
+}
+
+/* Légende du bas : semaine et heures, purement indicative */
+.ramp__axis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--rule);
+}
+.ramp__axis-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 16px 6px 0;
+  margin-top: -1px;
+  border-top: 2px solid transparent;
+  transition: border-color .25s ease;
+}
+.ramp__axis-when {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  transition: color .25s ease;
+}
+.ramp__axis-hours {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--ink-4);
+  transition: color .25s ease;
+}
+.ramp__axis-item[data-actif] { border-top-color: var(--accent); }
+.ramp__axis-item[data-actif] .ramp__axis-when { color: var(--accent-sm); }
+.ramp__axis-item[data-actif] .ramp__axis-hours { color: var(--accent-lg); }
+
+/* Panneaux. Sans JS ils s'affichent tous à la suite : le contenu reste lisible
+   et indexable, le script se contente d'en masquer quatre. */
+.ramp__panels { margin-top: 44px; }
+.ramp__panel {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.ramp__panel + .ramp__panel { margin-top: 40px; }
+/* Indispensable : le display:grid ci-dessus l'emporterait sur le display:none
+   que le navigateur applique à l'attribut hidden. */
+.ramp__panel[hidden] { display: none; }
+
+.ramp__panel-when {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.ramp__panel-when b { font-weight: 700; color: var(--accent-sm); }
+.ramp__panel-title {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.16;
+  letter-spacing: -0.016em;
+  color: var(--ink);
+}
+.ramp__panel-text { margin: 16px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-2); }
+
+.ramp__setup { padding-top: 6px; }
+.ramp__setup ul { margin: 18px 0 0; padding: 0; list-style: none; }
+.ramp__setup li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+.ramp__setup li + li { margin-top: 14px; }
+.ramp__setup li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 10px;
+  width: 11px; height: 1px;
+  background: var(--accent);
+}
+
+/* Le dernier palier est la promesse tenue : on lui donne le fond d'accent. */
+.ramp__panel--final {
+  padding: 30px 34px;
+  margin-inline: -34px;
+  border-radius: 18px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.16);
+}
+
+/* --- 10. Section 3 — Le constat ------------------------------------------
+   Une seule phrase, centrée, en traitement de citation. Elle sert de
+   respiration entre la courbe et la preuve, d'où la générosité verticale.
+   ------------------------------------------------------------------------ */
+
+.section--constat { padding-block: clamp(96px, 12vw, 168px); }
+
+.constat {
+  margin: 0 auto;
+  /* En px et non en ch : l'unité ch se calcule sur la taille de texte du
+     conteneur (17px), pas sur celle du grand titre — un ch-max ici donnerait
+     un mot par ligne. */
+  max-width: 880px;
+  text-align: center;
+}
+
+/* Guillemet ouvrant, purement décoratif : il pose le registre de la citation
+   sans faire croire que la phrase est attribuée à quelqu'un. */
+.constat__mark {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(64px, 8vw, 108px);
+  line-height: 0.6;
+  color: var(--accent);
+  opacity: 0.32;
+}
+
+.constat__line {
+  margin: 22px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 5.4vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -0.024em;
+  color: var(--ink);
+}
+/* Le segment accentué ne doit pas se couper en deux : sans cela la coupure
+   tombe entre « sans » et « méthode ». */
+.constat__line .italique { white-space: nowrap; }
+
+.constat__sub {
+  margin: 30px auto 0;
+  max-width: 54ch;
+  font-size: clamp(16.5px, 1.4vw, 18.5px);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* --- 11. Section 4 — La preuve ------------------------------------------- */
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.testimonial__top { display: flex; align-items: center; gap: 14px; }
+.testimonial__photo {
+  position: relative;
+  overflow: hidden;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--creme-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: #a99b8b;
+  flex: none;
+}
+.testimonial__photo::before { content: attr(data-initial); }
+.testimonial__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.testimonial__name { font-size: 15px; font-weight: 700; color: var(--ink); display: block; }
+.testimonial__role { font-size: 12.5px; font-weight: 500; color: var(--ink-3); display: block; margin-top: 2px; }
+.testimonial__hours {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.testimonial__hours b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.testimonial__hours span { font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
+.testimonial__deleg { margin: 20px 0 0; }
+.testimonial__deleg dt {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.testimonial__deleg dd {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+.testimonial blockquote {
+  margin: 24px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* La vidéo ouvre la section : pleine largeur, avant les témoignages. */
+.proof__video { margin: 56px 0 0; }
+.proof__video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--creme-2);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proof__video-frame iframe,
+.proof__video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.proof__video-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: 14.5px;
+  color: var(--ink-3);
+}
+.proof__video-caption b { color: var(--ink); font-size: 16px; font-weight: 700; }
+.proof__video-hours { font-family: var(--serif); font-size: 17px; color: var(--accent-lg); }
+
+/* Mur de preuve sociale ---------------------------------------------------
+   Captures de conversation, larges et basses, de largeurs natives très
+   inégales (272 à 1260 px). Deux colonnes : chaque cadre épouse sa capture
+   et la plafonne à la largeur de colonne, mais ne l'agrandit jamais — un
+   agrandissement rendrait floues les plus petites. D'où des cadres de tailles
+   différentes, ce qui est la nature même d'un mur de messages.
+   Le fond sombre des captures est un contenu, pas une intention graphique :
+   le cadre blanc les pose comme des pièces citées.
+   ------------------------------------------------------------------------ */
+
+.proofwall { margin-top: 76px; padding-top: 44px; border-top: 1px solid var(--rule); }
+.proofwall__head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.proofwall__note { margin: 0; font-size: 14.5px; color: var(--ink-3); }
+
+.proofwall__grid { columns: 2; column-gap: 24px; }
+
+.proofshot {
+  break-inside: avoid;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 24px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+}
+.proofshot img {
+  display: block;
+  width: auto;          /* largeur native, jamais agrandie */
+  max-width: 100%;      /* plafonnée à la colonne */
+  height: auto;
+  border-radius: 7px;
+}
+/* Une capture introuvable est retirée par le script : son cadre disparaît
+   plutôt que de rester vide. */
+.proofshot:not(:has(img)) { display: none; }
+
+/* --- 12. Section 5 — Méthode CAP -----------------------------------------
+   Trois cartes schématiques, puis le face-à-face « ce que c'est / ce que ça
+   n'est pas ». Le face-à-face reste sans cadre, en filets : la section 8
+   (« pour qui / pas pour qui ») utilise déjà des cartes avec ✓ et ✕, deux
+   blocs identiques sur une même page se liraient comme une redite.
+   ------------------------------------------------------------------------ */
+
+.caps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.cap {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 30px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+}
+.cap__letter {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 56px;
+  line-height: 0.8;
+  color: var(--accent-lg);
+}
+.cap__name {
+  margin: 20px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.12;
+  letter-spacing: -0.016em;
+  color: var(--ink);
+}
+.cap__claim {
+  margin: 9px 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--accent-sm);
+}
+
+.cap__steps {
+  margin: 22px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+  flex: 1;
+}
+.cap__steps li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.cap__steps li + li { margin-top: 13px; }
+.cap__steps li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 10px;
+  width: 10px; height: 1px;
+  background: var(--accent);
+}
+
+.cap__gain {
+  margin: 22px 0 0;
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.16);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--ink);
+}
+/* L'étiquette porte le fil conducteur — lucidité, capacité, choix — et doit
+   se lire d'une carte à l'autre : d'où le sérif, plus visible que les petites
+   capitales des autres légendes. */
+.cap__gain-cap {
+  display: block;
+  margin-bottom: 9px;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--accent-lg);
+}
+
+/* Face-à-face */
+.capvs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 64px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.capvs__col + .capvs__col { border-left: 1px solid var(--rule); padding-left: 64px; }
+.capvs__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.15;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+}
+.capvs__col--nest .capvs__title { color: var(--ink-3); }
+.capvs ul { margin: 22px 0 0; padding: 0; list-style: none; }
+.capvs li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.capvs li + li { margin-top: 16px; }
+.capvs li::before { position: absolute; left: 0; top: 0; font-size: 14px; line-height: 1.75; }
+.capvs__col--est  li { color: var(--ink-body); }
+.capvs__col--est  li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+.capvs__col--nest li { color: var(--ink-3); }
+.capvs__col--nest li::before { content: "✕"; color: var(--ink-4); }
+
+.why-claude {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 26px 30px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.16);
+}
+.why-claude__label {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+  padding-top: 4px;
+  width: 132px;
+}
+.why-claude p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-body); max-width: 74ch; }
+
+/* --- 13. Section 6 — Ton formateur ---------------------------------------
+   Portrait à gauche, texte et chiffres à droite ; puis la liste des tâches
+   déléguées, puis les deux captures de preuve. Le collage de la maquette de
+   référence (cadres colorés en désordre) n'est pas repris : il appartient à
+   un deck de conférence, pas à la DA de la page. L'idée retenue est la même
+   — la parole entourée de ses pièces à conviction — en cadres sobres.
+   ------------------------------------------------------------------------ */
+
+.noe__grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.noe__portrait {
+  position: relative;
+  margin: 0;
+  min-height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--creme);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-lg);
+}
+.noe__portrait img { display: block; width: 100%; height: auto; }
+/* Le nom se pose en bas du portrait, sur un voile sombre : le fond de la
+   photo est inconnu, un texte nu ne serait pas lisible à coup sûr. */
+.noe__name {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 42px 22px 18px;
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: #ffffff;
+  background: linear-gradient(to top, rgba(23, 19, 15, 0.78) 0%, rgba(23, 19, 15, 0) 100%);
+}
+.noe__name span {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+.noe__portrait .todo--media { position: absolute; inset: 0; }
+.noe__portrait:has(img) { min-height: 0; }
+.noe__portrait:has(img) .todo--media { display: none; }
+
+.noe__body .eyebrow { margin-bottom: 24px; }
+.noe__body .h2 { margin-bottom: 28px; }
+.noe__body .p { font-size: 16.5px; }
+
+.noe__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 44px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.noe__stat { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.noe__stat { max-width: 22ch; }
+.noe__stat b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 3vw, 42px);
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.noe__stat span { font-size: 12.5px; font-weight: 500; line-height: 1.4; color: var(--ink-3); }
+
+/* Ce que je ne fais plus */
+
+.nomore { margin-top: 76px; }
+.nomore__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 18px;
+}
+.nomore__note { margin: 0; font-size: 14.5px; color: var(--ink-3); }
+
+.nomore__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+  columns: 2;
+  column-gap: 64px;
+}
+.nomore__list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--rule);
+  break-inside: avoid;
+  font-size: 16px;
+  color: var(--ink-body);
+}
+.nomore__list b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--accent-lg);
+  flex: none;
+}
+
+/* Pièces à conviction */
+
+.noe__proofs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 64px;
+}
+.noe__proof {
+  position: relative;
+  margin: 0;
+  padding: 14px 14px 0;
+  border-radius: 18px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+}
+.noe__proof img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.noe__proof .todo--media {
+  position: relative;
+  display: flex;
+  min-height: 240px;
+  border-radius: 10px;
+  background: var(--creme);
+}
+.noe__proof:has(img) .todo--media { display: none; }
+.noe__proof figcaption {
+  padding: 16px 6px 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+/* --- 14. Section 7 — Comment ça se passe --------------------------------- */
+
+.notice {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+.notice p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--ink); }
+.notice p b { font-weight: 700; }
+.notice p span { display: block; margin-top: 8px; font-size: 15px; color: var(--ink-2); font-weight: 400; }
+
+.how { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+.how__item { padding: 30px 32px; }
+.how__item--wide { grid-column: 1 / -1; }
+.how__num {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--accent-lg);
+  letter-spacing: 0.04em;
+}
+.how__item h3 { margin-top: 10px; font-size: 25px; letter-spacing: -0.014em; }
+.how__item p { margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+
+/* Les paramètres concrets de chaque bloc, détachés du paragraphe. */
+.how__specs {
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+.how__specs li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+.how__specs li + li { margin-top: 10px; }
+.how__specs li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 10px;
+  width: 10px; height: 1px;
+  background: var(--accent);
+}
+.how__specs b { font-weight: 700; color: var(--accent-sm); }
+
+.week { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 26px; border-top: 1px solid var(--rule); }
+.week__col { padding: 22px 24px 4px 0; }
+.week__col + .week__col { border-left: 1px solid var(--rule); padding-left: 24px; }
+.week__n { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-sm); }
+.week__t { margin-top: 10px; font-family: var(--serif); font-size: 20px; line-height: 1.2; }
+.week__d { margin: 10px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+.env { display: flex; flex-wrap: wrap; gap: 9px; margin: 18px 0 0; padding: 0; list-style: none; }
+.env li {
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--ivoire);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-body);
+}
+
+/* --- 15. Section 8 — Pour qui, pas pour qui ------------------------------ */
+
+.filter__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+.filter__col { padding: 34px 36px; }
+.filter__col--no { background: var(--creme); box-shadow: none; }
+.filter__col h3 {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+.filter__col--no h3 { color: var(--ink-3); }
+.filter__col--yes h3 { color: var(--accent-sm); }
+.filter__list { margin: 0; padding: 0; list-style: none; }
+.filter__list li {
+  position: relative;
+  padding-left: 32px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.filter__list li + li { margin-top: 20px; }
+.filter__list li::before {
+  position: absolute;
+  left: 0; top: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.filter__col--no  .filter__list li::before { content: "✕"; color: var(--ink-4); }
+.filter__col--yes .filter__list li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+
+.filter__close {
+  margin: 40px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.3vw, 30px);
+  line-height: 1.34;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 30ch;
+}
+
+/* --- 16. Section 9 — Les 20 minutes -------------------------------------- */
+
+.call { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.call__item { padding: 32px 30px; }
+.call__n {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--blanc);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+}
+.call__item h3 { margin-top: 20px; font-size: 23px; line-height: 1.2; letter-spacing: -0.014em; }
+.call__item p { margin: 12px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
+
+.call__honest {
+  margin: 40px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.1vw, 27px);
+  line-height: 1.36;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  max-width: 40ch;
+}
+
+/* --- 17. Section 10 — FAQ ------------------------------------------------- */
+
+.faq { margin-top: 56px; border-top: 1px solid var(--rule); max-width: 900px; }
+.faq__item { border-bottom: 1px solid var(--rule); }
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-size: clamp(21px, 2vw, 26px);
+  line-height: 1.25;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__sign {
+  flex: none;
+  position: relative;
+  width: 20px; height: 20px;
+}
+.faq__sign::before,
+.faq__sign::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  transition: transform .22s ease, opacity .22s ease;
+}
+.faq__sign::before { left: 0; top: 9.5px; width: 20px; height: 1.5px; }
+.faq__sign::after  { top: 0; left: 9.5px; height: 20px; width: 1.5px; }
+.faq__item[open] .faq__sign::after { transform: rotate(90deg); opacity: 0; }
+.faq__answer { padding: 0 0 30px; max-width: 68ch; }
+.faq__answer p { margin: 0; font-size: 16.5px; line-height: 1.62; color: var(--ink-2); }
+.faq__answer p + p { margin-top: 14px; }
+
+/* --- 18. Section 11 — CTA final + pied de page --------------------------- */
+
+.final { position: relative; overflow: hidden; }
+.final::before {
+  content: "";
+  position: absolute;
+  top: -320px; right: -220px;
+  width: 820px; height: 820px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(224, 90, 43, 0.12) 0%,
+    rgba(245, 166, 35, 0.08) 40%,
+    rgba(250, 247, 242, 0) 70%);
+  pointer-events: none;
+}
+.final__inner { position: relative; z-index: 1; }
+.final__inner > .reveal { max-width: 760px; }
+.final__choices { margin-top: 34px; display: grid; gap: 18px; }
+.final__choice {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  font-size: 17.5px;
+  line-height: 1.58;
+  color: var(--ink-2);
+}
+.final__choice em {
+  flex: none;
+  font-family: var(--serif);
+  font-style: normal;
+  font-size: 15px;
+  color: var(--accent-lg);
+  letter-spacing: 0.06em;
+  width: 34px;
+}
+.final__choice--b { color: var(--ink); font-weight: 500; }
+
+.footer { border-top: 1px solid var(--rule); padding-block: 48px 60px; }
+.footer__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer__links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer__links a { font-size: 14px; font-weight: 500; color: var(--ink-2); }
+.footer__links a:hover { color: var(--ink); }
+.footer__legal {
+  margin: 34px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-3);
+  max-width: 92ch;
+}
+.footer__copy { margin: 18px 0 0; font-size: 12.5px; color: var(--ink-4); }
+
+/* --- 19. Placeholders (contenu à fournir) -------------------------------- */
+/* Repérables d'un coup d'œil et greppables : `data-todo` + classe .todo.     */
+/* Retirer la règle ci-dessous une fois tous les contenus intégrés.           */
+
+.todo {
+  display: inline-block;
+  border-radius: 4px;
+  background: rgba(224, 90, 43, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(224, 90, 43, 0.28);
+  padding: 0 5px;
+  color: var(--accent-sm);
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.88em;
+  letter-spacing: 0;
+}
+.todo--block { display: block; padding: 12px 14px; line-height: 1.5; }
+.todo--media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 100%;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+/* --- 20. Apparition au défilement ---------------------------------------- */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.js-reveal .reveal.is-in { opacity: 1; transform: none; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  /* EXCEPTION ASSUMÉE — le bandeau continue de défiler.
+     Choix explicite de Noé, qui prime ici sur prefers-reduced-motion. Le
+     survol le met toujours en pause. Le !important est nécessaire pour
+     reprendre la main sur la règle * ci-dessous.
+     Pour restaurer le repli accessible (bandeau figé en lignes centrées),
+     voir README § « Bandeau défilant ». */
+  .marquee__track { animation-duration: 44s !important; }
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* --- 21. Responsive ------------------------------------------------------ */
+
+@media (max-width: 1180px) {
+  :root { --gutter: 48px; }
+  .noe__grid { grid-template-columns: 320px 1fr; gap: 44px; }
+  .caps { gap: 18px; }
+  .cap { padding: 24px 22px 26px; }
+  .cap__letter { font-size: 46px; }
+  .cap__name { font-size: 24px; margin-top: 16px; }
+  .capvs { gap: 0 40px; }
+  .capvs__col + .capvs__col { padding-left: 40px; }
+}
+
+@media (max-width: 1040px) {
+  .ramp__panel { grid-template-columns: 1fr; gap: 28px; }
+  .ramp__tabs { gap: 10px; }
+  .ramp__tab { padding: 14px 14px 16px; }
+  .ramp__tab-title { font-size: 16.5px; margin-top: 9px; }
+  .ramp__tab-text { font-size: 12px; margin-top: 7px; }
+}
+
+@media (max-width: 900px) {
+  :root { --gutter: 28px; }
+  .nav__links a { display: none; }
+  .testimonials { grid-template-columns: 1fr; }
+  .proofwall__grid { columns: 1; }
+  .call { grid-template-columns: 1fr; }
+  .how { grid-template-columns: 1fr; }
+  .week { grid-template-columns: 1fr 1fr; }
+  .week__col:nth-child(3) { border-left: 0; padding-left: 0; }
+  .noe__grid { grid-template-columns: 1fr; }
+  .noe__portrait { max-width: 380px; }
+  .nomore__list { columns: 1; }
+  .noe__proofs { grid-template-columns: 1fr; }
+  .filter__cols { grid-template-columns: 1fr; }
+  .why-claude { flex-direction: column; gap: 12px; }
+  .caps { grid-template-columns: 1fr; }
+  .capvs { grid-template-columns: 1fr; gap: 34px; }
+  .capvs__col + .capvs__col {
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+    padding-left: 0;
+    padding-top: 34px;
+  }
+  .why-claude__label { width: auto; padding-top: 0; }
+
+  /* Cinq cadres côte à côte sont illisibles ici : ils passent en colonne,
+     avec le jour et l'accroche sur une même ligne. */
+  .ramp__tabs { grid-template-columns: 1fr; gap: 8px; margin-bottom: 26px; }
+  .ramp__tab[aria-selected="true"]::after { display: none; }
+  .ramp__tab-top { width: auto; }
+  .ramp__tab {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    column-gap: 14px;
+    align-items: baseline;
+    padding: 14px 16px;
+  }
+  .ramp__tab-top { grid-column: 1; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ramp__tab-title { grid-column: 2; margin-top: 0; font-size: 17px; }
+  .ramp__tab-text { grid-column: 2; margin-top: 5px; }
+
+  .ramp__axis-item { padding: 12px 3px 0; gap: 5px; }
+  .ramp__axis-when { font-size: 9.5px; letter-spacing: 0.06em; }
+  .ramp__axis-hours { font-size: 19px; }
+  .ramp__panel--final { padding: 24px 22px; margin-inline: 0; }
+
+  /* Bandeau : défilement un peu plus rapide sur petit écran */
+  .marquee__track { animation-duration: 34s !important; }
+  .member { padding-inline: 22px; gap: 11px; }
+}
+
+@media (max-width: 620px) {
+  .btn { width: 100%; justify-content: center; }
+
+  .btn--primary { padding: 16px 20px; font-size: 14.5px; gap: 9px; }
+  .btn--ghost   { padding: 16px 20px; font-size: 14.5px; }
+  .cta-group { flex-direction: column; align-items: stretch; }
+  .week { grid-template-columns: 1fr; }
+  .week__col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--rule); }
+  .week__col:first-child { border-top: 0; }
+  .how__item, .call__item, .filter__col { padding: 26px 22px; }
+  .curve { padding: 24px 20px 20px; }
+  .nomore__list li { flex-direction: column; gap: 4px; align-items: flex-start; }
+}
+
+/* --- 22. Bulle flottante — Le Cockpit (version gratuite) -----------------
+   Le vert de WhatsApp est hors palette : il ne sert qu'au glyphe, pour que
+   le service reste reconnaissable. Le reste de la pastille est en cartes
+   blanches, comme le reste de la page.
+   ------------------------------------------------------------------------ */
+
+.wa {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 22px 12px 13px;
+  border-radius: 999px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 18px 40px -18px rgba(60, 42, 26, 0.55);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s ease;
+}
+.wa:hover {
+  color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px -18px rgba(60, 42, 26, 0.6);
+}
+
+.wa__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+}
+
+.wa__text { display: flex; flex-direction: column; gap: 2px; }
+.wa__title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.wa__sub { font-size: 11.5px; font-weight: 500; color: var(--ink-3); }
+
+/* Sur petit écran la pastille se réduit au glyphe : une pilule pleine
+   masquerait le contenu. */
+@media (max-width: 720px) {
+  .wa { right: 16px; bottom: 16px; padding: 9px; gap: 0; }
+  .wa__text { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa:hover { transform: none; }
+}
+
+/* --- 23. Page Programme --------------------------------------------------
+   35 chapitres : affichés à plat, c'est un mur. Ils sont donc repliés, et la
+   page se parcourt par titres. La valeur de chaque module est le point
+   d'ancrage visuel — d'où des montants au même corps que les titres.
+   ------------------------------------------------------------------------ */
+
+/* Chiffres du hero */
+.progstats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 44px;
+  margin-top: 38px;
+  padding-top: 30px;
+  border-top: 1px solid var(--rule);
+}
+.progstat { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.progstat b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 3.6vw, 48px);
+  line-height: 1;
+  color: var(--ink);
+}
+.progstat span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.progstat--fort b { color: var(--accent-lg); }
+.progstat--fort span { color: var(--accent-sm); }
+
+/* Rail des étapes */
+.progsteps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 46px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.progsteps a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 26px 8px 24px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  border-top: 2px solid transparent;
+  margin-top: -1px;
+  transition: border-color .25s ease, color .25s ease;
+}
+.progsteps a:hover { color: var(--ink); border-top-color: var(--accent); }
+.progsteps a span {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(46px, 4.6vw, 66px);
+  /* 0.78 comme .etape__letter : la serif a un large jambage, une line-height
+     de 1 laisserait un vide sous la lettre avant le libellé. */
+  line-height: 0.78;
+  color: var(--accent-lg);
+}
+
+/* Étape */
+.etape__head { display: flex; align-items: flex-start; gap: 28px; }
+.etape__letter {
+  flex: none;
+  font-family: var(--serif);
+  font-size: clamp(56px, 6vw, 84px);
+  line-height: 0.78;
+  color: var(--accent-lg);
+}
+.etape__claim {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--accent-sm);
+}
+
+/* Module */
+.mod {
+  margin-top: 40px;
+  padding: 34px 36px 30px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+.mod__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.mod__step {
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.mod__name {
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.mod__claim { margin: 10px 0 0; font-size: 16.5px; line-height: 1.45; color: var(--ink-2); }
+
+/* Le montant est l'ancrage visuel du module */
+.mod__val { margin: 0; flex: none; text-align: right; }
+.mod__val span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.mod__val b {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-lg);
+}
+
+.mod__cols {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 44px;
+  align-items: start;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+}
+.mod__desc { margin: 0; font-size: 16px; line-height: 1.62; color: var(--ink-2); }
+.mod__meta { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.mod__meta li { display: flex; align-items: baseline; gap: 10px; }
+.mod__meta b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink);
+  min-width: 2ch;
+}
+.mod__meta span { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+
+.mod__bloc {
+  margin: 32px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+
+/* Chapitres repliés */
+.chaps { margin-top: 18px; border-top: 1px solid var(--rule); }
+
+.chap { border-bottom: 1px solid var(--rule); }
+.chap summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.chap summary::-webkit-details-marker { display: none; }
+.chap summary:hover .chap__title { color: var(--accent-sm); }
+
+.chap__num {
+  flex: none;
+  width: 34px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+}
+.chap__title {
+  flex: 1;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  transition: color .2s ease;
+}
+.chap__sign { flex: none; position: relative; width: 16px; height: 16px; }
+.chap__sign::before,
+.chap__sign::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  transition: transform .22s ease, opacity .22s ease;
+}
+.chap__sign::before { left: 0; top: 7.5px; width: 16px; height: 1.5px; }
+.chap__sign::after  { top: 0; left: 7.5px; height: 16px; width: 1.5px; }
+.chap[open] .chap__sign::after { transform: rotate(90deg); opacity: 0; }
+
+.chap__body { padding: 0 0 22px 52px; max-width: 80ch; }
+.chap__desc { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
+
+.chap__tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 0; padding: 0; list-style: none; }
+.chap__tags li {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--ivoire);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-body);
+}
+
+.chap__out {
+  margin: 16px 0 0;
+  padding: 13px 16px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+.chap__out-cap {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+
+/* Piliers */
+.piliers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+.pilier {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 34px 34px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+.pilier__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.pilier__label {
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.pilier__val { margin: 0; text-align: right; }
+.pilier__val span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.pilier__val b {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 3.4vw, 46px);
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.pilier__name {
+  margin: 18px 0 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.12;
+  letter-spacing: -0.016em;
+  color: var(--ink);
+}
+.pilier__desc { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.pilier__list { margin: 22px 0 0; padding: 0; list-style: none; flex: 1; }
+.pilier__list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+.pilier__list li + li { margin-top: 12px; }
+.pilier__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 11px;
+  width: 11px; height: 1px;
+  background: var(--accent);
+}
+.pilier__note {
+  margin-top: 26px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.16);
+}
+.pilier__note p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-body); }
+.pilier__note-t { font-weight: 700; color: var(--accent-sm) !important; margin-bottom: 5px !important; }
+
+/* Pile de valeur */
+.pile {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 56px;
+  align-items: start;
+  margin-top: 52px;
+}
+.pile__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.pile__list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  color: var(--ink-body);
+}
+.pile__list b {
+  flex: none;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--accent-lg);
+}
+
+.pile__total {
+  padding: 34px 34px 32px;
+  border-radius: 20px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.24);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+.pile__total-cap {
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+.pile__total-val {
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(56px, 6.4vw, 86px);
+  line-height: 1;
+  letter-spacing: -0.026em;
+  color: var(--accent-lg);
+}
+.pile__total-note { margin: 20px 0 24px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+@media (max-width: 1180px) {
+  .mod__cols { grid-template-columns: 1fr; gap: 26px; }
+  .mod__meta { grid-template-columns: repeat(3, 1fr); }
+  .pile { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 1040px) {
+  .progsteps { grid-template-columns: repeat(3, 1fr); }
+  .piliers { grid-template-columns: 1fr; }
+  .mod { padding: 26px 24px 24px; }
+}
+
+@media (max-width: 620px) {
+  .progsteps { grid-template-columns: 1fr; }
+  .progsteps a {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 4px;
+  }
+  .progsteps a span { font-size: 34px; line-height: 1; }
+  .etape__head { gap: 18px; }
+  .mod__val { text-align: left; }
+  .mod__meta { grid-template-columns: 1fr; }
+  .chap summary { gap: 12px; }
+  .chap__title { font-size: 18px; }
+  .chap__body { padding-left: 0; }
+  .pilier { padding: 26px 22px 28px; }
+  .pile__total { padding: 26px 22px 24px; }
+}
+
+/* --- 24. Pages légales ---------------------------------------------------
+   Colonne unique, mesure courte : un document contractuel se lit, il ne se
+   parcourt pas. Sommaire ancré en tête pour retrouver un article.
+   ------------------------------------------------------------------------ */
+
+.legal { max-width: 760px; margin-inline: auto; }
+
+.legal__head { padding-bottom: 34px; border-bottom: 1px solid var(--rule); }
+.legal__head .eyebrow { margin-bottom: 22px; }
+.legal__date { margin: 18px 0 0; font-size: 13.5px; color: var(--ink-3); }
+
+.legal__toc { margin: 34px 0 0; padding: 26px 30px; border-radius: 16px; background: var(--creme); }
+.legal__toc ol { margin: 16px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 40px; }
+.legal__toc li { break-inside: avoid; }
+.legal__toc a {
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.legal__toc a:hover { color: var(--accent-sm); }
+.legal__toc a span { flex: none; width: 20px; font-weight: 700; color: var(--ink-4); }
+
+.legal__sec { margin-top: 48px; }
+.legal__h {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.18;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+}
+.legal__h span { flex: none; color: var(--accent-lg); }
+
+.legal__sec p { margin: 0; font-size: 16px; line-height: 1.66; color: var(--ink-2); }
+.legal__sec p + p { margin-top: 14px; }
+
+.legal__sec ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.legal__sec ul li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.legal__sec ul li + li { margin-top: 8px; }
+.legal__sec ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 13px;
+  width: 11px; height: 1px;
+  background: var(--accent);
+}
+.legal__sec ul + p { margin-top: 14px; }
+
+.legal__id { margin: 0; display: grid; gap: 10px; }
+.legal__id > div { display: flex; gap: 16px; flex-wrap: wrap; }
+.legal__id dt {
+  flex: none;
+  width: 170px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  padding-top: 3px;
+}
+.legal__id dd { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink); }
+
+@media (max-width: 620px) {
+  .legal__toc { padding: 22px 20px; }
+  .legal__toc ol { columns: 1; }
+  .legal__id dt { width: auto; }
+  .legal__id > div { flex-direction: column; gap: 2px; }
+}

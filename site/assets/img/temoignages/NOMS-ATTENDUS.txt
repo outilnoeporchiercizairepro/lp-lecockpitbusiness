@@ -1,0 +1,52 @@
+Photos — noms de fichiers attendus
+==================================
+
+Déposer les fichiers ici, exactement sous ces noms. Aucune modification du
+HTML n'est nécessaire : la page les récupère toute seule. Tant qu'un fichier
+est absent, le monogramme (la lettre) prend sa place, sans image cassée.
+
+Cartes de témoignage (section 4)  ← À FOURNIR
+---------------------------------------------
+  [manque]  clara.jpg      Clara   · Formatrice            · +10h
+  [manque]  thomas.jpg     Thomas  · CEO                   · +14h
+  [manque]  ahmed.jpg      Ahmed   · Consultant stratégique · +15h
+
+Bandeau défilant (bas du hero)
+------------------------------
+  [ok]      cecile.jpg     Cécile   · Consultante IA                · +12h
+  [ok]      eleanor.jpg    Eleanor  · Consultante RH                · +10h
+  [ok]      mohamed.jpg    Mohamed  · Consultant Énergie            · +15h
+  [ok]      gaetan.jpg     Gaëtan   · CEO                           · +18h
+  [ok]      louis.jpg      Louis    · CEO                           · +20h
+  [ok]      julian.jpg     Julian   · Investisseur                  · +30h
+  [ok]      camilha.jpg    Camilha  · En reconversion               · +10h
+  [ok]      jerome.jpg     Jérôme   · CEO                           · +14h
+  [ok]      michel.jpg     Michel   · Conseiller Gestion Patrimoine · +10h
+
+⚠️ Un doublon restant
+---------------------
+  Thomas (CEO, +14h)  ==  Jérôme (CEO, +14h)
+
+Même métier, mêmes heures, deux prénoms. Soit c'est la même personne et il faut
+corriger le bandeau, soit ce sont deux dirigeants distincts au chiffre
+identique — ce qui se remarquera. À trancher avant mise en ligne.
+
+Les deux autres collisions sont levées depuis la correction des métiers :
+Clara est formatrice (et non consultante RH comme Eleanor), Ahmed est consultant
+stratégique (et non consultant énergie comme Mohamed).
+
+Contraintes
+-----------
+- TOUT EN MINUSCULES. macOS ne distingue pas la casse, la plupart des serveurs
+  web si : « Clara.jpg » fonctionne en local et renvoie une 404 en ligne.
+- Extension .jpg obligatoire, elle est écrite dans le HTML.
+- Sans accent ni espace.
+- Format carré. Les fichiers servis sont réduits à 220 px de côté : l'affichage
+  fait 44 px (bandeau) et 54 px (cartes), 220 px couvre les écrans retina.
+      sips -Z 220 --setProperty formatOptions 72 clara.jpg
+- Le cadrage est automatique et centré, les coins sont rognés par le cercle.
+
+Dossier originaux/
+------------------
+Copies pleine résolution des photos du bandeau, mises de côté avant réduction.
+Le site ne les sert pas. Repartir de là pour tout recadrage.

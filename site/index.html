@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Cockpit Business — Récupère 14h par semaine en 30 jours</title>
+<meta name="description" content="Fais de Claude ton bras droit stratégique, même si tu n'as jamais codé. La méthode CAP : modules asynchrones et mastermind hebdomadaire. Diagnostic de 45 minutes, sans engagement.">
+<link rel="canonical" href="https://lecockpit-business.fr/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Le Cockpit Business">
+<meta property="og:title" content="Le Cockpit Business — Récupère 14h par semaine en 30 jours">
+<meta property="og:description" content="Pas un outil de plus : une méthode appliquée à ton activité réelle. Diagnostic de 45 minutes, sans engagement.">
+<meta property="og:url" content="https://lecockpit-business.fr/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  /* Le contenu n'est masqué avant animation que si le JS peut le révéler. */
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-reveal');
+  }
+
+  /* Photo manquante : on retire l'image pour laisser le monogramme de repli,
+     plutôt qu'une icône cassée. L'écoute est en phase de capture (l'événement
+     error ne remonte pas) et doit être posée ici, dans l'en-tête : un script
+     defer s'exécuterait après l'échec des images. */
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && el.hasAttribute('data-photo')) el.remove();
+  }, true);
+</script>
+</head>
+<body>
+
+<!-- ======================================================================
+     NAVIGATION
+     ====================================================================== -->
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="brand" href="#" data-top aria-label="Le Cockpit Business — accueil">
+      <span class="brand__mark" aria-hidden="true">✦</span>
+      <span class="brand__name">Le Cockpit <span>Business</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#" data-top>Accueil</a>
+      <a href="programme.html">Programme</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--nav" href="#" data-booking>
+        <span>Réserver un appel</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================================================================
+     SECTION 1 — HERO
+     ====================================================================== -->
+<section class="hero">
+  <div class="shell hero__inner">
+
+    <div class="hero__copy">
+      <p class="eyebrow">Méthode CAP</p>
+
+      <h1 class="h1">Récupère <span class="italique">14h par semaine</span> en 30 jours.</h1>
+
+      <p class="hero__sub">Fais de Claude ton bras droit stratégique — même si tu n'as jamais codé. Pas un outil de plus&nbsp;: une méthode appliquée à ton activité réelle.</p>
+
+      <div class="cta-group">
+        <a class="btn btn--primary" href="#" data-booking>
+          <span>Réserver mon diagnostic — 45 min</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="programme.html">Voir le programme</a>
+      </div>
+
+      <ul class="microline">
+        <li>45 min</li>
+        <li>en visio</li>
+        <li>aucun engagement</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bande de preuve, bas du fold : bandeau défilant en continu.
+       Une seule série ici — script.js la duplique autant de fois qu'il faut
+       pour couvrir l'écran. Ajouter ou retirer quelqu'un se fait donc à un
+       seul endroit.
+       PHOTOS : déposer les fichiers dans assets/img/temoignages/ sous les noms
+       référencés ci-dessous. Tant qu'un fichier est absent, le monogramme
+       (data-initial) prend sa place, sans image cassée. -->
+  <div class="proofbar">
+    <div class="shell">
+      <p class="proofbar__count"><b>+85</b> personnes accompagnées</p>
+      <p class="proofbar__label">Heures gagnées par semaine</p>
+    </div>
+
+    <div class="marquee" data-marquee>
+      <ul class="marquee__track">
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Cécile</span>
+            <span class="member__role">Consultante IA</span>
+          </div>
+          <span class="member__hours">+12h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="E">
+            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Eleanor</span>
+            <span class="member__role">Consultante RH</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Mohamed</span>
+            <span class="member__role">Consultant Énergie</span>
+          </div>
+          <span class="member__hours">+15h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="G">
+            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Gaëtan</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+18h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="L">
+            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Louis</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+20h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Julian</span>
+            <span class="member__role">Investisseur</span>
+          </div>
+          <span class="member__hours">+30h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Camilha</span>
+            <span class="member__role">En reconversion</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Jérôme</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+14h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Michel</span>
+            <span class="member__role">Conseiller Gestion Patrimoine</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 2 — CE QUE TU VAS OBTENIR
+     ====================================================================== -->
+<section class="section" id="obtenir">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le résultat</p>
+      <h2 class="h2 h2--xl">Ce que tu vas obtenir.</h2>
+      <p class="lede">Ce que tu mets en place, semaine après semaine — et les heures que ça te rend.</p>
+    </div>
+
+
+    <!-- Progression sur quatre semaines, navigable jalon par jalon.
+         Les cadres du haut SONT la commande (role="tab") : un seul contrôle
+         pour une seule sélection, plutôt qu'un jeu de cadres cliquables
+         doublé d'onglets. La rangée du bas n'est que la légende de l'axe,
+         d'où son aria-hidden — semaine et heures sont déjà dans le panneau.
+         Géométrie : viewBox 1000 × 270, jalons aux abscisses 100/300/500/700/900
+         (les centres des cinq colonnes) et aux ordonnées 245/201/142.5/84/40,
+         proportionnelles aux heures (0, 3, 7, 11, 14 sur 14). Ces deux tableaux
+         sont répétés dans script.js : les modifier ensemble. -->
+    <div class="curve reveal">
+      <p class="curve__head">
+        <span class="curve__hint">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5 18 12l-5.4 1.6L10 19.5Z"/></svg>
+          Clique sur un jalon
+        </span>
+        <span class="curve__note">Heures gagnées / semaine</span>
+      </p>
+
+      <div class="ramp" data-ramp>
+        <div class="ramp__tabs" role="tablist" aria-label="Progression semaine par semaine">
+          <button class="ramp__tab" type="button" role="tab" id="jalon-0"
+                  aria-controls="palier-0" aria-selected="false">
+            <span class="ramp__tab-top">
+              <span class="ramp__tab-day">J0</span>
+              <span class="ramp__tab-mark" aria-hidden="true"></span>
+            </span>
+            <span class="ramp__tab-title">De la clarté</span>
+            <span class="ramp__tab-text">Ta semaine posée à plat, tâche par tâche.</span>
+          </button>
+          <button class="ramp__tab" type="button" role="tab" id="jalon-1"
+                  aria-controls="palier-1" aria-selected="false">
+            <span class="ramp__tab-top">
+              <span class="ramp__tab-day">J7</span>
+              <span class="ramp__tab-mark" aria-hidden="true"></span>
+            </span>
+            <span class="ramp__tab-title">Les premières délégations</span>
+            <span class="ramp__tab-text">Tu tries ce qui est délégable et tu montes ta première automatisation.</span>
+          </button>
+          <button class="ramp__tab" type="button" role="tab" id="jalon-2"
+                  aria-controls="palier-2" aria-selected="false">
+            <span class="ramp__tab-top">
+              <span class="ramp__tab-day">J14</span>
+              <span class="ramp__tab-mark" aria-hidden="true"></span>
+            </span>
+            <span class="ramp__tab-title">Claude dans ton contexte</span>
+            <span class="ramp__tab-text">Mémoire, projets, modèles : il travaille sur tes vrais dossiers.</span>
+          </button>
+          <button class="ramp__tab" type="button" role="tab" id="jalon-3"
+                  aria-controls="palier-3" aria-selected="false">
+            <span class="ramp__tab-top">
+              <span class="ramp__tab-day">J21</span>
+              <span class="ramp__tab-mark" aria-hidden="true"></span>
+            </span>
+            <span class="ramp__tab-title">Ça part sans toi</span>
+            <span class="ramp__tab-text">Connecteurs branchés, tâches récurrentes déclenchées toutes seules.</span>
+          </button>
+          <button class="ramp__tab" type="button" role="tab" id="jalon-4"
+                  aria-controls="palier-4" aria-selected="false">
+            <span class="ramp__tab-top">
+              <span class="ramp__tab-day">J30</span>
+              <span class="ramp__tab-mark" aria-hidden="true"></span>
+            </span>
+            <span class="ramp__tab-title">Des systèmes qui tournent</span>
+            <span class="ramp__tab-text">Tes process au clair, des tâches exécutées pendant que tu dors.</span>
+          </button>
+        </div>
+
+        <svg class="ramp__chart" viewBox="0 0 1000 270" aria-hidden="true">
+          <defs>
+            <linearGradient id="rampFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#e05a2b" stop-opacity="0.16"/>
+              <stop offset="100%" stop-color="#e05a2b" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <line x1="0" y1="245" x2="1000" y2="245" stroke="rgba(23,19,15,0.09)" stroke-width="1"/>
+
+          <path d="M100 245 C 166 244, 234 220, 300 201 C 366 182, 434 170, 500 142 C 566 115, 634 103, 700 84 C 766 65, 834 52, 900 40 L 900 245 L 100 245 Z"
+                fill="url(#rampFill)"/>
+          <path d="M100 245 C 166 244, 234 220, 300 201 C 366 182, 434 170, 500 142 C 566 115, 634 103, 700 84 C 766 65, 834 52, 900 40"
+                fill="none" stroke="#d1501f" stroke-width="2.4" stroke-linecap="round"/>
+
+          <line class="ramp__guide" x1="900" y1="40" x2="900" y2="245"
+                stroke="rgba(209,80,31,0.35)" stroke-width="1.2" stroke-dasharray="3 4"/>
+
+          <g fill="#faf7f2" stroke="#d1501f" stroke-width="2">
+            <circle cx="100" cy="245" r="4.5"/>
+            <circle cx="300" cy="201" r="4.5"/>
+            <circle cx="500" cy="142.5" r="4.5"/>
+            <circle cx="700" cy="84" r="4.5"/>
+            <circle cx="900" cy="40" r="4.5"/>
+          </g>
+
+          <circle class="ramp__marker" cx="900" cy="40" r="7.5" fill="#d1501f"/>
+          <text class="ramp__flag" x="900" y="22" text-anchor="middle">+14h</text>
+        </svg>
+
+        <div class="ramp__axis" aria-hidden="true">
+          <div class="ramp__axis-item">
+            <span class="ramp__axis-when">Départ</span>
+            <span class="ramp__axis-hours">+0h</span>
+          </div>
+          <div class="ramp__axis-item">
+            <span class="ramp__axis-when">Semaine 1</span>
+            <span class="ramp__axis-hours">+3h</span>
+          </div>
+          <div class="ramp__axis-item">
+            <span class="ramp__axis-when">Semaine 2</span>
+            <span class="ramp__axis-hours">+7h</span>
+          </div>
+          <div class="ramp__axis-item">
+            <span class="ramp__axis-when">Semaine 3</span>
+            <span class="ramp__axis-hours">+11h</span>
+          </div>
+          <div class="ramp__axis-item">
+            <span class="ramp__axis-when">Semaine 4</span>
+            <span class="ramp__axis-hours">+14h</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ramp__panels">
+      <div class="ramp__panel" id="palier-0" role="tabpanel" aria-labelledby="jalon-0">
+        <div>
+          <p class="ramp__panel-when">Départ · J0 · <b>+0h</b> par semaine</p>
+          <h3 class="ramp__panel-title">Tu vois enfin où part ton temps</h3>
+          <p class="ramp__panel-text">Ta semaine réelle posée à plat, tâche par tâche. Aucune heure gagnée encore — mais pour la première fois, tu sais exactement lesquelles sont récupérables.</p>
+        </div>
+        <div class="ramp__setup">
+          <p class="label">Ce que tu mets en place</p>
+          <ul>
+            <li>Ta semaine cartographiée, tâche par tâche</li>
+            <li>La liste de ce qui te coûte réellement des heures</li>
+            <li>Ton premier projet Claude, nourri de tes documents</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ramp__panel" id="palier-1" role="tabpanel" aria-labelledby="jalon-1">
+        <div>
+          <p class="ramp__panel-when">Semaine 1 · J7 · <b>+3h</b> par semaine</p>
+          <h3 class="ramp__panel-title">Tes premières délégations</h3>
+          <p class="ramp__panel-text">Tu classes tes tâches par gain réel, puis tu montes ta première automatisation. Trois heures reviennent dès la première semaine.</p>
+        </div>
+        <div class="ramp__setup">
+          <p class="label">Ce que tu mets en place</p>
+          <ul>
+            <li>Tes dix tâches délégables, priorisées par gain</li>
+            <li>Ta première automatisation en service</li>
+            <li>Tes modèles de réponse enregistrés une bonne fois</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ramp__panel" id="palier-2" role="tabpanel" aria-labelledby="jalon-2">
+        <div>
+          <p class="ramp__panel-when">Semaine 2 · J14 · <b>+7h</b> par semaine</p>
+          <h3 class="ramp__panel-title">Claude connaît ton métier</h3>
+          <p class="ramp__panel-text">Il ne répond plus à des questions isolées : il travaille dans ton contexte, avec ton ton, sur tes dossiers.</p>
+        </div>
+        <div class="ramp__setup">
+          <p class="label">Ce que tu mets en place</p>
+          <ul>
+            <li>La mémoire configurée sur ton activité</li>
+            <li>Tes comptes-rendus rédigés sans toi</li>
+            <li>Tes mails récurrents et tes relances partis tout seuls</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ramp__panel" id="palier-3" role="tabpanel" aria-labelledby="jalon-3">
+        <div>
+          <p class="ramp__panel-when">Semaine 3 · J21 · <b>+11h</b> par semaine</p>
+          <h3 class="ramp__panel-title">Ça part sans toi</h3>
+          <p class="ramp__panel-text">Tu arrêtes de redemander. Les choses se déclenchent, tu passes derrière pour valider.</p>
+        </div>
+        <div class="ramp__setup">
+          <p class="label">Ce que tu mets en place</p>
+          <ul>
+            <li>Tes outils connectés à Claude</li>
+            <li>Tes tâches récurrentes automatisées</li>
+            <li>Ton tableau de suivi des heures à jour tout seul</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ramp__panel ramp__panel--final" id="palier-4" role="tabpanel" aria-labelledby="jalon-4">
+        <div>
+          <p class="ramp__panel-when">Semaine 4 · J30 · <b>+14h</b> par semaine</p>
+          <h3 class="ramp__panel-title">Tu choisis quoi faire de tes journées</h3>
+          <p class="ramp__panel-text">Tes process sont au clair et des systèmes travaillent pendant que tu dors. Plus une seule tâche à faible valeur ajoutée dans ta semaine. Restent 14 heures, et une seule question — tu les remets dans ton business pour aller chercher de la croissance, ou tu les rends à tes proches.</p>
+        </div>
+        <div class="ramp__setup">
+          <p class="label">Ce que tu as gagné</p>
+          <ul>
+            <li>Des systèmes qui tournent sans toi, y compris la nuit</li>
+            <li>Zéro tâche à faible valeur ajoutée</li>
+            <li>14 heures par semaine à réinvestir où tu veux</li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 3 — LE PROBLÈME
+     ====================================================================== -->
+<section class="section section--constat" id="probleme">
+  <div class="shell">
+    <blockquote class="constat reveal">
+      <span class="constat__mark" aria-hidden="true">“</span>
+      <p class="constat__line">Tu utilises un outil puissant <span class="italique">sans méthode</span>.</p>
+      <p class="constat__sub">Et un outil puissant sans méthode, ça donne des résultats ponctuels et une déception durable.</p>
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 4 — LA PREUVE
+     ====================================================================== -->
+<section class="section" id="preuve">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">La preuve</p>
+      <h2 class="h2">14h, ce n'est pas une estimation.<br><span class="italique">C'est une mesure.</span></h2>
+    </div>
+
+    <figure class="proof__video reveal">
+      <div class="proof__video-frame">
+        <iframe src="https://www.tella.tv/video/vid_cmt8j1n4z00n204ju2s5cgyn0/embed?b=0&amp;title=1&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=1"
+                title="Témoignage vidéo d'un participant au Cockpit Business"
+                loading="lazy" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <figcaption class="proof__video-caption">
+        <b>Cécile S.</b>
+        <span>Consultante IA</span>
+        <span class="proof__video-hours">+12h gagnées par semaine</span>
+      </figcaption>
+    </figure>
+    <div class="testimonials">
+
+      <!-- Témoignage 1 -->
+      <article class="testimonial reveal">
+        <div class="testimonial__top">
+          <!-- TODO photo — remplacer par <img class="testimonial__photo" src="…" alt="Portrait de …"> -->
+          <span class="testimonial__photo" data-initial="C">
+            <img src="assets/img/temoignages/clara.jpg" alt="Portrait de Clara" data-photo>
+          </span>
+          <div>
+            <span class="testimonial__name">Clara</span>
+            <span class="testimonial__role">Formatrice</span>
+          </div>
+        </div>
+        <p class="testimonial__hours">
+          <b>+10h</b>
+          <span>gagnées par semaine</span>
+        </p>
+        <dl class="testimonial__deleg">
+          <dt>Ce qui a été délégué</dt>
+          <dd>Comptes-rendus d'entretien, trames de fiches de poste, veille réglementaire, relances candidats.</dd>
+        </dl>
+        <blockquote>Salut Noé, globalement je passais mes vendredis à rattraper mes comptes-rendus d'entretien. Aujourd'hui ils sont rédigés pendant que je fais autre chose, et je me contente de relire. C'est un process parmi tant d'autres, mais c'est celui qui me fait gagner le plus de temps.</blockquote>
+      </article>
+
+      <!-- Témoignage 2 -->
+      <article class="testimonial reveal">
+        <div class="testimonial__top">
+          <span class="testimonial__photo" data-initial="T">
+            <img src="assets/img/temoignages/thomas.jpg" alt="Portrait de Thomas" data-photo>
+          </span>
+          <div>
+            <span class="testimonial__name">Thomas</span>
+            <span class="testimonial__role">CEO</span>
+          </div>
+        </div>
+        <p class="testimonial__hours">
+          <b>+14h</b>
+          <span>gagnées par semaine</span>
+        </p>
+        <dl class="testimonial__deleg">
+          <dt>Ce qui a été délégué</dt>
+          <dd>Comptes-rendus de comité, reporting hebdomadaire, relances commerciales, préparation des points d'équipe.</dd>
+        </dl>
+        <blockquote>J'avais déjà testé l'IA, comme tout le monde, sans rien en tirer. La différence ici, c'est qu'on part de mon agenda réel, pas d'une démo. Au bout d'un mois, j'ai récupéré une journée et demie par semaine.</blockquote>
+      </article>
+
+      <!-- Témoignage 3 -->
+      <article class="testimonial reveal">
+        <div class="testimonial__top">
+          <span class="testimonial__photo" data-initial="A">
+            <img src="assets/img/temoignages/ahmed.jpg" alt="Portrait de Ahmed" data-photo>
+          </span>
+          <div>
+            <span class="testimonial__name">Ahmed</span>
+            <span class="testimonial__role">Consultant stratégique</span>
+          </div>
+        </div>
+        <p class="testimonial__hours">
+          <b>+15h</b>
+          <span>gagnées par semaine</span>
+        </p>
+        <dl class="testimonial__deleg">
+          <dt>Ce qui a été délégué</dt>
+          <dd>Synthèses d'audit, notes de cadrage, réponses aux appels d'offres, veille réglementaire.</dd>
+        </dl>
+        <blockquote>Rien que le fait de me poser et de cartographier avec Noé comment je travaille m'a fait un bien fou&nbsp;: une grosse partie de ma semaine partait dans des tâches que je pouvais confier. Aujourd'hui mes notes de cadrage sortent en une heure au lieu d'une journée. Le gain de temps est COLOSSAL.</blockquote>
+      </article>
+
+    </div>
+
+    <!-- Mur de preuve sociale : captures de conversation, assets/img/preuves/
+         preuve1.png … preuve13.png. Les captures ont des largeurs natives très
+         différentes (272 à 1260 px) : le CSS ne les agrandit jamais au-delà de
+         leur taille réelle, sinon les plus petites deviennent floues. Une
+         capture introuvable voit son cadre disparaître, pas rester vide.
+         Pour en ajouter : dupliquer une <figure> et incrémenter le numéro. -->
+    <div class="proofwall reveal">
+      <div class="proofwall__head">
+        <p class="label">Ce qu'ils en disent, à chaud</p>
+        <p class="proofwall__note">Messages reçus pendant le programme.</p>
+      </div>
+
+      <div class="proofwall__grid">
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve1.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve2.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve3.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve4.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve5.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve6.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve7.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve8.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve9.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve10.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve11.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve12.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve13.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 5 — LA MÉTHODE CAP
+     ====================================================================== -->
+<section class="section" id="methode">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le mécanisme</p>
+      <h2 class="h2">La méthode <span class="italique">CAP</span>.</h2>
+      <p class="lede">Trois étapes — clarifier, automatiser, piloter. Et trois choses que tu récupères au passage&nbsp;: la lucidité, la capacité, le choix.</p>
+    </div>
+
+    <div class="caps">
+
+      <article class="cap reveal">
+        <p class="cap__letter">C</p>
+        <h3 class="cap__name">Clarifier</h3>
+        <p class="cap__claim">Tu vois enfin où part ton temps.</p>
+        <ul class="cap__steps">
+            <li>Vingt minutes de conversation avec Claude, pas un questionnaire à remplir.</li>
+            <li>Ta semaine écrite ligne par ligne, triée en trois cases&nbsp;: délégable tout de suite, délégable après explication, jamais.</li>
+            <li>Je relis l'audit avec toi avant qu'on installe quoi que ce soit.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">D'abord, la lucidité</span>Tu sais combien d'heures sont récupérables, lesquelles, et dans quel ordre les lâcher. Tu arrêtes de deviner ce qui te coûte du temps&nbsp;: tu le lis.</p>
+      </article>
+
+      <article class="cap reveal">
+        <p class="cap__letter">A</p>
+        <h3 class="cap__name">Automatiser</h3>
+        <p class="cap__claim">C'est là que les heures reviennent.</p>
+        <ul class="cap__steps">
+            <li>Tu ne construis rien à la main&nbsp;: c'est Claude qui pose les pièces.</li>
+            <li>Ta façon d'écrire, tes offres, tes procédures, tes accès — il t'interroge, tu réponds, il écrit.</li>
+            <li>Sur ton vrai travail, dès la première semaine. Pas sur une démo.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">Puis, la capacité</span>Tu ne gagnes pas trois automatisations. Tu gagnes l'équivalent d'un collaborateur qui connaît tes dossiers, écrit dans ton style et ne demande ni salaire ni formation. Mails, comptes-rendus, veille, relances, propositions&nbsp;: tout ce qui est répétable part sans toi.</p>
+      </article>
+
+      <article class="cap reveal">
+        <p class="cap__letter">P</p>
+        <h3 class="cap__name">Piloter</h3>
+        <p class="cap__claim">Tu passes de l'autre côté.</p>
+        <ul class="cap__steps">
+            <li>Tout est branché ensemble. Certaines choses tournent à heure fixe, même quand tu dors.</li>
+            <li>Tu valides et tu corriges au lieu d'exécuter.</li>
+            <li>On reprend le chiffre du départ et on le compare à la réalité.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">Enfin, le choix</span>Ton activité tourne quand tu n'es pas devant. Et les heures récupérées, c'est toi qui décides quoi en faire&nbsp;: les remettre dans ton business pour aller chercher de la croissance, ou les rendre à tes proches.</p>
+      </article>
+
+    </div>
+
+    <div class="capvs reveal">
+      <div class="capvs__col capvs__col--est">
+        <p class="capvs__title">Ce que c'est</p>
+        <ul>
+          <li>Un audit de consultant, encodé dans Claude puis relu avec toi.</li>
+          <li>Un travail sur tes vraies tâches, dès la première semaine.</li>
+          <li>Des systèmes que Claude construit lui-même, devant toi.</li>
+          <li>Un chiffre au départ, un chiffre à l'arrivée.</li>
+        </ul>
+      </div>
+      <div class="capvs__col capvs__col--nest">
+        <p class="capvs__title">Ce que ça n'est pas</p>
+        <ul>
+          <li>Une formation où tu regardes des vidéos.</li>
+          <li>Une liste d'outils à essayer. Il n'y en a qu'un.</li>
+          <li>Un truc réservé à ceux qui sont à l'aise avec la technique.</li>
+          <li>Une démo sur des cas fictifs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="why-claude reveal">
+      <p class="why-claude__label">Pourquoi Claude</p>
+      <p>La méthode est agnostique, l'outil ne l'est pas. Claude est celui qui absorbe le plus de contexte métier et écrit le plus juste — c'est ce qui permet de lui confier des pans entiers de travail plutôt que des prompts isolés.</p>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 6 — TON FORMATEUR
+     ====================================================================== -->
+<section class="section" id="noe">
+  <div class="shell">
+
+    <div class="noe__grid">
+      <figure class="noe__portrait reveal">
+        <img src="assets/img/noe/portrait.jpg" alt="Portrait de Noé Porchier-Cizaire" data-photo loading="lazy">
+        <p class="todo todo--media" data-todo="portrait-noe">Portrait — assets/img/noe/portrait.jpg</p>
+        <figcaption class="noe__name">Noé <span>Porchier-Cizaire</span></figcaption>
+      </figure>
+
+      <div class="noe__body reveal">
+        <p class="eyebrow">Ton formateur</p>
+        <h2 class="h2">Je n'ai pas vingt ans de méthodes à défendre.</h2>
+        <p class="p">J'ai 23 ans. Je n'ai pas appris à travailler avant l'IA pour ensuite essayer de l'y greffer — j'ai construit ma façon de travailler avec elle dès le départ. C'est pour ça que CAP n'est pas un rafistolage&nbsp;: c'est une méthode native.</p>
+        <p class="p">Aujourd'hui je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;: entre 30 et 40&nbsp;% de leur semaine était délégable. Et mon activité continue de tourner quand je suis à l'autre bout du monde — ce n'est pas un argument de style de vie, c'est la seule preuve qui compte&nbsp;: le système fonctionne sans moi.</p>
+
+        <div class="noe__stats">
+          <p class="noe__stat"><b>+2,9 M</b><span>impressions en 6 mois sur LinkedIn</span></p>
+          <p class="noe__stat"><b>+10 k€</b><span>par mois grâce à l'IA</span></p>
+          <p class="noe__stat"><b>+68h</b><span>par semaine déléguées à Claude</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nomore reveal">
+      <div class="nomore__head">
+        <p class="label">Ce que je ne fais plus moi-même</p>
+        <p class="nomore__note">Le détail des 68 heures.</p>
+      </div>
+      <ul class="nomore__list">
+          <li><span>Tout LinkedIn — écriture, programmation, engagement</span> <b>35h</b></li>
+          <li><span>Rédaction des livrables et des diapositives</span> <b>10h</b></li>
+          <li><span>Prospection</span> <b>6h</b></li>
+          <li><span>Veille IA</span> <b>5h</b></li>
+          <li><span>Supports de consulting</span> <b>5h</b></li>
+          <li><span>Comptes-rendus d'entretien</span> <b>5h</b></li>
+          <li><span>Gestion des mails</span> <b>2h</b></li>
+      </ul>
+    </div>
+
+    <!-- Preuves. Déposer les fichiers dans assets/img/noe/ sous les noms
+         référencés ci-dessous ; le cadre d'attente s'efface tout seul. -->
+    <div class="noe__proofs reveal">
+      <figure class="noe__proof">
+        <img src="assets/img/noe/linkedin.png" alt="Statistiques LinkedIn : 2 908 952 impressions, +794 %" data-photo loading="lazy">
+        <p class="todo todo--media" data-todo="capture-linkedin">Capture — statistiques LinkedIn</p>
+        <figcaption>Ce que produit le système LinkedIn que je ne pilote plus à la main.</figcaption>
+      </figure>
+      <figure class="noe__proof">
+        <img src="assets/img/noe/finances.jpg" alt="Notifications de virements reçus" data-photo loading="lazy">
+        <p class="todo todo--media" data-todo="capture-finances">Capture — preuve financière</p>
+        <figcaption>Et ce que ça rapporte pendant que je ne suis pas devant l'écran.</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 7 — COMMENT ÇA SE PASSE CONCRÈTEMENT
+     ====================================================================== -->
+<section class="section" id="programme">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le programme</p>
+      <h2 class="h2">Comment ça se passe concrètement.</h2>
+    </div>
+
+    <div class="notice reveal">
+      <p>
+        <b>30 jours, c'est le délai pour atteindre 14h — pas la durée de ton accès.</b>
+        <span>Le programme repose sur des modules asynchrones et un mastermind hebdomadaire. Les 30 jours mesurent le temps qu'il faut pour que le résultat apparaisse au méta-audit.</span>
+      </p>
+    </div>
+
+    <div class="how">
+
+      <article class="how__item card reveal">
+        <p class="how__num">01</p>
+        <h3 class="h3">Les modules</h3>
+        <p>Des vidéos courtes et actionnables, à consommer à ton rythme, dans l'ordre de la méthode. Chacune déploie une brique de CAP sur ton activité — tu la regardes, tu l'appliques, tu passes à la suivante.</p>
+        <ul class="how__specs">
+          <li>Format court, actionnable</li>
+          <li>À ton rythme, quand tu veux</li>
+          <li><b>Accès à vie</b></li>
+        </ul>
+      </article>
+
+      <article class="how__item card reveal">
+        <p class="how__num">02</p>
+        <h3 class="h3">Le mastermind hebdomadaire</h3>
+        <p>Le rendez-vous vivant&nbsp;: tu viens avec ton cas réel, on le traite en direct. Le créneau n'est pas imposé — je fais un sondage chaque semaine pour caler l'heure sur les disponibilités du groupe.</p>
+        <ul class="how__specs">
+          <li>Créneau fixé par sondage, chaque semaine</li>
+          <li><b>Groupe de 3 à 7 personnes</b>, jamais plus</li>
+          <li>Replays accessibles à vie</li>
+        </ul>
+      </article>
+
+      <article class="how__item card reveal">
+        <p class="how__num">03</p>
+        <h3 class="h3">La charge de travail réelle</h3>
+        <p>L'information que tout le monde cherche et que personne n'affiche. Quelques heures par semaine sur le premier mois — le temps de poser les systèmes. C'est un investissement de départ, pas un rythme à tenir&nbsp;: une fois en place, ce sont eux qui travaillent.</p>
+        <ul class="how__specs">
+          <li>Quelques heures par semaine, au début</li>
+          <li>Sur tes vraies tâches, jamais sur des exercices</li>
+          <li><b>Puis la liberté derrière</b></li>
+        </ul>
+      </article>
+
+      <article class="how__item card reveal">
+        <p class="how__num">04</p>
+        <h3 class="h3">L'environnement fourni</h3>
+        <p>Tu ne pars pas d'une page blanche. Tout est prêt à être branché sur ton activité.</p>
+        <ul class="env">
+          <li>Mémoire</li>
+          <li>Projets</li>
+          <li>Skills</li>
+          <li>Connecteurs</li>
+          <li>Automatisations</li>
+          <li>Templates de méta-audit</li>
+          <li>Tableau de suivi des heures</li>
+        </ul>
+      </article>
+
+      <article class="how__item how__item--wide card reveal">
+        <p class="how__num">05</p>
+        <h3 class="h3">Le déroulé, semaine par semaine</h3>
+        <div class="week">
+          <div class="week__col">
+            <p class="week__n">Semaine 1</p>
+            <p class="week__t">Clarifier</p>
+            <p class="week__d">Vingt minutes de conversation avec Claude, et ta semaine est écrite ligne par ligne. Tu ressors avec ton chiffre et ton plan.</p>
+          </div>
+          <div class="week__col">
+            <p class="week__n">Semaine 2</p>
+            <p class="week__t">Automatiser — les bases</p>
+            <p class="week__d">Claude pose lui-même les premières pièces&nbsp;: ta façon d'écrire, tes offres, tes procédures. Premières heures récupérées.</p>
+          </div>
+          <div class="week__col">
+            <p class="week__n">Semaine 3</p>
+            <p class="week__t">Automatiser — les branchements</p>
+            <p class="week__d">On branche tes outils&nbsp;: boîte mail, agenda, connecteurs. Les tâches récurrentes se déclenchent toutes seules.</p>
+          </div>
+          <div class="week__col">
+            <p class="week__n">Semaine 4</p>
+            <p class="week__t">Piloter</p>
+            <p class="week__d">Tu valides au lieu d'exécuter. On reprend le chiffre du départ&nbsp;: l'écart, c'est ton résultat.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 8 — POUR QUI, PAS POUR QUI
+     ====================================================================== -->
+<section class="section" id="pour-qui">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Qualification</p>
+      <h2 class="h2">Avant de réserver, sois honnête avec toi-même.</h2>
+    </div>
+
+    <div class="filter__cols">
+      <div class="filter__col filter__col--no card reveal">
+        <h3>Ce n'est pas pour toi si</h3>
+        <ul class="filter__list">
+          <li>Tu cherches une solution qui marche sans que tu changes ta façon de travailler.</li>
+          <li>Tu veux tester un outil de plus, pas revoir ton organisation.</li>
+          <li>Tu ne passeras pas à l'action entre deux modules.</li>
+          <li>Tu es déjà à l'aise avec l'IA et les automatisations — tu n'apprendras pas grand-chose.</li>
+          <li>Tu dois demander l'accord de quelqu'un pour t'engager.</li>
+        </ul>
+      </div>
+      <div class="filter__col filter__col--yes card reveal">
+        <h3>C'est pour toi si</h3>
+        <ul class="filter__list">
+          <li>Tu portes seul un volume de travail pensé pour plusieurs personnes.</li>
+          <li>Tu as essayé l'IA seul et tu as plafonné.</li>
+          <li>Tu es décisionnaire et tu peux commencer dans les 30 jours.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="filter__close reveal">Si tu portes seul un volume de travail pensé pour plusieurs personnes, tu es exactement au bon endroit.</p>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 9 — CE QUI SE PASSE PENDANT LES 20 MINUTES
+     ====================================================================== -->
+<section class="section" id="appel">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le diagnostic</p>
+      <h2 class="h2">45 minutes. Voilà exactement ce qu'on y fait.</h2>
+    </div>
+
+    <div class="call">
+      <article class="call__item card reveal">
+        <div class="call__n">1</div>
+        <h3 class="h3">Tu me décris ta semaine type.</h3>
+        <p>Pas ton projet, pas tes ambitions — ta semaine réelle, avec ce qui la remplit.</p>
+      </article>
+      <article class="call__item card reveal">
+        <div class="call__n">2</div>
+        <h3 class="h3">On identifie ensemble ce qui est délégable.</h3>
+        <p>C'est le début du méta-audit, en version courte.</p>
+      </article>
+      <article class="call__item card reveal">
+        <div class="call__n">3</div>
+        <h3 class="h3">Tu repars avec trois tâches à déléguer et par où commencer.</h3>
+        <p>Que tu rejoignes Le Cockpit Business ou non.</p>
+      </article>
+    </div>
+
+    <p class="call__honest reveal">Si à la fin de l'appel ce n'est pas pour toi, je te le dirai. Je préfère un «&nbsp;non&nbsp;» clair à un participant qui n'avancera pas.</p>
+
+    <div class="cta-group reveal">
+      <a class="btn btn--primary" href="#" data-booking>
+        <span>Réserver mon diagnostic — 45 min</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+    <ul class="microline">
+      <li>45 min</li>
+      <li>en visio</li>
+      <li>aucun engagement</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 10 — FAQ
+     ====================================================================== -->
+<section class="section" id="faq">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2">Ce qu'on me demande avant de réserver.</h2>
+    </div>
+
+    <div class="faq reveal">
+
+      <details class="faq__item">
+        <summary>Combien ça coûte&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Le tarif se discute en appel, une fois qu'on a vu ensemble ce que tu peux réellement récupérer. Annoncer un prix sans connaître ton contexte n'a aucun sens&nbsp;: la seule question qui compte, c'est le rapport entre ce que ça coûte et ce que ça te rend.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>Je n'ai pas le temps de me former.<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>C'est exactement le problème qu'on traite. La première étape ne demande pas d'apprendre quoi que ce soit&nbsp;: elle demande de regarder où part ton temps. Tout le reste part de là.</p>
+          <p>Concrètement&nbsp;: quelques heures par semaine sur le premier mois, le temps de poser les systèmes. Après, ce sont eux qui travaillent. Les modules sont des vidéos courtes, consommables quand tu veux, et le créneau du mastermind est calé chaque semaine sur les disponibilités du groupe.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>J'ai déjà essayé l'IA, ça n'a pas marché.<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Presque tout le monde ici est dans ce cas. Ce n'est pas l'outil qui a échoué, c'est l'absence de méthode&nbsp;: des prompts isolés, sans contexte métier et sans logique d'intégration. C'est précisément ce que corrige la méthode CAP.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>Et si ça ne marche pas pour moi&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Il n'y a pas de garantie de remboursement, et je préfère le dire franchement. Le filtre se fait avant&nbsp;: si pendant l'appel je vois que ce n'est pas pour toi, je te le dis.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>Faut-il savoir coder&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Non. Aucune ligne de code.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 11 — CTA FINAL
+     ====================================================================== -->
+<section class="section final" id="reserver">
+  <div class="shell final__inner">
+    <div class="reveal">
+      <p class="eyebrow">La suite</p>
+      <h2 class="h2">Tu as deux choix.</h2>
+
+      <div class="final__choices">
+        <p class="final__choice"><em>01</em><span>Continuer comme aujourd'hui&nbsp;: subir le volume, repousser ce qui compte, espérer que ça se libère tout seul.</span></p>
+        <p class="final__choice final__choice--b"><em>02</em><span>Ou consacrer 45 minutes à regarder où part vraiment ton temps.</span></p>
+      </div>
+
+      <div class="cta-group">
+        <a class="btn btn--primary" href="#" data-booking>
+          <span>Réserver mon diagnostic — 45 min</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="microline">
+        <li>45 min</li>
+        <li>en visio</li>
+        <li>aucun engagement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ======================================================================
+     PIED DE PAGE
+     ====================================================================== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__top">
+      <a class="brand" href="#" data-top aria-label="Le Cockpit Business — accueil">
+        <span class="brand__mark" aria-hidden="true">✦</span>
+        <span class="brand__name">Le Cockpit <span>Business</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Liens de pied de page">
+        <a href="programme.html">Programme</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" data-booking>Réserver mon diagnostic — 45 min</a>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="/confidentialite">Confidentialité</a>
+      </nav>
+    </div>
+
+    <p class="footer__legal">
+      Les 14h par semaine correspondent à l'écart moyen constaté entre le méta-audit initial et le méta-audit final des participants ayant suivi le programme jusqu'au bout. Ce résultat dépend de ton activité, de ton point de départ et du travail que tu fournis pendant les 30 jours&nbsp;: il ne constitue ni une garantie, ni une promesse de résultat individuel. Le Cockpit Business n'est pas affilié à Anthropic. Claude est une marque d'Anthropic PBC.
+    </p>
+    <p class="footer__copy">© <span data-year>2026</span> Le Cockpit Business — PRCZ. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js" defer></script>
+<!-- ======================================================================
+     BULLE FLOTTANTE — LE COCKPIT (version gratuite)
+     ====================================================================== -->
+<a class="wa" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x"
+   target="_blank" rel="noopener noreferrer">
+  <span class="wa__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  </span>
+  <span class="wa__text">
+    <span class="wa__title">Rejoindre Le Cockpit</span>
+    <span class="wa__sub">La version gratuite, sur WhatsApp</span>
+  </span>
+</a>
+
+</body>
+</html>

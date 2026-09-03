@@ -1,0 +1,33 @@
+Section « Ton formateur » — fichiers
+====================================
+
+  [ok]  portrait.jpg    800 × 800, 155 Ko
+  [ok]  linkedin.png    532 × 470,  60 Ko
+  [ok]  finances.jpg    900 × 900, 255 Ko
+
+Les trois sont en place. Pour les remplacer, déposer un fichier sous le même
+nom : rien à modifier dans le HTML.
+
+⚠️ finances.jpg — à masquer avant publication
+----------------------------------------------
+La capture laisse lire « La Merkanterie », qui semble être un client. Gocardless
+et Stichting Mollie Payments sont des prestataires de paiement, moins gênants,
+mais autant tout flouter. L'original pleine résolution est dans originaux/.
+
+⚠️ linkedin.png — légèrement adouci
+------------------------------------
+Ce fichier a été agrandi puis réduit par erreur lors d'une passe de
+compression. Le rendu à l'écran reste net, mais si tu le trouves mou, dépose
+à nouveau la capture d'origine : elle écrasera celle-ci.
+
+Compression
+-----------
+Ne jamais utiliser « sips -Z » sur une image plus petite que la cible : la
+commande agrandit au lieu de réduire, et le fichier grossit. Pour recompresser
+sans redimensionner :
+    sips -s format jpeg -s formatOptions 70 portrait.jpg --out portrait.jpg
+
+Dossier originaux/
+------------------
+Copies d'origine du portrait et de la preuve financière, avant compression.
+Le site ne les sert pas.

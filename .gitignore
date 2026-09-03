@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Photos sources en pleine résolution : elles ne servent pas au site,
+# seules les versions 220 px de temoignages/ sont chargées par la page.
+site/assets/img/temoignages/originaux/
+site/assets/img/noe/originaux/
+
+# Python
+__pycache__/
+*.pyc
