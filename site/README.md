@@ -36,7 +36,7 @@ Tous les CTA de la page pointent vers **une seule** destination, définie à un
 seul endroit : `assets/script.js`, ligne ~14.
 
 ```js
-var BOOKING_URL = 'https://calendly.com/noe-prcz/appel-strategique';
+var BOOKING_URL = 'https://cal.com/noe-porchier-cizaire/bilan-strategique-ia?utm_source=lp';
 ```
 
 C'est fait. Le script pose cette URL sur tous les `[data-booking]` des trois

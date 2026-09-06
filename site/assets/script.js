@@ -7,11 +7,11 @@
 
   /* --- 1. Lien de réservation ------------------------------------------
      UNE SEULE destination pour tous les CTA de la page.
-     Remplacer la valeur ci-dessous par le lien Calendly (ou équivalent).
+     Remplacer la valeur ci-dessous par le lien de réservation.
      Tant qu'elle vaut null, les CTA restent inertes et sont signalés
      dans la console — pour éviter de mettre en ligne des boutons morts. */
 
-  var BOOKING_URL = 'https://calendly.com/noe-prcz/appel-strategique';
+  var BOOKING_URL = 'https://cal.com/noe-porchier-cizaire/bilan-strategique-ia?utm_source=lp';
 
   var ctas = document.querySelectorAll('[data-booking]');
 
@@ -23,7 +23,7 @@
     });
   } else if (ctas.length) {
     console.warn(
-      '[Altitude] BOOKING_URL n\'est pas renseigné dans assets/script.js — ' +
+      '[Le Cockpit Business] BOOKING_URL n\'est pas renseigné dans assets/script.js — ' +
       ctas.length + ' CTA sans destination.'
     );
     Array.prototype.forEach.call(ctas, function (el) {
