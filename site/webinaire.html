@@ -49,7 +49,7 @@
 
      POUR CHAQUE NOUVELLE SESSION :
        1. le titre (h1), le sous-titre et « Au programme » si le sujet change ;
-       2. le bloc « session » : date et heure ;
+       2. la ligne « session » sous le sous-titre : date et heure ;
        3. si la session a son propre formulaire ActiveCampaign : les champs
           cachés u, f et or du formulaire ci-dessous (à relever sur la page
           https://prcz.activehosted.com/f/<numéro>). Le script n'a pas à
@@ -80,26 +80,27 @@
 
       <p class="optin__sub">Sans développeur, sans une ligne de code. Une heure en direct pour comprendre ce qu'est vraiment un agent IA — et repartir avec le tien en tête.</p>
 
+      <!-- La session. À mettre à jour à chaque live. -->
+      <ul class="optin__meta" aria-label="La session">
+        <li><b>Jeudi 17 septembre</b></li>
+        <li><b>20h30</b></li>
+        <li>1 heure</li>
+        <li>En ligne</li>
+      </ul>
+
+      <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->
+      <div class="optin__proof">
+        <div class="optin__faces" aria-hidden="true">
+          <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="G"><img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="L"><img src="assets/img/temoignages/louis.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="E"><img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo></span>
+        </div>
+        <p class="optin__proof-text"><b>+85 personnes</b> accompagnées</p>
+      </div>
     </div>
 
-    <dl class="session">
-      <div class="session__row">
-        <dt>Date</dt>
-        <dd>Jeudi 17 septembre</dd>
-      </div>
-      <div class="session__row">
-        <dt>Heure</dt>
-        <dd>20h30</dd>
-      </div>
-      <div class="session__row">
-        <dt>Durée</dt>
-        <dd>1 heure</dd>
-      </div>
-      <div class="session__row">
-        <dt>Où</dt>
-        <dd>En ligne — le lien arrive par email</dd>
-      </div>
-    </dl>
 
     <div class="optin__panel" id="inscription">
 
@@ -148,13 +149,24 @@
         <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
       </div>
 
+      <a class="optin__temoin" href="#temoignage-cecile">
+        <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
+        <span class="optin__temoin-id">
+          <b>Cécile, Consultante IA</b>
+          <span>+12h gagnées par semaine</span>
+        </span>
+        <span class="optin__temoin-voir">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          Voir son témoignage
+        </span>
+      </a>
+
     </div>
   </div>
 
-  <div class="proofbar">
+  <div class="proofbar proofbar--compact">
     <div class="shell">
-      <p class="proofbar__count"><b>+85</b> personnes accompagnées</p>
-      <p class="proofbar__label">Heures gagnées par semaine</p>
+      <p class="proofbar__label">Heures gagnées par semaine, par des membres du programme</p>
     </div>
 
     <div class="marquee" data-marquee>
@@ -256,7 +268,35 @@
 
 
 <!-- ======================================================================
-     SECTION 2 — AU PROGRAMME
+     SECTION 2 — TÉMOIGNAGE DE CÉCILE
+     Même vidéo Tella que sur l'accueil (section 4).
+     ====================================================================== -->
+<section class="section" id="temoignage-cecile">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Témoignage</p>
+      <h2 class="h2">Cécile a récupéré <span class="italique">12h par semaine</span>.</h2>
+    </div>
+
+    <figure class="proof__video reveal">
+      <div class="proof__video-frame">
+        <iframe src="https://www.tella.tv/video/vid_cmt8j1n4z00n204ju2s5cgyn0/embed?b=0&amp;title=1&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=1"
+                title="Témoignage vidéo de Cécile, membre du Cockpit Business"
+                loading="lazy" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <figcaption class="proof__video-caption">
+        <b>Cécile S.</b>
+        <span>Consultante IA</span>
+        <span class="proof__video-hours">+12h gagnées par semaine</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 3 — AU PROGRAMME
      Numérotés parce que c'est l'ordre réel du live.
      ====================================================================== -->
 <section class="section" id="programme-live">
@@ -293,7 +333,7 @@
 
 
 <!-- ======================================================================
-     SECTION 3 — POUR QUI
+     SECTION 4 — POUR QUI
      ====================================================================== -->
 <section class="section">
   <div class="shell livefor">
@@ -311,7 +351,7 @@
 
 
 <!-- ======================================================================
-     SECTION 4 — QUI ANIME
+     SECTION 5 — QUI ANIME
      ====================================================================== -->
 <section class="section">
   <div class="shell livehost reveal">
@@ -328,7 +368,7 @@
 
 
 <!-- ======================================================================
-     SECTION 5 — RAPPEL
+     SECTION 6 — RAPPEL
      ====================================================================== -->
 <section class="section final optin__rappel">
   <div class="shell livefinal reveal">

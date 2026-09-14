@@ -2127,53 +2127,69 @@ h1, h2, h3 {
 .optin__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-  grid-template-areas:
-    "copy    panel"
-    "session panel";
-  column-gap: clamp(40px, 6vw, 88px);
-  row-gap: 38px;
+  gap: clamp(40px, 6vw, 88px);
   align-items: center;
 }
-.optin__copy { grid-area: copy; align-self: end; }
-.session { grid-area: session; align-self: start; }
-.optin__panel { grid-area: panel; }
+/* Premier écran resserré : titre, formulaire, preuve et bandeau doivent tenir
+   sans défilement sur un portable (1440 × 900). */
+.optin .optin__grid { padding-block: clamp(36px, 4.5vw, 60px) clamp(28px, 3vw, 40px); }
 
-.optin__copy .eyebrow { margin-bottom: 28px; }
-.optin__copy .h1 { max-width: 18ch; text-wrap: balance; }
+.optin__copy .eyebrow { margin-bottom: 22px; }
+.optin__copy .h1 { max-width: 18ch; font-size: clamp(40px, 5.1vw, 74px); text-wrap: balance; }
 
 .optin__sub {
-  margin: 28px 0 0;
+  margin: 22px 0 0;
   max-width: 540px;
   font-size: clamp(17px, 1.4vw, 18.5px);
   line-height: 1.62;
   color: var(--ink-2);
 }
 
-/* Détails de la session : libellé en capitales, valeur à droite. */
-.session {
-  margin: 0;
-  max-width: 480px;
-  border-top: 1px solid var(--rule);
+/* La session : une ligne de pastilles sous le sous-titre. */
+.optin__meta {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.session__row {
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 16px;
-  align-items: baseline;
-  padding-block: 13px;
-  border-bottom: 1px solid var(--rule);
-}
-.session dt {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.optin__meta li {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--ink-2);
+  white-space: nowrap;
 }
-.session dd { margin: 0; font-size: 16px; font-weight: 600; color: var(--ink); }
+.optin__meta b { font-weight: 700; color: var(--ink); }
+
+/* Preuve sociale dans le premier écran : visages superposés + compteur. */
+.optin__proof {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+.optin__faces { display: flex; }
+.optin__faces .member__photo {
+  width: 40px; height: 40px;
+  font-size: 15px;
+  box-shadow: 0 0 0 3px var(--ivoire);
+}
+.optin__faces .member__photo + .member__photo { margin-left: -11px; }
+.optin__proof-text { margin: 0; font-size: 15px; color: var(--ink-2); }
+.optin__proof-text b { font-family: var(--serif); font-weight: 400; font-size: 22px; color: var(--accent-lg); }
 
 /* Le panneau garde sa place pendant la bascule formulaire → confirmation. */
-.optin__panel { scroll-margin-top: 110px; }
+.optin__panel {
+  scroll-margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
 .optin__form,
 .optin__merci {
@@ -2249,6 +2265,36 @@ h1, h2, h3 {
 .optin__merci-mark { margin: 0 0 14px; font-size: 20px; line-height: 1; color: var(--accent); }
 .optin__merci-text { margin: 12px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
 .optin__merci .btn { margin-top: 22px; }
+
+/* Témoignage de Cécile sous le formulaire : mène à sa vidéo. */
+.optin__temoin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 12px;
+  border-radius: 16px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  color: var(--ink);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.optin__temoin:hover { color: var(--ink); border-color: rgba(224, 90, 43, 0.35); transform: translateY(-1px); }
+.optin__temoin-id { display: flex; flex-direction: column; min-width: 0; }
+.optin__temoin-id b { font-size: 14px; font-weight: 700; }
+.optin__temoin-id span { font-family: var(--serif); font-size: 17px; line-height: 1.2; color: var(--accent-lg); }
+.optin__temoin-voir {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent-sm);
+  white-space: nowrap;
+}
+
+.optin .proofbar--compact { padding-block: 20px 26px; }
+.optin .proofbar--compact .proofbar__label { margin-bottom: 16px; max-width: none; color: var(--ink-2); }
 
 /* Déjà inscrit : plus rien ne doit inviter à réserver sa place. */
 .is-inscrit .optin__jump,
@@ -2336,11 +2382,8 @@ h1, h2, h3 {
 .livefinal .microline { justify-content: center; }
 
 @media (max-width: 1040px) {
-  /* Une colonne : titre, formulaire, puis détails de la session. */
-  .optin__grid {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "copy" "panel" "session";
-  }
+  /* Une colonne : titre, session et preuve, puis formulaire. */
+  .optin__grid { grid-template-columns: minmax(0, 1fr); }
   .optin__copy .h1 { max-width: 16ch; }
   .optin__panel { max-width: 520px; }
   .livesteps { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
@@ -2353,7 +2396,8 @@ h1, h2, h3 {
 
 @media (max-width: 620px) {
   .optin__jump { font-size: 13.5px; }
-  .session__row { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; }
+  .optin__temoin { flex-wrap: wrap; }
+  .optin__temoin-voir { margin-left: 52px; }
   .livestep { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; padding: 24px 22px 26px 18px; }
   .livestep__num { font-size: 44px; }
 }
