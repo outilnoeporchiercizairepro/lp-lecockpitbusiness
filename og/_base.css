@@ -1,0 +1,69 @@
+/* Cartes de partage 1200 × 630 (og:image). Rendues par Chrome sans interface :
+   voir render.sh. Mêmes jetons que le site. */
+@import url("../site/assets/styles.css");
+
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body { background: var(--ivoire); }
+
+.carte {
+  position: relative;
+  width: 1200px;
+  height: 630px;
+  padding: 64px 80px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Même lavis orange que le hero du site, en haut à droite. */
+.carte::before {
+  content: "";
+  position: absolute;
+  top: -380px; right: -260px;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(224, 90, 43, 0.16) 0%,
+    rgba(245, 166, 35, 0.10) 40%,
+    rgba(250, 247, 242, 0) 70%);
+}
+.carte > * { position: relative; }
+
+.carte .brand__mark { font-size: 24px; }
+.carte .brand__name { font-size: 19px; letter-spacing: 0.22em; }
+
+.carte__corps { margin-top: auto; }
+.carte .eyebrow { font-size: 16px; margin-bottom: 26px; }
+.carte .eyebrow::before { width: 34px; }
+.carte__titre {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.024em;
+  line-height: 0.98;
+}
+
+.carte__pied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.carte__pied b { color: var(--ink); font-weight: 700; }
+.pastilles { display: flex; gap: 10px; }
+.pastilles span {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+}

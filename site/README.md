@@ -503,3 +503,33 @@ des champs cachés au formulaire dans ActiveCampaign, puis les reporter ici.
 
 Le formulaire collecte prénom et email : la page `/confidentialite`, liée sous
 le bouton, devient **obligatoire** avant la mise en ligne (voir § 8).
+
+---
+
+## 11. Images de partage (aperçu des liens)
+
+Sans balise `og:image`, LinkedIn, WhatsApp, Slack… prennent la première
+image de la page — c'était la photo de Cécile du bandeau. Chaque page
+déclare maintenant sa carte 1200 × 630 :
+
+| Page | Image |
+|---|---|
+| accueil, programme, CGV | `assets/og/accueil.png` |
+| webinaire | `assets/og/webinaire.png` |
+
+Les sources sont en HTML, hors du dossier déployé, dans `og/` à la racine du
+dépôt (`accueil.html`, `webinaire.html`, `_base.css` qui reprend la feuille
+du site). Pour régénérer après une modification :
+
+```bash
+sh og/render.sh
+```
+
+Le script utilise Chrome sans interface. **La carte du webinaire porte la
+date de la session** : à mettre à jour dans `og/webinaire.html` et à
+régénérer à chaque nouveau live.
+
+Les réseaux gardent l'aperçu en cache. Après un changement d'image, forcer la
+relecture avec le LinkedIn Post Inspector
+(https://www.linkedin.com/post-inspector/) ; les anciens messages déjà
+envoyés gardent l'ancien aperçu.
