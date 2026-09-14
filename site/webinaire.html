@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinaire gratuit — Le Cockpit Business</title>
+<meta name="description" content="Webinaire gratuit en direct : comment récupérer 14h par semaine avec Claude, même si tu n'as jamais codé. La méthode CAP, expliquée par Noé Porchier-Cizaire.">
+<link rel="canonical" href="https://lecockpit-business.fr/webinaire">
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#e05a2b">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Le Cockpit Business">
+<meta property="og:title" content="Webinaire gratuit — récupère 14h par semaine avec Claude">
+<meta property="og:description" content="En direct avec Noé Porchier-Cizaire : la méthode CAP pour faire de Claude ton bras droit, même si tu n'as jamais codé.">
+<meta property="og:url" content="https://lecockpit-business.fr/webinaire">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-reveal');
+  }
+  /* Photo manquante : voir le commentaire équivalent dans index.html. */
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && el.hasAttribute('data-photo')) el.remove();
+  }, true);
+</script>
+</head>
+<body>
+
+<!-- ======================================================================
+     PAGE D'INSCRIPTION AUX WEBINAIRES
+     Un seul objectif : l'inscription. Pas de liens de navigation, pas de
+     bouton de réservation d'appel, pas de bulle WhatsApp avant l'inscription
+     — chaque sortie est une inscription perdue.
+
+     POUR CHAQUE NOUVELLE SESSION, trois endroits à mettre à jour :
+       1. le titre du live (h1) si le sujet change ;
+       2. le bloc « session » : date, heure, durée, plateforme ;
+       3. rien d'autre — le formulaire et sa destination sont réglés une fois
+          pour toutes dans assets/script.js (WEBINAR_FORM_URL).
+     ====================================================================== -->
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="brand" href="index.html" aria-label="Le Cockpit Business — accueil">
+      <span class="brand__mark" aria-hidden="true">✦</span>
+      <span class="brand__name">Le Cockpit <span>Business</span></span>
+    </a>
+    <a class="optin__jump" href="#inscription">Réserver ma place</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================================================================
+     SECTION 1 — TITRE ET FORMULAIRE
+     ====================================================================== -->
+<section class="hero optin" id="haut">
+  <div class="shell hero__inner optin__grid">
+
+    <div class="optin__copy">
+      <p class="eyebrow">Webinaire gratuit · en direct</p>
+
+      <h1 class="h1">Récupère <span class="italique">14h par semaine</span> avec Claude.</h1>
+
+      <p class="optin__sub">Même si tu n'as jamais codé. En direct, je te montre la méthode CAP&nbsp;: comment repérer ce qui te prend du temps, le confier à Claude, et garder la main sur le résultat.</p>
+
+    </div>
+
+    <dl class="session">
+      <div class="session__row">
+        <dt>Date</dt>
+        <dd><span class="todo" data-todo="webinaire-date">Date du live</span></dd>
+      </div>
+      <div class="session__row">
+        <dt>Heure</dt>
+        <dd><span class="todo" data-todo="webinaire-heure">Heure (Paris)</span></dd>
+      </div>
+      <div class="session__row">
+        <dt>Durée</dt>
+        <dd><span class="todo" data-todo="webinaire-duree">Durée</span></dd>
+      </div>
+      <div class="session__row">
+        <dt>Où</dt>
+        <dd><span class="todo" data-todo="webinaire-plateforme">Plateforme — le lien arrive par email</span></dd>
+      </div>
+    </dl>
+
+    <div class="optin__panel" id="inscription">
+
+      <form class="optin__form card" method="post" data-optin novalidate>
+        <p class="optin__form-title">Réserve ta place</p>
+        <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
+
+        <div class="field">
+          <label for="optin-prenom">Prénom</label>
+          <input id="optin-prenom" name="prenom" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="optin-email">Email</label>
+          <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+
+        <!-- Provenance du trafic, remplie par script.js depuis l'URL. -->
+        <input type="hidden" name="utm_source">
+        <input type="hidden" name="utm_medium">
+        <input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content">
+
+        <button class="btn btn--primary optin__submit" type="submit">
+          <span>Réserver ma place</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+
+        <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
+
+        <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="/confidentialite">Confidentialité</a></p>
+      </form>
+
+      <!-- Affiché à la place du formulaire quand la page est ouverte avec
+           ?inscrit=1 — l'adresse de retour à régler chez l'outil d'emailing. -->
+      <div class="optin__merci card" data-optin-merci hidden>
+        <p class="optin__merci-mark" aria-hidden="true">✦</p>
+        <p class="optin__form-title">C'est noté.</p>
+        <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
+        <p class="optin__merci-text">En attendant le live, tu peux rejoindre Le Cockpit, la communauté gratuite sur WhatsApp.</p>
+        <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="proofbar">
+    <div class="shell">
+      <p class="proofbar__count"><b>+85</b> personnes accompagnées</p>
+      <p class="proofbar__label">Heures gagnées par semaine</p>
+    </div>
+
+    <div class="marquee" data-marquee>
+      <ul class="marquee__track">
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Cécile</span>
+            <span class="member__role">Consultante IA</span>
+          </div>
+          <span class="member__hours">+12h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="E">
+            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Eleanor</span>
+            <span class="member__role">Consultante RH</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Mohamed</span>
+            <span class="member__role">Consultant Énergie</span>
+          </div>
+          <span class="member__hours">+15h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="G">
+            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Gaëtan</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+18h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="L">
+            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Louis</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+20h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Julian</span>
+            <span class="member__role">Investisseur</span>
+          </div>
+          <span class="member__hours">+30h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Camilha</span>
+            <span class="member__role">En reconversion</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Jérôme</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+14h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Michel</span>
+            <span class="member__role">Conseiller Gestion Patrimoine</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 2 — CE QUE TU VAS VOIR
+     Les trois temps suivent réellement la méthode CAP : les lettres ne sont
+     pas décoratives.
+     ====================================================================== -->
+<section class="section" id="programme-live">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Pendant le live</p>
+      <h2 class="h2">Ce que tu vas voir.</h2>
+    </div>
+
+    <ol class="livesteps">
+      <li class="livestep card reveal">
+        <span class="livestep__letter" aria-hidden="true">C</span>
+        <h3 class="h3">Clarifier</h3>
+        <p>Où part vraiment ta semaine. Pourquoi, chez la plupart des solopreneurs et des cadres, 30 à 40&nbsp;% du temps est délégable — et comment le repérer chez toi.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__letter" aria-hidden="true">A</span>
+        <h3 class="h3">Automatiser</h3>
+        <p>Ce que Claude peut faire à ta place, branché sur tes outils du quotidien&nbsp;: emails, agenda, veille, livrables. Des cas réels, pas une liste de fonctionnalités.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__letter" aria-hidden="true">P</span>
+        <h3 class="h3">Piloter</h3>
+        <p>Comment garder la main sur ce qui tourne sans toi, pour que le temps récupéré reste récupéré.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 3 — POUR QUI
+     ====================================================================== -->
+<section class="section">
+  <div class="shell livefor">
+    <div class="section__head reveal">
+      <p class="eyebrow">Pour qui</p>
+      <h2 class="h2">Tu es au bon endroit si…</h2>
+    </div>
+    <ul class="livefor__list reveal">
+      <li>Tu portes seul un volume de travail pensé pour plusieurs personnes.</li>
+      <li>Tu as essayé l'IA seul et tu as plafonné.</li>
+      <li>Tu n'as jamais codé, et tu n'as pas l'intention de t'y mettre.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 4 — QUI ANIME
+     ====================================================================== -->
+<section class="section">
+  <div class="shell livehost reveal">
+    <figure class="livehost__portrait">
+      <img src="assets/img/noe/portrait.jpg" alt="Portrait de Noé Porchier-Cizaire" data-photo loading="lazy">
+    </figure>
+    <div class="livehost__body">
+      <p class="eyebrow">Qui anime</p>
+      <h2 class="h2">Noé Porchier-Cizaire</h2>
+      <p class="p">Je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;; la méthode CAP est née de ce travail. Pendant le live, je te montre ce que j'applique à ma propre activité.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 5 — RAPPEL
+     ====================================================================== -->
+<section class="section final optin__rappel">
+  <div class="shell livefinal reveal">
+    <h2 class="h2">Viens voir ce que tu pourrais <span class="italique">ne plus faire toi-même</span>.</h2>
+    <a class="btn btn--primary" href="#inscription">
+      <span>Réserver ma place</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </a>
+    <ul class="microline">
+      <li>gratuit</li>
+      <li>en direct</li>
+      <li>sans engagement</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__top">
+      <a class="brand" href="index.html" aria-label="Le Cockpit Business — accueil">
+        <span class="brand__mark" aria-hidden="true">✦</span>
+        <span class="brand__name">Le Cockpit <span>Business</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Liens de pied de page">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="/confidentialite">Confidentialité</a>
+      </nav>
+    </div>
+    <p class="footer__legal">
+      Les 14h par semaine correspondent à l'écart moyen constaté entre le méta-audit initial et le méta-audit final des participants ayant suivi le programme jusqu'au bout. Ce résultat dépend de ton activité, de ton point de départ et du travail que tu fournis&nbsp;: il ne constitue ni une garantie, ni une promesse de résultat individuel. Le Cockpit Business n'est pas affilié à Anthropic. Claude est une marque d'Anthropic PBC.
+    </p>
+    <p class="footer__copy">© <span data-year>2026</span> Le Cockpit Business — PRCZ. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>

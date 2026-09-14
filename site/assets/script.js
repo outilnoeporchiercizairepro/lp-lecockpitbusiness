@@ -273,4 +273,82 @@
 
   var year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  /* --- 10. Inscription au webinaire -----------------------------------------
+     Destination du formulaire de webinaire.html : l'adresse d'envoi fournie
+     par l'outil d'emailing (action de formulaire, webhook…). Envoi en POST
+     classique, sans fetch : ça fonctionne avec n'importe quel outil, sans
+     dépendre de ses règles CORS.
+
+     Pour afficher la confirmation sur la page, régler l'adresse de retour
+     de l'outil sur : https://lecockpit-business.fr/webinaire?inscrit=1
+
+     Tant que la valeur vaut null, l'envoi est bloqué avec un message visible
+     et un avertissement en console — comme pour BOOKING_URL. */
+
+  var WEBINAR_FORM_URL = null;
+
+  var optin = document.querySelector('[data-optin]');
+
+  if (optin) {
+    var params = new URLSearchParams(window.location.search);
+    var status = optin.querySelector('[data-optin-status]');
+    var merci = document.querySelector('[data-optin-merci]');
+
+    // Retour de l'outil d'emailing : la confirmation remplace le formulaire.
+    if (params.get('inscrit') === '1' && merci) {
+      optin.hidden = true;
+      merci.hidden = false;
+      document.documentElement.classList.add('is-inscrit');
+    }
+
+    // Provenance : les utm_* de l'URL suivent l'inscription.
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (cle) {
+      var champ = optin.querySelector('input[name="' + cle + '"]');
+      if (champ && params.get(cle)) champ.value = params.get(cle);
+    });
+
+    if (WEBINAR_FORM_URL) optin.setAttribute('action', WEBINAR_FORM_URL);
+
+    var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    optin.addEventListener('submit', function (e) {
+      var prenom = optin.elements.prenom;
+      var email = optin.elements.email;
+      var erreur = '';
+
+      prenom.value = prenom.value.trim();
+      email.value = email.value.trim();
+
+      prenom.setAttribute('aria-invalid', String(!prenom.value));
+      email.setAttribute('aria-invalid', String(!EMAIL.test(email.value)));
+
+      if (!prenom.value) erreur = 'Indique ton prénom.';
+      else if (!EMAIL.test(email.value)) erreur = 'Cette adresse email ne semble pas valide.';
+
+      if (erreur) {
+        e.preventDefault();
+        status.textContent = erreur;
+        (prenom.value ? email : prenom).focus();
+        return;
+      }
+
+      if (!WEBINAR_FORM_URL) {
+        e.preventDefault();
+        status.textContent = 'Les inscriptions ne sont pas encore ouvertes.';
+        console.warn('[Le Cockpit Business] WEBINAR_FORM_URL n\'est pas renseigné dans assets/script.js — inscription non envoyée.');
+        return;
+      }
+
+      // Envoi réel : on évite le double clic pendant le chargement.
+      status.textContent = '';
+      optin.querySelector('button[type="submit"]').disabled = true;
+    });
+
+    // Retour arrière depuis la page de l'outil : le navigateur restaure la
+    // page depuis son cache avec le bouton encore désactivé.
+    window.addEventListener('pageshow', function () {
+      optin.querySelector('button[type="submit"]').disabled = false;
+    });
+  }
 })();

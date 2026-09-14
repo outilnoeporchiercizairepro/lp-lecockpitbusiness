@@ -1,14 +1,16 @@
 # Le Cockpit Business — lecockpit-business.fr
 
-Landing page statique, une seule page, un seul job : faire réserver un appel de 20 min.
+Site statique de quatre pages. La page de vente a un seul job : faire réserver
+un diagnostic de 45 min. La page webinaire en a un autre : faire s'inscrire au live.
 
 ```
 site/
 ├── index.html          la page de vente
 ├── programme.html      le détail du programme (présenté en call)
 ├── cgv.html            conditions générales de vente
+├── webinaire.html      page d'inscription aux webinaires (/webinaire)
 ├── assets/styles.css   design system « Ivoire éditorial »
-├── assets/script.js    réservation, nav, bandeau, photos, courbe, FAQ
+├── assets/script.js    réservation, nav, bandeau, photos, courbe, FAQ, inscription
 ├── assets/img/         photos des témoignages et captures de preuve
 └── serve.py            serveur local sans cache (développement uniquement)
 ```
@@ -439,3 +441,51 @@ Non traité ici, aucun de ces fichiers ne se trouve dans le dossier de travail :
 
 À retirer impérativement de la FAQ en production : « Évidemment que oui. 25
 heures, c'est le strict minimum. Certains gagnent 30 à 40 heures. »
+
+---
+
+## 10. La page Webinaire — `/webinaire`
+
+`webinaire.html`, servie sous `/webinaire` en production (nginx essaie
+`$uri.html`). En local : http://localhost:8788/webinaire.html.
+
+**Un seul objectif, l'inscription.** Pas de liens de navigation, pas de bouton
+« Réserver un appel », pas de bulle WhatsApp : chaque sortie avant le
+formulaire est une inscription perdue. La marque renvoie tout de même vers
+l'accueil. La communauté WhatsApp n'est proposée qu'**après** l'inscription,
+sur l'écran de confirmation.
+
+### À chaque nouvelle session
+
+Le bloc « session » (date, heure, durée, plateforme) est en placeholders
+`data-todo="webinaire-*"`. Les remplir, et changer le titre si le sujet
+change. Aucune durée n'a été écrite en dur ailleurs dans la page — ne pas en
+réintroduire une dans le titre ou le rappel sans la vérifier.
+
+### Brancher le formulaire — `assets/script.js`, section 10
+
+```js
+var WEBINAR_FORM_URL = null;
+```
+
+Y mettre l'adresse d'envoi fournie par l'outil d'emailing (action de
+formulaire ActiveCampaign, Brevo, webhook n8n…). Tant qu'elle vaut `null`,
+l'envoi est bloqué avec « Les inscriptions ne sont pas encore ouvertes » et un
+avertissement console.
+
+L'envoi est un **POST de formulaire classique**, pas un `fetch` : il marche
+avec n'importe quel outil sans dépendre de ses règles CORS. Champs envoyés :
+`prenom`, `email`, et `utm_source`, `utm_medium`, `utm_campaign`,
+`utm_content` recopiés depuis l'URL de la page.
+
+**Écran de confirmation** : régler l'adresse de retour de l'outil sur
+`https://lecockpit-business.fr/webinaire?inscrit=1`. La page remplace alors le
+formulaire par la confirmation et masque les invitations à s'inscrire.
+
+La confirmation annonce que le lien de connexion arrive par email : c'est à
+l'outil d'emailing de l'envoyer.
+
+### Données personnelles
+
+Le formulaire collecte prénom et email : la page `/confidentialite`, liée sous
+le bouton, devient **obligatoire** avant la mise en ligne (voir § 8).

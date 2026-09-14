@@ -2107,3 +2107,247 @@ h1, h2, h3 {
   .legal__id dt { width: auto; }
   .legal__id > div { flex-direction: column; gap: 2px; }
 }
+
+/* --- 25. Page Webinaire (inscription) ------------------------------------
+   Une page à un seul objectif : l'inscription. Le formulaire est dans le
+   premier écran, à droite du titre ; il repasse sous le titre en mobile.
+   Petits textes en --ink-2 et non --ink-3/--ink-4 : ces deux jetons sont
+   sous le seuil de contraste AA sur ivoire, on ne les propage pas ici.
+   ------------------------------------------------------------------------ */
+
+/* Lien discret dans la barre : ramène au formulaire, sans ouvrir de sortie. */
+.optin__jump {
+  white-space: nowrap;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--accent-sm);
+}
+.optin__jump:hover { color: var(--accent-hover); }
+
+.optin__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  grid-template-areas:
+    "copy    panel"
+    "session panel";
+  column-gap: clamp(40px, 6vw, 88px);
+  row-gap: 38px;
+  align-items: center;
+}
+.optin__copy { grid-area: copy; align-self: end; }
+.session { grid-area: session; align-self: start; }
+.optin__panel { grid-area: panel; }
+
+.optin__copy .eyebrow { margin-bottom: 28px; }
+.optin__copy .h1 { max-width: 13ch; text-wrap: balance; }
+
+.optin__sub {
+  margin: 28px 0 0;
+  max-width: 540px;
+  font-size: clamp(17px, 1.4vw, 18.5px);
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
+/* Détails de la session : libellé en capitales, valeur à droite. */
+.session {
+  margin: 0;
+  max-width: 480px;
+  border-top: 1px solid var(--rule);
+}
+.session__row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding-block: 13px;
+  border-bottom: 1px solid var(--rule);
+}
+.session dt {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.session dd { margin: 0; font-size: 16px; font-weight: 600; color: var(--ink); }
+
+/* Le panneau garde sa place pendant la bascule formulaire → confirmation. */
+.optin__panel { scroll-margin-top: 110px; }
+
+.optin__form,
+.optin__merci {
+  padding: clamp(26px, 3vw, 36px);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.optin__form-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 2.6vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.optin__form-note {
+  margin: 8px 0 24px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.field + .field { margin-top: 16px; }
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.field input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid var(--btn-border);
+  background: var(--ivoire);
+  font: inherit;
+  font-size: 16px;             /* 16 px minimum : sous iOS, en dessous, le champ zoome */
+  color: var(--ink);
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.field input:hover { border-color: rgba(23, 19, 15, 0.3); }
+.field input:focus {
+  outline: none;
+  background: var(--blanc);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(224, 90, 43, 0.16);
+}
+.field input[aria-invalid="true"] { border-color: var(--accent-sm); }
+
+.optin__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 22px;
+}
+.optin__submit[disabled] { opacity: .7; cursor: progress; }
+
+.optin__status { margin: 12px 0 0; font-size: 14px; line-height: 1.5; color: var(--accent-sm); }
+.optin__status:empty { display: none; }
+
+.optin__consent {
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.optin__consent a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Confirmation */
+.optin__merci { text-align: left; }
+.optin__merci-mark { margin: 0 0 14px; font-size: 20px; line-height: 1; color: var(--accent); }
+.optin__merci-text { margin: 12px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
+.optin__merci .btn { margin-top: 22px; }
+
+/* Déjà inscrit : plus rien ne doit inviter à réserver sa place. */
+.is-inscrit .optin__jump,
+.is-inscrit .optin__rappel { display: none; }
+
+/* Le bandeau sous le premier écran : même espacement que sur l'accueil. */
+.optin .proofbar { position: relative; z-index: 1; }
+
+/* Ce que tu vas voir — les trois temps de CAP */
+.livesteps {
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.livestep { padding: 30px 30px 32px; }
+.livestep__letter {
+  display: block;
+  font-family: var(--serif);
+  font-size: 56px;
+  line-height: 0.78;
+  color: var(--accent-lg);
+}
+.livestep .h3 { margin-top: 22px; }
+.livestep p { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+
+/* Pour qui */
+.livefor__list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  max-width: 760px;
+  border-top: 1px solid var(--rule);
+}
+.livefor__list li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 14px;
+  align-items: baseline;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--rule);
+  font-size: clamp(17px, 1.5vw, 19px);
+  line-height: 1.5;
+  color: var(--ink);
+}
+.livefor__list li::before { content: "✦"; font-size: 12px; color: var(--accent); }
+
+/* Qui anime */
+.livehost {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.livehost__portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--creme);
+  box-shadow: var(--shadow-sm);
+}
+.livehost__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.livehost__body .eyebrow { margin-bottom: 20px; }
+.livehost__body .p { margin-top: 20px; max-width: 58ch; }
+
+/* Rappel */
+.livefinal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.livefinal .h2 { max-width: 20ch; text-wrap: balance; margin-bottom: 36px; }
+.livefinal .microline { justify-content: center; }
+
+@media (max-width: 1040px) {
+  /* Une colonne : titre, formulaire, puis détails de la session. */
+  .optin__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "copy" "panel" "session";
+  }
+  .optin__copy .h1 { max-width: 16ch; }
+  .optin__panel { max-width: 520px; }
+  .livesteps { grid-template-columns: minmax(0, 1fr); max-width: 620px; }
+}
+
+@media (max-width: 720px) {
+  .livehost { grid-template-columns: minmax(0, 1fr); }
+  .livehost__portrait { max-width: 240px; }
+}
+
+@media (max-width: 620px) {
+  .optin__jump { font-size: 13.5px; }
+  .session__row { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; }
+  .livestep { padding: 24px 22px 26px; }
+}
