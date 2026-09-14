@@ -71,100 +71,9 @@
      SECTION 1 — TITRE ET FORMULAIRE
      ====================================================================== -->
 <section class="hero optin" id="haut">
-  <div class="shell hero__inner optin__grid">
-
-    <div class="optin__copy">
-      <p class="eyebrow">Webinaire gratuit · en direct</p>
-
-      <h1 class="h1">Construis tes premiers agents IA et gagne <span class="italique">14h par semaine</span>.</h1>
-
-      <p class="optin__sub">Sans développeur, sans une ligne de code. Une heure en direct pour comprendre ce qu'est vraiment un agent IA — et repartir avec le tien en tête.</p>
-
-      <!-- La session. À mettre à jour à chaque live. -->
-      <ul class="optin__meta" aria-label="La session">
-        <li><b>Jeudi 17 septembre</b></li>
-        <li><b>20h30</b></li>
-        <li>1 heure</li>
-        <li>En ligne</li>
-      </ul>
-
-      <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->
-      <div class="optin__proof">
-        <div class="optin__faces" aria-hidden="true">
-          <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
-          <span class="member__photo" data-initial="G"><img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo></span>
-          <span class="member__photo" data-initial="L"><img src="assets/img/temoignages/louis.jpg" alt="" data-photo></span>
-          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo></span>
-          <span class="member__photo" data-initial="E"><img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo></span>
-        </div>
-        <p class="optin__proof-text"><b>+85 personnes</b> accompagnées</p>
-      </div>
-    </div>
-
-
-    <div class="optin__panel" id="inscription">
-
-      <!-- Formulaire ActiveCampaign n° 117. Sans JavaScript, il est envoyé tel
-           quel à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
-      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin novalidate>
-        <p class="optin__form-title">Réserve ta place</p>
-        <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
-
-        <input type="hidden" name="u" value="117">
-        <input type="hidden" name="f" value="117">
-        <input type="hidden" name="s" value="">
-        <input type="hidden" name="c" value="0">
-        <input type="hidden" name="m" value="0">
-        <input type="hidden" name="act" value="sub">
-        <input type="hidden" name="v" value="2">
-        <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
-
-        <div class="field">
-          <label for="optin-prenom">Prénom</label>
-          <input id="optin-prenom" name="firstname" type="text" autocomplete="given-name" required>
-        </div>
-        <div class="field">
-          <label for="optin-email">Email</label>
-          <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
-        </div>
-
-
-        <button class="btn btn--primary optin__submit" type="submit">
-          <span>Réserver ma place</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </button>
-
-        <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
-
-        <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="/confidentialite">Confidentialité</a></p>
-      </form>
-
-      <!-- Affiché à la place du formulaire après l'inscription, ou quand la
-           page est ouverte avec ?inscrit=1. -->
-      <div class="optin__merci card" data-optin-merci tabindex="-1" hidden>
-        <p class="optin__merci-mark" aria-hidden="true">✦</p>
-        <p class="optin__form-title">C'est noté.</p>
-        <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
-        <p class="optin__merci-text">En attendant le live, tu peux rejoindre Le Cockpit, la communauté gratuite sur WhatsApp.</p>
-        <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
-      </div>
-
-      <a class="optin__temoin" href="#temoignage-cecile">
-        <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
-        <span class="optin__temoin-id">
-          <b>Cécile, Consultante IA</b>
-          <span>+12h gagnées par semaine</span>
-        </span>
-        <span class="optin__temoin-voir">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
-          Voir son témoignage
-        </span>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="proofbar proofbar--compact">
+  <!-- Bandeau des membres, tout en haut : la preuve est la première chose
+       vue, avant même le titre. Même série que sur l'accueil. -->
+  <div class="proofbar proofbar--compact proofbar--top">
     <div class="shell">
       <p class="proofbar__label">Heures gagnées par semaine, par des membres du programme</p>
     </div>
@@ -264,12 +173,108 @@
       </ul>
     </div>
   </div>
+
+  <div class="shell hero__inner optin__grid">
+
+    <div class="optin__copy">
+      <p class="eyebrow">Webinaire gratuit · en direct</p>
+
+      <h1 class="h1">Construis tes premiers agents IA et gagne <span class="italique">14h par semaine</span>.</h1>
+
+      <p class="optin__sub">Sans développeur, sans une ligne de code. Une heure en direct pour comprendre ce qu'est vraiment un agent IA — et repartir avec le tien en tête.</p>
+
+      <!-- La session. À mettre à jour à chaque live. -->
+      <ul class="optin__meta" aria-label="La session">
+        <li><b>Jeudi 17 septembre</b></li>
+        <li><b>20h30</b></li>
+        <li>1 heure</li>
+        <li>En ligne</li>
+      </ul>
+
+      <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->
+      <div class="optin__proof">
+        <div class="optin__faces" aria-hidden="true">
+          <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="G"><img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="L"><img src="assets/img/temoignages/louis.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="E"><img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo></span>
+        </div>
+        <p class="optin__proof-text"><b>+85 personnes</b> accompagnées</p>
+      </div>
+    </div>
+
+
+    <div class="optin__panel" id="inscription">
+
+      <!-- Formulaire ActiveCampaign n° 117. Sans JavaScript, il est envoyé tel
+           quel à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
+      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin novalidate>
+        <p class="optin__form-title">Réserve ta place</p>
+        <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
+
+        <input type="hidden" name="u" value="117">
+        <input type="hidden" name="f" value="117">
+        <input type="hidden" name="s" value="">
+        <input type="hidden" name="c" value="0">
+        <input type="hidden" name="m" value="0">
+        <input type="hidden" name="act" value="sub">
+        <input type="hidden" name="v" value="2">
+        <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+
+        <div class="field">
+          <label for="optin-prenom">Prénom</label>
+          <input id="optin-prenom" name="firstname" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="optin-email">Email</label>
+          <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+
+
+        <button class="btn btn--primary optin__submit" type="submit">
+          <span>Réserver ma place</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+
+        <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
+
+        <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="/confidentialite">Confidentialité</a></p>
+      </form>
+
+      <!-- Affiché à la place du formulaire après l'inscription, ou quand la
+           page est ouverte avec ?inscrit=1. -->
+      <div class="optin__merci card" data-optin-merci tabindex="-1" hidden>
+        <p class="optin__merci-mark" aria-hidden="true">✦</p>
+        <p class="optin__form-title">C'est noté.</p>
+        <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
+        <p class="optin__merci-text">En attendant le live, tu peux rejoindre Le Cockpit, la communauté gratuite sur WhatsApp.</p>
+        <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
+      </div>
+
+      <a class="optin__temoin" href="#temoignage-cecile">
+        <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
+        <span class="optin__temoin-id">
+          <b>Cécile, Consultante IA</b>
+          <span>+12h gagnées par semaine</span>
+        </span>
+        <span class="optin__temoin-voir">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+          Voir son témoignage
+        </span>
+      </a>
+
+    </div>
+  </div>
+
 </section>
 
 
 <!-- ======================================================================
-     SECTION 2 — TÉMOIGNAGE DE CÉCILE
-     Même vidéo Tella que sur l'accueil (section 4).
+     SECTION 2 — TÉMOIGNAGES
+     Vidéo de Cécile puis mur de captures WhatsApp : mêmes contenus que la
+     section 4 de l'accueil. Une capture ajoutée dans assets/img/preuves/ doit
+     être référencée ici aussi.
      ====================================================================== -->
 <section class="section" id="temoignage-cecile">
   <div class="shell">
@@ -291,6 +296,57 @@
         <span class="proof__video-hours">+12h gagnées par semaine</span>
       </figcaption>
     </figure>
+    <div class="proofwall reveal">
+      <div class="proofwall__head">
+        <p class="label">Ce qu'ils en disent, à chaud</p>
+        <p class="proofwall__note">Messages reçus pendant le programme.</p>
+      </div>
+
+      <div class="proofwall__grid">
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve1.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve2.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve3.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve4.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve5.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve6.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve7.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve8.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve9.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve10.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve11.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve12.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve13.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve14.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
