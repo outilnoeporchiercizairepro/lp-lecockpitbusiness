@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Webinaire gratuit — Le Cockpit Business</title>
-<meta name="description" content="Webinaire gratuit en direct : comment récupérer 14h par semaine avec Claude, même si tu n'as jamais codé. La méthode CAP, expliquée par Noé Porchier-Cizaire.">
+<title>Construis tes premiers agents IA — Webinaire gratuit · Le Cockpit Business</title>
+<meta name="description" content="Webinaire gratuit en direct, jeudi 17 septembre à 20h30 : construis tes premiers agents IA et gagne 14h par semaine, sans développeur et sans une ligne de code.">
 <link rel="canonical" href="https://lecockpit-business.fr/webinaire">
 <link rel="icon" href="assets/favicon/favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Le Cockpit Business">
-<meta property="og:title" content="Webinaire gratuit — récupère 14h par semaine avec Claude">
-<meta property="og:description" content="En direct avec Noé Porchier-Cizaire : la méthode CAP pour faire de Claude ton bras droit, même si tu n'as jamais codé.">
+<meta property="og:title" content="Construis tes premiers agents IA — et gagne 14h par semaine">
+<meta property="og:description" content="Webinaire gratuit en direct, jeudi 17 septembre à 20h30. Une heure pour comprendre ce qu'est vraiment un agent IA, sans développeur et sans code.">
 <meta property="og:url" content="https://lecockpit-business.fr/webinaire">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -44,11 +44,16 @@
      bouton de réservation d'appel, pas de bulle WhatsApp avant l'inscription
      — chaque sortie est une inscription perdue.
 
-     POUR CHAQUE NOUVELLE SESSION, trois endroits à mettre à jour :
-       1. le titre du live (h1) si le sujet change ;
-       2. le bloc « session » : date, heure, durée, plateforme ;
-       3. rien d'autre — le formulaire et sa destination sont réglés une fois
-          pour toutes dans assets/script.js (WEBINAR_FORM_URL).
+     CONTENU REPRIS DU FORMULAIRE ACTIVECAMPAIGN N° 117, passé au tutoiement
+     et sans emoji, conformément au reste du site.
+
+     POUR CHAQUE NOUVELLE SESSION :
+       1. le titre (h1), le sous-titre et « Au programme » si le sujet change ;
+       2. le bloc « session » : date et heure ;
+       3. si la session a son propre formulaire ActiveCampaign : les champs
+          cachés u, f et or du formulaire ci-dessous (à relever sur la page
+          https://prcz.activehosted.com/f/<numéro>). Le script n'a pas à
+          être modifié.
      ====================================================================== -->
 <header class="nav">
   <div class="shell nav__inner">
@@ -71,51 +76,57 @@
     <div class="optin__copy">
       <p class="eyebrow">Webinaire gratuit · en direct</p>
 
-      <h1 class="h1">Récupère <span class="italique">14h par semaine</span> avec Claude.</h1>
+      <h1 class="h1">Construis tes premiers agents IA et gagne <span class="italique">14h par semaine</span>.</h1>
 
-      <p class="optin__sub">Même si tu n'as jamais codé. En direct, je te montre la méthode CAP&nbsp;: comment repérer ce qui te prend du temps, le confier à Claude, et garder la main sur le résultat.</p>
+      <p class="optin__sub">Sans développeur, sans une ligne de code. Une heure en direct pour comprendre ce qu'est vraiment un agent IA — et repartir avec le tien en tête.</p>
 
     </div>
 
     <dl class="session">
       <div class="session__row">
         <dt>Date</dt>
-        <dd><span class="todo" data-todo="webinaire-date">Date du live</span></dd>
+        <dd>Jeudi 17 septembre</dd>
       </div>
       <div class="session__row">
         <dt>Heure</dt>
-        <dd><span class="todo" data-todo="webinaire-heure">Heure (Paris)</span></dd>
+        <dd>20h30</dd>
       </div>
       <div class="session__row">
         <dt>Durée</dt>
-        <dd><span class="todo" data-todo="webinaire-duree">Durée</span></dd>
+        <dd>1 heure</dd>
       </div>
       <div class="session__row">
         <dt>Où</dt>
-        <dd><span class="todo" data-todo="webinaire-plateforme">Plateforme — le lien arrive par email</span></dd>
+        <dd>En ligne — le lien arrive par email</dd>
       </div>
     </dl>
 
     <div class="optin__panel" id="inscription">
 
-      <form class="optin__form card" method="post" data-optin novalidate>
+      <!-- Formulaire ActiveCampaign n° 117. Sans JavaScript, il est envoyé tel
+           quel à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
+      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin novalidate>
         <p class="optin__form-title">Réserve ta place</p>
         <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
 
+        <input type="hidden" name="u" value="117">
+        <input type="hidden" name="f" value="117">
+        <input type="hidden" name="s" value="">
+        <input type="hidden" name="c" value="0">
+        <input type="hidden" name="m" value="0">
+        <input type="hidden" name="act" value="sub">
+        <input type="hidden" name="v" value="2">
+        <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+
         <div class="field">
           <label for="optin-prenom">Prénom</label>
-          <input id="optin-prenom" name="prenom" type="text" autocomplete="given-name" required>
+          <input id="optin-prenom" name="firstname" type="text" autocomplete="given-name" required>
         </div>
         <div class="field">
           <label for="optin-email">Email</label>
           <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
         </div>
 
-        <!-- Provenance du trafic, remplie par script.js depuis l'URL. -->
-        <input type="hidden" name="utm_source">
-        <input type="hidden" name="utm_medium">
-        <input type="hidden" name="utm_campaign">
-        <input type="hidden" name="utm_content">
 
         <button class="btn btn--primary optin__submit" type="submit">
           <span>Réserver ma place</span>
@@ -127,9 +138,9 @@
         <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="/confidentialite">Confidentialité</a></p>
       </form>
 
-      <!-- Affiché à la place du formulaire quand la page est ouverte avec
-           ?inscrit=1 — l'adresse de retour à régler chez l'outil d'emailing. -->
-      <div class="optin__merci card" data-optin-merci hidden>
+      <!-- Affiché à la place du formulaire après l'inscription, ou quand la
+           page est ouverte avec ?inscrit=1. -->
+      <div class="optin__merci card" data-optin-merci tabindex="-1" hidden>
         <p class="optin__merci-mark" aria-hidden="true">✦</p>
         <p class="optin__form-title">C'est noté.</p>
         <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
@@ -245,32 +256,36 @@
 
 
 <!-- ======================================================================
-     SECTION 2 — CE QUE TU VAS VOIR
-     Les trois temps suivent réellement la méthode CAP : les lettres ne sont
-     pas décoratives.
+     SECTION 2 — AU PROGRAMME
+     Numérotés parce que c'est l'ordre réel du live.
      ====================================================================== -->
 <section class="section" id="programme-live">
   <div class="shell">
     <div class="section__head reveal">
-      <p class="eyebrow">Pendant le live</p>
+      <p class="eyebrow">Au programme</p>
       <h2 class="h2">Ce que tu vas voir.</h2>
     </div>
 
     <ol class="livesteps">
       <li class="livestep card reveal">
-        <span class="livestep__letter" aria-hidden="true">C</span>
-        <h3 class="h3">Clarifier</h3>
-        <p>Où part vraiment ta semaine. Pourquoi, chez la plupart des solopreneurs et des cadres, 30 à 40&nbsp;% du temps est délégable — et comment le repérer chez toi.</p>
+        <span class="livestep__num" aria-hidden="true">1</span>
+        <h3 class="h3">Ce qu'est vraiment un agent IA</h3>
+        <p>Et pourquoi tu n'as pas besoin d'un développeur pour en construire un.</p>
       </li>
       <li class="livestep card reveal">
-        <span class="livestep__letter" aria-hidden="true">A</span>
-        <h3 class="h3">Automatiser</h3>
-        <p>Ce que Claude peut faire à ta place, branché sur tes outils du quotidien&nbsp;: emails, agenda, veille, livrables. Des cas réels, pas une liste de fonctionnalités.</p>
+        <span class="livestep__num" aria-hidden="true">2</span>
+        <h3 class="h3">Ton premier agent</h3>
+        <p>Comment le reconnaître, le construire et le faire tourner.</p>
       </li>
       <li class="livestep card reveal">
-        <span class="livestep__letter" aria-hidden="true">P</span>
-        <h3 class="h3">Piloter</h3>
-        <p>Comment garder la main sur ce qui tourne sans toi, pour que le temps récupéré reste récupéré.</p>
+        <span class="livestep__num" aria-hidden="true">3</span>
+        <h3 class="h3">Ce que ça donne, en vrai</h3>
+        <p>Des livrables, pas des concepts.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">4</span>
+        <h3 class="h3">Tes questions, en direct</h3>
+        <p>Un temps de questions-réponses pendant le live.</p>
       </li>
     </ol>
   </div>
@@ -317,7 +332,7 @@
      ====================================================================== -->
 <section class="section final optin__rappel">
   <div class="shell livefinal reveal">
-    <h2 class="h2">Viens voir ce que tu pourrais <span class="italique">ne plus faire toi-même</span>.</h2>
+    <h2 class="h2">Une heure pour construire ton <span class="italique">premier agent IA</span>.</h2>
     <a class="btn btn--primary" href="#inscription">
       <span>Réserver ma place</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
@@ -325,7 +340,7 @@
     <ul class="microline">
       <li>gratuit</li>
       <li>en direct</li>
-      <li>sans engagement</li>
+      <li>sans une ligne de code</li>
     </ul>
   </div>
 </section>

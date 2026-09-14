@@ -2139,7 +2139,7 @@ h1, h2, h3 {
 .optin__panel { grid-area: panel; }
 
 .optin__copy .eyebrow { margin-bottom: 28px; }
-.optin__copy .h1 { max-width: 13ch; text-wrap: balance; }
+.optin__copy .h1 { max-width: 18ch; text-wrap: balance; }
 
 .optin__sub {
   margin: 28px 0 0;
@@ -2257,25 +2257,30 @@ h1, h2, h3 {
 /* Le bandeau sous le premier écran : même espacement que sur l'accueil. */
 .optin .proofbar { position: relative; z-index: 1; }
 
-/* Ce que tu vas voir — les trois temps de CAP */
+/* Au programme — quatre temps, dans l'ordre du live : deux par ligne */
 .livesteps {
   list-style: none;
   margin: 48px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
-.livestep { padding: 30px 30px 32px; }
-.livestep__letter {
-  display: block;
+.livestep {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  column-gap: 20px;
+  padding: 30px 32px 32px 28px;
+}
+.livestep__num {
+  grid-row: span 2;
   font-family: var(--serif);
   font-size: 56px;
-  line-height: 0.78;
+  line-height: 0.8;
   color: var(--accent-lg);
+  font-variant-numeric: lining-nums;
 }
-.livestep .h3 { margin-top: 22px; }
-.livestep p { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.livestep p { margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
 
 /* Pour qui */
 .livefor__list {
@@ -2338,7 +2343,7 @@ h1, h2, h3 {
   }
   .optin__copy .h1 { max-width: 16ch; }
   .optin__panel { max-width: 520px; }
-  .livesteps { grid-template-columns: minmax(0, 1fr); max-width: 620px; }
+  .livesteps { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
 }
 
 @media (max-width: 720px) {
@@ -2349,5 +2354,6 @@ h1, h2, h3 {
 @media (max-width: 620px) {
   .optin__jump { font-size: 13.5px; }
   .session__row { grid-template-columns: 72px minmax(0, 1fr); gap: 12px; }
-  .livestep { padding: 24px 22px 26px; }
+  .livestep { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; padding: 24px 22px 26px 18px; }
+  .livestep__num { font-size: 44px; }
 }

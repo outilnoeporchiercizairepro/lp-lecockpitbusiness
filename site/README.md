@@ -455,35 +455,49 @@ formulaire est une inscription perdue. La marque renvoie tout de même vers
 l'accueil. La communauté WhatsApp n'est proposée qu'**après** l'inscription,
 sur l'écran de confirmation.
 
+### Contenu
+
+Le titre, le sous-titre, la date (jeudi 17 septembre, 20h30), la durée
+(1 heure) et les quatre points du programme viennent du formulaire
+ActiveCampaign n° 117 (https://prcz.activehosted.com/f/117), passés au
+tutoiement et sans emoji comme le reste du site. Non repris : la mention
+« Places suivies limitées », dont le sens n'est pas clair.
+
+### Le formulaire — ActiveCampaign n° 117
+
+Le `<form>` de la page est le formulaire ActiveCampaign lui-même : action
+`https://prcz.activehosted.com/proc.php`, champs `firstname` et `email`, et
+les champs cachés relevés sur la page hébergée (`u`, `f`, `s`, `c`, `m`,
+`act`, `v`, `or`).
+
+- **Sans JavaScript**, il est envoyé tel quel et ActiveCampaign affiche sa
+  propre page de remerciement.
+- **Avec** (`assets/script.js`, section 10), il est envoyé comme le fait le
+  script officiel d'ActiveCampaign pour ce formulaire : en JSONP, `GET` sur
+  `proc.php` avec `jsonp=true`. La réponse appelle `window._show_thank_you`
+  (la confirmation remplace le formulaire) ou `window._show_error` (le
+  message d'ActiveCampaign s'affiche sous le bouton). Au bout de 15 s sans
+  réponse, le bouton est rendu.
+
+Vérifié avec un aller-retour réel vers ActiveCampaign sur une adresse
+invalide (aucun contact créé). Le cas « inscription réussie » n'a été testé
+qu'en simulant la réponse : **faire une vraie inscription test** avant
+d'annoncer le live, et vérifier que le contact arrive dans la bonne liste et
+reçoit l'email de confirmation.
+
+`?inscrit=1` affiche aussi la confirmation, pour le cas où une redirection
+serait réglée côté ActiveCampaign.
+
 ### À chaque nouvelle session
 
-Le bloc « session » (date, heure, durée, plateforme) est en placeholders
-`data-todo="webinaire-*"`. Les remplir, et changer le titre si le sujet
-change. Aucune durée n'a été écrite en dur ailleurs dans la page — ne pas en
-réintroduire une dans le titre ou le rappel sans la vérifier.
+Mettre à jour le titre, le sous-titre, « Au programme » et le bloc
+« session » (date, heure). Si la session a son propre formulaire
+ActiveCampaign, relever sur sa page hébergée les valeurs de `u`, `f` et `or`
+et les reporter dans les champs cachés : le script n'a pas à être modifié.
 
-### Brancher le formulaire — `assets/script.js`, section 10
-
-```js
-var WEBINAR_FORM_URL = null;
-```
-
-Y mettre l'adresse d'envoi fournie par l'outil d'emailing (action de
-formulaire ActiveCampaign, Brevo, webhook n8n…). Tant qu'elle vaut `null`,
-l'envoi est bloqué avec « Les inscriptions ne sont pas encore ouvertes » et un
-avertissement console.
-
-L'envoi est un **POST de formulaire classique**, pas un `fetch` : il marche
-avec n'importe quel outil sans dépendre de ses règles CORS. Champs envoyés :
-`prenom`, `email`, et `utm_source`, `utm_medium`, `utm_campaign`,
-`utm_content` recopiés depuis l'URL de la page.
-
-**Écran de confirmation** : régler l'adresse de retour de l'outil sur
-`https://lecockpit-business.fr/webinaire?inscrit=1`. La page remplace alors le
-formulaire par la confirmation et masque les invitations à s'inscrire.
-
-La confirmation annonce que le lien de connexion arrive par email : c'est à
-l'outil d'emailing de l'envoyer.
+Les UTM ne sont **pas** transmis : le formulaire 117 n'a pas de champ pour
+les recevoir, ActiveCampaign les ignorerait. Pour les enregistrer, ajouter
+des champs cachés au formulaire dans ActiveCampaign, puis les reporter ici.
 
 ### Données personnelles
 
