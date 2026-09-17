@@ -9,3 +9,6 @@ site/assets/img/noe/originaux/
 # Python
 __pycache__/
 *.pyc
+
+# Rapports du vérificateur Contentsquare
+.cs-wizard/
