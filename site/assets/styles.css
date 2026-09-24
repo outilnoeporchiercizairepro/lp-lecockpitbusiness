@@ -2115,15 +2115,6 @@ h1, h2, h3 {
    sous le seuil de contraste AA sur ivoire, on ne les propage pas ici.
    ------------------------------------------------------------------------ */
 
-/* Lien discret dans la barre : ramène au formulaire, sans ouvrir de sortie. */
-.optin__jump {
-  white-space: nowrap;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--accent-sm);
-}
-.optin__jump:hover { color: var(--accent-hover); }
-
 .optin__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
@@ -2132,7 +2123,7 @@ h1, h2, h3 {
 }
 /* Premier écran resserré : titre, formulaire, preuve et bandeau doivent tenir
    sans défilement sur un portable (1440 × 900). */
-.optin .optin__grid { padding-block: clamp(36px, 4.5vw, 60px) clamp(28px, 3vw, 40px); }
+.optin .optin__grid { padding-block: clamp(48px, 5.5vw, 76px) clamp(28px, 3vw, 40px); }
 
 .optin__copy .eyebrow { margin-bottom: 22px; }
 .optin__copy .h1 { max-width: 18ch; font-size: clamp(40px, 5.1vw, 74px); text-wrap: balance; }
@@ -2266,19 +2257,8 @@ h1, h2, h3 {
 .optin__merci-text { margin: 12px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
 .optin__merci .btn { margin-top: 22px; }
 
-.optin .proofbar--compact { padding-block: 20px 26px; }
-.optin .proofbar--compact .proofbar__label { margin-bottom: 16px; max-width: none; color: var(--ink-2); }
-
-/* En tête de page, juste sous la navigation : filet en bas plutôt qu'en haut. */
-.optin .proofbar--top {
-  padding-block: 16px 18px;
-  border-top: 0;
-  border-bottom: 1px solid var(--rule);
-}
-.optin .proofbar--top .proofbar__label { margin-bottom: 12px; }
 
 /* Déjà inscrit : plus rien ne doit inviter à réserver sa place. */
-.is-inscrit .optin__jump,
 .is-inscrit .optin__rappel { display: none; }
 
 /* Le bandeau sous le premier écran : même espacement que sur l'accueil. */
@@ -2376,7 +2356,6 @@ h1, h2, h3 {
 }
 
 @media (max-width: 620px) {
-  .optin__jump { font-size: 13.5px; }
   .livestep { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; padding: 24px 22px 26px 18px; }
   .livestep__num { font-size: 44px; }
 }
