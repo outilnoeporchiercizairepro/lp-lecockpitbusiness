@@ -2258,6 +2258,51 @@ h1, h2, h3 {
 .optin__merci .btn { margin-top: 22px; }
 
 
+/* Bandeau des membres entre le formulaire et les témoignages. */
+.proofbar--entre { border-top: 0; padding-block: 8px 34px; }
+.proofbar--entre .proofbar__label { margin-bottom: 18px; max-width: none; color: var(--ink-2); }
+
+/* Fenêtre d'inscription (<dialog>) : la carte du formulaire y est reprise
+   telle quelle, le dialogue ne fait que la poser au centre de l'écran. */
+.pop {
+  width: min(480px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+  color: var(--ink);
+}
+.pop::backdrop { background: rgba(23, 19, 15, 0.42); }
+.pop .optin__form, .pop .optin__merci { box-shadow: var(--shadow-lg); }
+.pop[open] { animation: pop-entree .28s cubic-bezier(.2, .7, .3, 1) both; }
+@keyframes pop-entree {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .pop[open] { animation: none; } }
+
+.pop__fermer {
+  position: absolute;
+  top: -14px; right: -14px;
+  z-index: 1;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+.pop__fermer:hover { color: var(--ink); border-color: rgba(23, 19, 15, 0.28); }
+
+@media (max-width: 620px) {
+  .pop { width: calc(100vw - 24px); }
+  .pop__fermer { top: -10px; right: -6px; }
+}
+
 /* Déjà inscrit : plus rien ne doit inviter à réserver sa place. */
 .is-inscrit .optin__rappel { display: none; }
 

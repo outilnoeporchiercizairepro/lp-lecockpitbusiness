@@ -457,7 +457,7 @@ sur l'écran de confirmation.
 
 ### Contenu
 
-Le titre, le sous-titre, la date (jeudi 17 septembre, 20h30), la durée
+Le titre, le sous-titre, la date (dimanche 27 septembre, 20h30), la durée
 (1 heure) et les quatre points du programme viennent du formulaire
 ActiveCampaign n° 117 (https://prcz.activehosted.com/f/117), passés au
 tutoiement et sans emoji comme le reste du site. Non repris : la mention

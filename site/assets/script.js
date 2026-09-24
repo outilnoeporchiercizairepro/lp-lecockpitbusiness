@@ -275,44 +275,60 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   /* --- 10. Inscription au webinaire (ActiveCampaign) -----------------------
-     Le formulaire de webinaire.html est un formulaire ActiveCampaign : son
-     action et ses champs cachés (u, f, or…) viennent de la page hébergée du
-     formulaire. Sans JavaScript il part tel quel ; ici on l'envoie comme le
-     fait le script officiel d'ActiveCampaign pour ce formulaire — en JSONP,
-     GET sur proc.php avec jsonp=true — pour afficher la confirmation sans
-     quitter la page. ActiveCampaign répond par un script qui appelle
-     window._show_thank_you ou window._show_error. */
+     La page porte deux formulaires identiques — celui du premier écran et
+     celui de la fenêtre — tous deux issus du formulaire ActiveCampaign n° 117 :
+     action proc.php, champs firstname/email et champs cachés relevés sur la
+     page hébergée. Sans JavaScript ils partent tels quels ; ici on les envoie
+     comme le fait le script officiel d'ActiveCampaign — en JSONP, GET sur
+     proc.php avec jsonp=true — pour afficher la confirmation sans quitter la
+     page. La réponse appelle window._show_thank_you ou window._show_error, en
+     ne transmettant que le numéro du formulaire : on retient donc nous-mêmes
+     lequel des deux est en cours d'envoi. */
 
-  var optin = document.querySelector('[data-optin]');
+  var optins = document.querySelectorAll('[data-optin]');
 
-  if (optin) {
-    var merci = document.querySelector('[data-optin-merci]');
-    var status = optin.querySelector('[data-optin-status]');
-    var bouton = optin.querySelector('button[type="submit"]');
-    var formId = optin.elements.u ? optin.elements.u.value : '';
+  if (optins.length) {
     var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    var MEMOIRE = 'cockpit-webinaire-inscrit';
+    var formId = optins[0].elements.u ? optins[0].elements.u.value : '';
     var enCours = null;
+    var inscrit = false;
 
-    var confirmer = function () {
-      optin.hidden = true;
-      merci.hidden = false;
+    var memoriser = function () {
+      try { window.localStorage.setItem(MEMOIRE, '1'); } catch (e) { /* navigation privée */ }
+    };
+    var dejaInscrit = function () {
+      try { return window.localStorage.getItem(MEMOIRE) === '1'; } catch (e) { return false; }
+    };
+
+    var confirmer = function (form) {
+      var merci = document.querySelector('[data-optin-merci="' + form.getAttribute('data-optin') + '"]');
+      form.hidden = true;
+      if (merci) { merci.hidden = false; merci.focus(); }
       document.documentElement.classList.add('is-inscrit');
+      inscrit = true;
+      memoriser();
     };
 
     var terminer = function (message) {
-      if (enCours) { clearTimeout(enCours.delai); enCours.script.remove(); enCours = null; }
-      bouton.disabled = false;
-      if (message) status.textContent = message;
+      if (!enCours) return;
+      clearTimeout(enCours.delai);
+      enCours.script.remove();
+      enCours.form.querySelector('button[type="submit"]').disabled = false;
+      if (message) enCours.form.querySelector('[data-optin-status]').textContent = message;
+      enCours = null;
     };
 
     // Retour depuis une redirection configurée côté ActiveCampaign.
-    if (new URLSearchParams(window.location.search).get('inscrit') === '1') confirmer();
+    if (new URLSearchParams(window.location.search).get('inscrit') === '1') {
+      confirmer(document.querySelector('[data-optin="page"]'));
+    }
 
     window._show_thank_you = function (id, message, trackcmp_url) {
-      if (String(id) !== formId) return;
+      if (!enCours || String(id) !== formId) return;
+      var form = enCours.form;
       terminer('');
-      confirmer();
-      merci.focus();
+      confirmer(form);
       // Suivi de site ActiveCampaign, chargé comme le fait son script officiel.
       if (trackcmp_url) {
         var suivi = document.createElement('script');
@@ -322,55 +338,100 @@
     };
 
     window._show_error = function (id, message) {
-      if (String(id) !== formId) return;
+      if (!enCours || String(id) !== formId) return;
       var tmp = document.createElement('div');
       tmp.innerHTML = message;                       // le message peut contenir du HTML
       terminer(tmp.textContent || 'L\'inscription n\'a pas abouti. Réessaie dans un instant.');
     };
 
-    optin.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (enCours) return;
+    Array.prototype.forEach.call(optins, function (optin) {
+      optin.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (enCours) return;
 
-      var prenom = optin.elements.firstname;
-      var email = optin.elements.email;
-      prenom.value = prenom.value.trim();
-      email.value = email.value.trim();
+        var status = optin.querySelector('[data-optin-status]');
+        var prenom = optin.elements.firstname;
+        var email = optin.elements.email;
+        prenom.value = prenom.value.trim();
+        email.value = email.value.trim();
 
-      var prenomOk = !!prenom.value;
-      var emailOk = EMAIL.test(email.value);
-      prenom.setAttribute('aria-invalid', String(!prenomOk));
-      email.setAttribute('aria-invalid', String(!emailOk));
+        var prenomOk = !!prenom.value;
+        var emailOk = EMAIL.test(email.value);
+        prenom.setAttribute('aria-invalid', String(!prenomOk));
+        email.setAttribute('aria-invalid', String(!emailOk));
 
-      if (!prenomOk || !emailOk) {
-        status.textContent = !prenomOk ? 'Indique ton prénom.' : 'Cette adresse email ne semble pas valide.';
-        (prenomOk ? email : prenom).focus();
-        return;
-      }
+        if (!prenomOk || !emailOk) {
+          status.textContent = !prenomOk ? 'Indique ton prénom.' : 'Cette adresse email ne semble pas valide.';
+          (prenomOk ? email : prenom).focus();
+          return;
+        }
 
-      status.textContent = '';
-      bouton.disabled = true;
+        status.textContent = '';
+        optin.querySelector('button[type="submit"]').disabled = true;
 
-      var champs = [];
-      Array.prototype.forEach.call(optin.elements, function (el) {
-        if (!el.name || el.type === 'submit') return;
-        champs.push(encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value));
+        var champs = [];
+        Array.prototype.forEach.call(optin.elements, function (el) {
+          if (!el.name || el.type === 'submit') return;
+          champs.push(encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value));
+        });
+
+        var script = document.createElement('script');
+        script.src = optin.action + '?' + champs.join('&') + '&jsonp=true';
+        script.onerror = function () {
+          terminer('L\'inscription n\'a pas pu être envoyée. Vérifie ta connexion et réessaie.');
+        };
+        enCours = {
+          form: optin,
+          script: script,
+          // Ni merci ni erreur au bout de 15 s : on rend la main plutôt que de
+          // laisser un bouton bloqué.
+          delai: setTimeout(function () {
+            terminer('L\'inscription met du temps à répondre. Réessaie dans un instant.');
+          }, 15000)
+        };
+        document.head.appendChild(script);
       });
-
-      var script = document.createElement('script');
-      script.src = optin.action + '?' + champs.join('&') + '&jsonp=true';
-      script.onerror = function () {
-        terminer('L\'inscription n\'a pas pu être envoyée. Vérifie ta connexion et réessaie.');
-      };
-      enCours = {
-        script: script,
-        // Ni merci ni erreur au bout de 15 s : on rend la main plutôt que de
-        // laisser un bouton bloqué.
-        delai: setTimeout(function () {
-          terminer('L\'inscription met du temps à répondre. Réessaie dans un instant.');
-        }, 15000)
-      };
-      document.head.appendChild(script);
     });
+
+    /* --- 11. Fenêtre d'inscription, au bout de deux secondes ---------------
+       <dialog> natif : le navigateur gère Échap et garde le focus dedans.
+       Une fois fermée ou l'inscription faite, elle ne revient pas de la
+       visite — sessionStorage pour la fermeture, localStorage pour
+       l'inscription. */
+
+    var pop = document.querySelector('[data-pop]');
+
+    if (pop && typeof pop.showModal === 'function') {
+      var FERMEE = 'cockpit-webinaire-pop-fermee';
+      var dejaFermee = function () {
+        try { return window.sessionStorage.getItem(FERMEE) === '1'; } catch (e) { return false; }
+      };
+      var noterFermeture = function () {
+        try { window.sessionStorage.setItem(FERMEE, '1'); } catch (e) { /* navigation privée */ }
+      };
+
+      // L'événement « close » de <dialog> n'est pas émis par tous les moteurs :
+      // on note la fermeture nous-mêmes à chaque sortie, et on garde les
+      // écouteurs natifs pour les fermetures qu'on ne déclenche pas.
+      var fermer = function () {
+        noterFermeture();
+        pop.close();
+      };
+
+      pop.addEventListener('close', noterFermeture);
+      pop.addEventListener('cancel', noterFermeture);   // touche Échap
+      pop.querySelector('[data-pop-fermer]').addEventListener('click', fermer);
+
+      // Clic sur le fond : la cible est le <dialog> lui-même, pas son contenu.
+      pop.addEventListener('click', function (e) { if (e.target === pop) fermer(); });
+
+      setTimeout(function () {
+        if (inscrit || dejaInscrit() || dejaFermee()) return;
+        // Ne pas interrompre quelqu'un qui est déjà en train de remplir le
+        // formulaire de la page.
+        if (document.activeElement && document.activeElement.closest('[data-optin]')) return;
+        pop.showModal();
+      }, 2000);
+    }
   }
 })();

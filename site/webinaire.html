@@ -80,7 +80,7 @@
 
       <!-- La session. À mettre à jour à chaque live. -->
       <ul class="optin__meta" aria-label="La session">
-        <li><b>Jeudi 17 septembre</b></li>
+        <li><b>Dimanche 27 septembre</b></li>
         <li><b>20h30</b></li>
         <li>1 heure</li>
         <li>En ligne</li>
@@ -104,7 +104,7 @@
 
       <!-- Formulaire ActiveCampaign n° 117. Sans JavaScript, il est envoyé tel
            quel à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
-      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin novalidate>
+      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="page" novalidate>
         <p class="optin__form-title">Réserve ta place</p>
         <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
 
@@ -139,7 +139,7 @@
 
       <!-- Affiché à la place du formulaire après l'inscription, ou quand la
            page est ouverte avec ?inscrit=1. -->
-      <div class="optin__merci card" data-optin-merci tabindex="-1" hidden>
+      <div class="optin__merci card" data-optin-merci="page" tabindex="-1" hidden>
         <p class="optin__merci-mark" aria-hidden="true">✦</p>
         <p class="optin__form-title">C'est noté.</p>
         <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
@@ -153,6 +153,112 @@
 
 </section>
 
+
+<!-- ======================================================================
+     BANDEAU DES MEMBRES
+     Entre le formulaire et les témoignages. Une seule série ici :
+     script.js la duplique autant de fois qu'il faut pour couvrir l'écran.
+     ====================================================================== -->
+<div class="proofbar proofbar--entre">
+  <div class="shell">
+    <p class="proofbar__label">Heures gagnées par semaine, par des membres du programme</p>
+  </div>
+
+    <div class="marquee" data-marquee>
+      <ul class="marquee__track">
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Cécile</span>
+            <span class="member__role">Consultante IA</span>
+          </div>
+          <span class="member__hours">+12h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="E">
+            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Eleanor</span>
+            <span class="member__role">Consultante RH</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Mohamed</span>
+            <span class="member__role">Consultant Énergie</span>
+          </div>
+          <span class="member__hours">+15h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="G">
+            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Gaëtan</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+18h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="L">
+            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Louis</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+20h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Julian</span>
+            <span class="member__role">Investisseur</span>
+          </div>
+          <span class="member__hours">+30h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Camilha</span>
+            <span class="member__role">En reconversion</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Jérôme</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+14h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Michel</span>
+            <span class="member__role">Conseiller Gestion Patrimoine</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+      </ul>
+    </div>
+</div>
 
 <!-- ======================================================================
      SECTION 2 — TÉMOIGNAGES
@@ -346,6 +452,58 @@
     <p class="footer__copy">© <span data-year>2026</span> Le Cockpit Business — PRCZ. Tous droits réservés.</p>
   </div>
 </footer>
+
+<!-- ======================================================================
+     FENÊTRE D'INSCRIPTION
+     Même formulaire ActiveCampaign que dans la page, ouverte au bout de deux
+     secondes par script.js. Un <dialog> natif : Échap et le piège de focus
+     sont gérés par le navigateur.
+     ====================================================================== -->
+<dialog class="pop" data-pop aria-labelledby="pop-titre">
+  <button class="pop__fermer" type="button" data-pop-fermer aria-label="Fermer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+
+  <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="pop" novalidate>
+    <p class="optin__form-title" id="pop-titre">Réserve ta place</p>
+    <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
+
+    <input type="hidden" name="u" value="117">
+    <input type="hidden" name="f" value="117">
+    <input type="hidden" name="s" value="">
+    <input type="hidden" name="c" value="0">
+    <input type="hidden" name="m" value="0">
+    <input type="hidden" name="act" value="sub">
+    <input type="hidden" name="v" value="2">
+    <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+
+    <div class="field">
+      <label for="pop-prenom">Prénom</label>
+      <input id="pop-prenom" name="firstname" type="text" autocomplete="given-name" required>
+    </div>
+    <div class="field">
+      <label for="pop-email">Email</label>
+      <input id="pop-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+    </div>
+
+
+    <button class="btn btn--primary optin__submit" type="submit">
+      <span>Réserver ma place</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </button>
+
+    <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
+
+    <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="/confidentialite">Confidentialité</a></p>
+  </form>
+
+  <div class="optin__merci card" data-optin-merci="pop" tabindex="-1" hidden>
+    <p class="optin__merci-mark" aria-hidden="true">✦</p>
+    <p class="optin__form-title">C'est noté.</p>
+    <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
+    <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
+  </div>
+</dialog>
 
 <script src="assets/script.js" defer></script>
 </body>
