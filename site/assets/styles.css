@@ -864,19 +864,43 @@ h1, h2, h3 {
 }
 .proofwall__note { margin: 0; font-size: 14.5px; color: var(--ink-3); }
 
-.proofwall__grid { columns: 2; column-gap: 24px; }
+/* Le mur est volontairement en vrac : captures de largeurs inégales,
+   légèrement pivotées et décalées, qui se chevauchent comme une pile de
+   papiers posée sur une table. L'effet recherché est le nombre, pas l'ordre.
+   Les angles suivent un cycle de sept pour qu'aucune régularité n'apparaisse
+   d'une colonne à l'autre. */
+.proofwall__grid { columns: 3; column-gap: 16px; padding-inline: 12px; }
 
 .proofshot {
   break-inside: avoid;
+  position: relative;
   width: fit-content;
   max-width: 100%;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
   padding: 10px;
   border-radius: 14px;
   background: var(--blanc);
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow-sm);
+  transform: rotate(var(--angle, 0deg)) translateX(var(--decalage, 0));
+  transition: transform .25s cubic-bezier(.2, .7, .3, 1), box-shadow .25s ease;
 }
+.proofshot:nth-child(7n + 1) { --angle: -2.1deg; --decalage: 4px;  margin-bottom: 18px; }
+.proofshot:nth-child(7n + 2) { --angle:  1.6deg; --decalage: -6px; margin-bottom: 8px; }
+.proofshot:nth-child(7n + 3) { --angle: -1.1deg; --decalage: 7px;  margin-bottom: 20px; }
+.proofshot:nth-child(7n + 4) { --angle:  2.4deg; --decalage: -3px; margin-bottom: 6px; }
+.proofshot:nth-child(7n + 5) { --angle: -1.8deg; --decalage: -8px; margin-bottom: 16px; }
+.proofshot:nth-child(7n + 6) { --angle:  1.2deg; --decalage: 5px;  margin-bottom: 10px; }
+.proofshot:nth-child(7n + 7) { --angle: -2.6deg; --decalage: 0;    margin-bottom: 22px; }
+
+/* Au survol, la capture se redresse et passe devant les autres : on peut
+   lire celle qu'on regarde sans quitter l'effet de pile. */
+.proofshot:hover {
+  z-index: 2;
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+@media (prefers-reduced-motion: reduce) { .proofshot { transition: none; } }
 .proofshot img {
   display: block;
   width: auto;          /* largeur native, jamais agrandie */
@@ -1494,6 +1518,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 1040px) {
+  .proofwall__grid { columns: 2; }
   .ramp__panel { grid-template-columns: 1fr; gap: 28px; }
   .ramp__tabs { gap: 10px; }
   .ramp__tab { padding: 14px 14px 16px; }
@@ -1653,8 +1678,6 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.progstat--fort b { color: var(--accent-lg); }
-.progstat--fort span { color: var(--accent-sm); }
 
 /* Rail des étapes */
 .progsteps {
@@ -1741,25 +1764,6 @@ h1, h2, h3 {
 .mod__claim { margin: 10px 0 0; font-size: 16.5px; line-height: 1.45; color: var(--ink-2); }
 
 /* Le montant est l'ancrage visuel du module */
-.mod__val { margin: 0; flex: none; text-align: right; }
-.mod__val span {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.mod__val b {
-  display: block;
-  margin-top: 6px;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(38px, 4.2vw, 58px);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--accent-lg);
-}
 
 .mod__cols {
   display: grid;
@@ -1889,24 +1893,6 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--ink-4);
 }
-.pilier__val { margin: 0; text-align: right; }
-.pilier__val span {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.pilier__val b {
-  display: block;
-  margin-top: 5px;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(34px, 3.4vw, 46px);
-  line-height: 1;
-  color: var(--accent-lg);
-}
 .pilier__name {
   margin: 18px 0 0;
   font-family: var(--serif);
@@ -1953,22 +1939,10 @@ h1, h2, h3 {
 }
 .pile__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .pile__list li {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
   padding: 17px 0;
   border-bottom: 1px solid var(--rule);
   font-size: 16px;
   color: var(--ink-body);
-}
-.pile__list b {
-  flex: none;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 1;
-  color: var(--accent-lg);
 }
 
 .pile__total {
@@ -1978,22 +1952,6 @@ h1, h2, h3 {
   border: 1px solid rgba(224, 90, 43, 0.24);
   box-shadow: var(--shadow-md);
   text-align: center;
-}
-.pile__total-cap {
-  margin: 0;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent-sm);
-}
-.pile__total-val {
-  margin: 12px 0 0;
-  font-family: var(--serif);
-  font-size: clamp(56px, 6.4vw, 86px);
-  line-height: 1;
-  letter-spacing: -0.026em;
-  color: var(--accent-lg);
 }
 .pile__total-note { margin: 20px 0 24px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
 
@@ -2019,7 +1977,6 @@ h1, h2, h3 {
   }
   .progsteps a span { font-size: 34px; line-height: 1; }
   .etape__head { gap: 18px; }
-  .mod__val { text-align: left; }
   .mod__meta { grid-template-columns: 1fr; }
   .chap summary { gap: 12px; }
   .chap__title { font-size: 18px; }
