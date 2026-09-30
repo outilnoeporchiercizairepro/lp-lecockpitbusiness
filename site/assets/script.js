@@ -440,7 +440,9 @@
      de l'onglet actif (animationend) : mettre en pause revient à geler cette
      animation, sans minuterie à recalculer. Pause quand le visiteur la
      demande, quand le film sort de l'écran ou quand l'onglet du navigateur
-     est caché. Sous prefers-reduced-motion, pas de lecture automatique. */
+     est caché. Lecture automatique pour tout le monde, y compris sous
+     prefers-reduced-motion (choix explicite de Noé) : les mouvements y sont
+     remplacés par des fondus, côté CSS (section 26). */
 
   var film = document.querySelector('[data-film]');
 
@@ -448,7 +450,6 @@
     var scenes = film.querySelectorAll('[data-film-scene]');
     var onglets = film.querySelectorAll('[data-film-tab]');
     var lecture = film.querySelector('[data-film-play]');
-    var immobile = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var courant = -1;
     var raisons = { bouton: false, horsEcran: false, cache: document.hidden };
 
@@ -462,7 +463,6 @@
       var el = scene.querySelector('[data-compteur]');
       if (!el) return;
       var fin = parseInt(el.getAttribute('data-compteur'), 10);
-      if (immobile) { el.textContent = String(fin); return; }
       var debut = null;
       var pas = function (t) {
         if (debut === null) debut = t;
@@ -513,29 +513,24 @@
       });
     });
 
-    if (immobile) {
-      film.classList.add('is-static');
-    } else {
-      lecture.addEventListener('click', function () {
-        raisons.bouton = !raisons.bouton;
-        lecture.setAttribute('aria-pressed', String(raisons.bouton));
-        lecture.querySelector('.film__play-txt').textContent = raisons.bouton ? 'Lecture' : 'Pause';
-        lecture.setAttribute('aria-label', raisons.bouton ? 'Reprendre la lecture' : 'Mettre en pause');
-        majPause();
-      });
-      lecture.setAttribute('aria-label', 'Mettre en pause');
+    lecture.addEventListener('click', function () {
+      raisons.bouton = !raisons.bouton;
+      lecture.setAttribute('aria-pressed', String(raisons.bouton));
+      lecture.setAttribute('aria-label', raisons.bouton ? 'Reprendre la lecture' : 'Mettre en pause');
+      majPause();
+    });
+    lecture.setAttribute('aria-label', 'Mettre en pause');
 
-      if ('IntersectionObserver' in window) {
-        new IntersectionObserver(function (entrees) {
-          raisons.horsEcran = !entrees[0].isIntersecting;
-          majPause();
-        }, { threshold: 0.2 }).observe(film);
-      }
-      document.addEventListener('visibilitychange', function () {
-        raisons.cache = document.hidden;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entrees) {
+        raisons.horsEcran = !entrees[0].isIntersecting;
         majPause();
-      });
+      }, { threshold: 0.2 }).observe(film);
     }
+    document.addEventListener('visibilitychange', function () {
+      raisons.cache = document.hidden;
+      majPause();
+    });
 
     majPause();
     montrer(0);

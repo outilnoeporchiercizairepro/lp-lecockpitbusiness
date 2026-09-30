@@ -2675,8 +2675,8 @@ h1, h2, h3 {
 .film__bar {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 14px 20px 16px;
+  gap: 14px;
+  padding: 8px 18px;
   border-top: 1px solid var(--rule);
   background: var(--ivoire);
 }
@@ -2684,14 +2684,14 @@ h1, h2, h3 {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  gap: 6px;
 }
 .film__tab {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: 6px;
-  padding: 4px 0 0;
+  padding: 12px 0;               /* zone cliquable plus haute que le segment */
   border: 0;
   background: none;
   text-align: left;
@@ -2699,16 +2699,25 @@ h1, h2, h3 {
   color: var(--ink-2);
   cursor: pointer;
 }
-.film__tab-num { font-size: 10.5px; font-weight: 700; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.film__tab-label { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.film__tab:hover, .film__tab[aria-selected="true"] { color: var(--ink); }
-.film__tab[aria-selected="true"] .film__tab-num { color: var(--accent-sm); }
+.film__tab-num { display: none; }
+/* Barre de motion design, pas de carrousel : de fins segments sans libellés
+   (le surtitre de chaque temps nomme déjà le chapitre). Libellés et texte du
+   bouton restent lus par les lecteurs d'écran. */
+.film__tab-label,
+.film__play-txt {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.film__tab:hover .film__track { background: rgba(23, 19, 15, 0.16); }
 .film__tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 .film__track {
   flex-basis: 100%;
   display: block;
   height: 3px;
-  margin-top: 8px;
+  margin-top: 0;
   border-radius: 3px;
   background: var(--rule);
   overflow: hidden;
@@ -2731,14 +2740,12 @@ h1, h2, h3 {
   flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
+  justify-content: center;
+  width: 30px; height: 30px;
+  padding: 0;
+  border-radius: 50%;
   border: 1px solid var(--btn-border);
   background: var(--blanc);
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
   color: var(--ink);
   cursor: pointer;
 }
@@ -2762,12 +2769,28 @@ h1, h2, h3 {
 .film.is-paused .film__fill,
 .film.is-paused .film__scene * { animation-play-state: paused; }
 
-/* Mouvement réduit : tout est posé, on navigue par les onglets. */
-.film.is-static .film-in,
-.film.is-static .film__chip { animation: none; }
-.film.is-static .film__fill { animation: none; }
-.film.is-static .film__tab[aria-selected="true"] .film__fill { transform: scaleX(1); }
-.film.is-static .film__play { display: none; }
+/* EXCEPTION ASSUMÉE — comme le bandeau des membres, le film se lance et
+   boucle aussi sous prefers-reduced-motion : choix explicite de Noé. Les
+   mouvements y deviennent de simples fondus (plus de glissements, plus
+   d'étiquettes qui flottent) et le bouton pause reste là. Les !important
+   reprennent la main sur la règle * de la section 20, qui ramènerait sinon
+   la barre de progression à 0,001 ms : les six temps défileraient d'un coup. */
+@keyframes film-fondu {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .film__fill { animation-duration: var(--duree, 6s) !important; }
+  .film__scene { transition-duration: .6s, 0s !important; }
+  .film__scene.is-active .film-in {
+    animation-name: film-fondu;
+    animation-duration: .6s !important;
+  }
+  .film__scene.is-active .film__chip {
+    animation: film-fondu .6s ease both !important;
+    animation-delay: calc(var(--i) * 90ms) !important;
+  }
+}
 
 @media (max-width: 900px) {
   .film { margin-top: 44px; border-radius: 20px; }
@@ -2804,11 +2827,6 @@ h1, h2, h3 {
     padding-block: 4px;
   }
   .film__chip { position: static; font-size: 12px; padding: 6px 11px; }
-  .film__bar { gap: 12px; padding: 12px 14px 14px; }
-  .film__tabs { gap: 6px; }
-  .film__tab-num, .film__tab-label { display: none; }
-  .film__track { margin-top: 0; }
-  .film__play-txt { display: none; }
-  .film__play { padding: 9px 11px; }
+  .film__bar { gap: 12px; padding: 6px 14px; }
   .film__jalons b { font-size: 17px; }
 }

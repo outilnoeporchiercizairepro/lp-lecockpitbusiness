@@ -556,7 +556,14 @@ Si ces contenus changent plus bas dans la page, les reporter dans le film.
   revient à geler cette animation.
 - **Pause** : bouton dans la barre, et automatiquement quand le film sort de
   l'écran ou que l'onglet du navigateur est caché.
-- **Mouvement réduit** : sous `prefers-reduced-motion`, aucune lecture
-  automatique ni animation ; on navigue par les onglets. **À savoir : cette
-  option est activée sur le Mac de Noé** (Réglages › Accessibilité ›
-  Affichage › Réduire les animations) — il y verra le film immobile.
+- **Mouvement réduit — exception assumée** : comme le bandeau des membres, le
+  film se lance et boucle **aussi** sous `prefers-reduced-motion`, à la demande
+  de Noé. Les mouvements y deviennent de simples fondus (plus de glissements
+  ni d'étiquettes qui flottent) et le bouton pause reste disponible. Les
+  `!important` de la section 26 sont nécessaires : sans eux, la règle `*` de
+  la section 20 ramène la barre de progression à 0,001 ms et les six temps
+  défilent d'un coup. Pour revenir au repli accessible (film immobile,
+  navigation au clic), supprimer ce bloc et rétablir une garde dans le script.
+- **Barre** : six fins segments de progression, sans libellés visibles (le
+  surtitre de chaque temps nomme le chapitre ; les libellés restent lus par
+  les lecteurs d'écran). Un clic sur un segment saute au temps correspondant.
