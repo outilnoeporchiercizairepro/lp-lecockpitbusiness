@@ -533,3 +533,30 @@ Les réseaux gardent l'aperçu en cache. Après un changement d'image, forcer la
 relecture avec le LinkedIn Post Inspector
 (https://www.linkedin.com/post-inspector/) ; les anciens messages déjà
 envoyés gardent l'ancien aperçu.
+
+---
+
+## 12. Le film du hero (accueil)
+
+Sous le titre et le bouton de l'accueil, un cadre enchaîne six temps en
+lecture automatique : **le constat**, **la réponse** (ce qu'est le Cockpit
+Business), **la méthode** CAP, **le gain** (compteur jusqu'à +14h et jalons
+J0 → J30), **les témoignages** (Clara, Thomas, Ahmed) et **le résultat**. Le
+titre et le bouton restent dans le premier écran ; le film commence juste en
+dessous.
+
+Tout le texte est repris de la page elle-même : citations et heures des
+témoignages, paliers de la courbe, liste « Ce que tu as gagné » du palier J30.
+Si ces contenus changent plus bas dans la page, les reporter dans le film.
+
+- **Durée de chaque temps** : `--duree` sur son onglet, dans `index.html`
+  (6 à 8 s, 41 s pour la boucle complète).
+- **Mécanique** (`assets/script.js`, section 12) : la fin de la barre de
+  progression de l'onglet actif fait passer au temps suivant. Mettre en pause
+  revient à geler cette animation.
+- **Pause** : bouton dans la barre, et automatiquement quand le film sort de
+  l'écran ou que l'onglet du navigateur est caché.
+- **Mouvement réduit** : sous `prefers-reduced-motion`, aucune lecture
+  automatique ni animation ; on navigue par les onglets. **À savoir : cette
+  option est activée sur le Mac de Noé** (Réglages › Accessibilité ›
+  Affichage › Réduire les animations) — il y verra le film immobile.

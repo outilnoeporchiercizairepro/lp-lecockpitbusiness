@@ -2361,3 +2361,454 @@ h1, h2, h3 {
   .livestep { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; padding: 24px 22px 26px 18px; }
   .livestep__num { font-size: 44px; }
 }
+
+/* --- 26. Film du hero — le Cockpit Business en six temps -----------------
+   Un cadre blanc sous le bouton du hero, qui enchaîne six temps : constat,
+   réponse, méthode, gain, témoignages, résultat. Les temps sont empilés dans
+   la même case de grille : le cadre prend la hauteur du plus haut, rien ne
+   saute au changement. La progression vit sur les onglets (--duree) ; la fin
+   de la barre de l'onglet actif fait passer au temps suivant (script.js,
+   section 12), ce qui rend la pause triviale : on gèle l'animation.
+   ------------------------------------------------------------------------ */
+
+.film {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto 0;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.film__stage {
+  display: grid;
+  min-height: clamp(380px, 36vw, 450px);
+}
+
+.film__scene {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: clamp(28px, 4vw, 48px) clamp(20px, 4.5vw, 60px);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s ease, visibility 0s linear .45s;
+}
+.film__scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease .1s, visibility 0s;
+}
+
+/* Entrée échelonnée des éléments d'un temps, rejouée à chaque activation. */
+.film__scene.is-active .film-in {
+  animation: film-in .7s cubic-bezier(.2, .7, .3, 1) both;
+  animation-delay: calc(var(--i, 0) * 150ms + 150ms);
+}
+@keyframes film-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.film__kicker {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+.film__line {
+  margin: 0;
+  max-width: 720px;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.film__line--grand { font-size: clamp(30px, 3.8vw, 50px); }
+.film__line em, .film__compteur em { font-style: italic; color: var(--accent-lg); }
+.film__sub { margin: 0; max-width: 560px; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.film__sub b { font-family: var(--serif); font-weight: 400; font-size: 22px; color: var(--accent-lg); }
+
+/* 1. Constat — les tâches en vrac, qui flottent */
+.film__chaos { position: relative; width: 100%; max-width: 640px; height: 170px; }
+.film__chip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  rotate: var(--r);
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--creme);
+  border: 1px solid var(--card-border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.film__scene.is-active .film__chip {
+  animation:
+    film-chip .5s cubic-bezier(.2, .7, .3, 1) both,
+    film-flotte 3.2s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 90ms), calc(var(--i) * 90ms + .5s);
+}
+@keyframes film-chip {
+  from { opacity: 0; scale: .7; }
+  to   { opacity: 1; scale: 1; }
+}
+@keyframes film-flotte {
+  from { translate: 0 0; }
+  to   { translate: 4px -7px; }
+}
+
+/* 2. Le Cockpit */
+.film__marque {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.film__marque > span:first-child { color: var(--accent); margin-right: 6px; }
+.film__marque > span:last-child { font-weight: 500; color: var(--ink-3); }
+.film__pills {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.film__pills li {
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.2);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* 3. La méthode */
+.film__cap {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 820px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.film__cap li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 18px 20px;
+  border-radius: 16px;
+  background: var(--ivoire);
+  border: 1px solid var(--card-border);
+}
+.film__cap b {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 0.8;
+  color: var(--accent-lg);
+}
+.film__cap-nom { margin-top: 14px; font-size: 16px; font-weight: 700; color: var(--ink); }
+.film__cap-txt { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+/* 4. Le gain */
+.film__compteur {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--serif);
+  line-height: 0.9;
+}
+.film__plus { font-size: clamp(48px, 5vw, 68px); color: var(--accent-lg); }
+.film__compteur b {
+  font-weight: 400;
+  font-size: clamp(92px, 10vw, 136px);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.film__unite { display: flex; flex-direction: column; align-items: flex-start; font-size: clamp(40px, 4vw, 54px); color: var(--accent-lg); }
+.film__unite small {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.film__jalons {
+  position: relative;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  justify-content: space-between;
+}
+.film__jalons::before {
+  content: "";
+  position: absolute;
+  top: 5px; left: 18px; right: 18px;
+  height: 1px;
+  background: var(--rule);
+}
+.film__jalons li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding-top: 20px;
+  min-width: 36px;
+}
+.film__jalons li::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 11px; height: 11px;
+  margin-left: -5.5px;
+  border-radius: 50%;
+  background: var(--blanc);
+  border: 2px solid var(--accent-lg);
+  box-sizing: border-box;
+}
+.film__jalons li:last-child::before { background: var(--accent-lg); }
+.film__jalons b { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1; color: var(--ink); }
+.film__jalons li:last-child b { color: var(--accent-lg); }
+.film__jalons span { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-2); }
+
+/* 5. Témoignages */
+.film__temoins {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  text-align: left;
+}
+.film__temoins li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  grid-template-areas: "photo id h" "q q q";
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--ivoire);
+  border: 1px solid var(--card-border);
+}
+.film__photo {
+  grid-area: photo;
+  position: relative;
+  overflow: hidden;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--creme-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: #a99b8b;
+}
+.film__photo::before { content: attr(data-initial); }
+.film__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.film__id { grid-area: id; display: flex; flex-direction: column; font-size: 12.5px; line-height: 1.35; color: var(--ink-2); }
+.film__id b { font-size: 14.5px; color: var(--ink); }
+.film__h { grid-area: h; font-family: var(--serif); font-size: 26px; line-height: 1; color: var(--accent-lg); }
+.film__temoins q {
+  grid-area: q;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+  quotes: "«\00a0" "\00a0»";
+}
+
+/* 6. Le résultat */
+.film__acquis {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+.film__acquis li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.film__acquis li::before { content: "✦"; font-size: 11px; color: var(--accent); }
+
+/* Barre : onglets de chapitres et bouton pause */
+.film__bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 20px 16px;
+  border-top: 1px solid var(--rule);
+  background: var(--ivoire);
+}
+.film__tabs {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+.film__tab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+  padding: 4px 0 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font: inherit;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.film__tab-num { font-size: 10.5px; font-weight: 700; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.film__tab-label { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.film__tab:hover, .film__tab[aria-selected="true"] { color: var(--ink); }
+.film__tab[aria-selected="true"] .film__tab-num { color: var(--accent-sm); }
+.film__tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.film__track {
+  flex-basis: 100%;
+  display: block;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: var(--rule);
+  overflow: hidden;
+}
+.film__fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.film__tab.is-done .film__fill { transform: scaleX(1); }
+.film__tab.is-active .film__fill { animation: film-fill var(--duree, 6s) linear forwards; }
+@keyframes film-fill { to { transform: scaleX(1); } }
+
+/* À gauche de la barre : à droite, la bulle WhatsApp flottante le recouvrait
+   dès que la barre arrivait en bas de l'écran. */
+.film__play {
+  order: -1;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--btn-border);
+  background: var(--blanc);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.film__play:hover { border-color: rgba(23, 19, 15, 0.3); }
+/* Deux barres pendant la lecture, un triangle quand c'est en pause. */
+.film__play-pause {
+  width: 10px; height: 12px;
+  box-sizing: border-box;
+  border-left: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+}
+.film__play[aria-pressed="true"] .film__play-pause {
+  width: 0; height: 0;
+  border-left: 10px solid currentColor;
+  border-right: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* Pause : la barre et les animations du temps en cours se figent. */
+.film.is-paused .film__fill,
+.film.is-paused .film__scene * { animation-play-state: paused; }
+
+/* Mouvement réduit : tout est posé, on navigue par les onglets. */
+.film.is-static .film-in,
+.film.is-static .film__chip { animation: none; }
+.film.is-static .film__fill { animation: none; }
+.film.is-static .film__tab[aria-selected="true"] .film__fill { transform: scaleX(1); }
+.film.is-static .film__play { display: none; }
+
+@media (max-width: 900px) {
+  .film { margin-top: 44px; border-radius: 20px; }
+  .film__cap { grid-template-columns: minmax(0, 1fr); max-width: 460px; gap: 10px; }
+  .film__cap li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-areas: "b nom" "b txt";
+    align-items: center;
+    column-gap: 14px;
+    padding: 14px 16px;
+    text-align: left;
+  }
+  .film__cap b { grid-area: b; font-size: 46px; }
+  .film__cap-nom { grid-area: nom; margin-top: 0; }
+  .film__cap-txt { grid-area: txt; margin-top: 2px; }
+  .film__temoins { grid-template-columns: minmax(0, 1fr); max-width: 460px; gap: 10px; }
+  .film__temoins li { padding: 12px 16px; grid-template-areas: "photo id h"; }
+  .film__temoins q { display: none; }
+}
+
+@media (max-width: 620px) {
+  .film__stage { min-height: 460px; }
+  .film__scene { gap: 14px; }
+  /* Trop étroit pour un placement en pourcentages : les étiquettes se
+     chevauchaient. Elles passent en flux, en gardant leurs angles. */
+  .film__chaos {
+    height: auto;
+    max-width: 330px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px 7px;
+    padding-block: 4px;
+  }
+  .film__chip { position: static; font-size: 12px; padding: 6px 11px; }
+  .film__bar { gap: 12px; padding: 12px 14px 14px; }
+  .film__tabs { gap: 6px; }
+  .film__tab-num, .film__tab-label { display: none; }
+  .film__track { margin-top: 0; }
+  .film__play-txt { display: none; }
+  .film__play { padding: 9px 11px; }
+  .film__jalons b { font-size: 17px; }
+}

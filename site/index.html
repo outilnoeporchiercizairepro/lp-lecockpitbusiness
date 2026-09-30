@@ -102,6 +102,150 @@
       </ul>
     </div>
 
+    <!-- ==================================================================
+         FILM DU HERO — le Cockpit Business en six temps
+         Lecture automatique, un temps après l'autre : script.js, section 12.
+         La durée de chaque temps se règle sur son onglet (--duree). Sous
+         prefers-reduced-motion, rien ne bouge et on navigue par les onglets.
+         Tous les chiffres et citations viennent de la page elle-même.
+         ================================================================== -->
+    <figure class="film" data-film aria-label="Le Cockpit Business en six temps">
+      <div class="film__stage">
+
+        <!-- 1. Le constat -->
+        <section class="film__scene film__scene--constat" id="film-1" role="tabpanel" aria-labelledby="film-tab-1" data-film-scene>
+          <p class="film__kicker film-in" style="--i:0">Le constat</p>
+          <div class="film__chaos" aria-hidden="true">
+                <span class="film__chip" style="--x:6%; --y:14%; --r:-6deg; --i:0">Mails</span>
+                <span class="film__chip" style="--x:58%; --y:4%; --r:4deg; --i:1">Comptes-rendus</span>
+                <span class="film__chip" style="--x:30%; --y:46%; --r:-3deg; --i:2">Veille IA</span>
+                <span class="film__chip" style="--x:74%; --y:44%; --r:7deg; --i:3">Relances</span>
+                <span class="film__chip" style="--x:10%; --y:70%; --r:5deg; --i:4">Livrables</span>
+                <span class="film__chip" style="--x:46%; --y:76%; --r:-5deg; --i:5">Prospection</span>
+                <span class="film__chip" style="--x:84%; --y:12%; --r:-8deg; --i:6">Agenda</span>
+                <span class="film__chip" style="--x:66%; --y:78%; --r:3deg; --i:7">Diapositives</span>
+                <span class="film__chip" style="--x:29%; --y:8%; --r:6deg; --i:8">Posts LinkedIn</span>
+          </div>
+          <p class="film__line film-in" style="--i:5">Tu utilises un outil puissant <em>sans méthode</em>.</p>
+          <p class="film__sub film-in" style="--i:6">Résultat&nbsp;: des coups d'éclat ponctuels, et une semaine toujours aussi pleine.</p>
+        </section>
+
+        <!-- 2. Ce qu'est le Cockpit Business -->
+        <section class="film__scene film__scene--cockpit" id="film-2" role="tabpanel" aria-labelledby="film-tab-2" data-film-scene>
+          <p class="film__kicker film-in" style="--i:0">La réponse</p>
+          <p class="film__marque film-in" style="--i:1"><span aria-hidden="true">✦</span> Le Cockpit <span>Business</span></p>
+          <p class="film__line film-in" style="--i:2">Le programme qui fait de Claude <em>ton bras droit</em> — même si tu n'as jamais codé.</p>
+          <ul class="film__pills">
+            <li class="film-in" style="--i:3">Modules vidéo courts, accessibles à vie</li>
+            <li class="film-in" style="--i:4">Mastermind chaque semaine, 3 à 7 personnes</li>
+            <li class="film-in" style="--i:5">Une communauté privée</li>
+          </ul>
+        </section>
+
+        <!-- 3. Comment ça fonctionne -->
+        <section class="film__scene film__scene--cap" id="film-3" role="tabpanel" aria-labelledby="film-tab-3" data-film-scene>
+          <p class="film__kicker film-in" style="--i:0">Comment ça fonctionne</p>
+          <p class="film__line film-in" style="--i:1">Une méthode en trois temps&nbsp;: <em>CAP</em>.</p>
+          <ol class="film__cap">
+            <li class="film-in" style="--i:2"><b>C</b><span class="film__cap-nom">Clarifier</span><span class="film__cap-txt">Tu vois enfin où part ta semaine.</span></li>
+            <li class="film-in" style="--i:4"><b>A</b><span class="film__cap-nom">Automatiser</span><span class="film__cap-txt">Tu confies à Claude ce qui peut l'être.</span></li>
+            <li class="film-in" style="--i:6"><b>P</b><span class="film__cap-nom">Piloter</span><span class="film__cap-txt">Tu gardes la main sur ce qui tourne.</span></li>
+          </ol>
+        </section>
+
+        <!-- 4. Ce que ça fait gagner -->
+        <section class="film__scene film__scene--gain" id="film-4" role="tabpanel" aria-labelledby="film-tab-4" data-film-scene data-film-compteur>
+          <p class="film__kicker film-in" style="--i:0">Ce que ça fait gagner</p>
+          <p class="film__compteur film-in" style="--i:1"><span class="film__plus">+</span><b data-compteur="14">14</b><span class="film__unite">h<small>par semaine</small></span></p>
+          <ol class="film__jalons" aria-label="Progression sur 30 jours">
+            <li class="film-in" style="--i:2"><b>+0h</b><span>J0</span></li>
+            <li class="film-in" style="--i:3"><b>+3h</b><span>J7</span></li>
+            <li class="film-in" style="--i:4"><b>+7h</b><span>J14</span></li>
+            <li class="film-in" style="--i:5"><b>+11h</b><span>J21</span></li>
+            <li class="film-in" style="--i:6"><b>+14h</b><span>J30</span></li>
+          </ol>
+          <p class="film__sub film-in" style="--i:7">30 jours pour y arriver — c'est le délai jusqu'au résultat, pas la durée du programme.</p>
+        </section>
+
+        <!-- 5. Les témoignages -->
+        <section class="film__scene film__scene--temoins" id="film-5" role="tabpanel" aria-labelledby="film-tab-5" data-film-scene>
+          <p class="film__kicker film-in" style="--i:0">Ils l'ont fait</p>
+          <ul class="film__temoins">
+            <li class="film-in" style="--i:1">
+              <span class="film__photo" data-initial="C"><img src="assets/img/temoignages/clara.jpg" alt="" data-photo></span>
+              <span class="film__id"><b>Clara</b> Formatrice</span>
+              <span class="film__h">+10h</span>
+              <q>Aujourd'hui ils sont rédigés pendant que je fais autre chose.</q>
+            </li>
+            <li class="film-in" style="--i:3">
+              <span class="film__photo" data-initial="T"><img src="assets/img/temoignages/thomas.jpg" alt="" data-photo></span>
+              <span class="film__id"><b>Thomas</b> CEO</span>
+              <span class="film__h">+14h</span>
+              <q>On part de mon agenda réel, pas d'une démo.</q>
+            </li>
+            <li class="film-in" style="--i:5">
+              <span class="film__photo" data-initial="A"><img src="assets/img/temoignages/ahmed.jpg" alt="" data-photo></span>
+              <span class="film__id"><b>Ahmed</b> Consultant stratégique</span>
+              <span class="film__h">+15h</span>
+              <q>Une grosse partie de ma semaine partait dans des tâches que je pouvais confier.</q>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 6. Le résultat -->
+        <section class="film__scene film__scene--resultat" id="film-6" role="tabpanel" aria-labelledby="film-tab-6" data-film-scene>
+          <p class="film__kicker film-in" style="--i:0">Le résultat</p>
+          <p class="film__line film__line--grand film-in" style="--i:1">Tu choisis <em>quoi faire de tes journées</em>.</p>
+          <ul class="film__acquis">
+            <li class="film-in" style="--i:2">Des systèmes qui tournent sans toi, y compris la nuit</li>
+            <li class="film-in" style="--i:3">Zéro tâche à faible valeur ajoutée</li>
+            <li class="film-in" style="--i:4">14 heures par semaine à réinvestir où tu veux</li>
+          </ul>
+          <p class="film__sub film-in" style="--i:5"><b>+85</b> personnes accompagnées</p>
+        </section>
+
+      </div>
+
+      <div class="film__bar">
+        <div class="film__tabs" role="tablist" aria-label="Chapitres">
+          <button class="film__tab" type="button" role="tab" id="film-tab-1" aria-controls="film-1" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 6s">
+            <span class="film__tab-num">01</span>
+            <span class="film__tab-label">Le constat</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+          <button class="film__tab" type="button" role="tab" id="film-tab-2" aria-controls="film-2" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 6.5s">
+            <span class="film__tab-num">02</span>
+            <span class="film__tab-label">Le Cockpit</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+          <button class="film__tab" type="button" role="tab" id="film-tab-3" aria-controls="film-3" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 7s">
+            <span class="film__tab-num">03</span>
+            <span class="film__tab-label">La méthode</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+          <button class="film__tab" type="button" role="tab" id="film-tab-4" aria-controls="film-4" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 6.5s">
+            <span class="film__tab-num">04</span>
+            <span class="film__tab-label">Le gain</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+          <button class="film__tab" type="button" role="tab" id="film-tab-5" aria-controls="film-5" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 8s">
+            <span class="film__tab-num">05</span>
+            <span class="film__tab-label">Témoignages</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+          <button class="film__tab" type="button" role="tab" id="film-tab-6" aria-controls="film-6" aria-selected="false" tabindex="-1" data-film-tab style="--duree: 7s">
+            <span class="film__tab-num">06</span>
+            <span class="film__tab-label">Le résultat</span>
+            <span class="film__track" aria-hidden="true"><span class="film__fill"></span></span>
+          </button>
+        </div>
+        <button class="film__play" type="button" aria-pressed="false" data-film-play>
+          <span class="film__play-pause" aria-hidden="true"></span>
+          <span class="film__play-txt">Pause</span>
+        </button>
+      </div>
+    </figure>
+
   </div>
 
   <!-- Bande de preuve, bas du fold : bandeau défilant en continu.
