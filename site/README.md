@@ -533,37 +533,3 @@ Les réseaux gardent l'aperçu en cache. Après un changement d'image, forcer la
 relecture avec le LinkedIn Post Inspector
 (https://www.linkedin.com/post-inspector/) ; les anciens messages déjà
 envoyés gardent l'ancien aperçu.
-
----
-
-## 12. Le film du hero (accueil)
-
-Sous le titre et le bouton de l'accueil, un cadre enchaîne six temps en
-lecture automatique : **le constat**, **la réponse** (ce qu'est le Cockpit
-Business), **la méthode** CAP, **le gain** (compteur jusqu'à +14h et jalons
-J0 → J30), **les témoignages** (Clara, Thomas, Ahmed) et **le résultat**. Le
-titre et le bouton restent dans le premier écran ; le film commence juste en
-dessous.
-
-Tout le texte est repris de la page elle-même : citations et heures des
-témoignages, paliers de la courbe, liste « Ce que tu as gagné » du palier J30.
-Si ces contenus changent plus bas dans la page, les reporter dans le film.
-
-- **Durée de chaque temps** : `--duree` sur son onglet, dans `index.html`
-  (6 à 8 s, 41 s pour la boucle complète).
-- **Mécanique** (`assets/script.js`, section 12) : la fin de la barre de
-  progression de l'onglet actif fait passer au temps suivant. Mettre en pause
-  revient à geler cette animation.
-- **Pause** : bouton dans la barre, et automatiquement quand le film sort de
-  l'écran ou que l'onglet du navigateur est caché.
-- **Mouvement réduit — exception assumée** : comme le bandeau des membres, le
-  film se lance et boucle **aussi** sous `prefers-reduced-motion`, à la demande
-  de Noé. Les mouvements y deviennent de simples fondus (plus de glissements
-  ni d'étiquettes qui flottent) et le bouton pause reste disponible. Les
-  `!important` de la section 26 sont nécessaires : sans eux, la règle `*` de
-  la section 20 ramène la barre de progression à 0,001 ms et les six temps
-  défilent d'un coup. Pour revenir au repli accessible (film immobile,
-  navigation au clic), supprimer ce bloc et rétablir une garde dans le script.
-- **Barre** : six fins segments de progression, sans libellés visibles (le
-  surtitre de chaque temps nomme le chapitre ; les libellés restent lus par
-  les lecteurs d'écran). Un clic sur un segment saute au temps correspondant.
