@@ -432,10 +432,14 @@ trois pages se relient par leur pied de page.
   ActiveCampaign, rendez-vous via cal.com, Contentsquare, journaux serveur,
   Google Fonts, Tella), sur la structure et les engagements de la politique
   PRCZ, vers laquelle elle renvoie pour Instagram. Responsable du traitement :
-  NPC Ventures. **Cinq encadrés à compléter** (durées, hébergeur, bandeau).
-- **Bandeau cookies** : la politique annonce que Contentsquare ne dépose ses
-  cookies qu'avec l'accord du visiteur. C'est faux tant que le tag est chargé
-  sans consentement : **ne pas publier la politique sans le bandeau.**
+  NPC Ventures. **Quatre encadrés à compléter** (trois durées, hébergeur).
+- **Bandeau cookies** (`assets/script.js`, section 12) : Contentsquare n'est
+  plus dans le `<head>` des pages ; il n'est chargé qu'après un clic sur
+  « Accepter ». Deux boutons identiques (refuser aussi simple qu'accepter),
+  choix gardé six mois puis redemandé, lien « Gérer les cookies » ajouté par le
+  script dans chaque pied de page. Refuser après avoir accepté efface les
+  cookies `_cs_*` et recharge la page. **Une nouvelle page doit charger
+  `assets/script.js` et avoir un `.footer__links`** pour hériter du bandeau.
 
 ---
 

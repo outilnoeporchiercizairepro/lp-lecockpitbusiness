@@ -445,4 +445,97 @@
       }, 2000);
     }
   }
+
+  /* --- 12. Consentement aux cookies (Contentsquare) -----------------------
+     Contentsquare n'est chargé qu'après un clic sur « Accepter ». Le choix
+     est gardé six mois dans le navigateur (durée recommandée par la CNIL),
+     puis redemandé. « Refuser » est aussi simple qu'« Accepter » : deux
+     boutons identiques. Un lien « Gérer les cookies », ajouté dans chaque
+     pied de page, rouvre le bandeau ; refuser après avoir accepté efface les
+     cookies de mesure et recharge la page pour arrêter l'outil. */
+
+  var MESURE_URL = 'https://t.contentsquare.net/uxa/dffd5dd950bec.js';
+  var CLE_CHOIX = 'cockpit-cookies';
+  var DUREE_CHOIX = 182 * 24 * 3600 * 1000;
+  var mesureChargee = false;
+  var bandeau = null;
+
+  var lireChoix = function () {
+    try {
+      var v = JSON.parse(window.localStorage.getItem(CLE_CHOIX));
+      if (v && (Date.now() - v.date) < DUREE_CHOIX) return v.choix;
+    } catch (e) { /* stockage indisponible : on redemandera */ }
+    return null;
+  };
+  var ecrireChoix = function (choix) {
+    try { window.localStorage.setItem(CLE_CHOIX, JSON.stringify({ choix: choix, date: Date.now() })); } catch (e) { /* navigation privée */ }
+  };
+
+  var chargerMesure = function () {
+    if (mesureChargee) return;
+    mesureChargee = true;
+    var tag = document.createElement('script');
+    tag.src = MESURE_URL;
+    tag.async = true;
+    document.head.appendChild(tag);
+  };
+
+  // Les cookies Contentsquare commencent par « _cs_ » et peuvent être posés
+  // sur le domaine parent : on les expire sur chaque niveau du nom de domaine.
+  var effacerCookiesMesure = function () {
+    var parties = window.location.hostname.split('.');
+    var domaines = [''];
+    for (var k = 0; k < parties.length - 1; k++) domaines.push('; domain=.' + parties.slice(k).join('.'));
+    document.cookie.split(';').forEach(function (c) {
+      var nom = c.split('=')[0].trim();
+      if (nom.indexOf('_cs_') !== 0) return;
+      domaines.forEach(function (d) {
+        document.cookie = nom + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+      });
+    });
+  };
+
+  var choisir = function (choix) {
+    ecrireChoix(choix);
+    if (bandeau) { bandeau.remove(); bandeau = null; }
+    if (choix === 'accepte') {
+      chargerMesure();
+    } else {
+      effacerCookiesMesure();
+      if (mesureChargee) window.location.reload();
+    }
+  };
+
+  var ouvrirBandeau = function () {
+    if (bandeau) return;
+    bandeau = document.createElement('section');
+    bandeau.className = 'cookies';
+    bandeau.setAttribute('aria-label', 'Choix des cookies');
+    bandeau.innerHTML =
+      '<p class="cookies__titre">Mesure d’audience</p>' +
+      '<p class="cookies__texte">Le site utilise Contentsquare pour comprendre comment il est consulté et l’améliorer. ' +
+      'Rien n’est mesuré sans ton accord. <a href="confidentialite.html#art-4">En savoir plus</a></p>' +
+      '<div class="cookies__actions">' +
+      '<button class="cookies__btn" type="button" data-cookies="refuse">Refuser</button>' +
+      '<button class="cookies__btn" type="button" data-cookies="accepte">Accepter</button>' +
+      '</div>';
+    Array.prototype.forEach.call(bandeau.querySelectorAll('[data-cookies]'), function (b) {
+      b.addEventListener('click', function () { choisir(b.getAttribute('data-cookies')); });
+    });
+    // En tête du document : un lecteur d'écran le rencontre avant le contenu.
+    document.body.insertBefore(bandeau, document.body.firstChild);
+  };
+
+  var choixActuel = lireChoix();
+  if (choixActuel === 'accepte') chargerMesure();
+  else if (choixActuel === null) ouvrirBandeau();
+
+  Array.prototype.forEach.call(document.querySelectorAll('.footer__links'), function (nav) {
+    var lien = document.createElement('button');
+    lien.type = 'button';
+    lien.className = 'footer__cookies';
+    lien.textContent = 'Gérer les cookies';
+    lien.addEventListener('click', ouvrirBandeau);
+    nav.appendChild(lien);
+  });
 })();
