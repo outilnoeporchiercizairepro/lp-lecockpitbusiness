@@ -9,6 +9,7 @@ site/
 ├── programme.html      le détail du programme (présenté en call)
 ├── cgv.html            conditions générales de vente
 ├── webinaire.html      page d'inscription aux webinaires (/webinaire)
+├── landing.html        page de destination des CTA, avec vidéo de présentation (/landing)
 ├── assets/styles.css   design system « Ivoire éditorial »
 ├── assets/script.js    réservation, nav, bandeau, photos, courbe, FAQ, inscription
 ├── assets/img/         photos des témoignages et captures de preuve
@@ -533,3 +534,36 @@ Les réseaux gardent l'aperçu en cache. Après un changement d'image, forcer la
 relecture avec le LinkedIn Post Inspector
 (https://www.linkedin.com/post-inspector/) ; les anciens messages déjà
 envoyés gardent l'ancien aperçu.
+
+---
+
+## 13. La page Landing — `/landing`
+
+Destination des CTA (publicités, posts, emails) : un seul objectif, réserver
+le diagnostic. Ni navigation, ni bulle WhatsApp ; la marque n'est pas un lien.
+
+De haut en bas : titre, **vidéo de présentation**, gros bouton, bandeau des
+membres, résumé du Cockpit Business en quatre cartes (constat, méthode,
+format, résultat), vidéo de Cécile, les trois témoignages écrits, le mur de
+captures WhatsApp (17), le déroulé de l'appel, le dernier appel. **Cinq gros
+boutons** de réservation entre les blocs.
+
+### La vidéo de présentation
+
+Emplacement en attente (`data-todo="vsl"`). Quand le lien existe, remplacer
+le contenu de `.vsl__cadre` par l'`<iframe>` de la vidéo, sur le modèle de la
+vidéo de Cécile plus bas dans la page (attributs `allow`, `allowfullscreen`).
+
+### Source UTM des boutons
+
+`<body data-utm-source="site">` : `script.js` (section 1) remplace
+`utm_source=lp` par `utm_source=site` dans le lien de réservation, pour
+distinguer dans cal.com les appels réservés depuis cette page. Les autres
+pages gardent `lp`. Le même attribut sur une autre page lui donnerait sa
+propre source.
+
+### Blocs repris
+
+Le bandeau, la vidéo de Cécile, les témoignages et le déroulé de l'appel
+viennent de l'accueil ; le mur de captures vient de la page programme. Ce
+sont des copies : une modification là-bas doit être reportée ici.

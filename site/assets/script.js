@@ -15,9 +15,20 @@
 
   var ctas = document.querySelectorAll('[data-booking]');
 
+  // Source UTM propre à une page : <body data-utm-source="site"> sur /landing
+  // remplace utm_source=lp par utm_source=site, pour distinguer les appels
+  // réservés depuis cette page dans cal.com. Les autres pages gardent « lp ».
+  var lienReservation = BOOKING_URL;
+  var sourcePage = document.body.getAttribute('data-utm-source');
+  if (BOOKING_URL && sourcePage) {
+    var adresse = new URL(BOOKING_URL);
+    adresse.searchParams.set('utm_source', sourcePage);
+    lienReservation = adresse.toString();
+  }
+
   if (BOOKING_URL) {
     Array.prototype.forEach.call(ctas, function (el) {
-      el.setAttribute('href', BOOKING_URL);
+      el.setAttribute('href', lienReservation);
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');
     });

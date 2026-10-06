@@ -2377,3 +2377,116 @@ h1, h2, h3 {
   .livestep { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; padding: 24px 22px 26px 18px; }
   .livestep__num { font-size: 44px; }
 }
+
+/* --- 27. Page Landing (/landing) ---------------------------------------
+   Destination des CTA : titre, vidéo de présentation, puis preuve, résumé et
+   gros boutons de réservation entre chaque bloc. Les blocs de preuve sont
+   ceux de l'accueil et de la page programme, avec leurs styles d'origine.
+   ------------------------------------------------------------------------ */
+
+.landing__nav { justify-content: center; }
+.landing__inner { padding-block: clamp(28px, 3vw, 40px) clamp(48px, 6vw, 80px); }
+/* La vidéo est la pièce maîtresse : titre sur une ligne et marges réduites,
+   pour qu'elle tienne entière dans le premier écran d'un portable. */
+.landing__hero .hero__copy .eyebrow { margin-bottom: 18px; }
+.landing__hero .hero__copy .h1 { max-width: none; font-size: clamp(36px, 4.3vw, 62px); text-wrap: balance; }
+.landing__hero .hero__sub { margin-top: 18px; }
+
+/* Vidéo de présentation */
+.vsl { margin: 30px auto 0; width: 100%; max-width: 880px; }
+.vsl__cadre {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--creme-2);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-lg);
+}
+.vsl__cadre iframe,
+.vsl__cadre video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vsl__attente { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px; text-align: center; }
+.vsl__lecture {
+  position: relative;
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: var(--shadow-cta);
+}
+.vsl__lecture::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -14px 0 0 -8px;
+  border-left: 26px solid var(--blanc);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+/* Gros bouton de réservation, répété entre les blocs */
+.btn--xl { padding: 22px 38px; font-size: 18px; gap: 13px; }
+.landing-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 52px;
+}
+.landing-cta .microline { justify-content: center; margin-top: 18px; }
+.landing__inner .landing-cta { margin-top: 40px; }
+/* Dans le dernier bloc, le bouton s'aligne sur le texte, à gauche. */
+.landing__final .landing-cta { align-items: flex-start; margin-top: 36px; }
+.landing__final .landing-cta .microline { justify-content: flex-start; }
+
+/* Résumé en quatre cartes */
+.resume {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+.resume__item { padding: 30px 32px 32px; }
+.resume__cap {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sm);
+}
+.resume__item .h3 { margin-top: 12px; }
+.resume__item > p:not(.resume__cap):not(.resume__chiffre) { margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.resume__liste { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.resume__liste li { font-size: 15.5px; line-height: 1.5; color: var(--ink-body); }
+.resume__liste b {
+  display: inline-block;
+  width: 28px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.resume__liste--points li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; }
+.resume__liste--points li::before { content: "✦"; font-size: 11px; line-height: 1.9; color: var(--accent); }
+.resume__item--fort { background: var(--accent-soft); border-color: rgba(224, 90, 43, 0.22); }
+.resume__chiffre {
+  margin: 10px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(64px, 7vw, 92px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--accent-lg);
+}
+
+@media (max-width: 900px) {
+  .resume { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .btn--xl { padding: 18px 22px; font-size: 15.5px; }
+  .vsl__lecture { width: 64px; height: 64px; }
+  .vsl__lecture::after { margin: -11px 0 0 -6px; border-left-width: 20px; border-top-width: 11px; border-bottom-width: 11px; }
+  .resume__item { padding: 24px 22px 26px; }
+}
