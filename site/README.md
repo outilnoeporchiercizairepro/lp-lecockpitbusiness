@@ -423,10 +423,19 @@ Deux points relevés sur le texte transmis&nbsp;:
 - La date indique « mai 2026 » alors que le nom commercial vient de changer.
   Une mise à jour du texte appelle une mise à jour de la date.
 
-Restent à créer&nbsp;: `/mentions-legales` et `/confidentialite`, toujours liées
-dans le vide depuis `index.html` et `programme.html`. La politique de
-confidentialité est obligatoire dès lors qu'il y a collecte de données&nbsp;;
-l'article 12 des CGV n'en tient pas lieu.
+`mentions-legales.html` et `confidentialite.html` complètent les CGV ; les
+trois pages se relient par leur pied de page.
+
+- **Mentions légales** : éditeur NPC Ventures (même identité que les CGV).
+  **Hébergeur à compléter** — obligatoire.
+- **Politique de confidentialité** : écrite pour ce site (webinaire via
+  ActiveCampaign, rendez-vous via cal.com, Contentsquare, journaux serveur,
+  Google Fonts, Tella), sur la structure et les engagements de la politique
+  PRCZ, vers laquelle elle renvoie pour Instagram. Responsable du traitement :
+  NPC Ventures. **Cinq encadrés à compléter** (durées, hébergeur, bandeau).
+- **Bandeau cookies** : la politique annonce que Contentsquare ne dépose ses
+  cookies qu'avec l'accord du visiteur. C'est faux tant que le tag est chargé
+  sans consentement : **ne pas publier la politique sans le bandeau.**
 
 ---
 
