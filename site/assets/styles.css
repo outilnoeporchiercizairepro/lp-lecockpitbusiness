@@ -2490,3 +2490,38 @@ h1, h2, h3 {
   .vsl__lecture::after { margin: -11px 0 0 -6px; border-left-width: 20px; border-top-width: 11px; border-bottom-width: 11px; }
   .resume__item { padding: 24px 22px 26px; }
 }
+
+/* --- 28. Pages légales : compléments (mentions, confidentialité) ---------- */
+
+.legal__intro { margin: 30px 0 0; font-size: 17px; line-height: 1.62; color: var(--ink-body); }
+
+.legal__tableau { margin-top: 16px; overflow-x: auto; }
+.legal__tableau table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14.5px; }
+.legal__tableau th {
+  padding: 0 16px 10px 0;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule);
+}
+.legal__tableau td {
+  padding: 14px 16px 14px 0;
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--ink-body);
+  border-bottom: 1px solid var(--rule);
+}
+.legal__tableau td:first-child { font-weight: 600; color: var(--ink); }
+
+.legal__sec p.legal__note {
+  margin-top: 18px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(224, 90, 43, 0.18);
+  color: var(--ink-body);
+}
+.legal__sec b { color: var(--ink); font-weight: 600; }
