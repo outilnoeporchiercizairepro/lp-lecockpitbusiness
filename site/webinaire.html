@@ -134,8 +134,9 @@
         <p class="optin__form-title">Réservez votre place</p>
         <p class="optin__form-note">Gratuit. Envoyez votre question dès maintenant&nbsp;: les questions reçues avant le live passent en priorité.</p>
 
-        <!-- À REMPLACER par les valeurs du nouveau formulaire ActiveCampaign
-             « Live coaching 15/10 » (u, f, or) — voir README § 10. -->
+        <!-- Formulaire ActiveCampaign n° 117 (tag WEBI ANTOINE). Le code « or »
+             change à chaque enregistrement du formulaire dans ActiveCampaign :
+             le relever dans Intégrer → Intégré pleinement. -->
         <input type="hidden" name="u" value="117">
         <input type="hidden" name="f" value="117">
         <input type="hidden" name="s" value="">
@@ -143,10 +144,10 @@
         <input type="hidden" name="m" value="0">
         <input type="hidden" name="act" value="sub">
         <input type="hidden" name="v" value="2">
-        <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+        <input type="hidden" name="or" value="74f3f723-75ed-43ab-bf6d-aace38f8dd0e">
         <!-- Source du trafic, remplie par script.js depuis ?src= (ex. antoine).
-             field[ID_SOURCE] : à remplacer par le numéro du champ « Source ». -->
-        <input type="hidden" name="field[ID_SOURCE]" value="" data-src>
+             field[5] = champ « Source » dans ActiveCampaign. -->
+        <input type="hidden" name="field[5]" value="" data-src>
 
         <div class="field">
           <label for="optin-prenom">Prénom</label>
@@ -158,8 +159,8 @@
         </div>
         <div class="field">
           <label for="optin-question">Votre question pour Noé <span class="field__opt">facultatif</span></label>
-          <!-- field[ID_QUESTION] : à remplacer par le numéro du champ « Question live ». -->
-          <textarea id="optin-question" name="field[ID_QUESTION]" rows="3" maxlength="500" aria-describedby="optin-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
+          <!-- field[4] = champ « Question live » dans ActiveCampaign. -->
+          <textarea id="optin-question" name="field[4]" rows="3" maxlength="500" aria-describedby="optin-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
           <p class="field__compte" id="optin-question-compte" data-compteur><span>0</span>/500</p>
         </div>
 
@@ -512,8 +513,9 @@
       <p class="optin__form-title" id="pop-titre">Réservez votre place</p>
       <p class="optin__form-note">Gratuit. Envoyez votre question dès maintenant&nbsp;: les questions reçues avant le live passent en priorité.</p>
 
-      <!-- À REMPLACER par les valeurs du nouveau formulaire ActiveCampaign
-           « Live coaching 15/10 » (u, f, or) — voir README § 10. -->
+      <!-- Formulaire ActiveCampaign n° 117 (tag WEBI ANTOINE). Le code « or »
+           change à chaque enregistrement du formulaire dans ActiveCampaign :
+           le relever dans Intégrer → Intégré pleinement. -->
       <input type="hidden" name="u" value="117">
       <input type="hidden" name="f" value="117">
       <input type="hidden" name="s" value="">
@@ -521,10 +523,10 @@
       <input type="hidden" name="m" value="0">
       <input type="hidden" name="act" value="sub">
       <input type="hidden" name="v" value="2">
-      <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+      <input type="hidden" name="or" value="74f3f723-75ed-43ab-bf6d-aace38f8dd0e">
       <!-- Source du trafic, remplie par script.js depuis ?src= (ex. antoine).
-           field[ID_SOURCE] : à remplacer par le numéro du champ « Source ». -->
-      <input type="hidden" name="field[ID_SOURCE]" value="" data-src>
+           field[5] = champ « Source » dans ActiveCampaign. -->
+      <input type="hidden" name="field[5]" value="" data-src>
 
       <div class="field">
         <label for="pop-prenom">Prénom</label>
@@ -536,8 +538,8 @@
       </div>
       <div class="field">
         <label for="pop-question">Votre question pour Noé <span class="field__opt">facultatif</span></label>
-        <!-- field[ID_QUESTION] : à remplacer par le numéro du champ « Question live ». -->
-        <textarea id="pop-question" name="field[ID_QUESTION]" rows="3" maxlength="500" aria-describedby="pop-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
+        <!-- field[4] = champ « Question live » dans ActiveCampaign. -->
+        <textarea id="pop-question" name="field[4]" rows="3" maxlength="500" aria-describedby="pop-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
         <p class="field__compte" id="pop-question-compte" data-compteur><span>0</span>/500</p>
       </div>
 
