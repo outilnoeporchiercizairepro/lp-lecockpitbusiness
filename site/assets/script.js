@@ -287,9 +287,10 @@
 
   /* --- 10. Inscription au webinaire (ActiveCampaign) -----------------------
      La page porte deux formulaires identiques — celui du premier écran et
-     celui de la fenêtre — tous deux issus du formulaire ActiveCampaign n° 117 :
-     action proc.php, champs firstname/email et champs cachés relevés sur la
-     page hébergée. Sans JavaScript ils partent tels quels ; ici on les envoie
+     celui de la fenêtre — tous deux issus du même formulaire ActiveCampaign :
+     action proc.php, champs firstname/email, question (field[…]) et
+     champs cachés relevés sur la page hébergée. Les messages sont au
+     vouvoiement, comme la page. Sans JavaScript ils partent tels quels ; ici on les envoie
      comme le fait le script officiel d'ActiveCampaign — en JSONP, GET sur
      proc.php avec jsonp=true — pour afficher la confirmation sans quitter la
      page. La réponse appelle window._show_thank_you ou window._show_error, en
@@ -312,8 +313,65 @@
       try { return window.localStorage.getItem(MEMOIRE) === '1'; } catch (e) { return false; }
     };
 
+    // Source du trafic (?src=antoine dans les mails d'Antoine) : recopiée
+    // dans le champ caché des deux formulaires, pour le tag côté ActiveCampaign.
+    var source = (new URLSearchParams(window.location.search).get('src') || '')
+      .toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 40);
+    if (source) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-src]'), function (el) { el.value = source; });
+    }
+
+    // Compteur de caractères sous la question.
+    Array.prototype.forEach.call(document.querySelectorAll('[data-compteur]'), function (compteur) {
+      var zone = compteur.parentNode.querySelector('textarea');
+      var nombre = compteur.querySelector('span');
+      var maj = function () { nombre.textContent = String(zone.value.length); };
+      zone.addEventListener('input', maj);
+      maj();
+    });
+
+    // Boutons « Ajouter à mon agenda » de la confirmation, d'après window.LIVE
+    // (dans le <head> de la page) : lien Google Agenda et fichier .ics.
+    var live = window.LIVE;
+    if (live && live.debut) {
+      var debut = new Date(live.debut);
+      var fin = new Date(debut.getTime() + (live.dureeMinutes || 60) * 60000);
+      var utc = function (d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
+      var details = 'Posez toutes vos questions sur l\'IA : Noé y répond en direct.\n\n' +
+        (live.meet ? 'Lien Google Meet : ' + live.meet : 'Le lien Google Meet vous est envoyé par email.') +
+        '\n\nPas encore envoyé votre question ? Répondez au mail de confirmation.';
+      var lieu = live.meet || 'En ligne (Google Meet)';
+      var google = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(live.titre) +
+        '&dates=' + utc(debut) + '/' + utc(fin) +
+        '&details=' + encodeURIComponent(details) +
+        '&location=' + encodeURIComponent(lieu);
+      var echapper = function (t) { return t.replace(/\\/g, '\\\\').replace(/([,;])/g, '\\$1').replace(/\n/g, '\\n'); };
+      var ics = [
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Le Cockpit Business//Live//FR', 'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'UID:live-' + utc(debut) + '@lecockpit-business.fr',
+        'DTSTAMP:' + utc(new Date()),
+        'DTSTART:' + utc(debut),
+        'DTEND:' + utc(fin),
+        'SUMMARY:' + echapper(live.titre),
+        'DESCRIPTION:' + echapper(details),
+        'LOCATION:' + echapper(lieu)
+      ].concat(live.meet ? ['URL:' + live.meet] : []).concat([
+        'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + echapper(live.titre), 'TRIGGER:-PT15M', 'END:VALARM',
+        'END:VEVENT', 'END:VCALENDAR'
+      ]).join('\r\n');
+      Array.prototype.forEach.call(document.querySelectorAll('[data-agenda="google"]'), function (a) { a.href = google; });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-agenda="ics"]'), function (a) {
+        a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+      });
+    }
+
     var confirmer = function (form) {
       var merci = document.querySelector('[data-optin-merci="' + form.getAttribute('data-optin') + '"]');
+      var question = form.querySelector('textarea');
+      var sansQuestion = merci && merci.querySelector('[data-merci-sans-question]');
+      if (sansQuestion) sansQuestion.hidden = !!(question && question.value.trim());
       form.hidden = true;
       if (merci) { merci.hidden = false; merci.focus(); }
       document.documentElement.classList.add('is-inscrit');
@@ -352,7 +410,7 @@
       if (!enCours || String(id) !== formId) return;
       var tmp = document.createElement('div');
       tmp.innerHTML = message;                       // le message peut contenir du HTML
-      terminer(tmp.textContent || 'L\'inscription n\'a pas abouti. Réessaie dans un instant.');
+      terminer(tmp.textContent || 'L\'inscription n\'a pas abouti. Réessayez dans un instant.');
     };
 
     Array.prototype.forEach.call(optins, function (optin) {
@@ -363,8 +421,10 @@
         var status = optin.querySelector('[data-optin-status]');
         var prenom = optin.elements.firstname;
         var email = optin.elements.email;
+        var question = optin.querySelector('textarea');
         prenom.value = prenom.value.trim();
         email.value = email.value.trim();
+        if (question) question.value = question.value.trim();
 
         var prenomOk = !!prenom.value;
         var emailOk = EMAIL.test(email.value);
@@ -372,7 +432,7 @@
         email.setAttribute('aria-invalid', String(!emailOk));
 
         if (!prenomOk || !emailOk) {
-          status.textContent = !prenomOk ? 'Indique ton prénom.' : 'Cette adresse email ne semble pas valide.';
+          status.textContent = !prenomOk ? 'Indiquez votre prénom.' : 'Cette adresse email ne semble pas valide.';
           (prenomOk ? email : prenom).focus();
           return;
         }
@@ -389,7 +449,7 @@
         var script = document.createElement('script');
         script.src = optin.action + '?' + champs.join('&') + '&jsonp=true';
         script.onerror = function () {
-          terminer('L\'inscription n\'a pas pu être envoyée. Vérifie ta connexion et réessaie.');
+          terminer('L\'inscription n\'a pas pu être envoyée. Vérifiez votre connexion et réessayez.');
         };
         enCours = {
           form: optin,
@@ -397,7 +457,7 @@
           // Ni merci ni erreur au bout de 15 s : on rend la main plutôt que de
           // laisser un bouton bloqué.
           delai: setTimeout(function () {
-            terminer('L\'inscription met du temps à répondre. Réessaie dans un instant.');
+            terminer('L\'inscription met du temps à répondre. Réessayez dans un instant.');
           }, 15000)
         };
         document.head.appendChild(script);

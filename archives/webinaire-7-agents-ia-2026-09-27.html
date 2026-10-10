@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 agents IA pour gagner 14h par semaine — Webinaire gratuit · Le Cockpit Business</title>
+<meta name="description" content="Webinaire gratuit en direct : les 7 agents IA à mettre en place pour gagner 14h par semaine. Même en débutant, gère tes mails, ton agenda, ton site et tes posts LinkedIn en automatique.">
+<link rel="canonical" href="https://lecockpit-business.fr/webinaire">
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#e05a2b">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Le Cockpit Business">
+<meta property="og:title" content="7 agents IA à mettre en place pour gagner 14h par semaine">
+<meta property="og:description" content="Webinaire gratuit en direct. Même en débutant : tes mails, ton agenda, ton site web et tes posts LinkedIn gérés en automatique.">
+<meta property="og:url" content="https://lecockpit-business.fr/webinaire">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://lecockpit-business.fr/assets/og/webinaire.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Webinaire gratuit — 7 agents IA à mettre en place pour gagner 14h par semaine.">
+<meta name="twitter:image" content="https://lecockpit-business.fr/assets/og/webinaire.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-reveal');
+  }
+  /* Photo manquante : voir le commentaire équivalent dans index.html. */
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && el.hasAttribute('data-photo')) el.remove();
+  }, true);
+</script>
+</head>
+<body>
+
+<!-- ======================================================================
+     PAGE D'INSCRIPTION AUX WEBINAIRES
+     Un seul objectif : l'inscription. Pas de liens de navigation, pas de
+     bouton de réservation d'appel, pas de bulle WhatsApp avant l'inscription
+     — chaque sortie est une inscription perdue.
+
+     CONTENU REPRIS DU FORMULAIRE ACTIVECAMPAIGN N° 117, passé au tutoiement
+     et sans emoji, conformément au reste du site.
+
+     POUR CHAQUE NOUVELLE SESSION :
+       1. le titre (h1), le sous-titre et « Au programme » si le sujet change ;
+       2. la ligne « session » sous le sous-titre : date et heure ;
+       3. si la session a son propre formulaire ActiveCampaign : les champs
+          cachés u, f et or du formulaire ci-dessous (à relever sur la page
+          https://prcz.activehosted.com/f/<numéro>). Le script n'a pas à
+          être modifié.
+     ====================================================================== -->
+
+<main>
+
+<!-- ======================================================================
+     SECTION 1 — TITRE ET FORMULAIRE
+     ====================================================================== -->
+<section class="hero optin" id="haut">
+  <div class="shell hero__inner optin__grid">
+
+    <div class="optin__copy">
+      <p class="eyebrow">Webinaire gratuit · en direct</p>
+
+      <h1 class="h1">7 agents IA à mettre en place pour gagner <span class="italique">14h par semaine</span>.</h1>
+
+      <p class="optin__sub">Même si tu débutes, tu vas gérer tes mails, ton agenda, ton site web, tes posts LinkedIn… en automatique.</p>
+
+      <!-- La session. À mettre à jour à chaque live. -->
+      <ul class="optin__meta" aria-label="La session">
+        <li><b>Dimanche 27 septembre</b></li>
+        <li><b>20h30</b></li>
+        <li>1 heure</li>
+        <li>En ligne</li>
+      </ul>
+
+      <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->
+      <div class="optin__proof">
+        <div class="optin__faces" aria-hidden="true">
+          <span class="member__photo" data-initial="C"><img src="assets/img/temoignages/cecile.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="G"><img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="L"><img src="assets/img/temoignages/louis.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo></span>
+          <span class="member__photo" data-initial="E"><img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo></span>
+        </div>
+        <p class="optin__proof-text"><b>+85 personnes</b> accompagnées</p>
+      </div>
+    </div>
+
+
+    <div class="optin__panel" id="inscription">
+
+      <!-- Formulaire ActiveCampaign n° 117. Sans JavaScript, il est envoyé tel
+           quel à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
+      <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="page" novalidate>
+        <p class="optin__form-title">Réserve ta place</p>
+        <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
+
+        <input type="hidden" name="u" value="117">
+        <input type="hidden" name="f" value="117">
+        <input type="hidden" name="s" value="">
+        <input type="hidden" name="c" value="0">
+        <input type="hidden" name="m" value="0">
+        <input type="hidden" name="act" value="sub">
+        <input type="hidden" name="v" value="2">
+        <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+
+        <div class="field">
+          <label for="optin-prenom">Prénom</label>
+          <input id="optin-prenom" name="firstname" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="optin-email">Email</label>
+          <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+
+
+        <button class="btn btn--primary optin__submit" type="submit">
+          <span>Réserver ma place</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+
+        <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
+
+        <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
+      </form>
+
+      <!-- Affiché à la place du formulaire après l'inscription, ou quand la
+           page est ouverte avec ?inscrit=1. -->
+      <div class="optin__merci card" data-optin-merci="page" tabindex="-1" hidden>
+        <p class="optin__merci-mark" aria-hidden="true">✦</p>
+        <p class="optin__form-title">C'est noté.</p>
+        <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
+        <p class="optin__merci-text">En attendant le live, tu peux rejoindre Le Cockpit, la communauté gratuite sur WhatsApp.</p>
+        <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ======================================================================
+     BANDEAU DES MEMBRES
+     Entre le formulaire et les témoignages. Une seule série ici :
+     script.js la duplique autant de fois qu'il faut pour couvrir l'écran.
+     ====================================================================== -->
+<div class="proofbar proofbar--entre">
+  <div class="shell">
+    <p class="proofbar__label">Heures gagnées par semaine, par des membres du programme</p>
+  </div>
+
+    <div class="marquee" data-marquee>
+      <ul class="marquee__track">
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Cécile</span>
+            <span class="member__role">Consultante IA</span>
+          </div>
+          <span class="member__hours">+12h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="E">
+            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Eleanor</span>
+            <span class="member__role">Consultante RH</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Mohamed</span>
+            <span class="member__role">Consultant Énergie</span>
+          </div>
+          <span class="member__hours">+15h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="G">
+            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Gaëtan</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+18h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="L">
+            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Louis</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+20h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Julian</span>
+            <span class="member__role">Investisseur</span>
+          </div>
+          <span class="member__hours">+30h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Camilha</span>
+            <span class="member__role">En reconversion</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Jérôme</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+14h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Michel</span>
+            <span class="member__role">Conseiller Gestion Patrimoine</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+      </ul>
+    </div>
+</div>
+
+<!-- ======================================================================
+     SECTION 2 — TÉMOIGNAGES
+     Vidéo de Cécile puis mur de captures WhatsApp : mêmes contenus que la
+     section 4 de l'accueil. Une capture ajoutée dans assets/img/preuves/ doit
+     être référencée ici aussi.
+     ====================================================================== -->
+<section class="section" id="temoignage-cecile">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Témoignage</p>
+      <h2 class="h2">Cécile a récupéré <span class="italique">12h par semaine</span>.</h2>
+    </div>
+
+    <figure class="proof__video reveal">
+      <div class="proof__video-frame">
+        <iframe src="https://www.tella.tv/video/vid_cmt8j1n4z00n204ju2s5cgyn0/embed?b=0&amp;title=1&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=1"
+                title="Témoignage vidéo de Cécile, membre du Cockpit Business"
+                loading="lazy" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <figcaption class="proof__video-caption">
+        <b>Cécile S.</b>
+        <span>Consultante IA</span>
+        <span class="proof__video-hours">+12h gagnées par semaine</span>
+      </figcaption>
+    </figure>
+    <div class="proofwall reveal">
+      <div class="proofwall__head">
+        <p class="label">Ce qu'ils en disent, à chaud</p>
+        <p class="proofwall__note">Messages reçus pendant le programme.</p>
+      </div>
+
+      <div class="proofwall__grid">
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve1.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve2.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve3.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve4.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve5.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve6.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve7.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve8.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve9.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve10.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve11.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve12.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve13.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve14.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve19.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 3 — AU PROGRAMME
+     Numérotés parce que c'est l'ordre réel du live.
+     ====================================================================== -->
+<section class="section" id="programme-live">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Au programme</p>
+      <h2 class="h2">Ce que tu vas voir.</h2>
+    </div>
+
+    <ol class="livesteps">
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">1</span>
+        <h3 class="h3">Ce qu'est vraiment un agent IA</h3>
+        <p>Et pourquoi tu n'as pas besoin d'un développeur pour en construire un.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">2</span>
+        <h3 class="h3">Ton premier agent</h3>
+        <p>Comment le reconnaître, le construire et le faire tourner.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">3</span>
+        <h3 class="h3">Ce que ça donne, en vrai</h3>
+        <p>Des livrables, pas des concepts.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">4</span>
+        <h3 class="h3">Tes questions, en direct</h3>
+        <p>Un temps de questions-réponses pendant le live.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 4 — POUR QUI
+     ====================================================================== -->
+<section class="section">
+  <div class="shell livefor">
+    <div class="section__head reveal">
+      <p class="eyebrow">Pour qui</p>
+      <h2 class="h2">Tu es au bon endroit si…</h2>
+    </div>
+    <ul class="livefor__list reveal">
+      <li>Tu portes seul un volume de travail pensé pour plusieurs personnes.</li>
+      <li>Tu as essayé l'IA seul et tu as plafonné.</li>
+      <li>Tu n'as jamais codé, et tu n'as pas l'intention de t'y mettre.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 5 — QUI ANIME
+     ====================================================================== -->
+<section class="section">
+  <div class="shell livehost reveal">
+    <figure class="livehost__portrait">
+      <img src="assets/img/noe/portrait.jpg" alt="Portrait de Noé Porchier-Cizaire" data-photo loading="lazy">
+    </figure>
+    <div class="livehost__body">
+      <p class="eyebrow">Qui anime</p>
+      <h2 class="h2">Noé Porchier-Cizaire</h2>
+      <p class="p">Je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;; la méthode CAP est née de ce travail. Pendant le live, je te montre ce que j'applique à ma propre activité.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 6 — RAPPEL
+     ====================================================================== -->
+<section class="section final optin__rappel">
+  <div class="shell livefinal reveal">
+    <h2 class="h2">Une heure pour repartir avec tes <span class="italique">7 agents IA</span>.</h2>
+    <a class="btn btn--primary" href="#inscription">
+      <span>Réserver ma place</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </a>
+    <ul class="microline">
+      <li>gratuit</li>
+      <li>en direct</li>
+      <li>sans une ligne de code</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__top">
+      <a class="brand" href="index.html" aria-label="Le Cockpit Business — accueil">
+        <span class="brand__mark" aria-hidden="true">✦</span>
+        <span class="brand__name">Le Cockpit <span>Business</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Liens de pied de page">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </nav>
+    </div>
+    <p class="footer__legal">
+      Les 14h par semaine correspondent à l'écart moyen constaté entre le méta-audit initial et le méta-audit final des participants ayant suivi le programme jusqu'au bout. Ce résultat dépend de ton activité, de ton point de départ et du travail que tu fournis&nbsp;: il ne constitue ni une garantie, ni une promesse de résultat individuel. Le Cockpit Business n'est pas affilié à Anthropic. Claude est une marque d'Anthropic PBC.
+    </p>
+    <p class="footer__copy">© <span data-year>2026</span> Le Cockpit Business — PRCZ. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- ======================================================================
+     FENÊTRE D'INSCRIPTION
+     Même formulaire ActiveCampaign que dans la page, ouverte au bout de deux
+     secondes par script.js. Un <dialog> natif : Échap et le piège de focus
+     sont gérés par le navigateur.
+     ====================================================================== -->
+<dialog class="pop" data-pop aria-labelledby="pop-titre">
+  <button class="pop__fermer" type="button" data-pop-fermer aria-label="Fermer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+
+  <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="pop" novalidate>
+    <p class="optin__form-title" id="pop-titre">Réserve ta place</p>
+    <p class="optin__form-note">Gratuit. Le lien de connexion t'est envoyé par email.</p>
+
+    <input type="hidden" name="u" value="117">
+    <input type="hidden" name="f" value="117">
+    <input type="hidden" name="s" value="">
+    <input type="hidden" name="c" value="0">
+    <input type="hidden" name="m" value="0">
+    <input type="hidden" name="act" value="sub">
+    <input type="hidden" name="v" value="2">
+    <input type="hidden" name="or" value="90a35c1a-b5f0-4030-be7d-2e9f2a1375db">
+
+    <div class="field">
+      <label for="pop-prenom">Prénom</label>
+      <input id="pop-prenom" name="firstname" type="text" autocomplete="given-name" required>
+    </div>
+    <div class="field">
+      <label for="pop-email">Email</label>
+      <input id="pop-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+    </div>
+
+
+    <button class="btn btn--primary optin__submit" type="submit">
+      <span>Réserver ma place</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </button>
+
+    <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
+
+    <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés à ce webinaire. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
+  </form>
+
+  <div class="optin__merci card" data-optin-merci="pop" tabindex="-1" hidden>
+    <p class="optin__merci-mark" aria-hidden="true">✦</p>
+    <p class="optin__form-title">C'est noté.</p>
+    <p class="optin__merci-text">Ta place est réservée. Le lien de connexion arrive par email&nbsp;— pense à regarder dans les promotions si tu ne le vois pas.</p>
+    <a class="btn btn--ghost" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre Le Cockpit</a>
+  </div>
+</dialog>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>

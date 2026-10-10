@@ -2,16 +2,45 @@
 <html lang="fr"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="_base.css">
+<style>
+  /* Variante noire, comme le premier écran de la page : fond #111111,
+     orange #e05a2b, photo de Noé à droite. */
+  body { background: #111111; }
+  .carte { padding-right: 480px; }
+  .carte::before {
+    background: radial-gradient(circle at 50% 50%,
+      rgba(224, 90, 43, 0.34) 0%, rgba(224, 90, 43, 0.12) 40%, rgba(17, 17, 17, 0) 70%);
+  }
+  .carte .brand__name, .carte .brand__name span { color: #ffffff; }
+  .carte .eyebrow { color: #e05a2b; }
+  .carte .eyebrow::before { background: #e05a2b; }
+  .carte__titre { color: #ffffff; }
+  .carte__titre .italique { color: #e05a2b; }
+  .carte__pied { color: rgba(255, 255, 255, 0.7); border-top-color: rgba(255, 255, 255, 0.16); }
+  .carte__pied b { color: #ffffff; }
+  .pastilles span { background: #e05a2b; border-color: #e05a2b; color: #ffffff; }
+  .portrait {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 440px; margin: 0;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  /* Fondu vers le noir sur le bord gauche de la photo. */
+  .portrait::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, #111111 0%, rgba(17, 17, 17, 0) 38%);
+  }
+</style>
 </head><body>
 <!-- À régénérer à chaque session : la date figure sur l'image. -->
 <div class="carte">
+  <figure class="portrait"><img src="../site/assets/img/noe/portrait.jpg" alt=""></figure>
   <span class="brand"><span class="brand__mark">✦</span><span class="brand__name">Le Cockpit <span>Business</span></span></span>
   <div class="carte__corps">
-    <p class="eyebrow">Webinaire gratuit · en direct</p>
-    <h1 class="carte__titre" style="font-size:92px">7 agents IA à mettre en place<br>pour gagner <span class="italique">14h par semaine</span>.</h1>
+    <p class="eyebrow">Gratuit · avec Noé Porchier-Cizaire</p>
+    <h1 class="carte__titre" style="font-size:96px">Coaching IA<br><span class="italique">en direct</span>.</h1>
   </div>
   <div class="carte__pied">
-    <div class="pastilles"><span>Dimanche 27 septembre</span><span>20h30</span><span>1 heure</span></div>
+    <div class="pastilles"><span>Jeudi 15/10</span><span>12h30</span></div>
     <b>lecockpit-business.fr/webinaire</b>
   </div>
 </div>

@@ -469,53 +469,95 @@ formulaire est une inscription perdue. La marque renvoie tout de même vers
 l'accueil. La communauté WhatsApp n'est proposée qu'**après** l'inscription,
 sur l'écran de confirmation.
 
-### Contenu
+### Session en cours — coaching IA du jeudi 15 octobre, 12h30
 
-Le titre, le sous-titre, la date (dimanche 27 septembre, 20h30), la durée
-(1 heure) et les quatre points du programme viennent du formulaire
-ActiveCampaign n° 117 (https://prcz.activehosted.com/f/117), passés au
-tutoiement et sans emoji comme le reste du site. Non repris : la mention
-« Places suivies limitées », dont le sens n'est pas clair.
+Live de 2 h (Google Meet) annoncé à la base mail d'Antoine Paris (FocusLink)
+par trois mails signés Antoine (J-4, J-2, J0) qui pointent vers
+`/webinaire?src=antoine`. La page passe **au vouvoiement**, comme ces mails
+(le reste du site tutoie). Aucun prix ni mention de l'offre payante.
 
-### Le formulaire — ActiveCampaign n° 117
+La version précédente (« 7 agents IA », 27 septembre) est sauvegardée dans
+`archives/` à la racine du dépôt, avec sa carte de partage.
+
+Premier écran **noir** (`.optin--noir`, fond #111111, mots-clés du titre en
+orange), avec sous la date le bloc « Recommandé par Antoine ». **La citation
+doit être validée par Antoine**, et sa photo déposée en
+`assets/img/temoignages/antoine.jpg` (carré 220 px) — d'ici là, l'initiale
+« A » s'affiche.
+
+### Le formulaire
+
+Champs : prénom, email, question pour Noé (facultative, 500 caractères), et un champ
+caché rempli avec `?src=` (ex. `antoine`). Les deux formulaires (premier écran
+et fenêtre) sont identiques et partent vers le même formulaire ActiveCampaign ;
+le bouton du bas renvoie au premier.
+
+**À faire dans ActiveCampaign avant le mail J-4** — tant que ce n'est pas fait,
+la page envoie encore vers le formulaire n° 117 (liste « Nurturing post LM »,
+tag « WEBI 27 SEPT »), qui ignore la question et la source :
+
+1. créer la liste « Live coaching 15/10 » ;
+2. créer deux champs personnalisés : « Question live » (texte long) et
+   « Source » (texte) ;
+3. créer un formulaire avec prénom, email, « Question live » et
+   « Source » en champ caché ; actions : abonner à la liste, tag
+   `live-coaching-1510` ;
+4. une automatisation « s'abonne à la liste » → si Source = antoine, tag
+   `source-antoine` (un formulaire ne sait pas poser un tag conditionnel) ;
+5. reporter dans **les deux** formulaires de `webinaire.html` : `u`, `f`, `or`,
+   et les numéros des champs à la place de `field[ID_SOURCE]` et
+   `field[ID_QUESTION]` ;
+6. faire une vraie inscription test et vérifier liste, question,
+   tags et mail de confirmation.
+
+Export des questions la veille : vue des contacts de la liste avec la colonne
+« Question live », exportée en CSV.
+
+### La confirmation
+
+Affichée à la place du formulaire : « C'est noté, à jeudi 12h30. », bouton
+**Ajouter à mon agenda** (Google Agenda) et lien vers un fichier `.ics`
+(Apple, Outlook), bouton **Rejoindre le groupe WhatsApp**, et — seulement si
+la question est restée vide — « Pas encore envoyé votre question ? Répondez
+simplement au mail de confirmation. »
+
+Les liens d'agenda sont construits par `script.js` à partir de `window.LIVE`,
+dans le `<head>` de la page (titre, début, durée, **lien Meet**). Coller le
+lien Google Meet dans `window.LIVE.meet` dès qu'il est créé ; tant qu'il est
+vide, l'invitation indique que le lien arrive par email.
+
+Les mails automatiques (confirmation, J0 8h, H-3 9h30, M-15, M0, M+15) se
+règlent dans ActiveCampaign, pas sur cette page.
+
+### Le mécanisme d'envoi
 
 Le `<form>` de la page est le formulaire ActiveCampaign lui-même : action
-`https://prcz.activehosted.com/proc.php`, champs `firstname` et `email`, et
-les champs cachés relevés sur la page hébergée (`u`, `f`, `s`, `c`, `m`,
-`act`, `v`, `or`).
+`https://prcz.activehosted.com/proc.php`, champs visibles et champs cachés
+relevés sur la page hébergée (`u`, `f`, `s`, `c`, `m`, `act`, `v`, `or`).
 
 - **Sans JavaScript**, il est envoyé tel quel et ActiveCampaign affiche sa
   propre page de remerciement.
 - **Avec** (`assets/script.js`, section 10), il est envoyé comme le fait le
-  script officiel d'ActiveCampaign pour ce formulaire : en JSONP, `GET` sur
-  `proc.php` avec `jsonp=true`. La réponse appelle `window._show_thank_you`
-  (la confirmation remplace le formulaire) ou `window._show_error` (le
-  message d'ActiveCampaign s'affiche sous le bouton). Au bout de 15 s sans
-  réponse, le bouton est rendu.
-
-Vérifié avec un aller-retour réel vers ActiveCampaign sur une adresse
-invalide (aucun contact créé). Le cas « inscription réussie » n'a été testé
-qu'en simulant la réponse : **faire une vraie inscription test** avant
-d'annoncer le live, et vérifier que le contact arrive dans la bonne liste et
-reçoit l'email de confirmation.
+  script officiel d'ActiveCampaign : en JSONP, `GET` sur `proc.php` avec
+  `jsonp=true`. La réponse appelle `window._show_thank_you` (la confirmation
+  remplace le formulaire) ou `window._show_error` (le message d'ActiveCampaign
+  s'affiche sous le bouton). Au bout de 15 s sans réponse, le bouton est rendu.
 
 `?inscrit=1` affiche aussi la confirmation, pour le cas où une redirection
 serait réglée côté ActiveCampaign.
 
 ### À chaque nouvelle session
 
-Mettre à jour le titre, le sous-titre, « Au programme » et le bloc
-« session » (date, heure). Si la session a son propre formulaire
-ActiveCampaign, relever sur sa page hébergée les valeurs de `u`, `f` et `or`
-et les reporter dans les champs cachés : le script n'a pas à être modifié.
-
-Les UTM ne sont **pas** transmis : le formulaire 117 n'a pas de champ pour
-les recevoir, ActiveCampaign les ignorerait. Pour les enregistrer, ajouter
-des champs cachés au formulaire dans ActiveCampaign, puis les reporter ici.
+Mettre à jour le titre, le sous-titre, « Au programme », le bloc « session »
+(date, heure), `window.LIVE`, la confirmation, et la carte de partage
+(`og/webinaire.html`, puis `sh og/render.sh` et changer le `?v=` de
+`og:image` pour forcer les réseaux à relire l'image). Si la session a son
+propre formulaire ActiveCampaign, reporter `u`, `f`, `or` et les numéros de
+champs dans les deux formulaires.
 
 ### Données personnelles
 
-Le formulaire collecte prénom et email : la page `/confidentialite`, liée sous
+Le formulaire collecte prénom, email et question : la page `/confidentialite`, liée sous
 le bouton, devient **obligatoire** avant la mise en ligne (voir § 8).
 
 ---

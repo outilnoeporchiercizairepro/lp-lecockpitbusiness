@@ -2276,6 +2276,115 @@ h1, h2, h3 {
   .pop__fermer { top: -10px; right: -6px; }
 }
 
+/* Question (texte long) : même habillage que les champs d'une ligne. */
+.field textarea {
+  display: block;
+  width: 100%;
+  min-height: 92px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--btn-border);
+  background: var(--ivoire);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  resize: vertical;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.field textarea:hover { border-color: rgba(23, 19, 15, 0.3); }
+.field textarea:focus {
+  outline: none;
+  background: var(--blanc);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(224, 90, 43, 0.16);
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--ink-3); }
+.field__opt { margin-left: 6px; font-weight: 500; color: var(--ink-2); }
+.field__compte {
+  margin: 6px 0 0;
+  text-align: right;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Confirmation : agenda, fichier .ics, WhatsApp. Boutons pleine largeur. */
+.optin__merci-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+.optin__merci-actions .btn { margin-top: 0; justify-content: center; }
+.optin__merci-ics {
+  margin: -4px 0 6px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Premier écran noir (session coaching IA) ---------------------------------
+   Fond #111111, texte clair, mots-clés du titre en orange. Le formulaire
+   reste une carte blanche : il ressort d'autant mieux. */
+.optin--noir {
+  background: #111111;
+  color: #ffffff;
+}
+.optin--noir::before {
+  background: radial-gradient(circle at 50% 50%,
+    rgba(224, 90, 43, 0.30) 0%,
+    rgba(224, 90, 43, 0.10) 40%,
+    rgba(17, 17, 17, 0) 70%);
+}
+.optin--noir .eyebrow { color: var(--accent); }
+.optin--noir .eyebrow::before { background: var(--accent); }
+.optin--noir .h1 { color: #ffffff; }
+.optin--noir .h1 .italique { color: var(--accent); }
+.optin--noir .optin__sub { color: rgba(255, 255, 255, 0.78); }
+.optin--noir .optin__meta li {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.78);
+}
+.optin--noir .optin__meta b { color: #ffffff; }
+.optin--noir .optin__faces .member__photo { box-shadow: 0 0 0 3px #111111; }
+.optin--noir .optin__proof-text { color: rgba(255, 255, 255, 0.78); }
+.optin--noir .optin__proof-text b { color: var(--accent); }
+
+/* Recommandé par Antoine : citation, puis légende au format de celle de la
+   vidéo de Cécile (photo ronde, nom en gras, rôle en gris). */
+.reco {
+  margin: 26px 0 0;
+  max-width: 560px;
+  padding-left: 18px;
+  border-left: 2px solid var(--accent);
+}
+.reco__citation { margin: 0; }
+.reco__citation p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(19px, 1.6vw, 22px);
+  line-height: 1.35;
+  color: var(--ink);
+}
+.reco__auteur {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.reco__auteur .member__photo { width: 36px; height: 36px; font-size: 14px; }
+.reco__auteur b { color: var(--ink); font-size: 15px; font-weight: 700; }
+.optin--noir .reco__citation p { color: #ffffff; }
+.optin--noir .reco__auteur { color: rgba(255, 255, 255, 0.66); }
+.optin--noir .reco__auteur b { color: #ffffff; }
+
+@media (max-width: 620px) {
+  .reco { margin-top: 22px; padding-left: 14px; }
+  .reco__citation p { font-size: 18px; }
+}
+
 /* Déjà inscrit : plus rien ne doit inviter à réserver sa place. */
 .is-inscrit .optin__rappel { display: none; }
 
