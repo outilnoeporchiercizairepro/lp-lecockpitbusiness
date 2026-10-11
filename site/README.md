@@ -603,11 +603,16 @@ format, résultat), vidéo de Cécile, les trois témoignages écrits, le mur de
 captures WhatsApp (17), le déroulé de l'appel, le dernier appel. **Cinq gros
 boutons** de réservation entre les blocs.
 
-### La vidéo de présentation
+### La vidéo de présentation (VSL)
 
-Emplacement en attente (`data-todo="vsl"`). Quand le lien existe, remplacer
-le contenu de `.vsl__cadre` par l'`<iframe>` de la vidéo, sur le modèle de la
-vidéo de Cécile plus bas dans la page (attributs `allow`, `allowfullscreen`).
+Vidéo Tella `vid_cmv0u4bre00gc06jncnoig8qr`, en tête de `/landing` **et de
+l'accueil** (variante `.hero--vsl` : titre sur une ligne, marges réduites,
+pour que la vidéo tienne dans le premier écran d'un portable). Pour changer
+de vidéo, remplacer le lien aux deux endroits.
+
+Tous les lecteurs Tella du site sont réglés sur `title=0` : sinon Tella
+affiche le nom interne de la vidéo en incrustation (« episode-15 » pour la
+VSL, « Membre de l'académie » pour Cécile).
 
 ### Source UTM des boutons
 
