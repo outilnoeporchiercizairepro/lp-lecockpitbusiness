@@ -818,6 +818,14 @@ h1, h2, h3 {
 
 /* La vidéo ouvre la section : pleine largeur, avant les témoignages. */
 .proof__video { margin: 56px 0 0; }
+/* Plusieurs témoignages vidéo : côte à côte, l'un sous l'autre sur mobile. */
+.proof__videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 56px;
+}
+.proof__videos .proof__video { margin: 0; }
 .proof__video-frame {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -1528,6 +1536,7 @@ h1, h2, h3 {
 
 @media (max-width: 900px) {
   :root { --gutter: 28px; }
+  .proof__videos { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .nav__links a { display: none; }
   .testimonials { grid-template-columns: 1fr; }
   .proofwall__grid { columns: 1; }
