@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Landings des guides offerts (/guide-rentabilite, /guide-bras-droit,
+   /guide-14h) et pages merci associées. S'appuie sur styles.css.
+   ========================================================================== */
+
+.guide-hero { padding-block: clamp(40px, 6vw, 88px) clamp(56px, 7vw, 104px); }
+
+.guide-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: start;
+}
+
+.guide-hero .eyebrow { margin-bottom: 24px; }
+.guide-hero .h1 { font-size: clamp(38px, 4.6vw, 64px); text-wrap: balance; }
+.guide-hero__sub {
+  margin: 22px 0 0;
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-body);
+  max-width: 54ch;
+}
+
+.guide-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.guide-stats li { display: flex; flex-direction: column; gap: 4px; }
+.guide-stats strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.guide-stats span { font-size: 13.5px; color: var(--ink-2); }
+
+.guide-benefits {
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+.guide-benefits li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+.guide-benefits li::before {
+  content: "✦";
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+  margin-top: 1px;
+}
+.guide-benefits strong { color: var(--ink); font-weight: 700; }
+
+/* Carte de droite : couverture + formulaire */
+.guide-card {
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow-lg);
+  padding: clamp(22px, 2.6vw, 34px);
+  position: sticky;
+  top: 96px;
+}
+.guide-card__cover {
+  display: block;
+  width: min(62%, 240px);
+  height: auto;
+  margin: -4px auto 22px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-2deg);
+}
+.guide-card__title {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--ink);
+}
+.guide-card__note {
+  margin: 0 0 14px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--ink-2);
+}
+.guide-card__legal {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--ink-3);
+}
+.guide-card__legal a { text-decoration: underline; }
+
+/* --- Formulaire ActiveCampaign intégré : on neutralise son habillage ---- */
+.guide-form ._form {
+  all: unset;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--sans) !important;
+}
+.guide-form ._form-content { display: grid !important; gap: 12px; }
+.guide-form ._form_element { margin: 0 !important; width: 100% !important; }
+.guide-form ._html-code, .guide-form ._form-branding, .guide-form ._form-title { display: none !important; }
+.guide-form ._form-label {
+  display: block !important;
+  margin: 0 0 6px !important;
+  font-family: var(--sans) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+.guide-form input[type="text"],
+.guide-form input[type="email"] {
+  width: 100% !important;
+  height: 54px !important;
+  padding: 0 18px !important;
+  border: 1px solid var(--btn-border) !important;
+  border-radius: 12px !important;
+  background: var(--ivoire) !important;
+  font-family: var(--sans) !important;
+  font-size: 16px !important;
+  color: var(--ink) !important;
+  box-sizing: border-box !important;
+}
+.guide-form input:focus { outline: 2px solid var(--accent) !important; outline-offset: 1px; border-color: transparent !important; }
+.guide-form ._button-wrapper { margin: 6px 0 0 !important; width: 100% !important; }
+.guide-form ._submit {
+  width: 100% !important;
+  height: 58px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-family: var(--sans) !important;
+  font-size: 16.5px !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  box-shadow: var(--shadow-cta) !important;
+  transition: background .18s ease, transform .18s ease;
+}
+.guide-form ._submit:hover { background: var(--accent-hover) !important; transform: translateY(-1px); }
+.guide-form ._error-inner { font-family: var(--sans) !important; font-size: 13px !important; }
+.guide-form ._form-thank-you { font-family: var(--sans) !important; text-align: center; color: var(--ink) !important; }
+
+/* Sommaire */
+.guide-toc { background: var(--creme); }
+.guide-toc__list {
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 40px;
+  counter-reset: chap;
+}
+.guide-toc__list li {
+  counter-increment: chap;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.guide-toc__list li::before {
+  content: counter(chap, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  color: var(--accent-lg);
+}
+.guide-cta-bas { margin-top: 48px; }
+
+/* Auteur */
+.guide-author { display: flex; gap: 22px; align-items: center; max-width: 760px; }
+.guide-author img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; flex: none; }
+.guide-author p { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-body); }
+.guide-author strong { color: var(--ink); }
+
+/* Page merci */
+.merci { text-align: center; }
+.merci .shell { max-width: 760px; }
+.merci .eyebrow { justify-content: center; margin-bottom: 24px; }
+.merci__cover { width: 200px; height: auto; border-radius: 10px; box-shadow: var(--shadow-md); margin: 0 auto 32px; display: block; transform: rotate(-2deg); }
+.merci__sub { margin: 20px auto 34px; font-size: 18px; line-height: 1.6; color: var(--ink-body); max-width: 52ch; }
+.merci__hint { margin: 22px 0 0; font-size: 14px; color: var(--ink-3); }
+.merci__next { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--rule); }
+.merci__next p { margin: 0 0 20px; color: var(--ink-body); }
+
+@media (max-width: 900px) {
+  .guide-hero__grid { grid-template-columns: 1fr; }
+  .guide-card { position: static; }
+  .guide-toc__list { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .guide-author { flex-direction: column; text-align: center; }
+}
