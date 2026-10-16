@@ -826,13 +826,12 @@ h1, h2, h3 {
   margin-top: 56px;
 }
 .proof__videos .proof__video { margin: 0; }
-/* Trois témoignages dont un vertical (9:16) : les deux vidéos horizontales
-   l'une sur l'autre à gauche, la verticale à droite sur toute la hauteur.
-   Rapport de colonnes calculé pour que les deux côtés finissent au même
-   niveau à pleine largeur. */
-.proof__videos--trio { grid-template-columns: minmax(0, 1.46fr) minmax(0, 1fr); }
-.proof__videos--trio .proof__video { grid-column: 1; }
-.proof__videos--trio .proof__video--vertical { grid-column: 2; grid-row: 1 / span 2; }
+/* Rangée de vidéos verticales (9:16) : trois de front, titrée par une
+   étiquette. Sur mobile, carrousel horizontal plutôt que trois grandes
+   vidéos empilées. */
+.proof__videos-titre { margin: 52px 0 0; }
+.proof__videos--verticales { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
+.proof__videos--verticales .proof__video-caption { flex-direction: column; align-items: flex-start; gap: 4px; color: var(--ink-2); }
 .proof__video--vertical .proof__video-frame { aspect-ratio: 9 / 16; }
 .proof__video-frame {
   position: relative;
@@ -1544,11 +1543,17 @@ h1, h2, h3 {
 
 @media (max-width: 900px) {
   :root { --gutter: 28px; }
-  .proof__videos,
-  .proof__videos--trio { grid-template-columns: minmax(0, 1fr); gap: 36px; }
-  .proof__videos--trio .proof__video,
-  .proof__videos--trio .proof__video--vertical { grid-column: auto; grid-row: auto; }
-  .proof__video--vertical { width: 100%; max-width: 380px; justify-self: center; }
+  .proof__videos { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .proof__videos--verticales {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(72%, 300px);
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+  .proof__videos--verticales .proof__video { scroll-snap-align: start; }
   .nav__links a { display: none; }
   .testimonials { grid-template-columns: 1fr; }
   .proofwall__grid { columns: 1; }
