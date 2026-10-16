@@ -35,7 +35,14 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<script>fbq('track', 'Lead', {content_name: 'Guide 3 14h'});</script>
+<script>
+(function () {
+  var id = null;
+  try { id = localStorage.getItem('meta_lead_event_id'); localStorage.removeItem('meta_lead_event_id'); } catch (e) {}
+  if (id) fbq('track', 'Lead', {content_name: 'Guide 3 14h'}, {eventID: id});
+  else fbq('track', 'Lead', {content_name: 'Guide 3 14h'});
+})();
+</script>
 </head>
 <body>
 
