@@ -743,80 +743,6 @@ h1, h2, h3 {
 
 /* --- 11. Section 4 — La preuve ------------------------------------------- */
 
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 64px;
-}
-.testimonial {
-  display: flex;
-  flex-direction: column;
-  padding: 26px;
-  background: var(--blanc);
-  border: 1px solid var(--card-border);
-  border-radius: 18px;
-  box-shadow: var(--shadow-sm);
-}
-.testimonial__top { display: flex; align-items: center; gap: 14px; }
-.testimonial__photo {
-  position: relative;
-  overflow: hidden;
-  width: 54px; height: 54px;
-  border-radius: 50%;
-  background: var(--creme-2);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif);
-  font-size: 19px;
-  color: #a99b8b;
-  flex: none;
-}
-.testimonial__photo::before { content: attr(data-initial); }
-.testimonial__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.testimonial__name { font-size: 15px; font-weight: 700; color: var(--ink); display: block; }
-.testimonial__role { font-size: 12.5px; font-weight: 500; color: var(--ink-3); display: block; margin-top: 2px; }
-.testimonial__hours {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-top: 22px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--rule);
-}
-.testimonial__hours b {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 38px;
-  line-height: 1;
-  color: var(--accent-lg);
-}
-.testimonial__hours span { font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
-.testimonial__deleg { margin: 20px 0 0; }
-.testimonial__deleg dt {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.testimonial__deleg dd {
-  margin: 8px 0 0;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--ink-body);
-}
-.testimonial blockquote {
-  margin: 24px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid var(--rule);
-  font-family: var(--serif);
-  font-size: 19px;
-  line-height: 1.42;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-/* La vidéo ouvre la section : pleine largeur, avant les témoignages. */
 .proof__video { margin: 56px 0 0; }
 /* Plusieurs témoignages vidéo : côte à côte, l'un sous l'autre sur mobile. */
 .proof__videos {
@@ -1555,7 +1481,6 @@ h1, h2, h3 {
   }
   .proof__videos--verticales .proof__video { scroll-snap-align: start; }
   .nav__links a { display: none; }
-  .testimonials { grid-template-columns: 1fr; }
   .proofwall__grid { columns: 1; }
   .call { grid-template-columns: 1fr; }
   .how { grid-template-columns: 1fr; }
@@ -2744,6 +2669,12 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--ink-2);
 }
+/* Gains qualitatifs sous le gain en heures : un signe orange, « − » pour ce
+   qui baisse, « + » pour ce qui augmente, puis le libellé en toutes lettres. */
+.cas__plus { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
+.cas__plus li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.cas__signe { flex: none; width: 16px; text-align: center; font-family: var(--serif); font-size: 24px; line-height: 1; color: var(--accent-lg); }
+
 .cas__capture {
   margin: 0;
   padding: 10px;
@@ -2762,4 +2693,5 @@ h1, h2, h3 {
   .cas__metier { flex-basis: 100%; order: 3; margin-top: 4px; }
   .cas__gain { margin: 0; font-size: 34px; }
   .cas__gain span { display: inline; margin: 0 0 0 8px; font-size: 11px; }
+  .cas__plus { flex-basis: 100%; order: 4; margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 20px; }
 }

@@ -627,3 +627,23 @@ propre source.
 Le bandeau, la vidéo de Cécile, les témoignages et le déroulé de l'appel
 viennent de l'accueil ; le mur de captures vient de la page programme. Ce
 sont des copies : une modification là-bas doit être reportée ici.
+
+---
+
+## 14. Témoignages : vidéos et captures WhatsApp uniquement
+
+Les avis rédigés (Clara, Thomas, Ahmed) ont été retirés de l'accueil et de
+/landing : seuls restent les témoignages vidéo et les captures WhatsApp.
+Les photos `clara.jpg`, `thomas.jpg`, `ahmed.jpg` ne sont plus utilisées.
+
+Après les vidéos viennent directement trois messages WhatsApp en entier
+(Jérémy B., Diane L., Michel Q.), puis le mur de captures en vrac.
+
+**Gains** : le gain principal en heures par semaine, en grand ; dessous, les
+gains qualitatifs, un par ligne, précédés d'un signe orange — « − » pour ce
+qui baisse, « + » pour ce qui augmente (`.cas__plus`).
+
+Conversions faites à partir des messages (hypothèses à confirmer) :
+- Jérémy : 1,4 journée gagnée pour ses 19 prospects de la semaine, sur une
+  base de 7 h par journée → **+10h par semaine** (9,8 h arrondies) ;
+- Michel : « 30 min par jour » sur cinq jours ouvrés → **+2h30 par semaine**.
