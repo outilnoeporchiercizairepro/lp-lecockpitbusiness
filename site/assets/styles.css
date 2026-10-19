@@ -552,7 +552,7 @@ h1, h2, h3 {
   transition: background-color .25s ease, box-shadow .25s ease;
 }
 .ramp__tab:hover .ramp__tab-mark { box-shadow: 0 0 0 4px rgba(224, 90, 43, 0.14); }
-.ramp__tab[aria-selected="true"] .ramp__tab-mark { background: var(--accent-lg); }
+.ramp__tab[aria-pressed="true"] .ramp__tab-mark { background: var(--accent-lg); }
 
 .ramp__tab-day {
   font-size: 10.5px;
@@ -576,15 +576,15 @@ h1, h2, h3 {
   line-height: 1.45;
   color: var(--ink-2);
 }
-.ramp__tab[aria-selected="true"] {
+.ramp__tab[aria-pressed="true"] {
   background: var(--accent-soft);
   border-color: rgba(224, 90, 43, 0.3);
   box-shadow: var(--shadow-md);
 }
-.ramp__tab[aria-selected="true"] .ramp__tab-day { color: var(--accent-sm); }
+.ramp__tab[aria-pressed="true"] .ramp__tab-day { color: var(--accent-sm); }
 
 /* Bec sous le cadre actif : il désigne le point correspondant sur le tracé. */
-.ramp__tab[aria-selected="true"]::after {
+.ramp__tab[aria-pressed="true"]::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -631,67 +631,6 @@ h1, h2, h3 {
 .ramp__axis-item[data-actif] { border-top-color: var(--accent); }
 .ramp__axis-item[data-actif] .ramp__axis-when { color: var(--accent-sm); }
 .ramp__axis-item[data-actif] .ramp__axis-hours { color: var(--accent-lg); }
-
-/* Panneaux. Sans JS ils s'affichent tous à la suite : le contenu reste lisible
-   et indexable, le script se contente d'en masquer quatre. */
-.ramp__panels { margin-top: 44px; }
-.ramp__panel {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 56px;
-  align-items: start;
-}
-.ramp__panel + .ramp__panel { margin-top: 40px; }
-/* Indispensable : le display:grid ci-dessus l'emporterait sur le display:none
-   que le navigateur applique à l'attribut hidden. */
-.ramp__panel[hidden] { display: none; }
-
-.ramp__panel-when {
-  margin: 0;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-.ramp__panel-when b { font-weight: 700; color: var(--accent-sm); }
-.ramp__panel-title {
-  margin: 14px 0 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(24px, 2.4vw, 32px);
-  line-height: 1.16;
-  letter-spacing: -0.016em;
-  color: var(--ink);
-}
-.ramp__panel-text { margin: 16px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-2); }
-
-.ramp__setup { padding-top: 6px; }
-.ramp__setup ul { margin: 18px 0 0; padding: 0; list-style: none; }
-.ramp__setup li {
-  position: relative;
-  padding-left: 26px;
-  font-size: 15.5px;
-  line-height: 1.5;
-  color: var(--ink-body);
-}
-.ramp__setup li + li { margin-top: 14px; }
-.ramp__setup li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 10px;
-  width: 11px; height: 1px;
-  background: var(--accent);
-}
-
-/* Le dernier palier est la promesse tenue : on lui donne le fond d'accent. */
-.ramp__panel--final {
-  padding: 30px 34px;
-  margin-inline: -34px;
-  border-radius: 18px;
-  background: var(--accent-soft);
-  border: 1px solid rgba(224, 90, 43, 0.16);
-}
 
 /* --- 10. Section 3 — Le constat ------------------------------------------
    Une seule phrase, centrée, en traitement de citation. Elle sert de
@@ -1460,7 +1399,6 @@ h1, h2, h3 {
 
 @media (max-width: 1040px) {
   .proofwall__grid { columns: 2; }
-  .ramp__panel { grid-template-columns: 1fr; gap: 28px; }
   .ramp__tabs { gap: 10px; }
   .ramp__tab { padding: 14px 14px 16px; }
   .ramp__tab-title { font-size: 16.5px; margin-top: 9px; }
@@ -1505,7 +1443,7 @@ h1, h2, h3 {
   /* Cinq cadres côte à côte sont illisibles ici : ils passent en colonne,
      avec le jour et l'accroche sur une même ligne. */
   .ramp__tabs { grid-template-columns: 1fr; gap: 8px; margin-bottom: 26px; }
-  .ramp__tab[aria-selected="true"]::after { display: none; }
+  .ramp__tab[aria-pressed="true"]::after { display: none; }
   .ramp__tab-top { width: auto; }
   .ramp__tab {
     display: grid;
@@ -1521,7 +1459,6 @@ h1, h2, h3 {
   .ramp__axis-item { padding: 12px 3px 0; gap: 5px; }
   .ramp__axis-when { font-size: 9.5px; letter-spacing: 0.06em; }
   .ramp__axis-hours { font-size: 19px; }
-  .ramp__panel--final { padding: 24px 22px; margin-inline: 0; }
 
   /* Bandeau : défilement un peu plus rapide sur petit écran */
   .marquee__track { animation-duration: 34s !important; }

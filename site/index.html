@@ -251,10 +251,9 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     </div>
 
     <!-- Progression sur quatre semaines, navigable jalon par jalon.
-         Les cadres du haut SONT la commande (role="tab") : un seul contrôle
-         pour une seule sélection, plutôt qu'un jeu de cadres cliquables
-         doublé d'onglets. La rangée du bas n'est que la légende de l'axe,
-         d'où son aria-hidden — semaine et heures sont déjà dans le panneau.
+         Les cadres du haut sont des boutons à état (aria-pressed) : un clic
+         place le repère de la courbe sur le jalon. La rangée du bas est la
+         légende de l'axe, semaine et heures gagnées.
          Géométrie : viewBox 1000 × 270, jalons aux abscisses 100/300/500/700/900
          (les centres des cinq colonnes) et aux ordonnées 245/201/142.5/84/40,
          proportionnelles aux heures (0, 3, 7, 11, 14 sur 14). Ces deux tableaux
@@ -269,9 +268,8 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
       </p>
 
       <div class="ramp" data-ramp>
-        <div class="ramp__tabs" role="tablist" aria-label="Progression semaine par semaine">
-          <button class="ramp__tab" type="button" role="tab" id="jalon-0"
-                  aria-controls="palier-0" aria-selected="false">
+        <div class="ramp__tabs" role="group" aria-label="Progression semaine par semaine">
+          <button class="ramp__tab" type="button" id="jalon-0" aria-pressed="false">
             <span class="ramp__tab-top">
               <span class="ramp__tab-day">J0</span>
               <span class="ramp__tab-mark" aria-hidden="true"></span>
@@ -279,8 +277,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
             <span class="ramp__tab-title">De la clarté</span>
             <span class="ramp__tab-text">Ta semaine posée à plat, tâche par tâche.</span>
           </button>
-          <button class="ramp__tab" type="button" role="tab" id="jalon-1"
-                  aria-controls="palier-1" aria-selected="false">
+          <button class="ramp__tab" type="button" id="jalon-1" aria-pressed="false">
             <span class="ramp__tab-top">
               <span class="ramp__tab-day">J7</span>
               <span class="ramp__tab-mark" aria-hidden="true"></span>
@@ -288,8 +285,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
             <span class="ramp__tab-title">Les premières délégations</span>
             <span class="ramp__tab-text">Tu tries ce qui est délégable et tu montes ta première automatisation.</span>
           </button>
-          <button class="ramp__tab" type="button" role="tab" id="jalon-2"
-                  aria-controls="palier-2" aria-selected="false">
+          <button class="ramp__tab" type="button" id="jalon-2" aria-pressed="false">
             <span class="ramp__tab-top">
               <span class="ramp__tab-day">J14</span>
               <span class="ramp__tab-mark" aria-hidden="true"></span>
@@ -297,8 +293,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
             <span class="ramp__tab-title">Claude dans ton contexte</span>
             <span class="ramp__tab-text">Mémoire, projets, modèles : il travaille sur tes vrais dossiers.</span>
           </button>
-          <button class="ramp__tab" type="button" role="tab" id="jalon-3"
-                  aria-controls="palier-3" aria-selected="false">
+          <button class="ramp__tab" type="button" id="jalon-3" aria-pressed="false">
             <span class="ramp__tab-top">
               <span class="ramp__tab-day">J21</span>
               <span class="ramp__tab-mark" aria-hidden="true"></span>
@@ -306,8 +301,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
             <span class="ramp__tab-title">Ça part sans toi</span>
             <span class="ramp__tab-text">Connecteurs branchés, tâches récurrentes déclenchées toutes seules.</span>
           </button>
-          <button class="ramp__tab" type="button" role="tab" id="jalon-4"
-                  aria-controls="palier-4" aria-selected="false">
+          <button class="ramp__tab" type="button" id="jalon-4" aria-pressed="false">
             <span class="ramp__tab-top">
               <span class="ramp__tab-day">J30</span>
               <span class="ramp__tab-mark" aria-hidden="true"></span>
@@ -347,7 +341,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
           <text class="ramp__flag" x="900" y="22" text-anchor="middle">+14h</text>
         </svg>
 
-        <div class="ramp__axis" aria-hidden="true">
+        <div class="ramp__axis">
           <div class="ramp__axis-item">
             <span class="ramp__axis-when">Départ</span>
             <span class="ramp__axis-hours">+0h</span>
@@ -371,88 +365,6 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
         </div>
       </div>
 
-      <div class="ramp__panels">
-      <div class="ramp__panel" id="palier-0" role="tabpanel" aria-labelledby="jalon-0">
-        <div>
-          <p class="ramp__panel-when">Départ · J0 · <b>+0h</b> par semaine</p>
-          <h3 class="ramp__panel-title">Tu vois enfin où part ton temps</h3>
-          <p class="ramp__panel-text">Ta semaine réelle posée à plat, tâche par tâche. Aucune heure gagnée encore — mais pour la première fois, tu sais exactement lesquelles sont récupérables.</p>
-        </div>
-        <div class="ramp__setup">
-          <p class="label">Ce que tu mets en place</p>
-          <ul>
-            <li>Ta semaine cartographiée, tâche par tâche</li>
-            <li>La liste de ce qui te coûte réellement des heures</li>
-            <li>Ton premier projet Claude, nourri de tes documents</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ramp__panel" id="palier-1" role="tabpanel" aria-labelledby="jalon-1">
-        <div>
-          <p class="ramp__panel-when">Semaine 1 · J7 · <b>+3h</b> par semaine</p>
-          <h3 class="ramp__panel-title">Tes premières délégations</h3>
-          <p class="ramp__panel-text">Tu classes tes tâches par gain réel, puis tu montes ta première automatisation. Trois heures reviennent dès la première semaine.</p>
-        </div>
-        <div class="ramp__setup">
-          <p class="label">Ce que tu mets en place</p>
-          <ul>
-            <li>Tes dix tâches délégables, priorisées par gain</li>
-            <li>Ta première automatisation en service</li>
-            <li>Tes modèles de réponse enregistrés une bonne fois</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ramp__panel" id="palier-2" role="tabpanel" aria-labelledby="jalon-2">
-        <div>
-          <p class="ramp__panel-when">Semaine 2 · J14 · <b>+7h</b> par semaine</p>
-          <h3 class="ramp__panel-title">Claude connaît ton métier</h3>
-          <p class="ramp__panel-text">Il ne répond plus à des questions isolées : il travaille dans ton contexte, avec ton ton, sur tes dossiers.</p>
-        </div>
-        <div class="ramp__setup">
-          <p class="label">Ce que tu mets en place</p>
-          <ul>
-            <li>La mémoire configurée sur ton activité</li>
-            <li>Tes comptes-rendus rédigés sans toi</li>
-            <li>Tes mails récurrents et tes relances partis tout seuls</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ramp__panel" id="palier-3" role="tabpanel" aria-labelledby="jalon-3">
-        <div>
-          <p class="ramp__panel-when">Semaine 3 · J21 · <b>+11h</b> par semaine</p>
-          <h3 class="ramp__panel-title">Ça part sans toi</h3>
-          <p class="ramp__panel-text">Tu arrêtes de redemander. Les choses se déclenchent, tu passes derrière pour valider.</p>
-        </div>
-        <div class="ramp__setup">
-          <p class="label">Ce que tu mets en place</p>
-          <ul>
-            <li>Tes outils connectés à Claude</li>
-            <li>Tes tâches récurrentes automatisées</li>
-            <li>Ton tableau de suivi des heures à jour tout seul</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ramp__panel ramp__panel--final" id="palier-4" role="tabpanel" aria-labelledby="jalon-4">
-        <div>
-          <p class="ramp__panel-when">Semaine 4 · J30 · <b>+14h</b> par semaine</p>
-          <h3 class="ramp__panel-title">Tu choisis quoi faire de tes journées</h3>
-          <p class="ramp__panel-text">Tes process sont au clair et des systèmes travaillent pendant que tu dors. Plus une seule tâche à faible valeur ajoutée dans ta semaine. Restent 14 heures, et une seule question — tu les remets dans ton business pour aller chercher de la croissance, ou tu les rends à tes proches.</p>
-        </div>
-        <div class="ramp__setup">
-          <p class="label">Ce que tu as gagné</p>
-          <ul>
-            <li>Des systèmes qui tournent sans toi, y compris la nuit</li>
-            <li>Zéro tâche à faible valeur ajoutée</li>
-            <li>14 heures par semaine à réinvestir où tu veux</li>
-          </ul>
-        </div>
-      </div>
-
-      </div>
     </div>
 
   </div>
