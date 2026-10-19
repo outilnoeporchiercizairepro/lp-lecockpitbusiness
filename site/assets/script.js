@@ -185,15 +185,13 @@
   /* --- 6. Courbe de performance : navigation par jalon --------------------
      Les abscisses et ordonnées reprennent celles du <svg> dans index.html
      (viewBox 1000 × 270) : les modifier des deux côtés à la fois.
-     Sans JS les cinq panneaux restent affichés à la suite — le contenu
-     demeure lisible et indexable, ce script se contente d'en masquer quatre. */
+     Un clic sur un cadre place le repère, la pastille et l'étiquette sur le
+     jalon correspondant, et allume la colonne de l'axe. */
 
   var courbe = document.querySelector('[data-ramp]');
 
   if (courbe) {
-    var onglets = Array.prototype.slice.call(courbe.querySelectorAll('[role="tab"]'));
-    var panneaux = Array.prototype.slice.call(
-      document.querySelectorAll('.ramp__panels [role="tabpanel"]'));
+    var onglets = Array.prototype.slice.call(courbe.querySelectorAll('.ramp__tab'));
 
     var reperesAxe = Array.prototype.slice.call(courbe.querySelectorAll('.ramp__axis-item'));
 
@@ -208,10 +206,8 @@
     var choisir = function (i, donnerLeFocus) {
       onglets.forEach(function (onglet, j) {
         var actif = j === i;
-        onglet.setAttribute('aria-selected', actif ? 'true' : 'false');
-        onglet.tabIndex = actif ? 0 : -1;
+        onglet.setAttribute('aria-pressed', actif ? 'true' : 'false');
       });
-      panneaux.forEach(function (panneau, j) { panneau.hidden = j !== i; });
       reperesAxe.forEach(function (repereAxe, j) {
         if (j === i) repereAxe.setAttribute('data-actif', '');
         else repereAxe.removeAttribute('data-actif');
@@ -523,7 +519,9 @@
   var lireChoix = function () {
     try {
       var v = JSON.parse(window.localStorage.getItem(CLE_CHOIX));
-      if (v && (Date.now() - v.date) < DUREE_CHOIX) return v.choix;
+      // Seules deux valeurs sont valides ; toute autre (dont les numéros de
+      // jalon écrits par erreur du 6 au 19 octobre 2026) fait réafficher le bandeau.
+      if (v && (v.choix === 'accepte' || v.choix === 'refuse') && (Date.now() - v.date) < DUREE_CHOIX) return v.choix;
     } catch (e) { /* stockage indisponible : on redemandera */ }
     return null;
   };
@@ -555,7 +553,7 @@
     });
   };
 
-  var choisir = function (choix) {
+  var choisirCookies = function (choix) {
     ecrireChoix(choix);
     if (bandeau) { bandeau.remove(); bandeau = null; }
     if (choix === 'accepte') {
@@ -580,7 +578,7 @@
       '<button class="cookies__btn" type="button" data-cookies="accepte">Accepter</button>' +
       '</div>';
     Array.prototype.forEach.call(bandeau.querySelectorAll('[data-cookies]'), function (b) {
-      b.addEventListener('click', function () { choisir(b.getAttribute('data-cookies')); });
+      b.addEventListener('click', function () { choisirCookies(b.getAttribute('data-cookies')); });
     });
     // En tête du document : un lecteur d'écran le rencontre avant le contenu.
     document.body.insertBefore(bandeau, document.body.firstChild);
