@@ -2700,3 +2700,66 @@ h1, h2, h3 {
 @media (max-width: 620px) {
   .cookies { left: 12px; right: 12px; bottom: 12px; width: auto; }
 }
+
+/* --- 30. Témoignages en entier (captures pleine largeur) -----------------
+   Avant le mur en vrac : trois messages lisibles en entier, chacun avec son
+   identité à gauche. L'identité reste visible pendant qu'on lit la capture.
+   ------------------------------------------------------------------------ */
+
+.cas { margin-top: 76px; padding-top: 44px; border-top: 1px solid var(--rule); }
+.cas__titre { margin: 0 0 6px; }
+.cas__item {
+  display: grid;
+  grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding-block: 36px;
+}
+.cas__item + .cas__item { border-top: 1px solid var(--rule); }
+.cas__id { position: sticky; top: 110px; }
+.cas__nom {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.cas__metier { margin: 6px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink-2); }
+.cas__gain {
+  margin: 24px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(44px, 4.4vw, 60px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--accent-lg);
+}
+.cas__gain span {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.cas__capture {
+  margin: 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--blanc);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
+}
+.cas__capture img { display: block; width: 100%; height: auto; border-radius: 9px; }
+/* Sur téléphone le texte devient petit : la capture s'ouvre en grand au toucher. */
+.cas__capture a { display: block; cursor: zoom-in; }
+
+@media (max-width: 900px) {
+  .cas__item { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 28px; }
+  .cas__id { position: static; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; }
+  .cas__metier { flex-basis: 100%; order: 3; margin-top: 4px; }
+  .cas__gain { margin: 0; font-size: 34px; }
+  .cas__gain span { display: inline; margin: 0 0 0 8px; font-size: 11px; }
+}
