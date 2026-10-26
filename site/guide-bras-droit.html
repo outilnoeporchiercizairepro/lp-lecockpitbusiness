@@ -76,7 +76,9 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     </div>
 
     <aside class="guide-card" id="recevoir">
-      <img class="guide-card__mockup" src="assets/img/guides/mockup-2.jpg" width="1400" height="1045" alt="Le guide tenu en main, couverture « Crée ton bras droit IA »">
+      <!-- Motion design : le guide s'ouvre et on feuillette quelques pages. Muet et en
+           boucle pour que l'autoplay passe partout, y compris sur iOS (playsinline). -->
+      <video class="guide-card__mockup" src="assets/img/guides/motion-guide-2.mp4" poster="assets/img/guides/motion-guide-2-poster.jpg" width="960" height="720" autoplay muted loop playsinline preload="auto" aria-label="Le guide « Crée ton bras droit IA » s'ouvre et ses pages défilent"></video>
       <p class="guide-card__title">Reçois le guide gratuitement</p>
       <p class="guide-card__note">PDF de 21 pages, envoyé tout de suite.</p>
       <!-- Formulaire ActiveCampaign « ADS guide 2 » (id 166) : liste « Nurturing post LM »,
