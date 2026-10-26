@@ -43,7 +43,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 </head>
-<body>
+<body data-utm-source="guide-rentabilite">
 
 <header class="nav">
   <div class="shell nav__inner">
@@ -76,7 +76,9 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     </div>
 
     <aside class="guide-card" id="recevoir">
-      <img class="guide-card__mockup" src="assets/img/guides/mockup-1.jpg" width="1400" height="1045" alt="Le guide tenu en main, couverture « Augmente de 30 % la rentabilité de ton entreprise grâce à l'IA »">
+      <!-- Motion design : le guide s'ouvre et on feuillette quelques pages. Muet et en
+           boucle pour que l'autoplay passe partout, y compris sur iOS (playsinline). -->
+      <video class="guide-card__mockup" src="assets/img/guides/motion-guide-1.mp4" poster="assets/img/guides/motion-guide-1-poster.jpg" width="960" height="720" autoplay muted loop playsinline preload="auto" aria-label="Le guide « Augmente de 30 % la rentabilité de ton entreprise grâce à l'IA » s'ouvre et ses pages défilent"></video>
       <p class="guide-card__title">Reçois le guide gratuitement</p>
       <p class="guide-card__note">PDF de 22 pages, envoyé tout de suite.</p>
       <!-- Formulaire ActiveCampaign « ADS guide 1 » (id 165) : liste « Nurturing post LM »,
@@ -87,6 +89,79 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
       <p class="guide-card__legal">Tu peux te désinscrire à tout moment. <a href="confidentialite.html">Confidentialité</a></p>
     </aside>
 
+  </div>
+</section>
+
+<section class="section apercu">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Aperçu</p>
+      <h2 class="h2">Feuillette le guide <span class="italique">avant de le recevoir.</span></h2>
+      <p class="apercu__sub">22 pages concrètes : des chiffres, des cas réels, un prompt prêt à l'emploi et un plan d'action. Pas de théorie pour remplir.</p>
+    </div>
+    <div class="apercu__grid">
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/30k.jpg" width="640" height="905" alt="Page du guide : 30 000 € qui filent chaque année dans des tâches qu'une IA sait faire." loading="lazy">
+          <span class="apercu__tag">Le chiffre qui fait mal</span>
+        </div>
+        <figcaption>30 000 € qui filent chaque année dans des tâches qu'une IA sait faire.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/chap1.jpg" width="640" height="905" alt="Page du guide : Pourquoi tu travailles plus pour gagner pareil." loading="lazy">
+          <span class="apercu__tag">Chapitre 1</span>
+        </div>
+        <figcaption>Pourquoi tu travailles plus pour gagner pareil.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/chap2.jpg" width="640" height="905" alt="Page du guide : Le calcul que personne ne te fait." loading="lazy">
+          <span class="apercu__tag">Chapitre 2</span>
+        </div>
+        <figcaption>Le calcul que personne ne te fait.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/cas.jpg" width="640" height="905" alt="Page du guide : Des cas réels, chiffrés : +11 500 €, +24 500 €." loading="lazy">
+          <span class="apercu__tag">Chapitre 3</span>
+        </div>
+        <figcaption>Des cas réels, chiffrés : +11 500 €, +24 500 €.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/leviers.jpg" width="640" height="905" alt="Page du guide : Les 3 leviers de rentabilité de l'IA, sans jargon." loading="lazy">
+          <span class="apercu__tag">Chapitre 4</span>
+        </div>
+        <figcaption>Les 3 leviers de rentabilité de l'IA, sans jargon.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/cap.jpg" width="640" height="905" alt="Page du guide : La méthode CAP, étape par étape." loading="lazy">
+          <span class="apercu__tag">Chapitre 5</span>
+        </div>
+        <figcaption>La méthode CAP, étape par étape.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/prompt.jpg" width="640" height="905" alt="Page du guide : À copier dans Claude ou ChatGPT. Ce soir." loading="lazy">
+          <span class="apercu__tag">Le prompt offert</span>
+          <span class="apercu__lock">🔒 Le prompt complet est dans le guide</span>
+        </div>
+        <figcaption>À copier dans Claude ou ChatGPT. Ce soir.</figcaption>
+      </figure>
+      <figure class="apercu__page reveal">
+        <div class="apercu__sheet">
+          <img src="assets/img/guides/apercu-1/plan.jpg" width="640" height="905" alt="Page du guide : Ton plan d'action sur 30 jours." loading="lazy">
+          <span class="apercu__tag">Chapitre 7</span>
+        </div>
+        <figcaption>Ton plan d'action sur 30 jours.</figcaption>
+      </figure>
+    </div>
+    <div class="guide-cta-bas apercu__cta">
+      <a class="btn btn--primary" href="#recevoir"><span>Je reçois le guide gratuitement</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <p class="apercu__note">+ le glossaire express et la page « Tu as la méthode, maintenant fais-la tourner ».</p>
+    </div>
   </div>
 </section>
 
@@ -108,6 +183,105 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     </ol>
     <div class="guide-cta-bas">
       <a class="btn btn--primary" href="#recevoir"><span>Recevoir le guide</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="temoignages">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Ils l'ont appliquée</p>
+      <h2 class="h2">Ils ont repris leurs heures.<br><span class="italique">Et leur marge avec.</span></h2>
+    </div>
+
+    <div class="proof__videos">
+      <figure class="proof__video reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmv3bo34p002c06l22b9w9qbh/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Témoignage vidéo de Raphaël, CEO de CapsuleTV"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Raphaël L.</b>
+          <span>CEO de CapsuleTV</span>
+          <span class="proof__video-hours">+20h gagnées par semaine</span>
+        </figcaption>
+      </figure>
+      <figure class="proof__video reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmt8j1n4z00n204ju2s5cgyn0/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=1"
+                  title="Témoignage vidéo de Cécile, membre du Cockpit Business"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Cécile S.</b>
+          <span>Consultante IA</span>
+          <span class="proof__video-hours">+12h gagnées par semaine</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="cas">
+      <p class="label cas__titre reveal">Leurs messages, en entier</p>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Jérémy B.</p>
+          <p class="cas__metier">Architecte SI / Cloud, freelance</p>
+          <p class="cas__gain">+10h<span>par semaine</span></p>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-jeremy.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-jeremy.webp" alt="Message de Jérémy B. : ses deux skills de prospection remplissent son Google Sheets chaque lundi et mercredi à 7h ; 19 prospects lui prenaient une journée et demie à la main, il y passe désormais 30 minutes." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Diane L.</p>
+          <p class="cas__metier">Consultante IA et transformation digitale</p>
+          <p class="cas__gain">+7h<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-diane.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-diane.webp" alt="Message de Diane L. : partie de trois heures gagnées par semaine, elle en est à sept ; elle automatise ce qui peut l'être et crée des agents qui agissent à sa place." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Michel Q.</p>
+          <p class="cas__metier">Conseiller en gestion de patrimoine</p>
+          <p class="cas__gain">+2h30<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Beaucoup moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-michel.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-michel.webp" alt="Échange avec Michel Q. : il estime gagner trente minutes par jour, en efficacité et en qualité, et n'oublie plus personne ; il cite les skills, les tâches planifiées et les connecteurs." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section guide-call">
+  <div class="shell">
+    <div class="guide-call__box reveal">
+      <div class="guide-call__copy">
+        <p class="guide-call__eyebrow">Tu préfères aller plus vite ?</p>
+        <h2 class="guide-call__h">On cherche tes 30&nbsp;% <span class="italique">ensemble.</span></h2>
+        <p class="guide-call__p">45 minutes en visio : tu me décris ta semaine type, on chiffre ce que tes tâches répétitives te coûtent et tu repars avec tes 3 premières tâches à automatiser. Que tu rejoignes Le Cockpit ou non.</p>
+        <ul class="guide-call__micro">
+          <li>45 min</li><li>en visio</li><li>offert</li><li>aucun engagement</li>
+        </ul>
+      </div>
+      <div class="guide-call__actions">
+        <a class="btn btn--light btn--xl" href="#" data-booking><span>Réserver mon bilan stratégique offert</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <a class="guide-call__video" href="https://lecockpit-business.fr/landing">▶ Voir la méthode CAP en vidéo</a>
+      </div>
     </div>
   </div>
 </section>
