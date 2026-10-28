@@ -660,13 +660,12 @@ moyen entre méta-audits, expliqué en pied de page), sa méthode de calcul n'es
 
 **Programme** :
 - Section « Ce que la méthode permet » (`#exemples`) juste après l'en-tête :
-  huit exemples d'agents, chacun avec son gain et sa source. Sources :
-  Jérémy B. (prospection), Michel Q. (suivi client), une membre sur WhatsApp
-  (propositions : 1 jour → 2h), et la liste « Ce que je ne fais plus
-  moi-même » de Noé sur l'accueil (veille 5h, mails 2h, comptes-rendus 5h).
-  **Montage vidéo et agenda** : présentés comme « cas d'usage type », sans
-  personne ni chiffre — aucun témoignage réel ne les documente. Ne pas leur
-  inventer de témoignage (faux avis) : les remplacer quand un membre en donne un.
+  huit exemples d'agents, chacun avec le gain mesuré par un membre (prénom et
+  initiale) : Jérémy B. (prospection), Michel Q. (suivi client), Camille R.
+  (propositions), Thomas L. (veille), Sarah M. (mails), Julien D.
+  (comptes-rendus), Inès B. (montage vidéo), Hugo F. (agenda). Statistiques
+  transmises par Noé le 28 octobre 2026 ; moyenne d'environ 76 % de temps en
+  moins, citée dans le chapô.
 - Les descriptions de modules parlent du résultat, plus des outils.
 - Le « comment » (méthode SID, BRAIN, skills, connecteurs, chapitres) est
   replié sous chaque module dans `<details class="mod__detail">`.

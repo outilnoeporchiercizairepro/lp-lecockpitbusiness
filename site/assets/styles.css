@@ -2756,8 +2756,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--ink-2);
 }
-/* Cas d'usage sans chiffre : ce que l'agent te retire, en plus petit. */
-.agent__kpi--texte { font-size: 21px; line-height: 1.15; }
+
 /* Hauteur de deux lignes réservée : une source courte ou longue ne décale
    plus le gain, qui reste aligné d'une carte à l'autre. */
 .agent__source {
