@@ -192,82 +192,8 @@ class="proofshot">` en ajustant le numéro. Détails et contraintes dans
 
 ### Section 2 — Ce que tu vas obtenir
 
-Bloc réintroduit le 31/08 à la demande de Noé, alors que le brief l'avait
-supprimé (« redondant avec le hero, et en vouvoiement alors que toute la page
-tutoie »). Deux adaptations à la copie fournie :
-
-- **Passé au tutoiement** — « Récupère », « tes tâches », « ton business » —
-  pour ne pas rompre avec le reste de la page, à trois centimètres du « Tu n'as
-  pas un problème d'outil ».
-- **Emojis retirés**, le brief interdisant les emojis de titre. La copie a
-  ensuite été resserrée en quatre formules courtes, cf. « Les gains » ci-dessous.
-
-**Mise en page.** Un grand titre (`.h2--xl`, jusqu'à 72 px) et la courbe de
-performance, rien d'autre. Le bloc a d'abord été essayé en colonnes à filets,
-en cartes flottantes, en jauges annulaires puis en quatre formules « + / − » —
-inutile de refaire ces tours.
-
-La courbe a perdu son propre titre : « Ce que tu vas obtenir. » sert désormais
-de titre unique, et « Ta courbe de performance » faisait doublon juste en
-dessous.
-
-**La courbe (`.curve` / `.ramp`).** Un parcours en cinq jalons — J0, J7, J14,
-J21, J30 — navigable au clic ou au clavier. Elle raconte **ce qui se met en
-place** semaine après semaine, pas les étapes de CAP. Le dernier palier
-est la promesse tenue : des systèmes qui tournent la nuit, plus aucune tâche à
-faible valeur ajoutée, et 14 heures à remettre dans le business ou à rendre aux
-proches.
-
-**L'affordance de clic.** Rien ne disait que les cadres étaient cliquables.
-Trois signaux ont été ajoutés : une invite en pilule orange au-dessus
-(« Clique sur un jalon »), une **pastille** dans chaque cadre — creuse quand le
-jalon est disponible, pleine quand il est actif, dessinée comme les points du
-tracé pour qu'on relie le cadre à son point — et un **bec** sous le cadre actif
-qui pointe vers le graphe. S'y ajoutent le survol qui soulève la carte et
-colore sa bordure, et une bordure au repos plus franche
-(`rgba(23,19,15,.13)` au lieu de `.07`).
-
-**Trois étages, une seule commande.**
-
-1. Les **cadres du haut** portent le jour, une accroche et une phrase. Ce sont
-   eux les boutons (`role="tab"`).
-2. Le **graphe** au milieu : le marqueur, le repère vertical et l'étiquette
-   d'heures suivent la sélection.
-3. La **légende du bas** donne la semaine et les heures. Elle est
-   `aria-hidden` et non cliquable : ces deux informations sont déjà répétées en
-   tête de chaque panneau, et deux commandes pour une seule sélection seraient
-   une faute d'ergonomie autant que d'accessibilité.
-
-C'est un `tablist` ARIA complet : `aria-selected`, `aria-controls`, flèches
-gauche/droite, Home et End. **Sans JavaScript, les cinq panneaux s'affichent à
-la suite** — le contenu reste lisible et indexable, le script se contente d'en
-masquer quatre. La page ouvre sur la semaine 4, pour montrer le résultat avant
-le chemin.
-
-**Géométrie.** Les jalons sont aux abscisses 100, 300, 500, 700, 900 (les
-centres des cinq colonnes) et aux ordonnées 245, 201, 142.5, 84, 40 —
-proportionnelles aux heures (0, 3, 7, 11, 14 sur 14) dans un viewBox
-`1000 × 270`. **Ces deux tableaux sont répétés dans `script.js`** (`ABSCISSES`
-et `ORDONNEES`) : les modifier des deux côtés à la fois, sinon le marqueur se
-décale du tracé.
-
-Le viewBox garde son ratio, sans `preserveAspectRatio="none"` : c'est ce qui
-maintient les pastilles rondes et l'épaisseur du trait régulière.
-
-Piège rencontré : `.ramp__panel` est en `display: grid`, ce qui l'emporte sur le
-`display: none` que le navigateur applique à l'attribut `hidden`. D'où la règle
-explicite `.ramp__panel[hidden] { display: none; }` — à conserver.
-
-Sous 900 px les cinq cadres passent en colonne, jour à gauche et accroche à
-droite.
-
-> ⚠️ Seules les extrémités correspondent au méta-audit : `+0h` au départ et
-> `+14h` à J30. Les valeurs intermédiaires (+3h, +7h, +11h) sont illustratives
-> et doivent être remplacées par les relevés réels, en gardant l'arrivée calée
-> sur 14h.
->
-> Le visuel de référence du 31/08 affichait « +25h à 40h » à J30 : c'est le
-> chiffre que le brief demandait de supprimer. Il n'a pas été repris.
+Retirée le 28/10/2026 à la demande de Noé (courbe J0 → J30 et ses jalons),
+avec son CSS et son script. La section « Ma machine » prend sa place après le hero.
 
 ### Section 6 — Qui est Noé
 

@@ -290,137 +290,6 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 </section>
 
 <!-- ======================================================================
-     SECTION 2 — CE QUE TU VAS OBTENIR
-     ====================================================================== -->
-<section class="section" id="obtenir">
-  <div class="shell">
-    <div class="section__head reveal">
-      <p class="eyebrow">Le résultat</p>
-      <h2 class="h2 h2--xl">Ce que tu vas obtenir.</h2>
-      <p class="lede">Ce que tu mets en place, semaine après semaine — et les heures que ça te rend.</p>
-    </div>
-
-    <!-- Progression sur quatre semaines, navigable jalon par jalon.
-         Les cadres du haut sont des boutons à état (aria-pressed) : un clic
-         place le repère de la courbe sur le jalon. La rangée du bas est la
-         légende de l'axe, semaine et heures gagnées.
-         Géométrie : viewBox 1000 × 270, jalons aux abscisses 100/300/500/700/900
-         (les centres des cinq colonnes) et aux ordonnées 245/201/142.5/84/40,
-         proportionnelles aux heures (0, 3, 7, 11, 14 sur 14). Ces deux tableaux
-         sont répétés dans script.js : les modifier ensemble. -->
-    <div class="curve reveal">
-      <p class="curve__head">
-        <span class="curve__hint">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5 18 12l-5.4 1.6L10 19.5Z"/></svg>
-          Clique sur un jalon
-        </span>
-        <span class="curve__note">Heures gagnées / semaine</span>
-      </p>
-
-      <div class="ramp" data-ramp>
-        <div class="ramp__tabs" role="group" aria-label="Progression semaine par semaine">
-          <button class="ramp__tab" type="button" id="jalon-0" aria-pressed="false">
-            <span class="ramp__tab-top">
-              <span class="ramp__tab-day">J0</span>
-              <span class="ramp__tab-mark" aria-hidden="true"></span>
-            </span>
-            <span class="ramp__tab-title">De la clarté</span>
-            <span class="ramp__tab-text">Ta semaine posée à plat, tâche par tâche.</span>
-          </button>
-          <button class="ramp__tab" type="button" id="jalon-1" aria-pressed="false">
-            <span class="ramp__tab-top">
-              <span class="ramp__tab-day">J7</span>
-              <span class="ramp__tab-mark" aria-hidden="true"></span>
-            </span>
-            <span class="ramp__tab-title">Les premières délégations</span>
-            <span class="ramp__tab-text">Tu tries ce qui est délégable et tu montes ta première automatisation.</span>
-          </button>
-          <button class="ramp__tab" type="button" id="jalon-2" aria-pressed="false">
-            <span class="ramp__tab-top">
-              <span class="ramp__tab-day">J14</span>
-              <span class="ramp__tab-mark" aria-hidden="true"></span>
-            </span>
-            <span class="ramp__tab-title">Claude dans ton contexte</span>
-            <span class="ramp__tab-text">Mémoire, projets, modèles : il travaille sur tes vrais dossiers.</span>
-          </button>
-          <button class="ramp__tab" type="button" id="jalon-3" aria-pressed="false">
-            <span class="ramp__tab-top">
-              <span class="ramp__tab-day">J21</span>
-              <span class="ramp__tab-mark" aria-hidden="true"></span>
-            </span>
-            <span class="ramp__tab-title">Ça part sans toi</span>
-            <span class="ramp__tab-text">Connecteurs branchés, tâches récurrentes déclenchées toutes seules.</span>
-          </button>
-          <button class="ramp__tab" type="button" id="jalon-4" aria-pressed="false">
-            <span class="ramp__tab-top">
-              <span class="ramp__tab-day">J30</span>
-              <span class="ramp__tab-mark" aria-hidden="true"></span>
-            </span>
-            <span class="ramp__tab-title">Des systèmes qui tournent</span>
-            <span class="ramp__tab-text">Tes process au clair, des tâches exécutées pendant que tu dors.</span>
-          </button>
-        </div>
-
-        <svg class="ramp__chart" viewBox="0 0 1000 270" aria-hidden="true">
-          <defs>
-            <linearGradient id="rampFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#e05a2b" stop-opacity="0.16"/>
-              <stop offset="100%" stop-color="#e05a2b" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-
-          <line x1="0" y1="245" x2="1000" y2="245" stroke="rgba(23,19,15,0.09)" stroke-width="1"/>
-
-          <path d="M100 245 C 166 244, 234 220, 300 201 C 366 182, 434 170, 500 142 C 566 115, 634 103, 700 84 C 766 65, 834 52, 900 40 L 900 245 L 100 245 Z"
-                fill="url(#rampFill)"/>
-          <path d="M100 245 C 166 244, 234 220, 300 201 C 366 182, 434 170, 500 142 C 566 115, 634 103, 700 84 C 766 65, 834 52, 900 40"
-                fill="none" stroke="#d1501f" stroke-width="2.4" stroke-linecap="round"/>
-
-          <line class="ramp__guide" x1="900" y1="40" x2="900" y2="245"
-                stroke="rgba(209,80,31,0.35)" stroke-width="1.2" stroke-dasharray="3 4"/>
-
-          <g fill="#faf7f2" stroke="#d1501f" stroke-width="2">
-            <circle cx="100" cy="245" r="4.5"/>
-            <circle cx="300" cy="201" r="4.5"/>
-            <circle cx="500" cy="142.5" r="4.5"/>
-            <circle cx="700" cy="84" r="4.5"/>
-            <circle cx="900" cy="40" r="4.5"/>
-          </g>
-
-          <circle class="ramp__marker" cx="900" cy="40" r="7.5" fill="#d1501f"/>
-          <text class="ramp__flag" x="900" y="22" text-anchor="middle">+14h</text>
-        </svg>
-
-        <div class="ramp__axis">
-          <div class="ramp__axis-item">
-            <span class="ramp__axis-when">Départ</span>
-            <span class="ramp__axis-hours">+0h</span>
-          </div>
-          <div class="ramp__axis-item">
-            <span class="ramp__axis-when">Semaine 1</span>
-            <span class="ramp__axis-hours">+3h</span>
-          </div>
-          <div class="ramp__axis-item">
-            <span class="ramp__axis-when">Semaine 2</span>
-            <span class="ramp__axis-hours">+7h</span>
-          </div>
-          <div class="ramp__axis-item">
-            <span class="ramp__axis-when">Semaine 3</span>
-            <span class="ramp__axis-hours">+11h</span>
-          </div>
-          <div class="ramp__axis-item">
-            <span class="ramp__axis-when">Semaine 4</span>
-            <span class="ramp__axis-hours">+14h</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================================================================
      SECTION 3 — LE PROBLÈME
      ====================================================================== -->
 <section class="section section--constat" id="probleme">
@@ -725,19 +594,13 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
         <h2 class="h2">Je n'ai pas vingt ans de méthodes à défendre.</h2>
         <p class="p">J'ai 23 ans. Je n'ai pas appris à travailler avant l'IA pour ensuite essayer de l'y greffer — j'ai construit ma façon de travailler avec elle dès le départ. C'est pour ça que CAP n'est pas un rafistolage&nbsp;: c'est une méthode native.</p>
         <p class="p">Aujourd'hui je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;: entre 30 et 40&nbsp;% de leur semaine était délégable. Et mon activité continue de tourner quand je suis à l'autre bout du monde — ce n'est pas un argument de style de vie, c'est la seule preuve qui compte&nbsp;: le système fonctionne sans moi.</p>
-
-        <div class="noe__stats">
-          <p class="noe__stat"><b>+2,9 M</b><span>impressions en 6 mois sur LinkedIn</span></p>
-          <p class="noe__stat"><b>+10 k€</b><span>par mois grâce à l'IA</span></p>
-          <p class="noe__stat"><b>+68h</b><span>par semaine déléguées à Claude</span></p>
-        </div>
       </div>
     </div>
 
     <div class="nomore reveal">
       <div class="nomore__head">
         <p class="label">Ce que je ne fais plus moi-même</p>
-        <p class="nomore__note">Le détail des 68 heures.</p>
+        <p class="nomore__note">68 heures par semaine, au total.</p>
       </div>
       <ul class="nomore__list">
           <li><span>Tout LinkedIn — écriture, programmation, engagement</span> <b>35h</b></li>
@@ -748,21 +611,6 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
           <li><span>Comptes-rendus d'entretien</span> <b>5h</b></li>
           <li><span>Gestion des mails</span> <b>2h</b></li>
       </ul>
-    </div>
-
-    <!-- Preuves. Déposer les fichiers dans assets/img/noe/ sous les noms
-         référencés ci-dessous ; le cadre d'attente s'efface tout seul. -->
-    <div class="noe__proofs reveal">
-      <figure class="noe__proof">
-        <img src="assets/img/noe/linkedin.png" alt="Statistiques LinkedIn : 2 908 952 impressions, +794 %" data-photo loading="lazy">
-        <p class="todo todo--media" data-todo="capture-linkedin">Capture — statistiques LinkedIn</p>
-        <figcaption>Ce que produit le système LinkedIn que je ne pilote plus à la main.</figcaption>
-      </figure>
-      <figure class="noe__proof">
-        <img src="assets/img/noe/finances.jpg" alt="Notifications de virements reçus" data-photo loading="lazy">
-        <p class="todo todo--media" data-todo="capture-finances">Capture — preuve financière</p>
-        <figcaption>Et ce que ça rapporte pendant que je ne suis pas devant l'écran.</figcaption>
-      </figure>
     </div>
 
   </div>

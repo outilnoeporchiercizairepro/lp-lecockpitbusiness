@@ -182,69 +182,6 @@
     }
   }
 
-  /* --- 6. Courbe de performance : navigation par jalon --------------------
-     Les abscisses et ordonnées reprennent celles du <svg> dans index.html
-     (viewBox 1000 × 270) : les modifier des deux côtés à la fois.
-     Un clic sur un cadre place le repère, la pastille et l'étiquette sur le
-     jalon correspondant, et allume la colonne de l'axe. */
-
-  var courbe = document.querySelector('[data-ramp]');
-
-  if (courbe) {
-    var onglets = Array.prototype.slice.call(courbe.querySelectorAll('.ramp__tab'));
-
-    var reperesAxe = Array.prototype.slice.call(courbe.querySelectorAll('.ramp__axis-item'));
-
-    var repere  = courbe.querySelector('.ramp__guide');
-    var pastille = courbe.querySelector('.ramp__marker');
-    var etiquette = courbe.querySelector('.ramp__flag');
-
-    var ABSCISSES = [100, 300, 500, 700, 900];
-    var ORDONNEES = [245, 201, 142.5, 84, 40];
-    var HEURES    = ['+0h', '+3h', '+7h', '+11h', '+14h'];
-
-    var choisir = function (i, donnerLeFocus) {
-      onglets.forEach(function (onglet, j) {
-        var actif = j === i;
-        onglet.setAttribute('aria-pressed', actif ? 'true' : 'false');
-      });
-      reperesAxe.forEach(function (repereAxe, j) {
-        if (j === i) repereAxe.setAttribute('data-actif', '');
-        else repereAxe.removeAttribute('data-actif');
-      });
-
-      repere.setAttribute('x1', ABSCISSES[i]);
-      repere.setAttribute('x2', ABSCISSES[i]);
-      repere.setAttribute('y1', ORDONNEES[i]);
-
-      pastille.setAttribute('cx', ABSCISSES[i]);
-      pastille.setAttribute('cy', ORDONNEES[i]);
-
-      etiquette.setAttribute('x', ABSCISSES[i]);
-      etiquette.setAttribute('y', ORDONNEES[i] - 18);
-      etiquette.textContent = HEURES[i];
-
-      if (donnerLeFocus) onglets[i].focus();
-    };
-
-    onglets.forEach(function (onglet, i) {
-      onglet.addEventListener('click', function () { choisir(i); });
-      onglet.addEventListener('keydown', function (e) {
-        var suivant = null;
-        if (e.key === 'ArrowRight')     suivant = (i + 1) % onglets.length;
-        else if (e.key === 'ArrowLeft') suivant = (i - 1 + onglets.length) % onglets.length;
-        else if (e.key === 'Home')      suivant = 0;
-        else if (e.key === 'End')       suivant = onglets.length - 1;
-        if (suivant === null) return;
-        e.preventDefault();
-        choisir(suivant, true);
-      });
-    });
-
-    /* On ouvre sur la semaine 4 : la promesse tenue avant le chemin pour y aller. */
-    choisir(onglets.length - 1);
-  }
-
   /* --- 7. Apparition au défilement --------------------------------------- */
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

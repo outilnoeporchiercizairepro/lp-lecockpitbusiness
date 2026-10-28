@@ -451,187 +451,6 @@ h1, h2, h3 {
   white-space: nowrap;
 }
 
-/* --- 9. Section 2 — Ce que tu vas obtenir ------------------------------
-   Deux lignes pleine largeur : les trois bénéfices en colonnes séparées par
-   des filets, puis la courbe de performance en paliers.
-   ------------------------------------------------------------------------ */
-
-/* --- Courbe de performance, navigable semaine par semaine ----------------
-   Le graphe et les onglets partagent la même trame de cinq colonnes : les
-   jalons du SVG (x = 100, 300, 500, 700, 900 sur 1000) tombent au centre des
-   onglets. Le viewBox garde son ratio (pas de preserveAspectRatio="none"),
-   pour que les pastilles restent rondes et le trait régulier.
-   ------------------------------------------------------------------------ */
-
-.curve { margin-top: 64px; }
-
-.curve__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin: 0 0 20px;
-}
-/* Invite explicite : sans elle, rien ne dit que les cadres sont des boutons. */
-.curve__hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 16px 8px 13px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  border: 1px solid rgba(224, 90, 43, 0.2);
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--accent-sm);
-}
-.curve__note {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-}
-
-.ramp__chart { display: block; width: 100%; height: auto; }
-.ramp__guide,
-.ramp__marker,
-.ramp__flag { transition: all .45s cubic-bezier(.2, .7, .3, 1); }
-.ramp__flag {
-  font-family: var(--serif);
-  font-size: 24px;
-  fill: var(--accent-lg);
-}
-
-/* Cadres du haut : ce sont eux la commande. Une colonne par jalon, alignée
-   sur les abscisses du tracé. */
-.ramp__tabs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-bottom: 30px;
-}
-.ramp__tab {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding: 16px 18px 18px;
-  background: var(--blanc);
-  border: 1px solid rgba(23, 19, 15, 0.13);
-  border-radius: 14px;
-  box-shadow: var(--shadow-sm);
-  cursor: pointer;
-  transition: transform .25s cubic-bezier(.2,.7,.3,1),
-              box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
-}
-.ramp__tab:hover {
-  transform: translateY(-4px);
-  border-color: rgba(224, 90, 43, 0.4);
-  box-shadow: var(--shadow-md);
-}
-
-/* Le jour à gauche, la pastille à droite — la même que sur le tracé, pour
-   qu'on relie le cadre à son point. Non sélectionnée elle est creuse, ce qui
-   la lit comme un choix disponible. */
-.ramp__tab-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.ramp__tab-mark {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--ivoire);
-  border: 2px solid var(--accent-lg);
-  transition: background-color .25s ease, box-shadow .25s ease;
-}
-.ramp__tab:hover .ramp__tab-mark { box-shadow: 0 0 0 4px rgba(224, 90, 43, 0.14); }
-.ramp__tab[aria-pressed="true"] .ramp__tab-mark { background: var(--accent-lg); }
-
-.ramp__tab-day {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-  transition: color .25s ease;
-}
-.ramp__tab-title {
-  margin-top: 11px;
-  font-family: var(--serif);
-  font-size: 19px;
-  line-height: 1.2;
-  letter-spacing: -0.012em;
-  color: var(--ink);
-}
-.ramp__tab-text {
-  margin-top: 9px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--ink-2);
-}
-.ramp__tab[aria-pressed="true"] {
-  background: var(--accent-soft);
-  border-color: rgba(224, 90, 43, 0.3);
-  box-shadow: var(--shadow-md);
-}
-.ramp__tab[aria-pressed="true"] .ramp__tab-day { color: var(--accent-sm); }
-
-/* Bec sous le cadre actif : il désigne le point correspondant sur le tracé. */
-.ramp__tab[aria-pressed="true"]::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  width: 14px;
-  height: 14px;
-  transform: translateX(-50%) rotate(45deg);
-  background: var(--accent-soft);
-  border-right: 1px solid rgba(224, 90, 43, 0.3);
-  border-bottom: 1px solid rgba(224, 90, 43, 0.3);
-}
-
-/* Légende du bas : semaine et heures, purement indicative */
-.ramp__axis {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--rule);
-}
-.ramp__axis-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  padding: 16px 6px 0;
-  margin-top: -1px;
-  border-top: 2px solid transparent;
-  transition: border-color .25s ease;
-}
-.ramp__axis-when {
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  transition: color .25s ease;
-}
-.ramp__axis-hours {
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1;
-  color: var(--ink-4);
-  transition: color .25s ease;
-}
-.ramp__axis-item[data-actif] { border-top-color: var(--accent); }
-.ramp__axis-item[data-actif] .ramp__axis-when { color: var(--accent-sm); }
-.ramp__axis-item[data-actif] .ramp__axis-hours { color: var(--accent-lg); }
-
 /* --- 10. Section 3 — Le constat ------------------------------------------
    Une seule phrase, centrée, en traitement de citation. Elle sert de
    respiration entre la courbe et la preuve, d'où la générosité verticale.
@@ -998,24 +817,6 @@ h1, h2, h3 {
 .noe__body .h2 { margin-bottom: 28px; }
 .noe__body .p { font-size: 16.5px; }
 
-.noe__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 44px;
-  margin-top: 34px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rule);
-}
-.noe__stat { margin: 0; display: flex; flex-direction: column; gap: 4px; }
-.noe__stat { max-width: 22ch; }
-.noe__stat b {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(32px, 3vw, 42px);
-  line-height: 1;
-  color: var(--accent-lg);
-}
-.noe__stat span { font-size: 12.5px; font-weight: 500; line-height: 1.4; color: var(--ink-3); }
 
 /* Ce que je ne fais plus */
 
@@ -1055,39 +856,6 @@ h1, h2, h3 {
   font-size: 22px;
   color: var(--accent-lg);
   flex: none;
-}
-
-/* Pièces à conviction */
-
-.noe__proofs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 64px;
-}
-.noe__proof {
-  position: relative;
-  margin: 0;
-  padding: 14px 14px 0;
-  border-radius: 18px;
-  background: var(--blanc);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-md);
-}
-.noe__proof img { display: block; width: 100%; height: auto; border-radius: 10px; }
-.noe__proof .todo--media {
-  position: relative;
-  display: flex;
-  min-height: 240px;
-  border-radius: 10px;
-  background: var(--creme);
-}
-.noe__proof:has(img) .todo--media { display: none; }
-.noe__proof figcaption {
-  padding: 16px 6px 18px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--ink-3);
 }
 
 /* --- 14. Section 7 — Comment ça se passe --------------------------------- */
@@ -1399,10 +1167,6 @@ h1, h2, h3 {
 
 @media (max-width: 1040px) {
   .proofwall__grid { columns: 2; }
-  .ramp__tabs { gap: 10px; }
-  .ramp__tab { padding: 14px 14px 16px; }
-  .ramp__tab-title { font-size: 16.5px; margin-top: 9px; }
-  .ramp__tab-text { font-size: 12px; margin-top: 7px; }
 }
 
 @media (max-width: 900px) {
@@ -1427,7 +1191,6 @@ h1, h2, h3 {
   .noe__grid { grid-template-columns: 1fr; }
   .noe__portrait { max-width: 380px; }
   .nomore__list { columns: 1; }
-  .noe__proofs { grid-template-columns: 1fr; }
   .filter__cols { grid-template-columns: 1fr; }
   .why-claude { flex-direction: column; gap: 12px; }
   .caps { grid-template-columns: 1fr; }
@@ -1440,25 +1203,6 @@ h1, h2, h3 {
   }
   .why-claude__label { width: auto; padding-top: 0; }
 
-  /* Cinq cadres côte à côte sont illisibles ici : ils passent en colonne,
-     avec le jour et l'accroche sur une même ligne. */
-  .ramp__tabs { grid-template-columns: 1fr; gap: 8px; margin-bottom: 26px; }
-  .ramp__tab[aria-pressed="true"]::after { display: none; }
-  .ramp__tab-top { width: auto; }
-  .ramp__tab {
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    column-gap: 14px;
-    align-items: baseline;
-    padding: 14px 16px;
-  }
-  .ramp__tab-top { grid-column: 1; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; gap: 8px; }
-  .ramp__tab-title { grid-column: 2; margin-top: 0; font-size: 17px; }
-  .ramp__tab-text { grid-column: 2; margin-top: 5px; }
-
-  .ramp__axis-item { padding: 12px 3px 0; gap: 5px; }
-  .ramp__axis-when { font-size: 9.5px; letter-spacing: 0.06em; }
-  .ramp__axis-hours { font-size: 19px; }
 
   /* Bandeau : défilement un peu plus rapide sur petit écran */
   .marquee__track { animation-duration: 34s !important; }
@@ -1475,7 +1219,6 @@ h1, h2, h3 {
   .week__col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--rule); }
   .week__col:first-child { border-top: 0; }
   .how__item, .call__item, .filter__col { padding: 26px 22px; }
-  .curve { padding: 24px 20px 20px; }
   .nomore__list li { flex-direction: column; gap: 4px; align-items: flex-start; }
 }
 
