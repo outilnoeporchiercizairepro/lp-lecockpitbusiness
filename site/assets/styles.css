@@ -1818,13 +1818,7 @@ h1, h2, h3 {
 .pilier__note-t { font-weight: 700; color: var(--accent-sm) !important; margin-bottom: 5px !important; }
 
 /* Pile de valeur */
-.pile {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 56px;
-  align-items: start;
-  margin-top: 52px;
-}
+.pile { margin-top: 52px; }
 .pile__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .pile__list li {
   padding: 17px 0;
@@ -1833,36 +1827,10 @@ h1, h2, h3 {
   color: var(--ink-body);
 }
 
-.pile__total {
-  padding: 34px 34px 32px;
-  border-radius: 20px;
-  background: var(--accent-soft);
-  border: 1px solid rgba(224, 90, 43, 0.24);
-  box-shadow: var(--shadow-md);
-  text-align: center;
-}
-.pile__total-cap {
-  margin: 0;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent-sm);
-}
-.pile__total-val {
-  margin: 12px 0 0;
-  font-family: var(--serif);
-  font-size: clamp(56px, 6.4vw, 86px);
-  line-height: 1;
-  letter-spacing: -0.026em;
-  color: var(--accent-lg);
-}
-.pile__total-note { margin: 20px 0 24px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
 
 @media (max-width: 1180px) {
   .mod__cols { grid-template-columns: 1fr; gap: 26px; }
   .mod__meta { grid-template-columns: repeat(3, 1fr); }
-  .pile { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 1040px) {
@@ -1886,7 +1854,6 @@ h1, h2, h3 {
   .chap__title { font-size: 18px; }
   .chap__body { padding-left: 0; }
   .pilier { padding: 26px 22px 28px; }
-  .pile__total { padding: 26px 22px 24px; }
 }
 
 /* --- 24. Pages légales ---------------------------------------------------

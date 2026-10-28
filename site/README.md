@@ -329,8 +329,8 @@ est propre au programme.
 - Le libellé de CTA est le même que sur la page de vente. L'original en avait
   trois différents.
 - Les emojis de titre de module sont retirés, conformément à la DA.
-- L'avertissement légal précise que les 31 000 € sont une valeur estimée des
-  prestations prises séparément, pas un tarif.
+- Le bloc « Valeur totale 31 000 € » est retiré (demande de Noé, 28/10/2026),
+  ainsi que sa mention dans l'avertissement légal.
 
 > ⚠️ **Numérotation des chapitres.** L'original numérote jusqu'à « Ch 40 » mais
 > n'en contient que 35 : il manque les 04 à 07, le 13, le 14. J'ai gardé les
