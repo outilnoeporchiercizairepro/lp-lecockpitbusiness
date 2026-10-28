@@ -647,3 +647,24 @@ Conversions faites à partir des messages (hypothèses à confirmer) :
 - Jérémy : 1,4 journée gagnée pour ses 19 prospects de la semaine, sur une
   base de 7 h par journée → **+10h par semaine** (9,8 h arrondies) ;
 - Michel : « 30 min par jour » sur cinq jours ouvrés → **+2h30 par semaine**.
+
+---
+
+## 15. Triptyque de la promesse et programme orienté résultats
+
+**Triptyque** (`.triptyque`) sous le titre de l'accueil, de /landing et du
+programme : **+14h** par semaine · **+30 %** de marge · **Moins** de charge
+mentale. Le chiffre de 30 % est fourni par Noé ; contrairement aux 14h (écart
+moyen entre méta-audits, expliqué en pied de page), sa méthode de calcul n'est
+écrite nulle part sur le site.
+
+**Programme** :
+- Section « Ce que la méthode permet » (`#exemples`) juste après l'en-tête :
+  huit exemples d'agents, chacun avec son gain et sa source. Sources :
+  Jérémy B. (prospection), Michel Q. (suivi client), une membre sur WhatsApp
+  (propositions : 1 jour → 2h), et la liste « Ce que je ne fais plus
+  moi-même » de Noé sur l'accueil (veille 5h, mails 2h, comptes-rendus 5h).
+  **Montage vidéo et agenda** : gain et source à fournir (`data-todo`).
+- Les descriptions de modules parlent du résultat, plus des outils.
+- Le « comment » (méthode SID, BRAIN, skills, connecteurs, chapitres) est
+  replié sous chaque module dans `<details class="mod__detail">`.
