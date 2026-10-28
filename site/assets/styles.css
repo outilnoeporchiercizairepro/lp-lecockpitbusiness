@@ -2756,7 +2756,8 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--ink-2);
 }
-.agent__kpi .todo { font-size: 13px; }
+/* Cas d'usage sans chiffre : ce que l'agent te retire, en plus petit. */
+.agent__kpi--texte { font-size: 21px; line-height: 1.15; }
 /* Hauteur de deux lignes réservée : une source courte ou longue ne décale
    plus le gain, qui reste aligné d'une carte à l'autre. */
 .agent__source {
@@ -2800,3 +2801,51 @@ h1, h2, h3 {
 
 @media (max-width: 1180px) { .agents { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px)  { .agents { grid-template-columns: minmax(0, 1fr); } }
+
+/* --- 33. Promesse en titre (accueil, /landing) ---------------------------
+   Le <h1> est le triptyque lui-même : trois indicateurs de même poids,
+   séparés par un filet. « En 30 jours » passe dans le sous-titre.
+   ------------------------------------------------------------------------ */
+
+.promesse {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  font-family: var(--sans);
+  font-weight: 400;
+}
+.promesse__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 clamp(20px, 3.6vw, 52px);
+}
+.promesse__item + .promesse__item { border-left: 1px solid var(--rule); }
+.promesse__chiffre {
+  font-family: var(--serif);
+  font-size: clamp(44px, 5.4vw, 76px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  color: var(--accent-lg);
+  white-space: nowrap;
+}
+.promesse__libelle {
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.hero--vsl .hero__copy .eyebrow + .promesse { margin-top: 6px; }
+.hero--vsl .promesse + .hero__sub { margin-top: 22px; }
+/* Plus large que le sous-titre standard : deux lignes au lieu de trois. */
+.hero--vsl .hero__sub { max-width: 720px; }
+
+@media (max-width: 620px) {
+  .promesse__item { padding: 0 10px; gap: 7px; }
+  .promesse__chiffre { font-size: 36px; }
+  .promesse__libelle { font-size: 9.5px; letter-spacing: 0.07em; white-space: normal; text-align: center; }
+}

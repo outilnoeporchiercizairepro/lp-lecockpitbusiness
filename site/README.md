@@ -652,8 +652,8 @@ Conversions faites à partir des messages (hypothèses à confirmer) :
 
 ## 15. Triptyque de la promesse et programme orienté résultats
 
-**Triptyque** (`.triptyque`) sous le titre de l'accueil, de /landing et du
-programme : **+14h** par semaine · **+30 %** de marge · **Moins** de charge
+**Triptyque** : c'est le titre (`h1.promesse`) de l'accueil et de /landing,
+et une ligne sous le titre du programme (`.triptyque`) : **+14h** par semaine · **+30 %** de marge · **Moins** de charge
 mentale. Le chiffre de 30 % est fourni par Noé ; contrairement aux 14h (écart
 moyen entre méta-audits, expliqué en pied de page), sa méthode de calcul n'est
 écrite nulle part sur le site.
@@ -664,7 +664,9 @@ moyen entre méta-audits, expliqué en pied de page), sa méthode de calcul n'es
   Jérémy B. (prospection), Michel Q. (suivi client), une membre sur WhatsApp
   (propositions : 1 jour → 2h), et la liste « Ce que je ne fais plus
   moi-même » de Noé sur l'accueil (veille 5h, mails 2h, comptes-rendus 5h).
-  **Montage vidéo et agenda** : gain et source à fournir (`data-todo`).
+  **Montage vidéo et agenda** : présentés comme « cas d'usage type », sans
+  personne ni chiffre — aucun témoignage réel ne les documente. Ne pas leur
+  inventer de témoignage (faux avis) : les remplacer quand un membre en donne un.
 - Les descriptions de modules parlent du résultat, plus des outils.
 - Le « comment » (méthode SID, BRAIN, skills, connecteurs, chapitres) est
   replié sous chaque module dans `<details class="mod__detail">`.
