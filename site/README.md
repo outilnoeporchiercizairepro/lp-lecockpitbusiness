@@ -669,3 +669,22 @@ moyen entre méta-audits, expliqué en pied de page), sa méthode de calcul n'es
 - Les descriptions de modules parlent du résultat, plus des outils.
 - Le « comment » (méthode SID, BRAIN, skills, connecteurs, chapitres) est
   replié sous chaque module dans `<details class="mod__detail">`.
+
+## 16. « Ma machine » — ce que Noé donne, et ce qu'il apprend à faire
+
+Demande de Noé (28/10/2026) : ne pas vendre « que du travail ». Chaque page
+dit désormais deux choses : **1. Noé fournit ses propres agents IA, prêts à
+brancher** (prospection, veille, tri des mails, optimisation d'agenda,
+PowerPoint, juridique, commercial, LinkedIn & Instagram) ; **2. il apprend à
+créer les siens**.
+
+- Section `#machine` identique sur l'accueil (après le hero), /landing (après
+  le résumé) et /programme (avant les exemples des membres) : **modifier aux
+  trois endroits**. Styles en §34 de `styles.css`.
+- Sous-titre du hero des trois pages, méthode A, « Ce que c'est / n'est pas »,
+  carte « Ma machine, fournie » (ex-« L'environnement fourni »), charge de
+  travail, FAQ (nouvelle question « Je vais devoir tout construire
+  moi-même ? »), second choix du CTA final, liste « Tout ça, dans un seul
+  programme ».
+- Les descriptions des huit agents sont génériques, sans chiffre : les gains
+  mesurés restent ceux des membres, dans `#exemples` sur /programme.
