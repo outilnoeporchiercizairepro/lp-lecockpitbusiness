@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coaching IA gratuit en direct, dimanche 8 novembre à 20h30 · Le Cockpit Business</title>
-<meta name="description" content="Posez toutes vos questions sur l'IA : Claude, les agents IA, ce que vous avez essayé et qui ne marche pas. Noé y répond en direct, sans filtre. Dimanche 8 novembre, 20h30, en ligne. Gratuit.">
+<title>Ton dimanche redevient un dimanche · Coaching IA gratuit, dimanche 15 novembre à 20h30 · Le Cockpit Business</title>
+<meta name="description" content="Tu bosses le soir et le dimanche alors que tu paies l'IA pour gagner du temps ? Dimanche 15 novembre à 20h30, Noé te montre en direct comment construire ton clone IA et récupérer jusqu'à 14 h par semaine. Gratuit, 1 h, en ligne.">
 <link rel="canonical" href="https://lecockpit-business.fr/webinaire">
 <link rel="icon" href="assets/favicon/favicon.ico" sizes="32x32">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
@@ -15,20 +15,32 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Le Cockpit Business">
-<meta property="og:title" content="Coaching IA en direct : posez toutes vos questions, un expert y répond">
-<meta property="og:description" content="Dimanche 8 novembre, 20h30, en ligne et gratuit. Claude, les agents IA, ce qui ne marche pas : Noé répond à tout, sans filtre.">
+<meta property="og:title" content="Ton dimanche redevient un dimanche : coaching IA gratuit en direct">
+<meta property="og:description" content="Dimanche 15 novembre, 20h30, 1 h, en ligne et gratuit. Arrête de travailler pour l'IA : construis ton clone IA et récupère jusqu'à 14 h par semaine.">
 <meta property="og:url" content="https://lecockpit-business.fr/webinaire">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://lecockpit-business.fr/assets/og/webinaire.png?v=0811">
+<meta property="og:image" content="https://lecockpit-business.fr/assets/og/webinaire.png?v=1511">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Coaching IA en direct, dimanche 8 novembre à 20h30, avec Noé Porchier-Cizaire.">
-<meta name="twitter:image" content="https://lecockpit-business.fr/assets/og/webinaire.png?v=0811">
+<meta property="og:image:alt" content="Ton dimanche redevient un dimanche. Coaching IA en direct, dimanche 15 novembre à 20h30, avec Noé Porchier-Cizaire.">
+<meta name="twitter:image" content="https://lecockpit-business.fr/assets/og/webinaire.png?v=1511">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* Propre à cette page : Noé au micro, en pastille dans le premier écran
+     et en portrait rond dans « Qui anime ». */
+  .livehost-chip { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+  .livehost-chip img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
+  .livehost-chip p { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: rgba(255, 255, 255, 0.66); }
+  .livehost-chip b { color: #ffffff; font-size: 15px; }
+  .livehost__portrait--rond { aspect-ratio: 1 / 1; border-radius: 50%; background: none; box-shadow: none; }
+  .livehost__portrait--rond img { border-radius: 50%; }
+  #clone-ia .section__head .p { margin-top: 18px; max-width: 62ch; }
+  @media (min-width: 981px) { #clone-ia .livesteps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>
 <script>
   if ('IntersectionObserver' in window &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -46,8 +58,8 @@
      tant qu'il est vide, l'agenda indique qu'il arrive par email. */
   window.LIVE = {
     titre: 'Coaching IA en direct avec Noé · Le Cockpit Business',
-    debut: '2026-11-08T20:30:00+01:00',
-    dureeMinutes: 90,
+    debut: '2026-11-15T20:30:00+01:00',
+    dureeMinutes: 60,
     meet: ''
   };
 </script>
@@ -77,10 +89,13 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
      bouton de réservation d'appel, pas de bulle WhatsApp avant l'inscription
      — chaque sortie est une inscription perdue.
 
-     SESSION EN COURS : coaching IA en direct du dimanche 8 novembre, 20h30,
-     annoncé à la base mail d'Antoine Paris (FocusLink). Page au VOUVOIEMENT,
-     comme les mails d'Antoine — contrairement au reste du site. Version
-     précédente (« 7 agents IA », 27 septembre) : archives/ à la racine.
+     SESSION EN COURS : coaching IA en direct du dimanche 15 novembre, 20h30
+     (1 h), annoncé UNIQUEMENT aux prospects venus des pubs Meta (guides).
+     Page au TUTOIEMENT, alignée sur les mails : le dimanche et les soirées
+     perdus (14 h/semaine = 630 h/an), le coupable caché (« tu travailles
+     pour l'IA au lieu que l'IA travaille pour toi ») et le clone IA
+     (mémoire / compétences / mains), avec Nathan en preuve. Versions
+     précédentes : archives/ à la racine et l'historique git.
 
      POUR CHAQUE NOUVELLE SESSION :
        1. le titre (h1), le sous-titre et « Au programme » si le sujet change ;
@@ -103,29 +118,33 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     <div class="optin__copy">
       <p class="eyebrow">Coaching IA gratuit · en direct</p>
 
-      <h1 class="h1">Posez <span class="italique">toutes vos questions</span> sur l'IA. Un expert y répond <span class="italique">en direct</span>.</h1>
+      <h1 class="h1">Ton dimanche <span class="italique">redevient un dimanche</span>.</h1>
 
-      <p class="optin__sub">Claude, les agents IA, ce que vous avez essayé et qui ne marche pas&nbsp;: Noé répond à tout, sans filtre, et on débugge ensemble en direct.</p>
+      <p class="optin__sub">Tu bosses le soir et le week-end, alors que tu paies l'IA pour gagner du temps. Le problème, c'est pas ton organisation&nbsp;: c'est que tu travailles pour l'IA, au lieu que l'IA travaille pour toi. Dimanche soir, je te montre en direct comment construire ton <b>clone IA</b> et récupérer jusqu'à 14&nbsp;h par semaine.</p>
 
       <!-- La session. À mettre à jour à chaque live (et window.LIVE dans le <head>). -->
       <ul class="optin__meta" aria-label="La session">
-        <li><b>Dimanche 8 novembre</b></li>
+        <li><b>Dimanche 15 novembre</b></li>
         <li><b>20h30</b></li>
-        <li>1h30</li>
-        <li>En ligne</li>
+        <li>1 heure</li>
+        <li>En ligne, caméra facultative</li>
       </ul>
 
-      <!-- Recommandé par Antoine. Citation À FAIRE VALIDER par Antoine ; sa
-           photo est attendue en assets/img/temoignages/antoine.jpg (carré,
-           220 px). Sans elle, l'initiale s'affiche à la place. -->
+      <!-- Qui anime : photo de Noé au micro (assets/img/noe/live-micro.jpg). -->
+      <div class="livehost-chip">
+        <img src="assets/img/noe/live-micro.jpg" alt="Noé Porchier-Cizaire au micro" width="64" height="64" data-photo>
+        <p><b>En direct avec Noé Porchier-Cizaire</b><span>Fondateur du Cockpit Business, plus de 85 entrepreneurs accompagnés</span></p>
+      </div>
+
+      <!-- Preuve : Nathan, le cas du mail du mardi (texte écrit par Noé). -->
       <figure class="reco">
         <blockquote class="reco__citation">
-          <p>«&nbsp;Noé nous a accompagnés, Yves et moi, dans toute l'intégration de l'IA. Résultat&nbsp;: des dizaines d'heures gagnées chaque semaine. Je n'ai jamais croisé un expert IA comme lui.&nbsp;»</p>
+          <p>80 heures par semaine, tous ses week-ends au bureau. Dès le premier mois avec son clone IA, Nathan a récupéré 16&nbsp;heures par semaine. Il a retrouvé son dimanche, et il va chercher son fils à l'école.</p>
         </blockquote>
         <figcaption class="reco__auteur">
-          <span class="member__photo" data-initial="A"><img src="assets/img/temoignages/antoine.jpg" alt="Antoine Paris" data-photo></span>
-          <b>Antoine Paris</b>
-          <span>FocusLink</span>
+          <span class="member__photo" data-initial="N"></span>
+          <b>Nathan</b>
+          <span>Dirigeant de PME</span>
         </figcaption>
       </figure>
 
@@ -138,7 +157,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
           <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/mohamed.jpg" alt="Mohamed, membre du programme" data-photo></span>
           <span class="member__photo" data-initial="E"><img src="assets/img/temoignages/eleanor.jpg" alt="Eleanor, membre du programme" data-photo></span>
         </div>
-        <p class="optin__proof-text"><b>+85 personnes</b> accompagnées</p>
+        <p class="optin__proof-text"><b>+85 entrepreneurs</b> ont déjà récupéré leurs soirées</p>
       </div>
     </div>
 
@@ -148,10 +167,10 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
       <!-- Formulaire ActiveCampaign. Sans JavaScript, il est envoyé tel quel
            à ActiveCampaign ; avec, script.js l'envoie sans quitter la page. -->
       <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="page" novalidate>
-        <p class="optin__form-title">Réservez votre place</p>
-        <p class="optin__form-note">Gratuit. Envoyez votre question dès maintenant&nbsp;: les questions reçues avant le live passent en priorité.</p>
+        <p class="optin__form-title">Réserve ta place</p>
+        <p class="optin__form-note">Gratuit, 1 heure, caméra facultative. Dis-moi ce qui te prend le plus de temps&nbsp;: les questions reçues avant le live passent en priorité.</p>
 
-        <!-- Formulaire ActiveCampaign n° 117 (tag WEBI ANTOINE). Le code « or »
+        <!-- Formulaire ActiveCampaign n° 117 (tag à passer sur WEBI 15 NOV dans AC). Le code « or »
              change à chaque enregistrement du formulaire dans ActiveCampaign :
              le relever dans Intégrer → Intégré pleinement. -->
         <input type="hidden" name="u" value="117">
@@ -175,20 +194,20 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
           <input id="optin-email" name="email" type="email" autocomplete="email" inputmode="email" required>
         </div>
         <div class="field">
-          <label for="optin-question">Votre question pour Noé <span class="field__opt">facultatif</span></label>
+          <label for="optin-question">Ta question pour Noé <span class="field__opt">facultatif</span></label>
           <!-- field[4] = champ « Question live » dans ActiveCampaign. -->
-          <textarea id="optin-question" name="field[4]" rows="3" maxlength="500" aria-describedby="optin-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
+          <textarea id="optin-question" name="field[4]" rows="3" maxlength="500" aria-describedby="optin-question-compte" placeholder="Ce qui te mange tes soirées, ce que tu as essayé…"></textarea>
           <p class="field__compte" id="optin-question-compte" data-compteur><span>0</span>/500</p>
         </div>
 
         <button class="btn btn--primary optin__submit" type="submit">
-          <span>Je réserve ma place</span>
+          <span>Je récupère mon dimanche</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </button>
 
         <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
 
-        <p class="optin__consent">En vous inscrivant, vous acceptez de recevoir les emails liés au webinaire. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
+        <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés au live. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
       </form>
 
       <!-- Affiché à la place du formulaire après l'inscription, ou quand la
@@ -196,11 +215,11 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
       <div class="optin__merci card" data-optin-merci="page" tabindex="-1" hidden>
         <p class="optin__merci-mark" aria-hidden="true">✦</p>
         <p class="optin__form-title">C'est noté, à dimanche 20h30.</p>
-        <p class="optin__merci-text">Votre place est réservée. La confirmation arrive par email&nbsp;— pensez à regarder dans les promotions si vous ne la voyez pas.</p>
-        <p class="optin__merci-text" data-merci-sans-question hidden>Pas encore envoyé votre question&nbsp;? Répondez simplement au mail de confirmation.</p>
+        <p class="optin__merci-text">Ta place est réservée. La confirmation arrive par email&nbsp;: regarde dans les promotions si tu ne la vois pas.</p>
+        <p class="optin__merci-text" data-merci-sans-question hidden>Pas encore envoyé ta question&nbsp;? Réponds simplement au mail de confirmation.</p>
         <div class="optin__merci-actions">
           <a class="btn btn--primary" href="#" target="_blank" rel="noopener noreferrer" data-agenda="google">Ajouter à mon agenda</a>
-          <a class="optin__merci-ics" href="#" download="coaching-ia-8-novembre.ics" data-agenda="ics">ou télécharger le fichier .ics (Apple, Outlook)</a>
+          <a class="optin__merci-ics" href="#" download="coaching-ia-15-novembre.ics" data-agenda="ics">ou télécharger le fichier .ics (Apple, Outlook)</a>
           <a class="btn btn--primary" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre le groupe WhatsApp</a>
         </div>
       </div>
@@ -218,7 +237,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
      ====================================================================== -->
 <div class="proofbar proofbar--entre">
   <div class="shell">
-    <p class="proofbar__label">Heures gagnées par semaine, par des membres du programme</p>
+    <p class="proofbar__label">Heures récupérées chaque semaine par des membres du programme</p>
   </div>
 
     <div class="marquee" data-marquee>
@@ -318,7 +337,60 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 </div>
 
 <!-- ======================================================================
-     SECTION 2 — TÉMOIGNAGES
+     SECTION 2 — LE MIROIR
+     Le problème du lecteur d'abord, avec ses mots (mail du mardi).
+     ====================================================================== -->
+<section class="section">
+  <div class="shell livefor">
+    <div class="section__head reveal">
+      <p class="eyebrow">Dimanche dernier, 18h</p>
+      <h2 class="h2">Tu étais sur ton ordi, <span class="italique">pas avec eux</span>.</h2>
+    </div>
+    <ul class="livefor__list reveal">
+      <li>Tu finis un devis, tu réponds aux mails de la semaine, tu relances deux clients. «&nbsp;J'arrive, je finis un truc.&nbsp;» Et tu ne les rejoins jamais.</li>
+      <li>Même ordi fermé, t'es déjà au lendemain. Ta famille ne dit rien, mais elle le voit.</li>
+      <li>Tu te lèves plus tôt, tu bloques des créneaux, tu as pris ChatGPT à 20&nbsp;€ par mois. Résultat&nbsp;: plus fatigué, et toujours en retard.</li>
+      <li>14 heures perdues par semaine, c'est 630 heures par an. Presque 4 mois de ta vie, chaque année.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 3 — LE MÉCANISME
+     Coupable caché, puis le clone IA en trois couches.
+     ====================================================================== -->
+<section class="section" id="clone-ia">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le vrai problème</p>
+      <h2 class="h2">Tu travailles pour l'IA, <span class="italique">au lieu qu'elle travaille pour toi</span>.</h2>
+      <p class="p">Tu lui poses une question, tu copies la réponse, tu la corriges, tu la recolles ailleurs. Et le lendemain, tu lui réexpliques tout depuis le début. Tu t'es rajouté du boulot. Ceux qui avancent vite ont arrêté de discuter avec l'IA&nbsp;: ils en ont fait leur clone.</p>
+    </div>
+
+    <ol class="livesteps">
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">1</span>
+        <h3 class="h3">La mémoire</h3>
+        <p>Il connaît ta boîte, tes clients et ta façon de faire. Tu ne réexpliques plus rien.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">2</span>
+        <h3 class="h3">Les compétences</h3>
+        <p>Il a appris tes tâches&nbsp;: devis, mails, relances, comptes-rendus. Il les fait comme toi.</p>
+      </li>
+      <li class="livestep card reveal">
+        <span class="livestep__num" aria-hidden="true">3</span>
+        <h3 class="h3">Les mains</h3>
+        <p>Il est branché sur tes outils et il travaille à heure fixe. Toi, tu valides.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ======================================================================
+     SECTION 4 — TÉMOIGNAGES
      Vidéo de Cécile puis mur de captures WhatsApp : mêmes contenus que la
      section 4 de l'accueil. Une capture ajoutée dans assets/img/preuves/ doit
      être référencée ici aussi.
@@ -327,7 +399,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
   <div class="shell">
     <div class="section__head reveal">
       <p class="eyebrow">Témoignages</p>
-      <h2 class="h2">Ils l'ont fait. <span class="italique">Ils le racontent.</span></h2>
+      <h2 class="h2">Ils ont récupéré <span class="italique">leurs soirées</span>.</h2>
     </div>
 
     <!-- Témoignages vidéo, côte à côte (Tella). -->
@@ -507,7 +579,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 
 
 <!-- ======================================================================
-     SECTION 3 — AU PROGRAMME
+     SECTION 5 — AU PROGRAMME
      Numérotés parce que c'est l'ordre réel du live. La page promet des
      réponses et des résultats, jamais un tutoriel pas à pas.
      ====================================================================== -->
@@ -515,29 +587,29 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
   <div class="shell">
     <div class="section__head reveal">
       <p class="eyebrow">Au programme</p>
-      <h2 class="h2">Comment se passe le coaching.</h2>
+      <h2 class="h2">Une heure, dimanche soir.</h2>
     </div>
 
     <ol class="livesteps">
       <li class="livestep card reveal">
         <span class="livestep__num" aria-hidden="true">1</span>
-        <h3 class="h3">Votre audit IA en 5 minutes</h3>
-        <p>Un prompt à coller dans votre IA dès le début du live.</p>
+        <h3 class="h3">Combien d'heures tu perds</h3>
+        <p>Un audit de 5 minutes, à coller dans ton IA dès le début du live.</p>
       </li>
       <li class="livestep card reveal">
         <span class="livestep__num" aria-hidden="true">2</span>
-        <h3 class="h3">Vos questions, une par une</h3>
-        <p>En priorité celles envoyées à l'inscription.</p>
+        <h3 class="h3">Le clone IA, en vrai</h3>
+        <p>Je te montre concrètement comment il marche, écran partagé.</p>
       </li>
       <li class="livestep card reveal">
         <span class="livestep__num" aria-hidden="true">3</span>
-        <h3 class="h3">On débugge en direct</h3>
-        <p>Vous montrez ce qui bloque, on regarde ensemble.</p>
+        <h3 class="h3">Toutes tes questions</h3>
+        <p>Sans filtre, même celles que tu n'as jamais osé poser.</p>
       </li>
       <li class="livestep card reveal">
         <span class="livestep__num" aria-hidden="true">4</span>
-        <h3 class="h3">Ce que font déjà les membres</h3>
-        <p>Des cas réels, entre les questions.</p>
+        <h3 class="h3">Ta première étape</h3>
+        <p>Ce que tu peux lancer dès lundi matin.</p>
       </li>
     </ol>
   </div>
@@ -545,55 +617,55 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 
 
 <!-- ======================================================================
-     SECTION 4 — POUR QUI
+     SECTION 6 — POUR QUI
      ====================================================================== -->
 <section class="section">
   <div class="shell livefor">
     <div class="section__head reveal">
       <p class="eyebrow">Pour qui</p>
-      <h2 class="h2">Vous êtes au bon endroit si…</h2>
+      <h2 class="h2">C'est pour toi si…</h2>
     </div>
     <ul class="livefor__list reveal">
-      <li>Vous portez seul un volume de travail pensé pour plusieurs personnes.</li>
-      <li>Vous avez essayé l'IA seul et vous avez plafonné.</li>
-      <li>Vous n'avez jamais codé, et vous n'avez pas l'intention de vous y mettre.</li>
-      <li>Vous avez une question précise sur Claude ou les agents IA, et personne pour y répondre.</li>
+      <li>Tu bosses le soir et le week-end pour tenir le rythme.</li>
+      <li>Tu portes seul un volume de travail pensé pour plusieurs personnes.</li>
+      <li>Tu as essayé l'IA, et tu as l'impression de passer ton temps à la corriger.</li>
+      <li>Tu n'as jamais codé, et tu n'as pas l'intention de t'y mettre.</li>
     </ul>
   </div>
 </section>
 
 
 <!-- ======================================================================
-     SECTION 5 — QUI ANIME
+     SECTION 7 — QUI ANIME
      ====================================================================== -->
 <section class="section">
   <div class="shell livehost reveal">
-    <figure class="livehost__portrait">
-      <img src="assets/img/noe/portrait.jpg" alt="Portrait de Noé Porchier-Cizaire" data-photo loading="lazy">
+    <figure class="livehost__portrait livehost__portrait--rond">
+      <img src="assets/img/noe/live-micro.jpg" alt="Noé Porchier-Cizaire au micro" data-photo loading="lazy">
     </figure>
     <div class="livehost__body">
       <p class="eyebrow">Qui anime</p>
       <h2 class="h2">Noé Porchier-Cizaire</h2>
-      <p class="p">Je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;; la méthode CAP est née de ce travail. Formé à LinkedIn par Antoine Paris, j'ai ensuite accompagné FocusLink dans son intégration de l'IA. Pendant le live, je réponds à vos questions avec ce que j'applique à ma propre activité.</p>
+      <p class="p">J'ai été exactement comme toi&nbsp;: les soirées et les dimanches sur l'ordi. Je dirige PRCZ, une agence de stratégie IA pour PME, et j'ai accompagné plus de 85 entrepreneurs avec la méthode CAP. Dimanche, je te montre ce que j'applique à ma propre activité, et je réponds à tes questions.</p>
     </div>
   </div>
 </section>
 
 
 <!-- ======================================================================
-     SECTION 6 — RAPPEL
+     SECTION 8 — RAPPEL
      ====================================================================== -->
 <section class="section final optin__rappel">
   <div class="shell livefinal reveal">
-    <h2 class="h2">Une heure trente pour repartir avec <span class="italique">vos réponses</span>.</h2>
+    <h2 class="h2">Une heure pour <span class="italique">récupérer tes dimanches</span>.</h2>
     <a class="btn btn--primary" href="#inscription">
-      <span>Je réserve ma place</span>
+      <span>Je récupère mon dimanche</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </a>
     <ul class="microline">
       <li>gratuit</li>
-      <li>en direct</li>
-      <li>sans filtre</li>
+      <li>dimanche 15/11, 20h30</li>
+      <li>caméra facultative</li>
     </ul>
   </div>
 </section>
@@ -632,10 +704,10 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
   </button>
 
   <form class="optin__form card" action="https://prcz.activehosted.com/proc.php" method="post" data-optin="pop" novalidate>
-      <p class="optin__form-title" id="pop-titre">Réservez votre place</p>
-      <p class="optin__form-note">Gratuit. Envoyez votre question dès maintenant&nbsp;: les questions reçues avant le live passent en priorité.</p>
+      <p class="optin__form-title" id="pop-titre">Réserve ta place</p>
+      <p class="optin__form-note">Gratuit, 1 heure, caméra facultative. Dis-moi ce qui te prend le plus de temps&nbsp;: les questions reçues avant le live passent en priorité.</p>
 
-      <!-- Formulaire ActiveCampaign n° 117 (tag WEBI ANTOINE). Le code « or »
+      <!-- Formulaire ActiveCampaign n° 117 (tag à passer sur WEBI 15 NOV dans AC). Le code « or »
            change à chaque enregistrement du formulaire dans ActiveCampaign :
            le relever dans Intégrer → Intégré pleinement. -->
       <input type="hidden" name="u" value="117">
@@ -659,30 +731,30 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
         <input id="pop-email" name="email" type="email" autocomplete="email" inputmode="email" required>
       </div>
       <div class="field">
-        <label for="pop-question">Votre question pour Noé <span class="field__opt">facultatif</span></label>
+        <label for="pop-question">Ta question pour Noé <span class="field__opt">facultatif</span></label>
         <!-- field[4] = champ « Question live » dans ActiveCampaign. -->
-        <textarea id="pop-question" name="field[4]" rows="3" maxlength="500" aria-describedby="pop-question-compte" placeholder="Ce que vous avez essayé, ce qui bloque…"></textarea>
+        <textarea id="pop-question" name="field[4]" rows="3" maxlength="500" aria-describedby="pop-question-compte" placeholder="Ce qui te mange tes soirées, ce que tu as essayé…"></textarea>
         <p class="field__compte" id="pop-question-compte" data-compteur><span>0</span>/500</p>
       </div>
 
       <button class="btn btn--primary optin__submit" type="submit">
-        <span>Je réserve ma place</span>
+        <span>Je récupère mon dimanche</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </button>
 
       <p class="optin__status" role="status" aria-live="polite" data-optin-status></p>
 
-      <p class="optin__consent">En vous inscrivant, vous acceptez de recevoir les emails liés au webinaire. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
+      <p class="optin__consent">En t'inscrivant, tu acceptes de recevoir les emails liés au live. Désinscription en un clic. <a href="confidentialite.html">Confidentialité</a></p>
     </form>
 
   <div class="optin__merci card" data-optin-merci="pop" tabindex="-1" hidden>
       <p class="optin__merci-mark" aria-hidden="true">✦</p>
       <p class="optin__form-title">C'est noté, à dimanche 20h30.</p>
-      <p class="optin__merci-text">Votre place est réservée. La confirmation arrive par email&nbsp;— pensez à regarder dans les promotions si vous ne la voyez pas.</p>
-      <p class="optin__merci-text" data-merci-sans-question hidden>Pas encore envoyé votre question&nbsp;? Répondez simplement au mail de confirmation.</p>
+      <p class="optin__merci-text">Ta place est réservée. La confirmation arrive par email&nbsp;: regarde dans les promotions si tu ne la vois pas.</p>
+      <p class="optin__merci-text" data-merci-sans-question hidden>Pas encore envoyé ta question&nbsp;? Réponds simplement au mail de confirmation.</p>
       <div class="optin__merci-actions">
         <a class="btn btn--primary" href="#" target="_blank" rel="noopener noreferrer" data-agenda="google">Ajouter à mon agenda</a>
-        <a class="optin__merci-ics" href="#" download="coaching-ia-8-novembre.ics" data-agenda="ics">ou télécharger le fichier .ics (Apple, Outlook)</a>
+        <a class="optin__merci-ics" href="#" download="coaching-ia-15-novembre.ics" data-agenda="ics">ou télécharger le fichier .ics (Apple, Outlook)</a>
         <a class="btn btn--primary" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre le groupe WhatsApp</a>
       </div>
     </div>
