@@ -121,6 +121,27 @@
 }
 .guide-card__legal a { text-decoration: underline; }
 
+/* --- Garde-fou : CSS brute d'ActiveCampaign ------------------------------
+   Constaté le 15/11/2026 : embed.php des formulaires 165/166/167 sert sa feuille
+   de style non compilée : des règles « & { … } » restées hors de tout parent,
+   que Chrome applique à la racine du document. Résultat : <html> bridé à
+   300 px de large (page en colonne étroite sur ordinateur) et police racine
+   à 14 px. On rend à <html> ses valeurs normales, quoi qu'envoie AC. */
+html {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  font-size: 100% !important;
+  line-height: normal !important;
+  text-align: start !important;
+  box-sizing: border-box !important;
+  font-family: var(--sans) !important;
+}
+html::after { content: none !important; display: none !important; }
+
 /* --- Formulaire ActiveCampaign intégré : on neutralise son habillage ---- */
 .guide-form ._form {
   all: unset;
