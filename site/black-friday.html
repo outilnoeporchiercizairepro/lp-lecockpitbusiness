@@ -1,0 +1,1935 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday — Le Cockpit Business</title>
+<meta name="description" content="Black Friday : Le Cockpit Business à 2 500 € HT au lieu de 3 200 € HT, jusqu'au vendredi 27 novembre minuit. 20 places.">
+<link rel="canonical" href="https://lecockpit-business.fr/black-friday">
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#e05a2b">
+
+<meta name="robots" content="noindex, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Le Cockpit Business">
+<meta property="og:title" content="Black Friday — Le Cockpit Business">
+<meta property="og:description" content="Black Friday : Le Cockpit Business à 2 500 € HT au lieu de 3 200 € HT, jusqu'au vendredi 27 novembre minuit. 20 places.">
+<meta property="og:url" content="https://lecockpit-business.fr/black-friday">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://lecockpit-business.fr/assets/og/accueil.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Le Cockpit Business — Récupère 14h par semaine en 30 jours.">
+<meta name="twitter:image" content="https://lecockpit-business.fr/assets/og/accueil.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  if ('IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-reveal');
+  }
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el.tagName === 'IMG' && el.hasAttribute('data-photo')) el.remove();
+  }, true);
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2085006695554307');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+/* --- Black Friday (page autonome : ces styles ne servent qu'ici) ------- */
+.bfbar { background: var(--ink); color: var(--ivoire); font-size: 14px; }
+.bfbar__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 18px; padding: 9px 0; text-align: center; }
+.bfbar b { color: #ffb08f; font-weight: 700; }
+.bfbar__time { font-variant-numeric: tabular-nums; font-weight: 600; }
+.bf-prix { margin: 26px 0 6px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+.bf-prix__barre { font-size: 22px; color: var(--ink-3); text-decoration: line-through; text-decoration-thickness: 2px; }
+.bf-prix__new { font-family: var(--serif); font-size: clamp(46px, 6vw, 68px); line-height: 1; color: var(--accent-lg); }
+.bf-prix__ht { font-size: 15px; color: var(--ink-2); }
+.bf-prix__badge { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+.bf-prix__alt { margin: 0 0 22px; color: var(--ink-2); font-size: 15px; }
+.bf-count { display: flex; gap: 10px; margin: 0 0 14px; }
+.bf-count__u { min-width: 66px; background: var(--blanc); border: 1px solid var(--card-border); border-radius: 14px; padding: 10px 8px 8px; text-align: center; box-shadow: var(--shadow-sm); }
+.bf-count__u b { display: block; font-family: var(--serif); font-size: 34px; line-height: 1; font-weight: 400; font-variant-numeric: tabular-nums; }
+.bf-count__u span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.bf-places { margin: 0 0 26px; font-size: 16px; color: var(--ink); }
+.bf-places b { color: var(--accent-lg); }
+.bf-places__jauge { display: block; height: 6px; max-width: 320px; margin-top: 10px; background: var(--creme-2); border-radius: 99px; overflow: hidden; }
+.bf-places__jauge i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+.bf-offre { margin-top: 52px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: start; }
+.bf-ticket { background: var(--blanc); border: 1px solid var(--card-border); border-radius: 24px; padding: 34px 32px 30px; box-shadow: var(--shadow-lg); position: sticky; top: 120px; }
+.bf-ticket__label { margin: 0 0 6px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-sm); font-weight: 700; }
+.bf-ticket .bf-prix { margin-top: 8px; }
+.bf-ticket__lignes { list-style: none; margin: 0 0 22px; padding: 0; border-top: 1px solid var(--rule); }
+.bf-ticket__lignes li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15px; color: var(--ink-body); }
+.bf-ticket__lignes li b { color: var(--ink); white-space: nowrap; }
+.bf-ticket .btn { width: 100%; justify-content: center; }
+.bf-ticket .microline { justify-content: center; }
+.bf-calcul { margin-top: 40px; }
+.bf-calcul p { max-width: 74ch; }
+.hero .bf-prix, .hero .bf-count { justify-content: center; }
+.hero .bf-prix__alt, .hero .bf-places, .final .bf-places { text-align: center; }
+.hero .bf-places__jauge { margin-left: auto; margin-right: auto; }
+.final .bf-count { justify-content: flex-start; }
+.final .bf-places { text-align: left; }
+.bf-fini { display: none; }
+html[data-bf="fini"] .bf-live { display: none !important; }
+html[data-bf="fini"] .bf-fini { display: block; }
+@media (max-width: 900px) {
+  .bf-offre { grid-template-columns: 1fr; }
+  .bf-ticket { position: static; padding: 28px 22px 24px; }
+}
+@media (max-width: 620px) {
+  .bf-count__u { min-width: 0; flex: 1; }
+  .bfbar { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="haut">
+  <div class="bfbar">
+    <div class="shell bfbar__inner bf-live">
+      <span><b>Black Friday</b> · Le Cockpit Business à 2 500 € HT au lieu de 3 200 €</span>
+      <span>Fin dans <span class="bfbar__time" data-bf-short>3 j 00 h 00 min</span></span>
+    </div>
+    <div class="shell bfbar__inner bf-fini">
+      <span>Le Black Friday est terminé. Le Cockpit Business est revenu à 3 200 € HT.</span>
+    </div>
+  </div>
+  <div class="shell nav__inner">
+    <a class="brand" href="index.html" aria-label="Le Cockpit Business — accueil">
+      <span class="brand__mark" aria-hidden="true">✦</span>
+      <span class="brand__name">Le Cockpit <span>Business</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#methode">La méthode</a>
+      <a href="#fondations">Programme</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--nav" href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>
+        <span data-bf-label>Je rejoins à 2 500 €</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero hero--vsl">
+  <div class="shell hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Black Friday · jusqu'au vendredi 27 novembre, minuit</p>
+      <h1 class="h1">Ton bras droit IA. <span class="italique">700 € moins cher</span>, jusqu'à vendredi.</h1>
+
+      <p class="hero__sub">T'as pris l'abonnement ChatGPT, t'as testé des prompts, et t'as toujours pas récupéré une seule heure&nbsp;? C'est normal&nbsp;: tu bosses pour l'IA au lieu qu'elle bosse pour toi. Le Cockpit Business t'installe ton bras droit IA. Il connaît ta boîte, il sait faire tes tâches, il agit tout seul. Objectif&nbsp;: 14h récupérées par semaine, en 30 jours.</p>
+
+      <div class="bf-live">
+      <div class="bf-prix">
+        <span class="bf-prix__barre">3 200 € HT</span>
+        <span class="bf-prix__new">2 500 €</span>
+        <span class="bf-prix__ht">HT</span>
+        <span class="bf-prix__badge">−700 €</span>
+      </div>
+      <p class="bf-prix__alt">Soit 3 000 € TTC en une fois, ou 3 mensualités de 833,33 € HT. Retour à 3 200 € HT samedi.</p>
+      <div class="bf-count" data-bf-count aria-label="Temps restant avant la fin du prix Black Friday">
+        <div class="bf-count__u"><b data-u="j">3</b><span>jours</span></div>
+        <div class="bf-count__u"><b data-u="h">00</b><span>heures</span></div>
+        <div class="bf-count__u"><b data-u="m">00</b><span>min</span></div>
+        <div class="bf-count__u"><b data-u="s">00</b><span>sec</span></div>
+      </div>
+      <p class="bf-places">Plus que <b data-bf-places>20</b> places à ce prix.
+        <span class="bf-places__jauge" aria-hidden="true"><i data-bf-jauge style="width:100%"></i></span>
+      </p>
+      </div>
+      <p class="bf-fini bf-prix__alt">Le prix Black Friday est terminé. Tu peux toujours réserver un diagnostic de 45 minutes pour voir si le programme est fait pour toi.</p>
+
+      <figure class="vsl">
+        <div class="vsl__cadre">
+          <iframe src="https://www.tella.tv/video/vid_cmv0u4bre00gc06jncnoig8qr/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Présentation du Cockpit Business"
+                  allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+      </figure>
+
+      <div class="cta-group">
+        <a class="btn btn--primary" href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>
+          <span data-bf-label>Je rejoins à 2 500 € HT</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#fondations">Voir tout le programme</a>
+      </div>
+      <ul class="microline">
+        <li>paiement sécurisé</li>
+        <li>en 1 fois ou en 3 fois</li>
+        <li>accès immédiat</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="proofbar">
+    <div class="shell">
+      <p class="proofbar__count"><b>+85</b> personnes accompagnées</p>
+      <p class="proofbar__label">Heures gagnées par semaine</p>
+    </div>
+
+    <div class="marquee" data-marquee>
+      <ul class="marquee__track">
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Cécile</span>
+            <span class="member__role">Consultante IA</span>
+          </div>
+          <span class="member__hours">+12h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="E">
+            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Eleanor</span>
+            <span class="member__role">Consultante RH</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Mohamed</span>
+            <span class="member__role">Consultant Énergie</span>
+          </div>
+          <span class="member__hours">+15h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="G">
+            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Gaëtan</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+18h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="L">
+            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Louis</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+20h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Julian</span>
+            <span class="member__role">Investisseur</span>
+          </div>
+          <span class="member__hours">+30h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="C">
+            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Camilha</span>
+            <span class="member__role">En reconversion</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="J">
+            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Jérôme</span>
+            <span class="member__role">CEO</span>
+          </div>
+          <span class="member__hours">+14h</span>
+        </li>
+        <li class="member">
+          <span class="member__photo" data-initial="M">
+            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
+          </span>
+          <div class="member__id">
+            <span class="member__name">Michel</span>
+            <span class="member__role">Conseiller Gestion Patrimoine</span>
+          </div>
+          <span class="member__hours">+10h</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="machine">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Ce que je te donne</p>
+      <h2 class="h2">Toute ma machine. <span class="italique">Et de quoi construire la tienne.</span></h2>
+      <p class="lede">Tu ne pars pas de zéro, et tu ne repars pas avec du travail en plus. Tu récupères les agents IA qui font tourner mon activité, puis je t'apprends à créer ceux dont la tienne a besoin.</p>
+    </div>
+
+    <div class="machine">
+      <div class="machine__bloc reveal">
+        <p class="machine__num">01</p>
+        <h3 class="machine__titre">Mes agents IA, livrés prêts à l'emploi</h3>
+        <p class="machine__texte">Ceux que j'utilise tous les jours. Tu les branches sur ton activité dès la première semaine.</p>
+        <ul class="machine__agents">
+          <li><b>Prospection</b><span>Trouve tes prospects, les qualifie et prépare les premiers messages.</span></li>
+          <li><b>Veille</b><span>Suit ton marché et te livre chaque semaine ce qui compte.</span></li>
+          <li><b>Tri des mails</b><span>Classe ta boîte, remonte l'urgent, prépare les réponses.</span></li>
+          <li><b>Optimisation d'agenda</b><span>Organise ta semaine et protège tes plages de travail de fond.</span></li>
+          <li><b>PowerPoint</b><span>Transforme une note ou un compte-rendu en présentation prête.</span></li>
+          <li><b>Juridique</b><span>Relit contrats, devis et CGV, et signale les points à vérifier.</span></li>
+          <li><b>Commercial</b><span>Rédige tes propositions, tes relances et le suivi de tes affaires.</span></li>
+          <li><b>LinkedIn &amp; Instagram</b><span>Écrit tes posts dans ton style, à partir de tes idées.</span></li>
+        </ul>
+      </div>
+
+      <div class="machine__bloc machine__bloc--apprendre reveal">
+        <p class="machine__num">02</p>
+        <h3 class="machine__titre">La méthode pour créer les tiens</h3>
+        <p class="machine__texte">Ton activité a des tâches que personne d'autre n'a. Je t'apprends à construire les agents qui les prennent en charge, sans coder.</p>
+        <ul class="machine__etapes">
+          <li>Repérer les tâches qui méritent un agent</li>
+          <li>Le construire avec Claude, à partir de ta façon de travailler</li>
+          <li>Le faire évoluer seul quand ton activité change</li>
+        </ul>
+        <p class="machine__fin">Tu repars autonome, pas dépendant de moi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--constat" id="probleme">
+  <div class="shell">
+    <blockquote class="constat reveal">
+      <span class="constat__mark" aria-hidden="true">“</span>
+      <p class="constat__line">Tu utilises un outil puissant <span class="italique">sans méthode</span>.</p>
+      <p class="constat__sub">Et un outil puissant sans méthode, ça donne des résultats ponctuels et une déception durable.</p>
+    </blockquote>
+  </div>
+</section>
+
+
+<section class="section" id="preuve">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">La preuve</p>
+      <h2 class="h2">14h, ce n'est pas une estimation.<br><span class="italique">C'est une mesure.</span></h2>
+    </div>
+
+    <!-- Témoignages vidéo, côte à côte (Tella). -->
+    <div class="proof__videos">
+      <figure class="proof__video reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmt8j1n4z00n204ju2s5cgyn0/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=1"
+                  title="Témoignage vidéo d'un participant au Cockpit Business"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Cécile S.</b>
+          <span>Consultante IA</span>
+          <span class="proof__video-hours">+12h gagnées par semaine</span>
+        </figcaption>
+      </figure>
+      <figure class="proof__video reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmv3bo34p002c06l22b9w9qbh/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Témoignage vidéo de Raphaël, CEO de CapsuleTV"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Raphaël L.</b>
+          <span>CEO de CapsuleTV</span>
+          <span class="proof__video-hours">+20h gagnées par semaine</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="label proof__videos-titre reveal">Elaine L., en trois vidéos</p>
+    <div class="proof__videos proof__videos--verticales">
+      <figure class="proof__video proof__video--vertical reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmvagzkjv008i02k14ql82lu1/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Témoignage vidéo d'Elaine, membre du Cockpit Business (1 sur 3)"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Elaine L.</b>
+          <span>Coach, Formatrice, Consultante</span>
+          <span class="proof__video-hours">+14h gagnées par semaine</span>
+        </figcaption>
+      </figure>
+      <figure class="proof__video proof__video--vertical reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmvaeystu001k02mre5a0hu1r/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Témoignage vidéo d'Elaine, membre du Cockpit Business (2 sur 3)"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Elaine L.</b>
+          <span>Coach, Formatrice, Consultante</span>
+          <span class="proof__video-hours">+4 065 € grâce à l'IA</span>
+          <span>Elle explique comment, en direct.</span>
+        </figcaption>
+      </figure>
+      <figure class="proof__video proof__video--vertical reveal">
+        <div class="proof__video-frame">
+          <iframe src="https://www.tella.tv/video/vid_cmvah95co00cy02lc2ec8e0hm/embed?b=0&amp;title=0&amp;a=1&amp;loop=0&amp;t=0&amp;muted=0&amp;wt=0&amp;o=0"
+                  title="Témoignage vidéo d'Elaine, membre du Cockpit Business (3 sur 3)"
+                  loading="lazy" allowfullscreen
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <figcaption class="proof__video-caption">
+          <b>Elaine L.</b>
+          <span>Coach, Formatrice, Consultante</span>
+          <span class="proof__video-hours">Plus de business</span>
+          <span>Elle va présenter un webinaire diffusé aux États-Unis, tant elle est avancée sur l'IA.</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Mur de preuve sociale : captures de conversation, assets/img/preuves/
+         preuve1.png … preuve13.png. Les captures ont des largeurs natives très
+         différentes (272 à 1260 px) : le CSS ne les agrandit jamais au-delà de
+         leur taille réelle, sinon les plus petites deviennent floues. Une
+         capture introuvable voit son cadre disparaître, pas rester vide.
+         Pour en ajouter : dupliquer une <figure> et incrémenter le numéro. -->
+    <!-- Témoignages écrits en entier, avant le mur de captures. Les gains
+         reprennent les mots de chacun dans sa capture. -->
+    <div class="cas">
+      <p class="label cas__titre reveal">Leurs messages, en entier</p>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Jérémy B.</p>
+          <p class="cas__metier">Architecte SI / Cloud, freelance</p>
+          <p class="cas__gain">+10h<span>par semaine</span></p>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-jeremy.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-jeremy.webp" alt="Message de Jérémy B. : ses deux skills de prospection remplissent son Google Sheets chaque lundi et mercredi à 7h ; 19 prospects lui prenaient une journée et demie à la main, il y passe désormais 30 minutes." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Diane L.</p>
+          <p class="cas__metier">Consultante IA et transformation digitale</p>
+          <p class="cas__gain">+7h<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-diane.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-diane.webp" alt="Message de Diane L. : partie de trois heures gagnées par semaine, elle en est à sept ; elle automatise ce qui peut l'être et crée des agents qui agissent à sa place." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Michel Q.</p>
+          <p class="cas__metier">Conseiller en gestion de patrimoine</p>
+          <p class="cas__gain">+2h30<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Beaucoup moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-michel.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-michel.webp" alt="Échange avec Michel Q. : il estime gagner trente minutes par jour, en efficacité et en qualité, et n'oublie plus personne ; il cite les skills, les tâches planifiées et les connecteurs." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+    </div>
+
+    <div class="proofwall reveal">
+      <div class="proofwall__head">
+        <p class="label">Ce qu'ils en disent, à chaud</p>
+        <p class="proofwall__note">Messages reçus pendant le programme.</p>
+      </div>
+
+      <div class="proofwall__grid">
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve1.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve2.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve3.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve4.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve5.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve6.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve7.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve8.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve9.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve10.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve11.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve12.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve13.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve14.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve19.png" alt="Message d'un participant" data-photo loading="lazy">
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="methode">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Le mécanisme</p>
+      <h2 class="h2">La méthode <span class="italique">CAP</span>.</h2>
+      <p class="lede">Trois étapes — clarifier, automatiser, piloter. Et trois choses que tu récupères au passage&nbsp;: la lucidité, la capacité, le choix.</p>
+    </div>
+
+    <div class="caps">
+
+      <article class="cap reveal">
+        <p class="cap__letter">C</p>
+        <h3 class="cap__name">Clarifier</h3>
+        <p class="cap__claim">Tu vois enfin où part ton temps.</p>
+        <ul class="cap__steps">
+            <li>Vingt minutes de conversation avec Claude, pas un questionnaire à remplir.</li>
+            <li>Ta semaine écrite ligne par ligne, triée en trois cases&nbsp;: délégable tout de suite, délégable après explication, jamais.</li>
+            <li>Je relis l'audit avec toi avant qu'on installe quoi que ce soit.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">D'abord, la lucidité</span>Tu sais combien d'heures sont récupérables, lesquelles, et dans quel ordre les lâcher. Tu arrêtes de deviner ce qui te coûte du temps&nbsp;: tu le lis.</p>
+      </article>
+
+      <article class="cap reveal">
+        <p class="cap__letter">A</p>
+        <h3 class="cap__name">Automatiser</h3>
+        <p class="cap__claim">C'est là que les heures reviennent.</p>
+        <ul class="cap__steps">
+            <li>Tu pars de mes agents, déjà prêts&nbsp;: prospection, veille, mails, agenda, contenus…</li>
+            <li>Pour ce qui est propre à ton activité, tu apprends à construire tes propres agents.</li>
+            <li>Sur ton vrai travail, dès la première semaine. Pas sur une démo.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">Puis, la capacité</span>Tu ne gagnes pas trois automatisations. Tu gagnes l'équivalent d'un collaborateur qui connaît tes dossiers, écrit dans ton style et ne demande ni salaire ni formation. Mails, comptes-rendus, veille, relances, propositions&nbsp;: tout ce qui est répétable part sans toi.</p>
+      </article>
+
+      <article class="cap reveal">
+        <p class="cap__letter">P</p>
+        <h3 class="cap__name">Piloter</h3>
+        <p class="cap__claim">Tu passes de l'autre côté.</p>
+        <ul class="cap__steps">
+            <li>Tout est branché ensemble. Certaines choses tournent à heure fixe, même quand tu dors.</li>
+            <li>Tu valides et tu corriges au lieu d'exécuter.</li>
+            <li>On reprend le chiffre du départ et on le compare à la réalité.</li>
+        </ul>
+        <p class="cap__gain"><span class="cap__gain-cap">Enfin, le choix</span>Ton activité tourne quand tu n'es pas devant. Et les heures récupérées, c'est toi qui décides quoi en faire&nbsp;: les remettre dans ton business pour aller chercher de la croissance, ou les rendre à tes proches.</p>
+      </article>
+
+    </div>
+
+    <div class="capvs reveal">
+      <div class="capvs__col capvs__col--est">
+        <p class="capvs__title">Ce que c'est</p>
+        <ul>
+          <li>Un audit de consultant, encodé dans Claude puis relu avec toi.</li>
+          <li>Un travail sur tes vraies tâches, dès la première semaine.</li>
+          <li>Mes agents IA, livrés prêts à l'emploi.</li>
+          <li>La méthode pour créer les tiens, sans coder.</li>
+          <li>Un chiffre au départ, un chiffre à l'arrivée.</li>
+        </ul>
+      </div>
+      <div class="capvs__col capvs__col--nest">
+        <p class="capvs__title">Ce que ça n'est pas</p>
+        <ul>
+          <li>Une formation où tu regardes des vidéos.</li>
+          <li>Une liste d'outils à essayer. Il n'y en a qu'un.</li>
+          <li>Un truc réservé à ceux qui sont à l'aise avec la technique.</li>
+          <li>Une démo sur des cas fictifs.</li>
+          <li>Un programme qui te laisse avec du travail en plus.</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="why-claude reveal">
+      <p class="why-claude__label">Pourquoi Claude</p>
+      <p>La méthode est agnostique, l'outil ne l'est pas. Claude est celui qui absorbe le plus de contexte métier et écrit le plus juste — c'est ce qui permet de lui confier des pans entiers de travail plutôt que des prompts isolés.</p>
+    </aside>
+  </div>
+</section>
+
+
+<section class="section" id="noe">
+  <div class="shell">
+
+    <div class="noe__grid">
+      <figure class="noe__portrait reveal">
+        <img src="assets/img/noe/portrait.jpg" alt="Portrait de Noé Porchier-Cizaire" data-photo loading="lazy">
+        <p class="todo todo--media" data-todo="portrait-noe">Portrait — assets/img/noe/portrait.jpg</p>
+        <figcaption class="noe__name">Noé <span>Porchier-Cizaire</span></figcaption>
+      </figure>
+
+      <div class="noe__body reveal">
+        <p class="eyebrow">Ton formateur</p>
+        <h2 class="h2">Je n'ai pas vingt ans de méthodes à défendre.</h2>
+        <p class="p">Je n'ai pas appris à travailler avant l'IA pour ensuite essayer de l'y greffer — j'ai construit ma façon de travailler avec elle dès le départ. C'est pour ça que CAP n'est pas un rafistolage&nbsp;: c'est une méthode native.</p>
+        <p class="p">Aujourd'hui je dirige PRCZ, une agence de stratégie IA pour PME. J'ai cartographié le temps de dizaines de solopreneurs et de cadres&nbsp;: entre 30 et 40&nbsp;% de leur semaine était délégable. Et mon activité continue de tourner quand je suis à l'autre bout du monde — ce n'est pas un argument de style de vie, c'est la seule preuve qui compte&nbsp;: le système fonctionne sans moi.</p>
+      </div>
+    </div>
+
+    <div class="nomore reveal">
+      <div class="nomore__head">
+        <p class="label">Ce que je ne fais plus moi-même</p>
+        <p class="nomore__note">68 heures par semaine, au total.</p>
+      </div>
+      <ul class="nomore__list">
+          <li><span>Tout LinkedIn — écriture, programmation, engagement</span> <b>35h</b></li>
+          <li><span>Rédaction des livrables et des diapositives</span> <b>10h</b></li>
+          <li><span>Prospection</span> <b>6h</b></li>
+          <li><span>Veille IA</span> <b>5h</b></li>
+          <li><span>Supports de consulting</span> <b>5h</b></li>
+          <li><span>Comptes-rendus d'entretien</span> <b>5h</b></li>
+          <li><span>Gestion des mails</span> <b>2h</b></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section final" id="relance">
+  <div class="shell final__inner">
+    <div class="reveal">
+      <p class="eyebrow">Black Friday</p>
+      <h2 class="h2">Tu as vu la méthode. Maintenant, regarde tout ce qu'il y a dedans.</h2>
+      <p class="lede">Juste en dessous, le programme complet, module par module. Et le prix Black Friday tient jusqu'à vendredi minuit.</p>
+      <div class="cta-group">
+        <a class="btn btn--primary" href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>
+          <span data-bf-label>Je rejoins à 2 500 € HT</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#fondations">Voir le programme</a>
+      </div>
+      <ul class="microline">
+        <li>paiement sécurisé</li>
+        <li>en 1 fois ou en 3 fois</li>
+        <li>accès immédiat</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="exemples">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Ce que les membres construisent</p>
+      <h2 class="h2">Des agents IA qui travaillent <span class="italique">à ta place</span>.</h2>
+      <p class="lede">Quelques exemples construits par des membres du Cockpit Business. Sur les tâches qu'ils ont confiées à leurs agents, le temps passé baisse d'environ 76&nbsp;% en moyenne.</p>
+    </div>
+
+    <p class="agents__note reveal">Ces agents-là, des membres les ont construits pendant le programme pour leurs propres tâches&nbsp;: c'est ce que tu apprends à faire, en plus des agents que je te fournis. Les gains indiqués sont ceux mesurés par la personne citée&nbsp;; les tiens dépendront de ton point de départ.</p>
+
+    <div class="agents">
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de prospection</h3>
+        <p class="agent__fait">Chaque lundi et mercredi à 7h, il trouve les entreprises de ta cible, rédige le premier message et la relance, et t'envoie le récapitulatif par mail.</p>
+        <p class="agent__kpi">1,5 jour → 30 min<span>pour 19 prospects qualifiés</span></p>
+        <p class="agent__source">Jérémy B., architecte SI / Cloud</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de suivi client</h3>
+        <p class="agent__fait">Il garde la trace de chaque client et de chaque échange&nbsp;: plus personne n'est oublié.</p>
+        <p class="agent__kpi">+30 min<span>par jour</span></p>
+        <p class="agent__source">Michel Q., conseiller en gestion de patrimoine</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de propositions</h3>
+        <p class="agent__fait">Après un bilan avec un client, il rédige le mail de suivi et la proposition commerciale.</p>
+        <p class="agent__kpi">1 jour → 2h<span>par proposition</span></p>
+        <p class="agent__source">Camille R., consultante en stratégie commerciale</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de veille</h3>
+        <p class="agent__fait">Il suit tes sources, trie l'information et te livre la synthèse utile pour ton activité.</p>
+        <p class="agent__kpi">5h → 1h<span>par semaine</span></p>
+        <p class="agent__source">Thomas L., formateur indépendant</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de tri des mails</h3>
+        <p class="agent__fait">Il trie ta boîte, repère les demandes prioritaires et prépare les brouillons de réponse.</p>
+        <p class="agent__kpi">2h → 30 min<span>par semaine</span></p>
+        <p class="agent__source">Sarah M., freelance en communication</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de comptes-rendus</h3>
+        <p class="agent__fait">Après tes rendez-vous et ateliers, il rédige et met en forme les comptes-rendus.</p>
+        <p class="agent__kpi">5h → 1h<span>par semaine</span></p>
+        <p class="agent__source">Julien D., consultant en management</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de montage vidéo</h3>
+        <p class="agent__fait">Il dérushe, découpe les séquences et ajoute les sous-titres de tes vidéos.</p>
+        <p class="agent__kpi">4h → 1h<span>par vidéo</span></p>
+        <p class="agent__source">Inès B., solopreneure et créatrice de contenus</p>
+      </article>
+      <article class="agent reveal">
+        <p class="agent__tag">Exemple</p>
+        <h3 class="agent__nom">Agent de gestion d'agenda</h3>
+        <p class="agent__fait">Il prépare tes rendez-vous, trouve les créneaux et anticipe les besoins de tes clients.</p>
+        <p class="agent__kpi">2h → 30 min<span>par semaine</span></p>
+        <p class="agent__source">Hugo F., consultant freelance</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section etape" id="fondations">
+  <div class="shell">
+    <div class="etape__head reveal">
+      
+      <div>
+        <h2 class="h2">Fondations</h2>
+        <p class="etape__claim">Le point de départ, avant même de commencer CAP.</p>
+      </div>
+    </div>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Module 0 — Fondations</p>
+            <h3 class="mod__name">Module 0 — Fondations</h3>
+            <p class="mod__claim">Comprends ce que tu as entre les mains</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">Le point de départ&nbsp;: Claude installé, et une première vraie conversation qui produit un résultat concret sur ton travail. Tu sais ce qu'il sait faire — et ce qu'il ne fait pas.</p>
+          <ul class="mod__meta">
+            <li><b>4</b><span>chapitres</span></li>
+            <li><b>Débutant</b><span>niveau</span></li>
+            <li><b>aucun</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 4 chapitres</summary>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">00</span>
+                  <span class="chap__title">Installe Claude Desktop — ton environnement de travail</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Télécharger et configurer Claude Desktop (pas la version navigateur). Créer son compte et activer Claude Pro. Comprendre pourquoi l'app native est indispensable pour la suite.</p>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Claude Desktop installé, compte Pro activé, première session ouverte.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">01</span>
+                  <span class="chap__title">Ce qu'est Claude — et ce qu'il n'est pas</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Démystifier l'IA sans jargon. Comprendre comment Claude traite l'information, ce qu'il peut faire seul et ce qui nécessite ta direction. Les 3 erreurs les plus fréquentes des nouveaux utilisateurs.</p>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Clarté sur ce qu'on peut attendre de Claude — et ce qu'on ne peut pas.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">02</span>
+                  <span class="chap__title">Ta première conversation — comment lui parler naturellement</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Lancer sa première vraie conversation. Comprendre les Projets Claude (espace de travail persistant) et la mémoire entre sessions. Configurer son premier Projet avec ses instructions de base.</p>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Premier Projet Claude créé avec instructions personnalisées.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">03</span>
+                  <span class="chap__title">Pourquoi Claude oublie — comprendre les tokens sans jargon</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">La fenêtre de contexte expliquée simplement. Pourquoi Claude « oublie » entre les conversations et comment anticiper ce comportement. Les bonnes pratiques pour ne jamais perdre son contexte.</p>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Comprendre le comportement de Claude pour ne plus être surpris.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+  </div>
+</section>
+
+
+<section class="section etape" id="clarifier">
+  <div class="shell">
+    <div class="etape__head reveal">
+      <span class="etape__letter">C</span>
+      <div>
+        <h2 class="h2">Clarifier</h2>
+        <p class="etape__claim">Tu vois enfin où part ton temps.</p>
+      </div>
+    </div>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Étape C · Cartographier ta semaine</p>
+            <h3 class="mod__name">Cartographier ta semaine</h3>
+            <p class="mod__claim">Le vrai coût de travailler seul</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">En vingt minutes de conversation, ta semaine est écrite tâche par tâche. Tu sais enfin combien d'heures tu peux récupérer — et lesquelles.</p>
+          <ul class="mod__meta">
+            <li><b>2</b><span>chapitres</span></li>
+            <li><b>Débutant</b><span>niveau</span></li>
+            <li><b>Module 0</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 2 chapitres</summary>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">08</span>
+                  <span class="chap__title">Le vrai coût de travailler seul</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Comprendre les 3 catégories de tâches : D (Délégables à Claude), P (Procédurables — Claude suit une procédure), H (Humain uniquement — réflexion, relation, décision). Le concept de charge mentale comme coût invisible. Calcul du chiffre de départ : heures D + 50 % des heures P.</p>
+                  <ul class="chap__tags">
+                    <li>Tableau D/P/H</li>
+                    <li>Charge mentale</li>
+                    <li>Chiffre de départ</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Comprendre pourquoi l'audit est la première étape non négociable.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">09</span>
+                  <span class="chap__title">Cartographier sa semaine avec Claude — le prompt Journalist</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude joue le rôle d'un consultant-journaliste : il pose des questions structurées en 4 phases (ancrage mémoire → macro → micro → coûts cachés), relance les réponses vagues, et produit automatiquement le tableau D/P/H complet avec charge mentale, patterns récurrents et chiffre de départ. Minimum vingt minutes de conversation pour un audit profond.</p>
+                  <ul class="chap__tags">
+                    <li>Prompt Journalist V2</li>
+                    <li>4 phases d'audit</li>
+                    <li>Tableau auto-généré</li>
+                    <li>Patterns identifiés</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Tableau D/P/H complet de sa semaine + chiffre de départ calculé.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Étape C · Analyser et prioriser</p>
+            <h3 class="mod__name">Analyser et prioriser</h3>
+            <p class="mod__claim">De l'audit à la cartographie</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">Tu repars avec ton plan sur 30 jours&nbsp;: les tâches qui te rendent le plus d'heures, dans l'ordre où les confier à Claude.</p>
+          <ul class="mod__meta">
+            <li><b>3</b><span>chapitres</span></li>
+            <li><b>Intermédiaire</b><span>niveau</span></li>
+            <li><b>Cartographier ta semaine</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 3 chapitres</summary>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">10</span>
+                  <span class="chap__title">Analyse stratégique — lis ton audit comme un stratège</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude sélectionne les meilleures tâches D et P selon impact/effort. Pour chaque tâche : formulation de la problématique métier en une phrase concrète + assignation de la solution Claude exacte (prompt SID · template réutilisable · Projet BRAIN + mémoire · skill · connecteur MCP · tâche planifiée · Claude Browser). Tableau final trié : toutes les D d'abord, puis toutes les P. Identification des 2 à 3 tâches H à ne jamais déléguer.</p>
+                  <ul class="chap__tags">
+                    <li>Sélection D/P</li>
+                    <li>Solutions Claude</li>
+                    <li>Effort setup</li>
+                    <li>Tableau final trié</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Tableau de sélection : tâche · problématique métier · solution Claude · effort setup.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">11</span>
+                  <span class="chap__title">Génère ta roadmap 30 jours</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude génère une roadmap dynamique sur mesure — pas un template à 4 semaines fixes. Séquencement : phase D d'abord (setup le plus rapide au plus lent), puis phase P. Cap strict : 3 à 4 h de setup max par semaine, jamais deux chantiers complexes la même semaine. Pour chaque tâche : semaine d'implémentation, setup estimé, impact récupéré. Ce qui dépasse 30 jours part au prochain cycle CAP.</p>
+                  <ul class="chap__tags">
+                    <li>Roadmap dynamique</li>
+                    <li>Phase D → Phase P</li>
+                    <li>Cap 30 jours</li>
+                    <li>Prochain cycle</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Roadmap personnalisée séquencée semaine par semaine avec impacts estimés.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">12</span>
+                  <span class="chap__title">Sauvegarde ta cartographie globale</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude génère en un seul prompt la cartographie globale complète : profil de travail · audit D/P/H · sélection et solutions Claude · roadmap · indicateurs de suivi · premier geste. En markdown propre et en PDF mis en page. Ce PDF se colle dans les instructions du Projet — Claude le lit avant chaque conversation.</p>
+                  <ul class="chap__tags">
+                    <li>Cartographie PDF</li>
+                    <li>Document de référence</li>
+                    <li>Projet Cockpit</li>
+                    <li>Mise à jour J+30</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>PDF de cartographie globale sauvegardé dans les instructions du Projet Claude.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+  </div>
+</section>
+
+
+<section class="section etape" id="automatiser">
+  <div class="shell">
+    <div class="etape__head reveal">
+      <span class="etape__letter">A</span>
+      <div>
+        <h2 class="h2">Automatiser</h2>
+        <p class="etape__claim">C'est là que les heures reviennent.</p>
+      </div>
+    </div>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Étape A · Déléguer les premières heures</p>
+            <h3 class="mod__name">Déléguer les premières heures</h3>
+            <p class="mod__claim">Tes premières heures récupérées. Cette semaine.</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">Tes premières tâches confiées dès cette semaine&nbsp;: rédaction, comptes-rendus, propositions. Claude écrit avec ta voix et applique tes procédures, du premier coup.</p>
+          <ul class="mod__meta">
+            <li><b>9</b><span>chapitres</span></li>
+            <li><b>Intermédiaire</b><span>niveau</span></li>
+            <li><b>Analyser et prioriser</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 9 chapitres</summary>
+          <p class="mod__bloc">Bloc 1 — La méthode SID et les templates</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">15</span>
+                  <span class="chap__title">Écrire un prompt SID parfait</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">La méthode SID (Situation · Intention · Détails) — pas une formule magique, une manière de penser sa demande avant de l'écrire. S = qui tu es, ton contexte ; I = l'objectif précis, pas « aide-moi » ; D = contraintes, format, ton, exclusions. Démonstration comparée : même tâche avec et sans SID.</p>
+                  <ul class="chap__tags">
+                    <li>Méthode SID</li>
+                    <li>Situation</li>
+                    <li>Intention</li>
+                    <li>Détails</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Template SID universel à conserver dans son Projet Claude.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">16</span>
+                  <span class="chap__title">Créer son premier template de prompt</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Un bon prompt prend du temps à écrire — il faut le réutiliser. Un template = un prompt SID avec des [variables] à remplacer. Logique de construction, exemples pratiques (email de suivi prospect, compte-rendu, brief). Où stocker ses templates.</p>
+                  <ul class="chap__tags">
+                    <li>Templates réutilisables</li>
+                    <li>[Variables]</li>
+                    <li>Bibliothèque de briefs</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>3 templates SID personnalisés pour ses 3 tâches les plus fréquentes.</p>
+                </div>
+              </details>
+          </div>
+          <p class="mod__bloc">Bloc 2 — Projets, BRAIN et mémoire</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">17</span>
+                  <span class="chap__title">Introduction aux Projets Claude</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude par défaut = conversation sans mémoire. Les Projets règlent ce problème : espace de travail persistant avec mémoire partagée entre toutes les conversations du projet. Cas d'usage : un Projet par client, par chantier IA.</p>
+                  <ul class="chap__tags">
+                    <li>Projets Claude</li>
+                    <li>Mémoire persistante</li>
+                    <li>Instructions système</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Son Projet Claude configuré avec ses instructions de base.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">18</span>
+                  <span class="chap__title">Charger son contexte avec le dossier BRAIN</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Le dossier BRAIN : un dossier sur son ordinateur que Claude lit au début de chaque session. Il est chez toi, pas dans le cloud. Analogie : un collaborateur qui a lu ton dossier avant de commencer. Présentation des 3 fichiers clés.</p>
+                  <ul class="chap__tags">
+                    <li>Dossier BRAIN</li>
+                    <li>ABOUT ME</li>
+                    <li>Contexte auto</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Structure du dossier BRAIN créée sur son ordinateur.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">19</span>
+                  <span class="chap__title">Créer profil.md · offres.md · style.md</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Les 3 fichiers qui donnent ta voix à Claude. profil.md : qui tu es professionnellement. offres.md : ce que tu vends. style.md : comment tu communiques, avec des extraits de vrais écrits. Astuce : utiliser Claude pour t'aider à rédiger tes propres fichiers.</p>
+                  <ul class="chap__tags">
+                    <li>profil.md</li>
+                    <li>offres.md</li>
+                    <li>style.md</li>
+                    <li>Voix personnelle</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Les 3 fichiers remplis et sauvegardés dans le dossier BRAIN.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">20</span>
+                  <span class="chap__title">Comprendre les tokens et la fenêtre de contexte</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Ce que sont les tokens sans jargon technique. Pourquoi la fenêtre de contexte a une limite et ce que ça implique concrètement. Comment ne pas surcharger son Projet avec des documents trop lourds.</p>
+                  <ul class="chap__tags">
+                    <li>Tokens</li>
+                    <li>Contexte</li>
+                    <li>Limites</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Comprendre comment optimiser son espace de contexte.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">21</span>
+                  <span class="chap__title">Utiliser la mémoire Claude</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">La mémoire = des post-its permanents sur toi, actifs dans toutes tes conversations. Différence mémoire / Projet / BRAIN : universel et permanent · spécifique à un chantier · chargé à la demande.</p>
+                  <ul class="chap__tags">
+                    <li>Mémoire persistante</li>
+                    <li>Préférences universelles</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Au moins 3 mémorisations clés configurées dans Claude.</p>
+                </div>
+              </details>
+          </div>
+          <p class="mod__bloc">Bloc 3 — Les skills</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">22</span>
+                  <span class="chap__title">Introduction aux skills</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Les skills = des procédures pré-configurées qu'on appelle pour exécuter une tâche complexe d'un seul ordre. Plutôt que de réexpliquer comment faire un compte-rendu à chaque fois, on crée une fiche procédure que Claude suit automatiquement.</p>
+                  <ul class="chap__tags">
+                    <li>Skills</li>
+                    <li>Procédures sauvegardées</li>
+                    <li>Automatisation</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Identifier ses 3 tâches candidates avant le chapitre suivant.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">23</span>
+                  <span class="chap__title">Configurer son premier skill</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">En pratique : créer un skill de A à Z. Définir le déclencheur, l'entrée attendue, la sortie produite et la logique d'exécution. Test en direct sur une vraie tâche. Mesurer le temps gagné.</p>
+                  <ul class="chap__tags">
+                    <li>Configuration</li>
+                    <li>Déclencheur</li>
+                    <li>Test en direct</li>
+                    <li>Mesure des gains</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Premier skill configuré et testé sur une vraie tâche récurrente.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Étape A · Automatiser sans toi</p>
+            <h3 class="mod__name">Automatiser sans toi</h3>
+            <p class="mod__claim">Ton système tourne sans toi. Même la nuit.</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">Tes mails triés, ta veille livrée, tes relances envoyées&nbsp;: les tâches récurrentes s'exécutent sans toi, à heure fixe, même la nuit. C'est ici que naissent tes agents.</p>
+          <ul class="mod__meta">
+            <li><b>10</b><span>chapitres</span></li>
+            <li><b>Intermédiaire → Avancé</b><span>niveau</span></li>
+            <li><b>Déléguer les premières heures</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 10 chapitres</summary>
+          <p class="mod__bloc">Bloc 1 — Connecteurs MCP</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">24</span>
+                  <span class="chap__title">Ce qu’un connecteur change vraiment</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">MCP est le standard qui branche Claude directement sur tes outils. La différence est simple : sans connecteur, Claude te conseille sur tes emails ; avec, il les lit, les trie et prépare les réponses. On pose la carte de ce qui est branchable aujourd’hui, et dans quel ordre le faire.</p>
+                  <ul class="chap__tags">
+                    <li>Protocole MCP</li>
+                    <li>Carte mentale</li>
+                    <li>Ordre de priorité</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>La carte des connecteurs : ce que tu branches, dans quel ordre, et l’heure gagnée derrière chacun.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">25</span>
+                  <span class="chap__title">Brancher tes outils du quotidien</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Les connecteurs natifs : ceux qui s’installent en deux clics, sans une ligne de code. Gmail, Calendar, Drive, Notion, ClickUp, Slack. Le principe d’abord, puis l’installation en direct — sur tes propres comptes, pas sur un environnement de démonstration.</p>
+                  <ul class="chap__tags">
+                    <li>Connecteurs natifs</li>
+                    <li>Gmail · Calendar</li>
+                    <li>Notion · ClickUp</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Tes outils du quotidien connectés et testés sur tes vraies données.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">26</span>
+                  <span class="chap__title">Brancher tout le reste</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Ton outil métier n’a pas de connecteur officiel ? Les connecteurs personnalisés et Zapier MCP ouvrent la porte au reste de ton stack : CRM, facturation, base clients, outil interne. Théorie puis mise en place sur ton propre cas.</p>
+                  <ul class="chap__tags">
+                    <li>Connecteurs personnalisés</li>
+                    <li>Zapier MCP</li>
+                    <li>Outils métier</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Un connecteur monté sur un outil qui n’en avait pas.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">27</span>
+                  <span class="chap__title">Aller chercher la donnée où elle est</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Le connecteur Apify laisse Claude collecter de la donnée sur le web à ta place : veille concurrentielle, listes de prospects, prix, contenus publiés. Pour ceux qui veulent aller au bout, la création de serveurs MCP sur mesure est traitée en fin de bloc — chapitre technique et entièrement optionnel : il n’entre pas dans le chemin des 14 heures.</p>
+                  <ul class="chap__tags">
+                    <li>Apify</li>
+                    <li>Veille automatisée</li>
+                    <li>Serveurs custom · optionnel</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Une collecte de données qui tourne sans toi, sur le sujet de ton choix.</p>
+                </div>
+              </details>
+          </div>
+          <p class="mod__bloc">Bloc 2 — Tâches planifiées</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">28</span>
+                  <span class="chap__title">Introduction aux tâches planifiées</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Des actions que Claude exécute à heure fixe, sans que tu sois présent. Différence entre demander à Claude de faire quelque chose et Claude qui le fait automatiquement à 8h chaque lundi. Cas d'usage : briefing du matin, résumé de boîte email, rapport hebdomadaire.</p>
+                  <ul class="chap__tags">
+                    <li>Tâches planifiées</li>
+                    <li>Heure fixe</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Comprendre quelles tâches se prêtent à la planification.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">29</span>
+                  <span class="chap__title">Créer sa première tâche planifiée</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Configurer une tâche planifiée de A à Z : choisir le déclencheur, écrire le prompt, tester l'exécution. Exemple fil rouge : le briefing du lundi matin — Claude lit l'agenda de la semaine, les emails non traités, les priorités, et envoie un résumé chaque lundi à 8h.</p>
+                  <ul class="chap__tags">
+                    <li>Configuration</li>
+                    <li>Briefing du lundi</li>
+                    <li>Déclencheur</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Première tâche planifiée opérationnelle.</p>
+                </div>
+              </details>
+          </div>
+          <p class="mod__bloc">Bloc 3 — Claude Browser</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">30</span>
+                  <span class="chap__title">Introduction à Claude Browser</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Claude qui agit sur le web à ta place. Il navigue, lit des pages, extrait des informations, remplit des formulaires. Installation de l'extension. Cas d'usage : veille sectorielle, extraction de données, recherche de prospects.</p>
+                  <ul class="chap__tags">
+                    <li>Claude Browser</li>
+                    <li>Actions web</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Extension installée et première action web exécutée.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">31</span>
+                  <span class="chap__title">Automatiser sa veille avec Claude Browser</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Construire un système de veille automatique : Claude visite des sources définies, extrait les informations pertinentes, les résume selon tes critères. Combiner Claude Browser et tâche planifiée pour une veille entièrement automatique.</p>
+                  <ul class="chap__tags">
+                    <li>Veille automatique</li>
+                    <li>Extraction</li>
+                    <li>Résumé auto</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Système de veille automatique configuré sur ses sources prioritaires.</p>
+                </div>
+              </details>
+          </div>
+          <p class="mod__bloc">Bloc 4 — Système complet et revue</p>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">32</span>
+                  <span class="chap__title">Construire son système de délégation complet</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Assembler tous les éléments en un système cohérent : connecteurs MCP, tâches planifiées, Claude Browser, skills. Mapper chaque tâche de sa roadmap sur le bon outil. Créer les rituels quotidiens et hebdomadaires. Le système tourne, tu supervises.</p>
+                  <ul class="chap__tags">
+                    <li>Système complet</li>
+                    <li>Rituels</li>
+                    <li>Supervision</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Système de délégation complet assemblé et documenté.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">33</span>
+                  <span class="chap__title">Revue de mi-parcours et ajustements</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Point de contrôle à mi-chemin des 30 jours. Comparer ce qui a été mis en place avec la roadmap initiale. Identifier ce qui fonctionne, ce qui coince, ce qui doit être ajusté.</p>
+                  <ul class="chap__tags">
+                    <li>Revue mi-parcours</li>
+                    <li>Ajustements</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Cartographie mise à jour avec les réalités du terrain à J+15.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+  </div>
+</section>
+
+
+<section class="section etape" id="piloter">
+  <div class="shell">
+    <div class="etape__head reveal">
+      <span class="etape__letter">P</span>
+      <div>
+        <h2 class="h2">Piloter</h2>
+        <p class="etape__claim">Tu passes de l'autre côté.</p>
+      </div>
+    </div>
+
+      <article class="mod reveal">
+        <header class="mod__head">
+          <div class="mod__id">
+            <p class="mod__step">Étape P · Mesurer et relancer</p>
+            <h3 class="mod__name">Mesurer et relancer</h3>
+            <p class="mod__claim">Mesure ce que tu as récupéré. Prépare le cycle suivant.</p>
+          </div>
+        </header>
+
+        <div class="mod__cols">
+          <p class="mod__desc">Tu compares ton point de départ à la réalité à J+30&nbsp;: heures gagnées, marge, charge allégée. Puis tu choisis les prochains chantiers — la méthode continue après le programme.</p>
+          <ul class="mod__meta">
+            <li><b>4</b><span>chapitres</span></li>
+            <li><b>Tous niveaux</b><span>niveau</span></li>
+            <li><b>Automatiser sans toi</b><span>prérequis</span></li>
+          </ul>
+        </div>
+        <!-- Le comment (méthodes, outils, chapitres) : replié, pour que le
+             résultat reste ce qu'on voit d'abord. -->
+        <details class="mod__detail">
+          <summary class="mod__detail-sum">Le contenu détaillé · 4 chapitres</summary>
+          <div class="chaps">
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">34</span>
+                  <span class="chap__title">Mesurer ses gains réels</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Refaire l'audit D/P/H avec Claude trente jours après. Méthode de mesure objective : comparer les heures passées sur chaque tâche avant et après. Calculer les heures récupérées réellement — pas les estimées, les mesurées.</p>
+                  <ul class="chap__tags">
+                    <li>Audit J+30</li>
+                    <li>Mesure objective</li>
+                    <li>Avant / après</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Nouveau tableau D/P/H comparé à l'audit initial.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">35</span>
+                  <span class="chap__title">Comparer avec son chiffre de départ</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Calculer son retour réel : heures récupérées × valeur horaire. Comparer le chiffre de départ avec celui de J+30. Valoriser les gains à l'année. Identifier pourquoi certaines tâches ont sur- ou sous-performé.</p>
+                  <ul class="chap__tags">
+                    <li>Retour calculé</li>
+                    <li>Valorisation</li>
+                    <li>Chiffre J+30</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Calcul complet : heures récupérées · valeur horaire · gain annuel estimé.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">36</span>
+                  <span class="chap__title">Identifier les prochains chantiers</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Relire le prochain cycle constitué à l'étape Clarifier. Identifier les tâches qui n'ont pas encore été traitées. Repérer les nouvelles tâches D/P qui ont émergé sur les trente jours.</p>
+                  <ul class="chap__tags">
+                    <li>Prochain cycle</li>
+                    <li>Nouveaux chantiers</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Liste des chantiers du cycle 2, priorisés et intégrés à la cartographie.</p>
+                </div>
+              </details>
+              <details class="chap">
+                <summary>
+                  <span class="chap__num">37</span>
+                  <span class="chap__title">Ton système dans 90 jours</span>
+                  <span class="chap__sign" aria-hidden="true"></span>
+                </summary>
+                <div class="chap__body">
+                  <p class="chap__desc">Ancrer les nouvelles habitudes : les rituels quotidiens et hebdomadaires avec Claude. Comment maintenir le système sans y penser. Préparer le cycle 2 : relancer CAP sur les tâches restantes. La méthode devient un réflexe.</p>
+                  <ul class="chap__tags">
+                    <li>Habitudes ancrées</li>
+                    <li>Cycle 2</li>
+                    <li>Vision 90 jours</li>
+                  </ul>
+                  <p class="chap__out"><span class="chap__out-cap">Ce que tu en sors</span>Rituels hebdomadaires configurés · cycle 2 planifié · cartographie finale.</p>
+                </div>
+              </details>
+          </div>
+        </details>
+      </article>
+
+  </div>
+</section>
+
+
+<section class="section" id="piliers">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Au-delà des modules</p>
+      <h2 class="h2">Tu n'avances jamais seul.</h2>
+    </div>
+    <div class="piliers">
+      <article class="pilier reveal">
+        <header class="pilier__head">
+          <p class="pilier__label">Communauté</p>
+        </header>
+        <h3 class="pilier__name">La communauté privée</h3>
+        <p class="pilier__desc">Un réseau d'entrepreneurs qui partagent la même ambition. Tu n'avances plus seul : tu profites de l'intelligence collective du groupe, chaque jour.</p>
+        <ul class="pilier__list">
+          <li>Accès 24 h/24 pendant un an, sans limite de messages.</li>
+          <li>Échanges quotidiens : cas d'usage, réussites, dépannages en temps réel.</li>
+          <li>Soutien direct de Noé, même sur les questions techniques.</li>
+          <li>Un bug, un blocage → une réponse dans l'heure.</li>
+          <li>Bibliothèque de skills et de prompts testés par les membres.</li>
+          <li>Veille IA collective : les meilleurs outils avant tout le monde.</li>
+          <li>Networking : partenariats et opportunités entre membres.</li>
+        </ul>
+        <div class="pilier__note">
+          <p class="pilier__note-t">L'effet réseau</p>
+          <p>Les membres résolvent en cinq minutes des problèmes qui te prendraient des heures seul.</p>
+        </div>
+      </article>
+
+      <article class="pilier reveal">
+        <header class="pilier__head">
+          <p class="pilier__label">Accompagnement</p>
+        </header>
+        <h3 class="pilier__name">Le mastermind hebdomadaire</h3>
+        <p class="pilier__desc">Un suivi direct pour ne jamais rester seul face à une difficulté. Chaque semaine, tu repars avec une avancée concrète sur ton propre système.</p>
+        <ul class="pilier__list">
+          <li>Un live chaque semaine, sur un créneau calé par sondage.</li>
+          <li>Groupe de 3 à 7 personnes, jamais plus.</li>
+          <li>Questions stratégiques et techniques, en direct.</li>
+          <li>Hot-seats : on travaille sur ton cas, pas sur de la théorie.</li>
+          <li>Démos à l'écran : Claude, skills, automatisations, connecteurs.</li>
+          <li>Replays accessibles à vie.</li>
+          <li>Un plan d'action à chaque session.</li>
+        </ul>
+        <div class="pilier__note">
+          <p class="pilier__note-t">Personne ne reste bloqué</p>
+          <p>Impossible de caler plus d'une semaine : on débloque ton cas en direct au live suivant.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Témoignages écrits en entier, avant le mur de captures. Les gains
+         reprennent les mots de chacun dans sa capture. -->
+    <div class="cas">
+      <p class="label cas__titre reveal">Leurs messages, en entier</p>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Jérémy B.</p>
+          <p class="cas__metier">Architecte SI / Cloud, freelance</p>
+          <p class="cas__gain">+10h<span>par semaine</span></p>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-jeremy.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-jeremy.webp" alt="Message de Jérémy B. : ses deux skills de prospection remplissent son Google Sheets chaque lundi et mercredi à 7h ; 19 prospects lui prenaient une journée et demie à la main, il y passe désormais 30 minutes." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Diane L.</p>
+          <p class="cas__metier">Consultante IA et transformation digitale</p>
+          <p class="cas__gain">+7h<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-diane.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-diane.webp" alt="Message de Diane L. : partie de trois heures gagnées par semaine, elle en est à sept ; elle automatise ce qui peut l'être et crée des agents qui agissent à sa place." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+      <article class="cas__item reveal">
+        <header class="cas__id">
+          <p class="cas__nom">Michel Q.</p>
+          <p class="cas__metier">Conseiller en gestion de patrimoine</p>
+          <p class="cas__gain">+2h30<span>par semaine</span></p>
+          <ul class="cas__plus">
+            <li><span class="cas__signe" aria-hidden="true">−</span>Beaucoup moins de charge mentale</li>
+            <li><span class="cas__signe" aria-hidden="true">+</span>Plus de business</li>
+          </ul>
+        </header>
+        <figure class="cas__capture">
+          <a href="assets/img/preuves/temoignage-michel.webp" target="_blank" rel="noopener" aria-label="Agrandir la capture"><img src="assets/img/preuves/temoignage-michel.webp" alt="Échange avec Michel Q. : il estime gagner trente minutes par jour, en efficacité et en qualité, et n'oublie plus personne ; il cite les skills, les tâches planifiées et les connecteurs." loading="lazy" data-photo></a>
+        </figure>
+      </article>
+    </div>
+
+    <div class="proofwall reveal">
+      <div class="proofwall__head">
+        <p class="label">La communauté en action</p>
+        <p class="proofwall__note">Des extraits réels des échanges entre membres.</p>
+      </div>
+      <div class="proofwall__grid">
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve1.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve2.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve3.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve4.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve5.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve6.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve7.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve8.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve9.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve10.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve11.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve12.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve13.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve15.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve16.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve17.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve18.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+        <figure class="proofshot">
+          <img src="assets/img/preuves/preuve19.png" alt="Message d'un membre" data-photo loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="offre">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Ce que tu obtiens</p>
+      <h2 class="h2 h2--xl">Tout ça, dans un seul programme.</h2>
+    </div>
+
+    <div class="bf-offre">
+      <div class="reveal">
+        <div class="pile reveal">
+      <ul class="pile__list">
+        <li><span>Ma machine — tous mes agents IA, prêts à brancher</span></li>
+        <li><span>Module 0 — Fondations</span></li>
+        <li><span>Clarifier — cartographier ta semaine</span></li>
+        <li><span>Clarifier — analyser et prioriser</span></li>
+        <li><span>Automatiser — déléguer les premières heures</span></li>
+        <li><span>Automatiser — automatiser sans toi</span></li>
+        <li><span>Créer tes propres agents IA</span></li>
+        <li><span>Piloter — mesurer et relancer</span></li>
+        <li><span>La communauté privée</span></li>
+        <li><span>Le mastermind hebdomadaire</span></li>
+      </ul>
+    </div>
+        <aside class="why-claude">
+          <p class="why-claude__label">Programme vivant</p>
+          <p>Le contenu de chaque module évolue au fil des retours des membres&nbsp;: nouveaux chapitres, prompts affinés, exemples enrichis. L'accès aux mises à jour est compris.</p>
+        </aside>
+      </div>
+
+      <div class="bf-ticket reveal">
+        <p class="bf-ticket__label bf-live">Prix Black Friday</p>
+        <div class="bf-live">
+        <div class="bf-prix">
+        <span class="bf-prix__barre">3 200 € HT</span>
+        <span class="bf-prix__new">2 500 €</span>
+        <span class="bf-prix__ht">HT</span>
+        <span class="bf-prix__badge">−700 €</span>
+      </div>
+        </div>
+        <ul class="bf-ticket__lignes">
+          <li><span>Prix public</span><b class="bf-prix__barre" style="font-size:15px">3 200 € HT</b></li>
+          <li class="bf-live"><span>Black Friday, en 1 fois</span><b>2 500 € HT (3 000 € TTC)</b></li>
+          <li class="bf-live"><span>Ou en 3 fois, tous les 30 jours</span><b>3 × 833,33 € HT</b></li>
+          <li class="bf-live"><span>Code promo à taper</span><b>aucun, c'est déjà appliqué</b></li>
+        </ul>
+        <div class="bf-live">
+        <div class="bf-count" data-bf-count aria-label="Temps restant avant la fin du prix Black Friday">
+        <div class="bf-count__u"><b data-u="j">3</b><span>jours</span></div>
+        <div class="bf-count__u"><b data-u="h">00</b><span>heures</span></div>
+        <div class="bf-count__u"><b data-u="m">00</b><span>min</span></div>
+        <div class="bf-count__u"><b data-u="s">00</b><span>sec</span></div>
+      </div>
+        <p class="bf-places">Plus que <b data-bf-places>20</b> places à ce prix.
+        <span class="bf-places__jauge" aria-hidden="true"><i data-bf-jauge style="width:100%"></i></span>
+      </p>
+        </div>
+        <p class="bf-fini bf-prix__alt">Le Black Friday est terminé. Le programme est revenu à 3 200 € HT.</p>
+        <a class="btn btn--primary" href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>
+          <span data-bf-label>Je rejoins à 2 500 € HT</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <ul class="microline">
+        <li>paiement sécurisé</li>
+        <li>en 1 fois ou en 3 fois</li>
+        <li>accès immédiat</li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="bf-calcul reveal">
+      <p class="eyebrow">Fais le calcul toi-même</p>
+      <h3 class="h3">Combien te coûte une heure de ta semaine&nbsp;?</h3>
+      <p class="lede">Prends ton chiffre d'affaires annuel et divise-le par le nombre d'heures que tu bosses dans l'année. Si ton heure vaut 50&nbsp;€, 14h par semaine, c'est 2&nbsp;800&nbsp;€ par mois qui partent dans des tâches qu'un bras droit IA peut faire à ta place. Le vrai prix, ce n'est pas 2&nbsp;500&nbsp;€. C'est ce que tu continues de perdre chaque semaine où rien ne change.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="pour-qui">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Qualification</p>
+      <h2 class="h2">Avant de rejoindre, sois honnête avec toi-même.</h2>
+    </div>
+
+    <div class="filter__cols">
+      <div class="filter__col filter__col--no card reveal">
+        <h3>Ce n'est pas pour toi si</h3>
+        <ul class="filter__list">
+          <li>Tu cherches une solution qui marche sans que tu changes ta façon de travailler.</li>
+          <li>Tu veux tester un outil de plus, pas revoir ton organisation.</li>
+          <li>Tu ne passeras pas à l'action entre deux modules.</li>
+          <li>Tu es déjà à l'aise avec l'IA et les automatisations — tu n'apprendras pas grand-chose.</li>
+          <li>Tu dois demander l'accord de quelqu'un pour t'engager.</li>
+        </ul>
+      </div>
+      <div class="filter__col filter__col--yes card reveal">
+        <h3>C'est pour toi si</h3>
+        <ul class="filter__list">
+          <li>Tu portes seul un volume de travail pensé pour plusieurs personnes.</li>
+          <li>Tu as essayé l'IA seul et tu as plafonné.</li>
+          <li>Tu es décisionnaire et tu peux commencer dans les 30 jours.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="filter__close reveal">Si tu portes seul un volume de travail pensé pour plusieurs personnes, tu es exactement au bon endroit.</p>
+  </div>
+</section>
+
+
+<section class="section" id="faq">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2">Ce qu'on me demande avant de rejoindre.</h2>
+    </div>
+
+    <div class="faq reveal">
+      <details class="faq__item">
+        <summary>Le prix Black Friday, c'est jusqu'à quand&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Jusqu'au vendredi 27 novembre à minuit, heure de Paris. Samedi, le programme revient à 3&nbsp;200&nbsp;€ HT. Et il n'y a que 20 places à ce prix&nbsp;: quand elles sont parties, c'est fini, même avant vendredi.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je dois entrer un code promo&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Non. Le prix de 2&nbsp;500&nbsp;€ HT est déjà appliqué sur la page de paiement. Tu cliques, tu remplis tes infos, c'est tout.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je peux payer en plusieurs fois&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Oui. Sur la page de paiement, tu choisis entre 2&nbsp;500&nbsp;€ HT en une fois (3&nbsp;000&nbsp;€ TTC) ou 3 mensualités de 833,33&nbsp;€ HT, une tous les 30 jours.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je reçois une facture&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Oui, une facture avec TVA est émise automatiquement à ton nom ou à celui de ta société au moment du paiement.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je commence quand&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Tout de suite. Tu as accès aux modules dès le paiement, tu rejoins la communauté privée et tu es intégré au prochain mastermind hebdomadaire.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je n'ai pas le temps de me former.<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>C'est exactement le problème qu'on traite. La première étape ne demande pas d'apprendre quoi que ce soit&nbsp;: elle demande de regarder où part ton temps. Tout le reste part de là.</p>
+          <p>Et tu ne pars pas de zéro&nbsp;: mes agents sont livrés prêts à brancher. Compte quelques heures par semaine sur le premier mois, le temps de les régler sur ton activité. Après, ce sont eux qui travaillent. Les modules sont des vidéos courtes, consommables quand tu veux, et le créneau du mastermind est calé chaque semaine sur les disponibilités du groupe.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Je vais devoir tout construire moi-même&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Non. Tu récupères d'abord toute ma machine&nbsp;: mes agents de prospection, de veille, de tri des mails, d'agenda, de PowerPoint, juridique, commercial et de contenus LinkedIn et Instagram, prêts à brancher.</p>
+          <p>Ensuite, je t'apprends à créer les tiens pour ce qui est propre à ton activité. C'est ce qui te rend autonome&nbsp;: le jour où ton activité change, tu sais adapter tes agents sans moi.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>J'ai déjà essayé l'IA, ça n'a pas marché.<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Presque tout le monde ici est dans ce cas. Ce n'est pas l'outil qui a échoué, c'est l'absence de méthode&nbsp;: des prompts isolés, sans contexte métier et sans logique d'intégration. C'est précisément ce que corrige la méthode CAP.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Et si ça ne marche pas pour moi&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Il n'y a pas de garantie de remboursement, et je préfère te le dire franchement. Si tu hésites, réserve plutôt un <a href="https://cal.com/noe-porchier-cizaire/bilan-strategique-ia?utm_source=black-friday">diagnostic de 45 minutes</a> avant vendredi&nbsp;: si je vois que ce n'est pas pour toi, je te le dis.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>Faut-il savoir coder&nbsp;?<span class="faq__sign" aria-hidden="true"></span></summary>
+        <div class="faq__answer">
+          <p>Non. Aucune ligne de code.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section final" id="reserver">
+  <div class="shell final__inner">
+    <div class="reveal">
+      <p class="eyebrow">La suite</p>
+      <h2 class="h2">Tu as deux choix.</h2>
+
+      <div class="final__choices">
+        <p class="final__choice"><em>01</em><span>Continuer comme aujourd'hui&nbsp;: subir le volume, repousser ce qui compte, et payer 700&nbsp;€ de plus le jour où tu décideras enfin de t'y mettre.</span></p>
+        <p class="final__choice final__choice--b"><em>02</em><span>Ou rejoindre Le Cockpit Business cette semaine, à 2&nbsp;500&nbsp;€ HT, et laisser ton bras droit IA reprendre tes premières heures dès lundi.</span></p>
+      </div>
+
+      <div class="bf-live">
+      <div class="bf-count" data-bf-count aria-label="Temps restant avant la fin du prix Black Friday">
+        <div class="bf-count__u"><b data-u="j">3</b><span>jours</span></div>
+        <div class="bf-count__u"><b data-u="h">00</b><span>heures</span></div>
+        <div class="bf-count__u"><b data-u="m">00</b><span>min</span></div>
+        <div class="bf-count__u"><b data-u="s">00</b><span>sec</span></div>
+      </div>
+      <p class="bf-places">Plus que <b data-bf-places>20</b> places à ce prix.
+        <span class="bf-places__jauge" aria-hidden="true"><i data-bf-jauge style="width:100%"></i></span>
+      </p>
+      </div>
+      <div class="cta-group">
+        <a class="btn btn--primary" href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>
+          <span data-bf-label>Je rejoins à 2 500 € HT</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="microline">
+        <li>paiement sécurisé</li>
+        <li>en 1 fois ou en 3 fois</li>
+        <li>accès immédiat</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__top">
+      <a class="brand" href="index.html" aria-label="Le Cockpit Business — accueil">
+        <span class="brand__mark" aria-hidden="true">✦</span>
+        <span class="brand__name">Le Cockpit <span>Business</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Liens de pied de page">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://altitude-business.systeme.io/lecockpit-business-black-friday" data-bf-cta>Rejoindre à 2 500 € HT</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </nav>
+    </div>
+
+    <p class="footer__legal">
+      Le programme a été conçu à des fins pédagogiques. Les 14h par semaine correspondent à l'écart moyen constaté entre le méta-audit initial et le méta-audit final des participants ayant suivi le programme jusqu'au bout&nbsp;: ce résultat dépend de ton activité, de ton point de départ et du travail que tu fournis, et ne constitue ni une garantie, ni une promesse de résultat individuel. Le Cockpit Business n'est pas affilié à Anthropic. Claude est une marque d'Anthropic PBC.
+    </p>
+    <p class="footer__copy">© <span data-year>2026</span> Le Cockpit Business — PRCZ. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+/* Black Friday : compte à rebours, places annoncées et bascule après la fin.
+   Fin = samedi 28/11/2026 00:00 heure de Paris (27/11 23:00 UTC).
+   Places : 20 jusqu'au mercredi 25, 14 le jeudi 26, 2 le vendredi 27
+   (calendrier annoncé dans les mails, pas un compteur de ventes). */
+(function () {
+  var FIN = Date.UTC(2026, 10, 27, 23, 0, 0);
+  var JEUDI = Date.UTC(2026, 10, 25, 23, 0, 0);
+  var VENDREDI = Date.UTC(2026, 10, 26, 23, 0, 0);
+  var RESA = 'https://cal.com/noe-porchier-cizaire/bilan-strategique-ia?utm_source=black-friday';
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+
+  function terminer() {
+    document.documentElement.setAttribute('data-bf', 'fini');
+    each('[data-bf-cta]', function (a) { a.href = RESA; });
+    each('[data-bf-label]', function (s) { s.textContent = 'Réserver mon diagnostic — 45 min'; });
+  }
+
+  function tick() {
+    var now = Date.now();
+    var reste = FIN - now;
+    if (reste <= 0) { terminer(); return false; }
+    var places = now < JEUDI ? 20 : (now < VENDREDI ? 14 : 2);
+    each('[data-bf-places]', function (b) { b.textContent = places; });
+    each('[data-bf-jauge]', function (i) { i.style.width = (places / 20 * 100) + '%'; });
+    var s = Math.floor(reste / 1000);
+    var j = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    each('[data-u="j"]', function (b) { b.textContent = j; });
+    each('[data-u="h"]', function (b) { b.textContent = pad(h); });
+    each('[data-u="m"]', function (b) { b.textContent = pad(m); });
+    each('[data-u="s"]', function (b) { b.textContent = pad(sec); });
+    each('[data-bf-short]', function (b) { b.textContent = (j ? j + ' j ' : '') + pad(h) + ' h ' + pad(m) + ' min'; });
+    return true;
+  }
+  if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-bf-cta]');
+    if (a && window.fbq && document.documentElement.getAttribute('data-bf') !== 'fini') {
+      fbq('track', 'InitiateCheckout', { value: 2500, currency: 'EUR', content_name: 'Le Cockpit Business Black Friday' });
+    }
+  });
+})();
+</script>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>
