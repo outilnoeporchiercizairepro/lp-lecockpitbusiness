@@ -36,9 +36,12 @@
   .livehost-chip img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
   .livehost-chip p { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: rgba(255, 255, 255, 0.66); }
   .livehost-chip b { color: #ffffff; font-size: 15px; }
-  .livevideo { margin: 26px 0 0; }
-  .livevideo video { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.14); background: #0b1020; }
-  .livevideo figcaption { margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.66); }
+  .bdvideo { background: #111111; padding: 12px 2vw 72px; text-align: center; }
+  .bdvideo video { display: block; width: 100%; max-width: 1800px; height: auto; margin: 0 auto; border-radius: 16px; background: #0b1020; }
+  .bdvideo__titre { margin: 40px 0 0; font-family: var(--serif); font-weight: 400; line-height: 0.95; color: #ffffff; font-size: clamp(56px, 11vw, 190px); letter-spacing: -0.02em; }
+  .bdvideo__titre .italique { color: var(--accent); font-style: italic; }
+  .bdvideo__sous { margin: 18px 0 0; color: rgba(255, 255, 255, 0.66); font-size: clamp(16px, 1.6vw, 22px); }
+  @media (max-width: 600px) { .bdvideo { padding: 4px 8px 52px; } .bdvideo video { border-radius: 10px; } .bdvideo__titre { margin-top: 28px; } }
   .livehost__portrait--rond { aspect-ratio: 1 / 1; border-radius: 50%; background: none; box-shadow: none; }
   .livehost__portrait--rond img { border-radius: 50%; }
   #clone-ia .section__head .p { margin-top: 18px; max-width: 62ch; }
@@ -142,24 +145,6 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
         <p><b>En direct avec Noé Porchier-Cizaire</b><span>Fondateur du Cockpit Business, plus de 85 entrepreneurs accompagnés</span></p>
       </div>
 
-      <!-- Preuve : Michel, CGP (même témoin que le mail d'annonce et l'annonce WhatsApp). -->
-      <figure class="reco">
-        <blockquote class="reco__citation">
-          <p>Sa hantise, c'était d'oublier un client. Michel s'est construit son bras droit IA, qui suit chaque client à sa place. Zéro oubli, 30&nbsp;minutes gagnées par jour, et aujourd'hui il refuse des clients.</p>
-        </blockquote>
-        <figcaption class="reco__auteur">
-          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/michel.jpg" alt="" data-photo></span>
-          <b>Michel</b>
-          <span>Conseiller en gestion de patrimoine</span>
-        </figcaption>
-      </figure>
-
-      <!-- Vidéo de démo du bras droit IA de Noé (1 min 26, sans son), faite le 24/11. -->
-      <figure class="livevideo">
-        <video src="assets/video/bras-droit-ia.mp4" poster="assets/video/bras-droit-ia-poster.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Démo du bras droit IA de Noé : son cerveau (toutes ses fiches), ses connecteurs et ses compétences, reliés entre eux"></video>
-        <figcaption>Mon bras droit IA, en vrai : ce que tu commences à construire mardi.</figcaption>
-      </figure>
-
       <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->
       <div class="optin__proof">
         <div class="optin__faces">
@@ -243,110 +228,15 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
 
 
 <!-- ======================================================================
-     BANDEAU DES MEMBRES
-     Entre le formulaire et les témoignages. Une seule série ici :
-     script.js la duplique autant de fois qu'il faut pour couvrir l'écran.
+     VIDÉO DU BRAS DROIT IA (démo de Noé, 1 min 26, sans son, faite le 24/11)
+     Quasi pleine largeur sur ordi comme sur téléphone, titre en grand dessous.
+     Remplace l'ancien bandeau déroulant des membres (retiré le 26/11).
      ====================================================================== -->
-<div class="proofbar proofbar--entre">
-  <div class="shell">
-    <p class="proofbar__label">Heures récupérées chaque semaine par des membres du programme</p>
-  </div>
-
-    <div class="marquee" data-marquee>
-      <ul class="marquee__track">
-        <li class="member">
-          <span class="member__photo" data-initial="C">
-            <img src="assets/img/temoignages/cecile.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Cécile</span>
-            <span class="member__role">Consultante IA</span>
-          </div>
-          <span class="member__hours">+12h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="E">
-            <img src="assets/img/temoignages/eleanor.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Eleanor</span>
-            <span class="member__role">Consultante RH</span>
-          </div>
-          <span class="member__hours">+10h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="M">
-            <img src="assets/img/temoignages/mohamed.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Mohamed</span>
-            <span class="member__role">Consultant Énergie</span>
-          </div>
-          <span class="member__hours">+15h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="G">
-            <img src="assets/img/temoignages/gaetan.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Gaëtan</span>
-            <span class="member__role">CEO</span>
-          </div>
-          <span class="member__hours">+18h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="L">
-            <img src="assets/img/temoignages/louis.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Louis</span>
-            <span class="member__role">CEO</span>
-          </div>
-          <span class="member__hours">+20h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="J">
-            <img src="assets/img/temoignages/julian.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Julian</span>
-            <span class="member__role">Investisseur</span>
-          </div>
-          <span class="member__hours">+30h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="C">
-            <img src="assets/img/temoignages/camilha.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Camilha</span>
-            <span class="member__role">En reconversion</span>
-          </div>
-          <span class="member__hours">+10h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="J">
-            <img src="assets/img/temoignages/jerome.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Jérôme</span>
-            <span class="member__role">CEO</span>
-          </div>
-          <span class="member__hours">+14h</span>
-        </li>
-        <li class="member">
-          <span class="member__photo" data-initial="M">
-            <img src="assets/img/temoignages/michel.jpg" alt="" data-photo>
-          </span>
-          <div class="member__id">
-            <span class="member__name">Michel</span>
-            <span class="member__role">Conseiller Gestion Patrimoine</span>
-          </div>
-          <span class="member__hours">+10h</span>
-        </li>
-      </ul>
-    </div>
-</div>
+<section class="bdvideo" aria-label="Le bras droit IA de Noé en vidéo">
+  <video src="assets/video/bras-droit-ia.mp4" poster="assets/video/bras-droit-ia-poster.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Démo du bras droit IA de Noé : son cerveau (toutes ses fiches), ses connecteurs et ses compétences, reliés entre eux"></video>
+  <p class="bdvideo__titre">Mon <span class="italique">bras droit IA</span>.</p>
+  <p class="bdvideo__sous">Celui que tu commences à construire mardi midi.</p>
+</section>
 
 <!-- ======================================================================
      SECTION 2 — LE MIROIR
