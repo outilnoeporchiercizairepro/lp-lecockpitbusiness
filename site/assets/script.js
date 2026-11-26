@@ -270,9 +270,9 @@
       var debut = new Date(live.debut);
       var fin = new Date(debut.getTime() + (live.dureeMinutes || 60) * 60000);
       var utc = function (d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
-      var details = 'Posez toutes vos questions sur l\'IA : Noé y répond en direct.\n\n' +
-        (live.meet ? 'Lien Google Meet : ' + live.meet : 'Le lien Google Meet vous est envoyé par email.') +
-        '\n\nPas encore envoyé votre question ? Répondez au mail de confirmation.';
+      var details = (live.description ? live.description + '\n\n' : 'Pose toutes tes questions sur l\'IA : Noé y répond en direct.\n\n') +
+        (live.meet ? 'Lien Google Meet : ' + live.meet : 'Le lien Google Meet t\'est envoyé par email.') +
+        '\n\nPas encore envoyé ta question ? Réponds au mail de confirmation.';
       var lieu = live.meet || 'En ligne (Google Meet)';
       var google = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
         '&text=' + encodeURIComponent(live.titre) +
@@ -291,6 +291,8 @@
         'DESCRIPTION:' + echapper(details),
         'LOCATION:' + echapper(lieu)
       ].concat(live.meet ? ['URL:' + live.meet] : []).concat([
+        // Deux rappels : la veille au soir (-17 h pour un live de midi) et 15 minutes avant.
+        'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + echapper(live.titre), 'TRIGGER:-PT17H', 'END:VALARM',
         'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + echapper(live.titre), 'TRIGGER:-PT15M', 'END:VALARM',
         'END:VEVENT', 'END:VCALENDAR'
       ]).join('\r\n');
