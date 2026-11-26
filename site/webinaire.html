@@ -36,6 +36,9 @@
   .livehost-chip img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
   .livehost-chip p { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: rgba(255, 255, 255, 0.66); }
   .livehost-chip b { color: #ffffff; font-size: 15px; }
+  .livevideo { margin: 26px 0 0; }
+  .livevideo video { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.14); background: #0b1020; }
+  .livevideo figcaption { margin-top: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.66); }
   .livehost__portrait--rond { aspect-ratio: 1 / 1; border-radius: 50%; background: none; box-shadow: none; }
   .livehost__portrait--rond img { border-radius: 50%; }
   #clone-ia .section__head .p { margin-top: 18px; max-width: 62ch; }
@@ -57,7 +60,8 @@
      jour à chaque session ; coller le lien Google Meet dès qu'il existe —
      tant qu'il est vide, l'agenda indique qu'il arrive par email. */
   window.LIVE = {
-    titre: 'Coaching IA en direct avec Noé · Le Cockpit Business',
+    titre: 'Construire ton bras droit IA · Coaching IA en direct avec Noé',
+    description: 'Prépare Claude ouvert dans un onglet, trois lignes sur ta boîte et la tâche qui te prend le plus de temps chaque semaine : on la donne en premier à ton bras droit IA.',
     debut: '2026-12-01T12:30:00+01:00',
     dureeMinutes: 90,
     meet: 'https://meet.google.com/ycb-yjji-iyc'
@@ -96,7 +100,7 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
      Page au TUTOIEMENT, alignée sur les mails : le dimanche et les soirées
      perdus (14 h/semaine = 630 h/an), le coupable caché (« tu travailles
      pour l'IA au lieu que l'IA travaille pour toi ») et le bras droit IA
-     (il connaît ta boîte / sait faire tes tâches / agit seul), avec Nathan en preuve. Versions
+     (il connaît ta boîte / sait faire tes tâches / agit seul), avec Michel en preuve. Versions
      précédentes : archives/ à la racine et l'historique git.
 
      POUR CHAQUE NOUVELLE SESSION :
@@ -132,22 +136,28 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
         <li>En ligne, caméra facultative</li>
       </ul>
 
-      <!-- Qui anime : photo de Noé au micro (assets/img/noe/live-micro.jpg). -->
+      <!-- Qui anime : photo de profil à jour de Noé (la même que dans la signature des mails AC). -->
       <div class="livehost-chip">
-        <img src="assets/img/noe/live-micro.jpg" alt="Noé Porchier-Cizaire au micro" width="64" height="64" data-photo>
+        <img src="https://prcz.activehosted.com/content/5k9eBO/2026/10/30/711f54b9-f314-4042-b6a7-2842da94f49f.png" alt="Noé Porchier-Cizaire" width="64" height="64" data-photo>
         <p><b>En direct avec Noé Porchier-Cizaire</b><span>Fondateur du Cockpit Business, plus de 85 entrepreneurs accompagnés</span></p>
       </div>
 
-      <!-- Preuve : Nathan, le cas du mail du mardi (texte écrit par Noé). -->
+      <!-- Preuve : Michel, CGP (même témoin que le mail d'annonce et l'annonce WhatsApp). -->
       <figure class="reco">
         <blockquote class="reco__citation">
-          <p>80 heures par semaine, tous ses week-ends au bureau. Dès le premier mois avec son bras droit IA, Nathan a récupéré 16&nbsp;heures par semaine. Il a retrouvé ses dimanches, et il va chercher son fils à l'école.</p>
+          <p>Sa hantise, c'était d'oublier un client. Michel s'est construit son bras droit IA, qui suit chaque client à sa place. Zéro oubli, 30&nbsp;minutes gagnées par jour, et aujourd'hui il refuse des clients.</p>
         </blockquote>
         <figcaption class="reco__auteur">
-          <span class="member__photo" data-initial="N"></span>
-          <b>Nathan</b>
-          <span>Dirigeant de PME</span>
+          <span class="member__photo" data-initial="M"><img src="assets/img/temoignages/michel.jpg" alt="" data-photo></span>
+          <b>Michel</b>
+          <span>Conseiller en gestion de patrimoine</span>
         </figcaption>
+      </figure>
+
+      <!-- Vidéo de démo du bras droit IA de Noé (1 min 26, sans son), faite le 24/11. -->
+      <figure class="livevideo">
+        <video src="assets/video/bras-droit-ia.mp4" poster="assets/video/bras-droit-ia-poster.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Démo du bras droit IA de Noé : son cerveau (toutes ses fiches), ses connecteurs et ses compétences, reliés entre eux"></video>
+        <figcaption>Mon bras droit IA, en vrai : ce que tu commences à construire mardi.</figcaption>
       </figure>
 
       <!-- Preuve sociale dans le premier écran : visages réels du bandeau. -->

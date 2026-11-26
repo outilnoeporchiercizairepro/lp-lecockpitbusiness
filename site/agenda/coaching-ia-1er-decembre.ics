@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Le Cockpit Business//Live//FR
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:live-20261201T113000Z@lecockpit-business.fr
+DTSTAMP:20261126T190000Z
+DTSTART:20261201T113000Z
+DTEND:20261201T130000Z
+SUMMARY:Construire ton bras droit IA · Coaching IA en direct avec Noé
+DESCRIPTION:Prépare Claude ouvert dans un onglet\, trois lignes sur ta boîte et la tâche qui te prend le plus de temps chaque semaine : on la donne en premier à ton bras droit IA.\n\nLien Google Meet : https://meet.google.com/ycb-yjji-iyc\n\nPas encore envoyé ta question ? Réponds au mail de confirmation.
+LOCATION:https://meet.google.com/ycb-yjji-iyc
+URL:https://meet.google.com/ycb-yjji-iyc
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Construire ton bras droit IA · Coaching IA en direct avec Noé
+TRIGGER:-PT17H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Construire ton bras droit IA · Coaching IA en direct avec Noé
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
