@@ -36,6 +36,25 @@
   .livehost-chip img { width: 64px; height: 64px; border-radius: 50%; flex: none; }
   .livehost-chip p { margin: 0; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: rgba(255, 255, 255, 0.66); }
   .livehost-chip b { color: #ffffff; font-size: 15px; }
+  .merci-geant { position: fixed; inset: 0; z-index: 9999; overflow-y: auto; background: radial-gradient(circle at 50% 30%, rgba(224, 90, 43, 0.28) 0%, rgba(17, 17, 17, 0) 60%), #111111; color: #ffffff; display: flex; align-items: center; justify-content: center; padding: 48px 20px; }
+  .merci-geant[hidden] { display: none; }
+  .merci-geant-ouvert, .merci-geant-ouvert body { overflow: hidden; }
+  .merci-geant__inner { width: 100%; max-width: 1100px; text-align: center; margin: auto; }
+  .merci-geant__eyebrow { margin: 0; color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
+  .merci-geant__titre { margin: 18px 0 0; font-family: var(--serif); font-weight: 400; line-height: 0.92; letter-spacing: -0.02em; font-size: clamp(64px, 12vw, 200px); }
+  .merci-geant__titre .italique { color: var(--accent); }
+  .merci-geant__etape { margin: 28px auto 0; max-width: 40ch; font-size: clamp(18px, 2vw, 24px); line-height: 1.45; color: rgba(255, 255, 255, 0.8); }
+  .merci-geant__etape b { color: #ffffff; }
+  .merci-geant__cta { display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-top: 36px; padding: 28px 56px; border-radius: 999px; background: var(--accent); color: #ffffff; text-decoration: none; font-weight: 800; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.2; box-shadow: 0 0 0 0 rgba(224, 90, 43, 0.7), 0 18px 50px rgba(224, 90, 43, 0.45); animation: merci-pulse 1.8s ease-out infinite; transition: transform 0.15s ease, background 0.15s ease; }
+  .merci-geant__cta:hover { background: var(--accent-hover); transform: translateY(-2px) scale(1.02); }
+  @keyframes merci-pulse { 0% { box-shadow: 0 0 0 0 rgba(224, 90, 43, 0.65), 0 18px 50px rgba(224, 90, 43, 0.45); } 70% { box-shadow: 0 0 0 26px rgba(224, 90, 43, 0), 0 18px 50px rgba(224, 90, 43, 0.45); } 100% { box-shadow: 0 0 0 0 rgba(224, 90, 43, 0), 0 18px 50px rgba(224, 90, 43, 0.45); } }
+  @media (prefers-reduced-motion: reduce) { .merci-geant__cta { animation: none; } }
+  .merci-geant__ics { display: block; margin: 18px auto 0; max-width: 46ch; color: rgba(255, 255, 255, 0.75); font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+  .merci-geant__bas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 44px; }
+  .merci-geant__wa, .merci-geant__fermer { appearance: none; font: inherit; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.28); background: transparent; color: #ffffff; text-decoration: none; cursor: pointer; }
+  .merci-geant__fermer { border-color: transparent; color: rgba(255, 255, 255, 0.6); }
+  .merci-geant__note { margin: 26px 0 0; font-size: 13.5px; color: rgba(255, 255, 255, 0.5); }
+  @media (max-width: 600px) { .merci-geant { align-items: flex-start; padding-top: 56px; } .merci-geant__cta { display: flex; width: 100%; padding: 24px 20px; } }
   .bdvideo { background: #111111; padding: 12px 2vw 72px; text-align: center; }
   .bdvideo video { display: block; width: 100%; max-width: 1800px; height: auto; margin: 0 auto; border-radius: 16px; background: #0b1020; }
   .bdvideo__titre { margin: 40px 0 0; font-family: var(--serif); font-weight: 400; line-height: 0.95; color: #ffffff; font-size: clamp(56px, 11vw, 190px); letter-spacing: -0.02em; }
@@ -662,6 +681,50 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
     </div>
 </dialog>
 
+<!-- ======================================================================
+     CONFIRMATION GÉANTE (plein écran) — s'ouvre dès qu'une des deux
+     confirmations (formulaire de la page ou pop-up) s'affiche. But : faire
+     ajouter le live à l'agenda (show-up). Les liens data-agenda sont remplis
+     par script.js comme ceux des confirmations d'origine.
+     ====================================================================== -->
+<div class="merci-geant" data-merci-geant role="dialog" aria-modal="true" aria-labelledby="merci-geant-titre" tabindex="-1" hidden>
+  <div class="merci-geant__inner">
+    <p class="merci-geant__eyebrow">Ta place est réservée</p>
+    <p class="merci-geant__titre" id="merci-geant-titre">C'est noté,<br><span class="italique">à mardi 12h30.</span></p>
+    <p class="merci-geant__etape"><b>Dernière étape, la plus importante&nbsp;:</b> mets le live dans ton agenda. Mardi midi, t'auras 1&nbsp;000 trucs en tête. Ton agenda, lui, n'oubliera pas.</p>
+    <a class="merci-geant__cta" href="#" target="_blank" rel="noopener noreferrer" data-agenda="google"><span aria-hidden="true">📅</span> Ajouter le live à mon agenda <span aria-hidden="true">→</span></a>
+    <a class="merci-geant__ics" href="#" download="coaching-ia-1er-decembre.ics" data-agenda="ics">iPhone, Apple ou Outlook&nbsp;? Télécharge le fichier agenda (rappel la veille + 15&nbsp;min avant)</a>
+    <div class="merci-geant__bas">
+      <a class="merci-geant__wa" href="https://chat.whatsapp.com/LZnoVTxZ6L6Dxyl7SH1f3x" target="_blank" rel="noopener noreferrer">Rejoindre le groupe WhatsApp</a>
+      <button type="button" class="merci-geant__fermer" data-merci-geant-fermer>Revenir à la page</button>
+    </div>
+    <p class="merci-geant__note">La confirmation arrive aussi par email&nbsp;: regarde dans les promotions si tu ne la vois pas.</p>
+  </div>
+</div>
+<script>
+  (function () {
+    var geant = document.querySelector('[data-merci-geant]');
+    var ouvrir = function () {
+      if (!geant.hidden) return;
+      Array.prototype.forEach.call(document.querySelectorAll('dialog[open]'), function (d) { d.close(); });
+      geant.hidden = false;
+      document.documentElement.classList.add('merci-geant-ouvert');
+      geant.focus();
+    };
+    var fermer = function () {
+      geant.hidden = true;
+      document.documentElement.classList.remove('merci-geant-ouvert');
+    };
+    geant.querySelector('[data-merci-geant-fermer]').addEventListener('click', fermer);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !geant.hidden) fermer(); });
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) { if (!m.target.hidden) ouvrir(); });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-optin-merci]'), function (m) {
+      observer.observe(m, { attributes: true, attributeFilter: ['hidden'] });
+    });
+  })();
+</script>
 <script src="assets/script.js" defer></script>
 </body>
 </html>
