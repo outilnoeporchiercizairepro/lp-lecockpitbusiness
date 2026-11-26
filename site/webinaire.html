@@ -55,12 +55,9 @@
   .merci-geant__fermer { border-color: transparent; color: rgba(255, 255, 255, 0.6); }
   .merci-geant__note { margin: 26px 0 0; font-size: 13.5px; color: rgba(255, 255, 255, 0.5); }
   @media (max-width: 600px) { .merci-geant { align-items: flex-start; padding-top: 56px; } .merci-geant__cta { display: flex; width: 100%; padding: 24px 20px; } }
-  .bdvideo { background: #111111; padding: 12px 2vw 72px; text-align: center; }
-  .bdvideo video { display: block; width: 100%; max-width: 1800px; height: auto; margin: 0 auto; border-radius: 16px; background: #0b1020; }
-  .bdvideo__titre { margin: 40px 0 0; font-family: var(--serif); font-weight: 400; line-height: 0.95; color: #ffffff; font-size: clamp(56px, 11vw, 190px); letter-spacing: -0.02em; }
-  .bdvideo__titre .italique { color: var(--accent); font-style: italic; }
-  .bdvideo__sous { margin: 18px 0 0; color: rgba(255, 255, 255, 0.66); font-size: clamp(16px, 1.6vw, 22px); }
-  @media (max-width: 600px) { .bdvideo { padding: 4px 8px 52px; } .bdvideo video { border-radius: 10px; } .bdvideo__titre { margin-top: 28px; } }
+  .bdvideo .section__head .p { margin-top: 14px; }
+  .bdvideo video { display: block; width: 96vw; max-width: 1800px; height: auto; margin: 36px auto 0; border-radius: 16px; background: #0b1020; }
+  @media (max-width: 600px) { .bdvideo video { width: calc(100vw - 16px); border-radius: 10px; margin-top: 24px; } }
   .livehost__portrait--rond { aspect-ratio: 1 / 1; border-radius: 50%; background: none; box-shadow: none; }
   .livehost__portrait--rond img { border-radius: 50%; }
   #clone-ia .section__head .p { margin-top: 18px; max-width: 62ch; }
@@ -251,10 +248,15 @@ src="https://www.facebook.com/tr?id=2085006695554307&ev=PageView&noscript=1"
      Quasi pleine largeur sur ordi comme sur téléphone, titre en grand dessous.
      Remplace l'ancien bandeau déroulant des membres (retiré le 26/11).
      ====================================================================== -->
-<section class="bdvideo" aria-label="Le bras droit IA de Noé en vidéo">
+<section class="section bdvideo" aria-label="Le bras droit IA de Noé en vidéo">
+  <div class="shell">
+    <div class="section__head reveal">
+      <p class="eyebrow">En vrai</p>
+      <h2 class="h2">Mon <span class="italique">bras droit IA</span>.</h2>
+      <p class="p">Celui que tu commences à construire mardi midi.</p>
+    </div>
+  </div>
   <video src="assets/video/bras-droit-ia.mp4" poster="assets/video/bras-droit-ia-poster.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="metadata" aria-label="Démo du bras droit IA de Noé : son cerveau (toutes ses fiches), ses connecteurs et ses compétences, reliés entre eux"></video>
-  <p class="bdvideo__titre">Mon <span class="italique">bras droit IA</span>.</p>
-  <p class="bdvideo__sous">Celui que tu commences à construire mardi midi.</p>
 </section>
 
 <!-- ======================================================================
